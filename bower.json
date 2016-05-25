@@ -1,0 +1,17 @@
+{
+  "name": "swingaway",
+  "homepage": "https://github.com/nudalight/swingaway",
+  "authors": [
+    "nudalight <nuda.light@gmail.com>"
+  ],
+  "description": "Highly effective evolutionary training equipment",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "bootstrap": "^3.3.6",
+    "jasny-bootstrap": "^3.1.3",
+    "holderjs": "^2.9.3"
+  }
+}
