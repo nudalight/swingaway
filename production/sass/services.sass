@@ -1,0 +1,40 @@
+.services
+  padding-top: .2em
+  display: inline-block
+
+  &__compare,
+  &__wishlist,
+  &__cart
+    display: inline-block
+    width: 3em
+    height: 3em
+    border: 1px solid #fff
+    position: relative
+    cursor: pointer
+
+    &:hover
+      box-shadow: 0px 0px 3px rgba(255,255,255, 1)
+
+  &__compare
+    background: url(https://d30y9cdsu7xlg0.cloudfront.net/png/483-200.png) center center no-repeat
+    background-size: 2.2em
+
+  &__wishlist
+    background: url(http://indianweddingcards.ca/wp-content/themes/storefront/images/wishlist.png) center center no-repeat
+    background-size: 2.2em
+
+  &__cart
+    background: url(http://image005.flaticon.com/1/svg/43/43898.svg) center center no-repeat
+    background-size: 2.2em
+
+  &__counter
+    width: 1.5em
+    text-align: center
+    height: 1.5em
+    position: absolute
+    top: .2em
+    left: .2em
+    font-size: .875em
+    background: Salmon
+    opacity: .9
+    border-radius: 50%

@@ -1,0 +1,23 @@
+.product-basics
+  padding-left: 1.5em
+
+  &__price
+    font-size: 1.8em
+
+  &__butt
+    border: 1px solid #ddd
+    background: #eee
+    padding: .6em 1.8em
+    font-weight: 600
+
+    &--cart
+      background-color: salmon
+      
+      &:hover
+        background-color: darken(salmon, 10%)
+
+    &--compare,
+    &--wishlist
+      &:hover
+        background-color: lighten($color_iii, 30%)
+

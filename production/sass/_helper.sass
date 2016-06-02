@@ -1,0 +1,74 @@
+//*
+//  transition-duration: .3s
+
+.children-inline > *
+  display: inline-block
+
+.children-float
+  &:after
+    content: ''
+    display: table
+    clear: both
+
+  > *
+    float: left
+
+table.td-vertical tr td
+    vertical-align: middle
+
+
+
+.pos-relative
+  position: relative
+
+$brand_red: #bf5050
+
+@keyframes emerge
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+@keyframes emerge_children
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+
+
+.btn-swingaway-ii
+  &:hover
+    border: 1px solid $color_ii
+
+
+.clear-left-padding
+  padding-left: 0 !important
+
+.clear-right-pading
+  padding-right: 0
+
+
+@keyframes lurk
+  from
+    display: none
+    opacity: 0
+    transform: scaleY(0)
+  to
+    display: none
+    opacity: 0
+    transform: scaleY(1)
+
+
+html
+  position: relative
+  width: 100%
+  min-height: 100%
+
+body
+  padding-bottom: 12em
+
+
+//@media all and (max-width: 420px)
+//  .container-fluid
+//    padding: 0

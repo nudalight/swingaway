@@ -1,0 +1,142 @@
+// add | remove | increment | decrement
+
+function Cart(userConfig){
+    var that = this;
+    var ls = localStorage;
+    var cartName = 'swingaway__cart';
+
+    var config = userConfig;
+
+    this.getProductId = function(target){
+        return $(target).closest('[data-product-id]').data('product-id');
+    };
+
+    function put(id, qty) {
+        var cartData = parse();
+
+        var countData;
+
+        if (isAdded(id)){
+            // increment
+            cartData.forEach(function(v, i, list){
+                if (list[i].id == id) {
+                    countData = list[i].qty = qty;
+                }
+            });
+
+        } else {
+            // add new
+            cartData.push({
+                id: id,
+                qty: qty
+            });
+            countData = qty;
+        }
+
+        // обновляем cart в LS
+        ls.setItem(cartName, JSON.stringify(cartData));
+
+
+
+        // debug 
+        console.log(ls[cartName] ? ls[cartName] : []);
+
+        mirror(countAll());
+    }
+
+    function parse(){
+        return ls[cartName] ? JSON.parse(ls[cartName]) : [];
+    }
+
+    function isAdded(id){
+        return parse().some(function(val, i, list){
+            return list[i].id == id;
+        });
+    }
+
+    this.increment = function(target){
+        var id = $(target).closest('[data-product-id]').data('product-id');
+        put(id, 1);
+    };
+
+    this.setQty = function(target, qty){
+        var id = $(target).closest('[data-product-id]').data('product-id');
+        put(id, qty);
+    };
+
+    this.decrement = function(target){
+
+    };
+
+    this.remove = function(target){
+        var id = $(target).closest('[data-product-id]').data('product-id');
+        var cartData = parse();
+        console.info(typeof cartData);
+
+        cartData.forEach(function(v, i, list){
+            if (v.id == id){
+                cartData.splice(i, 1);
+            }
+        });
+
+
+        ls.setItem(cartName, JSON.stringify(cartData));
+
+
+
+        mirror(countAll());
+
+        console.info(cartData);
+    };
+
+    function mirror(v){
+        if (config.mirrorCart){
+            $(config.mirrorCart).text(v);
+        }
+    }
+
+    function countAll(){
+        var total = 0;
+        var op;
+        var cartData = parse();
+        if (Object.keys(cartData).length > 0){
+            console.warn(Object.keys(cartData).length);
+            cartData.forEach(function(v, i, list){
+                op = list && list[i].qty || 0;
+                total += op;
+            });
+        }
+        return total;
+    }
+
+    function init(){
+        mirror(countAll());
+    }
+
+    init();
+}
+
+
+
+
+
+
+
+
+$('.butt-add-to-cart').on('click', function(){
+    cart.increment(this);
+
+
+
+
+    // console.log(1);
+    // записать в куки
+
+
+
+
+
+
+
+    // вывести из куки в блок
+});

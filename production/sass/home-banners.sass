@@ -1,0 +1,59 @@
+.home-banners
+  &__list
+    padding: 0
+    text-align: center
+    display: flex
+    flex-wrap: wrap
+
+  &__item
+    flex-basis: 33.33%
+    padding: .07em
+    overflow: hidden
+    position: relative
+
+  &__container
+    background: $brand_red
+
+    *
+      transition: .2s ease-in
+
+    &:hover
+      .home-banners
+        &__image
+          transform: translate3d(0, -4em, 0)
+          transition-duration: .3s
+          transition-timing-function: ease-out
+
+        &__heading
+          bottom: 1.5em
+          transition-duration: .4s
+          opacity: 1
+
+  &__image
+    max-width: 100%
+    transition-duration: .2s
+    box-shadow: 0 0 2px rgba(0,0,0,0.5)
+
+    &:hover
+      transition-duration: 1s
+      width: 120%
+      height: 120%
+
+  &__heading
+    position: absolute
+    bottom: -2em
+    opacity: 0
+    font-size: 1.05em
+    color: #eee
+    text-transform: uppercase
+    padding: 1em 1em 0
+
+
+@media all and (max-width: 640px)
+  .home-banners
+    &__item
+      flex-basis: 50%
+
+
+
+

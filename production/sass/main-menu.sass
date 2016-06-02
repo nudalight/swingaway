@@ -1,0 +1,61 @@
+$border-color: #888
+
+
+.main-menu
+  &__list
+    display: block
+    padding: 0
+
+  &__item
+    position: relative
+    display: inline-block
+    padding: .5em 1.5em
+    border: 1px solid transparent
+
+    &:hover
+      background: #444
+      border: 1px solid $border-color
+
+      & > .main-menu__sublist
+        display: block
+        animation: emerge .8s
+
+  &__active
+    border: 1px solid mediumpurple
+
+  &__link
+    color: #fff
+
+    &:hover
+      color: #fff
+      text-decoration: none
+
+  &__sublist
+    position: absolute
+    z-index: 11
+    display: none
+    padding: .5em 0
+    margin: 1px -1px -1px
+
+  &__subitem
+    list-style: none
+    padding: .5em 1.5em
+    margin-left: -1.5em
+    background: #000
+    border: 1px solid $border-color
+    border-top: 1px solid transparent
+
+    &:hover
+       background: #444
+
+  &__sublink
+    color: #fff
+
+    &:hover
+      color: #fff
+      text-decoration: none
+
+
+@media all and (max-width: 1000px)
+  .main-menu
+    display: none

@@ -1,0 +1,24 @@
+.sorter
+  padding: 1em 0
+
+  &__title
+    padding: .1em 1em
+
+  &__control
+    border: 1px solid #aaa
+    padding: .2em .9em
+    
+    &--active > span
+      margin: 0 0 -.125em .5em
+      display: inline-block
+      width: 1em
+      height: 1em
+
+
+    &--asc > span
+      background: url($base64_sorter_arrow_down) center center no-repeat
+      background-size: contain
+
+    &--desc > span
+      background: url($base64_sorter_arrow_up) center center no-repeat
+      background-size: contain

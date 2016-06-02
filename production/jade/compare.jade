@@ -1,0 +1,28 @@
+        // two tabs needed!
+        - var i_compare = 0, i_compare_attr = 0;
+
+
+        section.compare
+            .wrap
+                .container-fluid()
+                    h2.page-heading Compare products
+
+                    .compare__container
+                        .compare__attributes
+                            table
+                        .compare__products
+                            table
+                                tr
+                                    - for (; i_compare < products.length; i_compare++)
+                                        td(
+                                            style='width: 200px'
+                                        )
+                                            img(
+                                                style="max-width: 100%",
+                                                src='#{ products[i_compare].photos[0] }'
+                                            )
+                                tr
+                                    - for (; i_compare_attr < Object.keys(products[0].attributes).length; i_compare_attr++)
+                                        td=i_compare + ' ' + i_compare_attr
+
+                                        //td=products[i_compare_attr].attributes[i_compare]

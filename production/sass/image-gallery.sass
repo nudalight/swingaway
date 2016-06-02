@@ -1,0 +1,59 @@
+.image-gallery
+  display: flex
+  align-items: center
+
+  &__shortcuts
+    text-align: center
+    max-width: 200px
+    //border: 1px solid crimson
+
+  &__nav
+    height: 1.4em
+    border: none
+    width: 100%
+    position: absolute
+
+    &-prev
+      bottom: .5em
+      background: url(../img/carousel-arrows-up.png) center center no-repeat
+      background-size: contain
+
+
+    &-next
+      top: .5em
+      background: url(../img/carousel-arrows-down.png) center center no-repeat
+      background-size: contain
+
+  img
+    max-width: 100%
+
+  &__preview
+    height: 600px
+    width: 600px
+    max-width: 30em
+    max-height: 30em
+    margin: 0 1em
+    border: 1px solid #ccc
+    padding: .2em
+
+
+@media all and (max-width: 600px)
+  .image-gallery
+    flex-direction: column-reverse
+
+
+
+    &__shortcuts
+      max-width: 300px
+
+
+    &__nav
+      display: none
+
+      &-prev
+
+
+      &-next
+
+
+

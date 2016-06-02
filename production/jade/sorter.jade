@@ -1,0 +1,25 @@
+        // two tabs needed!
+
+        section.sorter
+            .wrap
+                .container-fluid()
+                    .sorter__container(
+                        class='pull-right children-inline'
+                    )
+                        span.sorter__title()
+                            | Sort By:
+
+                        ul.sorter__list(
+                            class='list-inline'
+                        )
+                            li.sorter__item
+                                button.sorter__control(
+                                    class='sorter__control--active sorter__control--desc'
+                                ) Price
+                                    span.sorter__indicator
+
+                            li.sorter__item
+                                button.sorter__control(
+                                    class='sorter__control--active sorter__control--asc'
+                                ) Rating
+                                    span.sorter__indicator

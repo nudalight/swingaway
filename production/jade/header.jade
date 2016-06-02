@@ -1,0 +1,144 @@
+        //- two tabs needed !
+
+        .offcanvas(
+            class="navmenu navmenu-default navmenu-fixed-left"
+        ) 3
+
+        .auth-modal(
+            id='auth-modal',
+            role='dialog',
+            class='modal fade'
+        )
+            .auth-modal__container(
+                class='modal-dialog'
+            )
+                .auth-modal__inner(
+                    class='modal-content'
+                )
+                    .auth-modal__head(
+                        class='modal-header'
+                    )
+                        button.auth-modal__close(
+                            class='close',
+                            type='button',
+                            data-dismiss='modal'
+                        ) &times;
+                        h4(
+                            class='modal-title'
+                        ) Login form
+
+                    .auth-modal__body(
+                        class=''
+                    )
+                        h4 For returning customores
+                        p If you've purchased from us before, please login with your email address and password.
+                        form
+                            div(
+                                class='form-group'
+                            )
+                                label(
+                                    for='auth-login-email'
+                                ) Email address
+                                input(
+                                    class='form-control',
+                                    id='auth-login-email',
+                                    type='email',
+                                    placeholder='Email'
+                                )
+                            div(
+                                class='form-group'
+                            )
+                                label(
+                                    for='auth-login-email'
+                                ) Email address
+                                input(
+                                    class='form-control',
+                                    id='auth-login-password',
+                                    type='password',
+                                    placeholder='Password'
+                                )
+                            h4 New Customers
+                            p If this is your first purchase with us, please proceed by clicking the following button to continue first-time registration.
+                            button.auth-modal__submit(
+                                type='submit'
+                            ) Submit
+
+
+        header.header(
+            class='navbar navbar-default'
+        )
+            .wrap()
+
+                .container-fluid(
+                    class='v'
+                )
+                    span(
+                        class="navbar-toggle pull-left glyphicon glyphicon-menu-hamburger"
+                        data-toggle="offcanvas",
+                        data-target=".offcanvas",
+                        data-canvas="body"
+                    )
+
+                    .logo
+                        img.logo__image(
+                            src='http://placehold.it/200x50?text=Logo'
+                        )
+
+                    .shop-components(
+                        class='pull-right'
+                    )
+                        .auth-choice()
+                            ul.auth-choice__list()
+                                li.auth-choice__item()
+                                    a.auth-choise__link(
+                                        data-toggle='modal',
+                                        data-target='#auth-modal'
+                                    ) My account
+
+                        .search()
+                            .search__container(
+                                class='clearfix'
+                            )
+                                form()
+                                    input.search__input(
+                                        class='',
+                                        type='text',
+                                        placeholder='search',
+                                        name='input-search'
+                                    )
+                                    .search__submit()
+                                        .search__submit-icon(
+                                            class='glyphicon glyphicon-search'
+                                        )
+
+                        .services()
+                            .services__compare()
+                                .services__counter() 5
+                            .services__wishlist()
+                                .services__counter() 43
+                            .services__cart()
+                                .services__counter() 2
+
+                .container-fluid()
+
+                    nav.main-menu()
+                        ul.main-menu__list()
+                            - var colorMenuItem = -2;
+                            - for (key in mainMenu) {
+                            - colorMenuItem++;
+                            li.main-menu__item(
+                                class="#{ colorMenuItem == 0 ? 'main-menu__active' : key }"
+                            )
+                                a.main-menu__link(
+                                    href="#{ (typeof mainMenu[key] === 'object') ? '#' : mainMenu[key] }",
+                                )=key
+                                - if (typeof mainMenu[key] === 'object'){
+                                ul.main-menu__sublist
+                                    - for (subKey in mainMenu[key]) {
+                                    li.main-menu__subitem()
+                                        a.main-menu__sublink(
+                                            href="#{ (typeof mainMenu[key][subKey] === 'object') ? '#' : mainMenu[key][subKey]  }"
+                                        )=subKey
+                                    -}
+                                -}
+                            -}

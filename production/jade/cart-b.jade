@@ -1,0 +1,158 @@
+        // two tabs needed!
+
+        section.cart-billing
+            .wrap
+                .container-fluid
+                    h2.cart-billing__heading
+                        | Billing information
+
+                    .billing
+                        .billing__container(
+                            class='well'
+                        )
+                            form.billing__form(
+                                id='form-billing'
+                            )
+
+                                .billing__item(
+                                    class='form-group'
+                                )
+                                    label.billing__label(
+                                        for='billing-input-first-name'
+                                    ) First name:
+
+                                    input.billing__input(
+                                        id='billing-input-first-name',
+                                        class='form-control',
+                                        placeholder='First name'
+                                        data-validate-as='text'
+                                    )
+
+                                .billing__item(
+                                    class='form-group'
+                                )
+                                    label.billing__label(
+                                        for='billing-input-last-name'
+                                    ) Last name:
+
+                                    input.billing__input(
+                                        id='billing-input-last-name',
+                                        class='form-control',
+                                        placeholder='Last name'
+                                    )
+
+                                .billing__item(
+                                    class='form-group'
+                                )
+                                    label.billing__label(
+                                        for='billing-input-company'
+                                    ) Company:
+
+                                    input.billing__input(
+                                        id='billing-input-company',
+                                        class='form-control',
+                                        placeholder='Company'
+                                    )
+
+                                .billing__item(
+                                    class='form-group'
+                                )
+                                    label.billing__label(
+                                        for='billing-input-address'
+                                    ) Address:
+
+                                    input.billing__input(
+                                        id='billing-input-address',
+                                        class='form-control',
+                                        placeholder='Address'
+                                    )
+
+                                .billing__item(
+                                    class='form-group'
+                                )
+                                    label.billing__label(
+                                        for='billing-input-city'
+                                    ) City:
+
+                                    input.billing__input(
+                                        id='billing-input-city',
+                                        class='form-control',
+                                        placeholder='City'
+                                    )
+
+                                .billing__item(
+                                    class='form-group'
+                                )
+                                    label.billing__label(
+                                        for='billing-input-country'
+                                    ) Country:
+
+                                    input.billing__input(
+                                        id='billing-input-country',
+                                        class='form-control',
+                                        placeholder='Country'
+                                    )
+
+                                .billing__item(
+                                    class='form-group'
+                                )
+                                    label.billing__label(
+                                        for='billing-input-state'
+                                    ) State:
+
+                                    input.billing__input(
+                                        id='billing-input-state',
+                                        class='form-control',
+                                        placeholder='State'
+                                    )
+
+                                .billing__item(
+                                    class='form-group'
+                                )
+                                    label.billing__label(
+                                        for='billing-input-zip'
+                                    ) Zip-code:
+
+                                    input.billing__input(
+                                        id='billing-input-zip',
+                                        class='form-control',
+                                        placeholder='Zip'
+                                    )
+
+                                .billing__item(
+                                    class='form-group'
+                                )
+                                    label.billing__label(
+                                        for='billing-input-phone'
+                                    ) Phone number:
+
+                                    input.billing__input(
+                                        id='billing-input-phone',
+                                        class='form-control',
+                                        placeholder='Phone number'
+                                    )
+
+                                .billing__item(
+                                    class='form-group'
+                                )
+                                    label.billing__label(
+                                        for='billing-input-email'
+                                    ) Email:
+
+                                    input.billing__input(
+                                        id='billing-input-email',
+                                        type='email',
+                                        class='form-control',
+                                        placeholder='Email',
+                                        data-validate-as='email'
+                                    )
+
+
+                            .billing__notice.hide
+                                | You have to complete all form inputs in order to proceed
+
+                            .billing__controls.clearfix
+                                button.billing__submit(
+                                    form='form-billing',
+                                    class='pull-right btn btn-default'
+                                ) Proceed

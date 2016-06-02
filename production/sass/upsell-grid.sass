@@ -1,0 +1,74 @@
+.upsell-grid
+  padding-bottom: 4em
+
+  &:hover
+    .upsell-grid__nav
+      opacity: .6
+
+  &__content
+    padding-top: 1.5em
+
+  &__nav
+    border: none
+    height: 3em
+    width: 2em
+    position: absolute
+    top: 40%
+    z-index: 2
+    opacity: 0
+
+    &:hover
+      opacity: .9
+
+    &-prev
+      background: url(../img/carousel-arrows-left.png) center center no-repeat
+      background-size: contain
+      left: -2em
+
+    &-next
+      background: url(../img/carousel-arrows-right.png) center center no-repeat
+      background-size: contain
+      right: -2em
+
+
+@media all and (max-width: 1200px)
+  .upsell-grid
+    &:hover
+      .upsell-grid__nav
+        opacity: .8
+
+    &__nav
+      opacity: .6
+      padding: 2.5em 1.5em
+      border: 1px solid #ccc
+      background-color: #eee
+      background-size: 50%
+
+      &:hover
+        opacity: .9
+
+      &-prev
+        left: 0
+
+      &-next
+        right: 0
+
+    &__dots
+      padding: 0
+      text-align: center
+
+      > *
+        display: inline-block
+
+        &.slick-active > *
+          background-color: Salmon
+
+    &__dot
+      margin: .2em .3em
+      width: 2em
+      height: 2em
+      border-radius: 50%
+      border: 1px solid #ddd
+      background: #eee
+
+

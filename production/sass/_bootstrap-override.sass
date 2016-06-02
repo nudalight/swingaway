@@ -1,0 +1,41 @@
+.nav-tabs
+  border-bottom: 1px solid #337ab7
+  display: flex
+  justify-content: center
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus
+  border: 1px solid #337ab7
+  border-bottom: 1px solid transparent
+  margin-bottom: -1px
+
+.nav-tabs > li > a:hover
+  border-color: #eee #eee #337ab7
+
+
+
+@media all and (max-width: 460px)
+  .nav-tabs
+    display: block
+
+    *
+      transition-duration: 0s
+
+  .nav-tabs > li,
+  .nav-tabs > li.active
+    width: 100%
+    border-top: 1px solid transparent
+
+  .nav-tabs > li.active > a,
+  .nav-tabs > li a,
+  .nav-tabs > li a:focus,
+  .nav-tabs > li:hover,
+  .nav-tabs > li.active:hover a
+    border: none
+    border-top: 1px solid #eee
+
+  .nav-tabs > li.active > a,
+  .nav-tabs > li:focus
+    background: #eee
+    border-radius: .2em

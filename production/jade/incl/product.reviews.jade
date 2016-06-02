@@ -1,0 +1,39 @@
+//- inc: product reviews
+
+- for (var i_rev = 0; i_rev < 4; i_rev++)
+
+    .product-review(
+        class='col-md-6'
+    )
+        .product-review__container()
+            .product-review__headline(
+                class='row'
+            )
+                .product-review__rated(
+                    class='col-md-6 children-inline'
+                )
+                    .product-review__author() Jack
+
+                    .product-review__stars()
+                        include ./element.stars.jade
+
+                .product-review__published(
+                    class='col-md-6 text-right'
+                ) 17 Jan, 2016
+
+            .product-review__message(
+                class='text-justify'
+            )
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nes sue Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.
+
+            .product-review__footline(
+                class='row'
+            )
+                .product-review__summary(
+                    class='col-md-8'
+                ) Yes, i recommend this product!
+
+                .product-review__likes(
+                    class='col-md-4 text-right'
+                )
+                    include ./element.likes.jade

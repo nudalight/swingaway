@@ -1,0 +1,99 @@
+        //- two tabs needed!
+
+        section.product
+            .wrap
+                .container-fluid(
+                    class='children-float'
+                )
+                    .image-gallery(
+                        class=''
+                    )
+                        .image-gallery__shortcuts.slider-nav()
+                            - for (var i_prodg = 0; i_prodg < productImages.length; i_prodg++)
+                                .image-gallery__shortcut
+                                    img(
+                                        src='#{ productImages[i_prodg] }'
+                                    )
+
+                        .image-gallery__preview()
+                            .image-gallery__preview-container.slider-for()
+                                - for (var i_prodgprev = 0; i_prodgprev < productImages.length; i_prodgprev++)
+                                    .image-gallery__preview-item
+                                        img(
+                                            src='#{ productImages[i_prodgprev] }'
+                                        )
+
+
+                    .product-basics(
+                        data-product-id='8'
+                    )
+                        h1.product-basics__title()
+                            | Prodcuct title
+                        .product-basics__price()
+                            | $500
+                        .product-basics__reviews()
+                            include ./jade/incl/element.stars.jade
+                        .product-basics__characteristics()
+                        .product-basics__controls()
+                            button.product-basics__butt.product-basics__butt--cart.butt-add-to-cart() Add to cart
+                            button.product-basics__butt.product-basics__butt--compare.butt-add-to-compare() Compare
+                            button.product-basics__butt.product-basics__butt--wishlist.butt-add-to-wishlist() Add to Wishlist
+
+
+                .container-fluid()
+                    .product-details()
+                        ul.product-details__list(
+                            class='nav nav-tabs'
+                        )
+                            li.product-details__item(
+                                class='active'
+                            )
+                                a.product-details__link(
+                                    data-toggle='tab',
+                                    href='#tab-description'
+                                ) Description
+
+                            li.product-details__item()
+                                a.product-details__link(
+                                    data-toggle='tab',
+                                    href='#tab-characteristics'
+                                ) Characteristics
+
+                            li.product-details__item()
+                                a.product-details__link(
+                                    data-toggle='tab',
+                                    href='#tab-reviews'
+                                ) Reviews
+
+                            li.product-details__item()
+                                a.product-details__link(
+                                    data-toggle='tab',
+                                    href='#tab-qna'
+                                ) Q&A
+
+                        .product-details__container(
+                            class='tab-content'
+                        )
+                            #tab-description.product-details__box.product-details__box--description(
+                                class='tab-pane active'
+                            )
+                                include ./jade/incl/product.description.jade
+
+                            #tab-characteristics.product-details__box.product-details__box--characteristics(
+                                class='tab-pane'
+                            )
+                                include ./jade/incl/product.characteristics.jade
+
+                            #tab-reviews.product-details__box.product-details__box--reviews(
+                                class='tab-pane'
+                            )
+                                include ./jade/incl/product.reviews.jade
+
+                            #tab-qna.product-details__box.product-details__box--qna(
+                                class='tab-pane'
+                            )
+                                include ./jade/incl/product.qna.jade
+
+
+
+                .container-fluid()

@@ -21,12 +21,15 @@
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-data": "^1.2.1",
+    "gulp-debug": "^2.1.2",
     "gulp-filter": "^4.0.0",
     "gulp-inject": "^4.1.0",
+    "gulp-insert": "^0.5.0",
     "gulp-jade": "^1.1.0",
     "gulp-order": "^1.1.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.1",
+    "gulp-uglify": "^1.5.3",
     "jade": "^1.11.0"
   }
 }

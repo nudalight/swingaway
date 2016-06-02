@@ -1,0 +1,102 @@
+.cart-a
+  &__table
+    width: 100%
+
+  &__cart
+    padding-right: 2em
+
+  &__cell
+    padding: .2em 0
+    vertical-align: middle
+
+    &--subtotal-text
+      padding: .2em 1em
+      font-size: 1.05em
+      font-weight: 600
+
+    &--subtotal
+      font-weight: 600
+
+
+  &__item
+    padding: .2em 0  
+
+    &-remove
+      width: 1.8em
+      height: 1.8em
+      background: url($base64_close) center center no-repeat
+      background-size: 50%
+      cursor: pointer
+      border-radius: 50%
+
+      &:hover
+        transform: rotate(-90deg)
+        background-size: 60%
+
+    &-image-wrap
+      width: 10em
+
+    &-image
+      max-width: 100%
+
+    &-input-wrap
+      max-width: 5.5em
+
+
+
+
+@media all and (max-width: 800px)
+  .cart-a
+    &__cart
+      padding-right: 0
+
+      thead
+        display: none
+
+    &__item
+      display: block
+      padding: 0 0 2em
+      border-top: 1px solid #ddd
+
+      &:last-child
+        border-bottom: 1px solid #ddd
+
+    &__cell
+      display: block
+
+
+
+      &--remove
+        position: absolute
+        right: 0
+        border-top: none !important
+
+      &--title
+        padding-right: 4em !important
+        border-top: none !important
+
+      &--image
+        display: none
+
+      &--price, &--x, &--input, &--sum
+        display: inline-block
+        height: 3.5em
+        border-top: none !important
+
+      &--price, &--x, &--sum
+        > *
+          padding-top: .65em
+
+      &--subtotal-text, &--subtotal
+        border-top: 0 !important
+        display: inline-block
+        text-align: right
+
+      &--subtotal-text
+        width: 70%
+
+      &--subtotal
+        width: 28%
+
+
+

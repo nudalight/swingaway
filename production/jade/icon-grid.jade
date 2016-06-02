@@ -1,0 +1,13 @@
+        // two tabs needed!
+
+        .home-icon-grid
+            .wrap
+                .container-fluid()
+                    h2.home-icon-grid__heading Major Legue Baseball
+                    ul.home-icon-grid__list
+                        - for (var l = 0; l < 10; l++)
+                            li.home-icon-grid__item()
+                                .home-icon-grid__container
+                                    img(
+                                        src='holder.js/100x100?text=banner_' + l
+                                    )

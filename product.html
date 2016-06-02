@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Default Title</title>
+    <meta name="viewport" content="width=device-width">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="bower_components/holderjs/holder.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css">
+    <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
+    <script src="bower_components/slick-carousel/slick/slick.js"></script>
+    <script src="production/js/polyfill/some.function.js"></script>
+    <link rel="stylesheet" href="distribution/css/output.css">
+    <script src="distribution/js/output.js"></script>
+  </head>
+  <body>
+    <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">3</div>
+    <div id="auth-modal" role="dialog" class="auth-modal modal fade">
+      <div class="auth-modal__container modal-dialog">
+        <div class="auth-modal__inner modal-content">
+          <div class="auth-modal__head modal-header">
+            <button type="button" data-dismiss="modal" class="auth-modal__close close">&times;</button>
+            <h4 class="modal-title">Login form</h4>
+          </div>
+          <div class="auth-modal__body">
+            <h4>For returning customores</h4>
+            <p>If you've purchased from us before, please login with your email address and password.</p>
+            <form>
+              <div class="form-group">
+                <label for="auth-login-email">Email address</label>
+                <input id="auth-login-email" type="email" placeholder="Email" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="auth-login-email">Email address</label>
+                <input id="auth-login-password" type="password" placeholder="Password" class="form-control">
+              </div>
+              <h4>New Customers</h4>
+              <p>If this is your first purchase with us, please proceed by clicking the following button to continue first-time registration.</p>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="header navbar navbar-default">
+      <div class="wrap">
+        <div class="container-fluid v"><span data-toggle="offcanvas" data-target=".offcanvas" data-canvas="body" class="navbar-toggle pull-left glyphicon glyphicon-menu-hamburger"></span>
+          <div class="logo"><img src="http://placehold.it/200x50?text=Logo" class="logo__image"></div>
+          <div class="shop-components pull-right">
+            <div class="auth-choice">
+              <ul class="auth-choice__list">
+                <li class="auth-choice__item"><a data-toggle="modal" data-target="#auth-modal" class="auth-choise__link">My account</a></li>
+              </ul>
+            </div>
+            <div class="search">
+              <div class="search__container clearfix">
+                <form>
+                  <input type="text" placeholder="search" name="input-search" class="search__input">
+                  <div class="search__submit">
+                    <div class="search__submit-icon glyphicon glyphicon-search"></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="services">
+              <div class="services__compare">
+                <div class="services__counter">5</div>
+              </div>
+              <div class="services__wishlist">
+                <div class="services__counter">43</div>
+              </div>
+              <div class="services__cart">
+                <div class="services__counter">2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <nav class="main-menu">
+            <ul class="main-menu__list">
+              <li class="main-menu__item Home"><a href="/" class="main-menu__link">Home</a>
+              </li>
+              <li class="main-menu__item main-menu__active"><a href="/baseball.html" class="main-menu__link">Baseball</a>
+              </li>
+              <li class="main-menu__item Softball"><a href="/softball.html" class="main-menu__link">Softball</a>
+              </li>
+              <li class="main-menu__item Pitching"><a href="/pitching.html" class="main-menu__link">Pitching</a>
+              </li>
+              <li class="main-menu__item Parts"><a href="/parts.html" class="main-menu__link">Parts</a>
+              </li>
+              <li class="main-menu__item Accessories"><a href="/accessories.html" class="main-menu__link">Accessories</a>
+              </li>
+              <li class="main-menu__item Customer Service"><a href="#" class="main-menu__link">Customer Service</a>
+                <ul class="main-menu__sublist">
+                  <li class="main-menu__subitem"><a href="/contacts.html" class="main-menu__sublink">Contacts</a></li>
+                  <li class="main-menu__subitem"><a href="/assembly_manuals.html" class="main-menu__sublink">Assembly manuals</a></li>
+                  <li class="main-menu__subitem"><a href="/videos.html" class="main-menu__sublink">Videos</a></li>
+                  <li class="main-menu__subitem"><a href="/videos.html" class="main-menu__sublink">Warranty</a></li>
+                  <li class="main-menu__subitem"><a href="/dealers.html" class="main-menu__sublink">Dealers</a></li>
+                  <li class="main-menu__subitem"><a href="/partners.html" class="main-menu__sublink">Partners</a></li>
+                </ul>
+              </li>
+              <li class="main-menu__item Meet the team"><a href="/meet_the_team.html" class="main-menu__link">Meet the team</a>
+              </li>
+              <li class="main-menu__item Store"><a href="/store" class="main-menu__link">Store</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <section class="breadcrumbs">
+      <div class="wrap">
+        <div class="container-fluid">
+          <ul class="breadcrumbs__list breadcrumb">
+            <li class="breadcrumbs__item"><a href="/" class="breadcrumbs__link">Home</a></li>
+            <li class="breadcrumbs__item"><a href="/catalog.html" class="breadcrumbs__link">Product category</a></li>
+            <li class="breadcrumbs__item"><a href="/product.html" class="breadcrumbs__link">Product title</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="product">
+      <div class="wrap">
+        <div class="container-fluid children-float">
+          <div class="image-gallery">
+            <div class="image-gallery__shortcuts slider-nav">
+              <div class="image-gallery__shortcut"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg"></div>
+              <div class="image-gallery__shortcut"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576"></div>
+              <div class="image-gallery__shortcut"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg"></div>
+              <div class="image-gallery__shortcut"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700"></div>
+              <div class="image-gallery__shortcut"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg"></div>
+              <div class="image-gallery__shortcut"><img src="http://i.turner.ncaa.com/sites/default/files/styles/640x360/public/media/hunt_no_hitter.jpg?itok=9grR4MvX"></div>
+            </div>
+            <div class="image-gallery__preview">
+              <div class="image-gallery__preview-container slider-for">
+                <div class="image-gallery__preview-item"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg"></div>
+                <div class="image-gallery__preview-item"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576"></div>
+                <div class="image-gallery__preview-item"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg"></div>
+                <div class="image-gallery__preview-item"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700"></div>
+                <div class="image-gallery__preview-item"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg"></div>
+                <div class="image-gallery__preview-item"><img src="http://i.turner.ncaa.com/sites/default/files/styles/640x360/public/media/hunt_no_hitter.jpg?itok=9grR4MvX"></div>
+              </div>
+            </div>
+          </div>
+          <div data-product-id="8" class="product-basics">
+            <h1 class="product-basics__title">Prodcuct title</h1>
+            <div class="product-basics__price">$500</div>
+            <div class="product-basics__reviews">
+              <div class="stars">
+                <div class="stars__container children-inline">
+                  <div class="stars__star">*</div>
+                  <div class="stars__star">*</div>
+                  <div class="stars__star">*</div>
+                  <div class="stars__star">*</div>
+                  <div class="stars__star">*</div>
+                </div>
+              </div>
+            </div>
+            <div class="product-basics__characteristics"></div>
+            <div class="product-basics__controls">
+              <button class="product-basics__butt product-basics__butt--cart butt-add-to-cart">Add to cart</button>
+              <button class="product-basics__butt product-basics__butt--compare butt-add-to-compare">Compare</button>
+              <button class="product-basics__butt product-basics__butt--wishlist butt-add-to-wishlist">Add to Wishlist</button>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="product-details">
+            <ul class="product-details__list nav nav-tabs">
+              <li class="product-details__item active"><a data-toggle="tab" href="#tab-description" class="product-details__link">Description</a></li>
+              <li class="product-details__item"><a data-toggle="tab" href="#tab-characteristics" class="product-details__link">Characteristics</a></li>
+              <li class="product-details__item"><a data-toggle="tab" href="#tab-reviews" class="product-details__link">Reviews</a></li>
+              <li class="product-details__item"><a data-toggle="tab" href="#tab-qna" class="product-details__link">Q&A</a></li>
+            </ul>
+            <div class="product-details__container tab-content">
+              <div id="tab-description" class="product-details__box product-details__box--description tab-pane active">
+                <h4></h4>
+                <p>The ultimate power hitting station & pro-class pitchback - for home training</p>
+                <p>The Jennie Finch Gold Medal Edition SwingAway Hitting Trainer is specifically designed for Home Training of all players regardless of their age or skill level plus for Team Use from Tee Ball thru Little League. The MVP allows varsity and youth players to Train Year- Round on the Most Effective and Popular Professional Training Station ever made.The SWINGAWAY once was limited to only Pro Players and Teams, Now the MVP is perfect hitting training aid for ALL Players! The MVP is the Most Affordable SWINGAWAY Model, But Don’t let the Price Fool You! This machine ROCKS!! The MVP Converts very easily to a World Class Pitch-Back and Folds Base to Frame in seconds for maximum storability.</p>
+                <ul>
+                  <li>TRAINING WITH THE SWINGAWAY WILL MAKE YOU A BETTER HITTER!!... PERIOD</li>
+                  <li>INCREASE YOUR BATTING AVERAGE, BAT SPEED WITH POWER AND CONFIDENCE</li>
+                  <li>IT’S NEVER TOO EARLY TO DEVELOP THE PERFECT SWING</li>
+                </ul><i>Professional, High School, College Programs and the Serious Player should consider ordering a SwingAway PRO- Models.</i><b>"SwingAway®" IS A COPYRIGHT PROTECTED TRADEMARK. ALL "SwingAway®"HITTING SYSTEMS PRODUCT LINE IS PROTECTED UNDER US PATENTS 5,795,250 AND 7,914,400.</b>
+                <p><a href="#">Click here to download the product manual.</a></p>
+                <h4>Features & Benefits</h4>
+                <ol>
+                  <li>Immediately becomes a Hitting Station for Practice and Pre- Game Batting Practice</li>
+                  <li>Provides the feel of hitting live pitches without chasing or picking up balls</li>
+                  <li>Ensures a Perfect Swing with each repetition, instant feedback visually and by feel</li>
+                  <li>Ball can be positioned anywhere in the strike zone, high, low, inside or outside</li>
+                  <li>Includes the SA Patented Hitting Training Mat which teaches proper contact points to hit inside, outside, down the middle pitch locations</li>
+                  <li>Promotes a Quick and Powerful hands inside and to the ball, eliminating a long casting swing and other swing flaws</li>
+                  <li>Three-second ball return, up to 10-15 quality swings per minute - 100-150 cuts in Only 10-15 minutes</li>
+                  <li>Develops Proper Swing Mechanics, Muscle Memory, Bat Speed, Power and Confidence</li>
+                  <li>Train Year-Round, set up indoors or outdoors. Unit folds flat in seconds for maximum portability and storage</li>
+                  <li>Converts easily to a World Class Pitch -Back for defensive and throwing drills</li>
+                </ol>
+                <h4>PRODUCT SPECIFICATIONS</h4>
+                <p>Made of High Quality 18 gage Powder-Coated Steel. The Set-up size of the Frame is 62" x 50" with highest point of 6'2". Recommended Space is 10' x 10' area. The total Weight is only 36 lbs.</p>
+                <p>The SwingAway MVP Home Training System is designed specifically for Home Training for players of all ages & skill levels plus for team use from Tee Ball thru Little League. Professional, High School, College Programs plus the older Serious Players should consider The SwingAway PRO-Series.</p>
+              </div>
+              <div id="tab-characteristics" class="product-details__box product-details__box--characteristics tab-pane">
+                <table class="table table-striped table-hover">
+                  <tr>
+                    <td>Price</td>
+                    <td>$199.99</td>
+                  </tr>
+                  <tr>
+                    <td>Quantity</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>Avaliability</td>
+                    <td>in stock</td>
+                  </tr>
+                  <tr>
+                    <td>SKU</td>
+                    <td>SA100SBG</td>
+                  </tr>
+                </table>
+              </div>
+              <div id="tab-reviews" class="product-details__box product-details__box--reviews tab-pane">
+                <div class="product-review col-md-6">
+                  <div class="product-review__container">
+                    <div class="product-review__headline row">
+                      <div class="product-review__rated col-md-6 children-inline">
+                        <div class="product-review__author">Jack</div>
+                        <div class="product-review__stars">
+                          <div class="stars">
+                            <div class="stars__container children-inline">
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-review__published col-md-6 text-right">17 Jan, 2016</div>
+                    </div>
+                    <div class="product-review__message text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nes sue Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</div>
+                    <div class="product-review__footline row">
+                      <div class="product-review__summary col-md-8">Yes, i recommend this product!</div>
+                      <div class="product-review__likes col-md-4 text-right">
+                        <div class="likes">
+                          <div class="likes__container children-inline">
+                            <div class="likes__like">---</div>
+                            <div class="likes__ballance">15</div>
+                            <div class="likes__dislike">===</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-review col-md-6">
+                  <div class="product-review__container">
+                    <div class="product-review__headline row">
+                      <div class="product-review__rated col-md-6 children-inline">
+                        <div class="product-review__author">Jack</div>
+                        <div class="product-review__stars">
+                          <div class="stars">
+                            <div class="stars__container children-inline">
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-review__published col-md-6 text-right">17 Jan, 2016</div>
+                    </div>
+                    <div class="product-review__message text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nes sue Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</div>
+                    <div class="product-review__footline row">
+                      <div class="product-review__summary col-md-8">Yes, i recommend this product!</div>
+                      <div class="product-review__likes col-md-4 text-right">
+                        <div class="likes">
+                          <div class="likes__container children-inline">
+                            <div class="likes__like">---</div>
+                            <div class="likes__ballance">15</div>
+                            <div class="likes__dislike">===</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-review col-md-6">
+                  <div class="product-review__container">
+                    <div class="product-review__headline row">
+                      <div class="product-review__rated col-md-6 children-inline">
+                        <div class="product-review__author">Jack</div>
+                        <div class="product-review__stars">
+                          <div class="stars">
+                            <div class="stars__container children-inline">
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-review__published col-md-6 text-right">17 Jan, 2016</div>
+                    </div>
+                    <div class="product-review__message text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nes sue Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</div>
+                    <div class="product-review__footline row">
+                      <div class="product-review__summary col-md-8">Yes, i recommend this product!</div>
+                      <div class="product-review__likes col-md-4 text-right">
+                        <div class="likes">
+                          <div class="likes__container children-inline">
+                            <div class="likes__like">---</div>
+                            <div class="likes__ballance">15</div>
+                            <div class="likes__dislike">===</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-review col-md-6">
+                  <div class="product-review__container">
+                    <div class="product-review__headline row">
+                      <div class="product-review__rated col-md-6 children-inline">
+                        <div class="product-review__author">Jack</div>
+                        <div class="product-review__stars">
+                          <div class="stars">
+                            <div class="stars__container children-inline">
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                              <div class="stars__star">*</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-review__published col-md-6 text-right">17 Jan, 2016</div>
+                    </div>
+                    <div class="product-review__message text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nes sue Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</div>
+                    <div class="product-review__footline row">
+                      <div class="product-review__summary col-md-8">Yes, i recommend this product!</div>
+                      <div class="product-review__likes col-md-4 text-right">
+                        <div class="likes">
+                          <div class="likes__container children-inline">
+                            <div class="likes__like">---</div>
+                            <div class="likes__ballance">15</div>
+                            <div class="likes__dislike">===</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tab-qna" class="product-details__box product-details__box--qna tab-pane">
+                <div class="product-qna">
+                  <div class="product-qna__container">
+                    <div class="product-qna__headline row">
+                      <div class="product-qna__question col-md-5">Question #857</div>
+                      <div class="product-qna__panel col-md-7 children-inline text-right">
+                        <div class="product-qna__author">Jack</div>
+                        <div class="product-qna__published">17 Jan, 2016</div>
+                        <div class="product-qna__likes">
+                          <div class="likes">
+                            <div class="likes__container children-inline">
+                              <div class="likes__like">---</div>
+                              <div class="likes__ballance">15</div>
+                              <div class="likes__dislike">===</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="product-qna__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nes sue Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</div>
+                  </div>
+                </div>
+                <div class="product-qna">
+                  <div class="product-qna__container">
+                    <div class="product-qna__headline row">
+                      <div class="product-qna__question col-md-5">Question #857</div>
+                      <div class="product-qna__panel col-md-7 children-inline text-right">
+                        <div class="product-qna__author">Jack</div>
+                        <div class="product-qna__published">17 Jan, 2016</div>
+                        <div class="product-qna__likes">
+                          <div class="likes">
+                            <div class="likes__container children-inline">
+                              <div class="likes__like">---</div>
+                              <div class="likes__ballance">15</div>
+                              <div class="likes__dislike">===</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="product-qna__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nes sue Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</div>
+                  </div>
+                </div>
+                <div class="product-qna">
+                  <div class="product-qna__container">
+                    <div class="product-qna__headline row">
+                      <div class="product-qna__question col-md-5">Question #857</div>
+                      <div class="product-qna__panel col-md-7 children-inline text-right">
+                        <div class="product-qna__author">Jack</div>
+                        <div class="product-qna__published">17 Jan, 2016</div>
+                        <div class="product-qna__likes">
+                          <div class="likes">
+                            <div class="likes__container children-inline">
+                              <div class="likes__like">---</div>
+                              <div class="likes__ballance">15</div>
+                              <div class="likes__dislike">===</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="product-qna__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nes sue Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</div>
+                  </div>
+                </div>
+                <div class="product-qna">
+                  <div class="product-qna__container">
+                    <div class="product-qna__headline row">
+                      <div class="product-qna__question col-md-5">Question #857</div>
+                      <div class="product-qna__panel col-md-7 children-inline text-right">
+                        <div class="product-qna__author">Jack</div>
+                        <div class="product-qna__published">17 Jan, 2016</div>
+                        <div class="product-qna__likes">
+                          <div class="likes">
+                            <div class="likes__container children-inline">
+                              <div class="likes__like">---</div>
+                              <div class="likes__ballance">15</div>
+                              <div class="likes__dislike">===</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="product-qna__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nes sue Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid"></div>
+      </div>
+    </section>
+    <section class="upsell-grid">
+      <div class="wrap">
+        <div class="container-fluid">
+          <div class="upsell-grid__headline">
+            <ul class="upsell-grid__tab-list nav nav-tabs">
+              <li class="upsell-grid__tab-item active"><a data-toggle="tab" href="#tab-accessories" class="upserll-grid__tab-link">Accessories</a></li>
+              <li class="upsell-grid__tab-item"><a data-toggle="tab" href="#tab-parts" class="upserll-grid__tab-link">Parts</a></li>
+            </ul>
+          </div>
+          <div class="upsell-grid__content tab-content">
+            <div id="tab-accessories" class="upsell-grid__box upsell-grid__box--accessories tab-pane active carousel-upsell-accessories">
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$199.99</div>
+                  </div>
+                </div>
+              </div>
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$199.99</div>
+                  </div>
+                </div>
+              </div>
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$199.99</div>
+                  </div>
+                </div>
+              </div>
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$199.99</div>
+                  </div>
+                </div>
+              </div>
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$199.99</div>
+                  </div>
+                </div>
+              </div>
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$199.99</div>
+                  </div>
+                </div>
+              </div>
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$199.99</div>
+                  </div>
+                </div>
+              </div>
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$199.99</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="tab-parts" class="upsell-grid__box upsell-grid__box--parts tab-pane carousel-upsell-parts">PARTS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-nav">
+        <div class="container-fluid">
+          <div class="wrap">
+            <ul class="footer-nav__list">
+              <li class="footer-nav__item"><a href="/" class="footer-nav__link">Home</a></li>
+              <li class="footer-nav__item"><a href="/contacts.html" class="footer-nav__link">Contacts</a></li>
+              <li class="footer-nav__item"><a href="/assembly_manuals.html" class="footer-nav__link">Assembly manuals</a></li>
+              <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Videos</a></li>
+              <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Warranty</a></li>
+              <li class="footer-nav__item"><a href="/dealers.html" class="footer-nav__link">Dealers</a></li>
+              <li class="footer-nav__item"><a href="/partners.html" class="footer-nav__link">Partners</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-socials">
+        <div class="container-fluid">
+          <div class="wrap">
+            <div class="footer-socials__list">
+              <li class="footer-socials__item footer-socials__item--facebook"><a href="https://facebook.com" class="footer-socials__link"></a></li>
+              <li class="footer-socials__item footer-socials__item--twitter"><a href="https://twitter.com" class="footer-socials__link"></a></li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

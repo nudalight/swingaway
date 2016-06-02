@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Default Title</title>
+    <meta name="viewport" content="width=device-width">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="bower_components/holderjs/holder.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css">
+    <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
+    <script src="bower_components/slick-carousel/slick/slick.js"></script>
+    <script src="production/js/polyfill/some.function.js"></script>
+    <link rel="stylesheet" href="distribution/css/output.css">
+    <script src="distribution/js/output.js"></script>
+  </head>
+  <body>
+    <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">OFFCANVAS CONTENT</div>
+    <div id="auth-modal" role="dialog" class="auth-modal modal fade">
+      <div class="auth-modal__container modal-dialog">
+        <div class="auth-modal__inner modal-content">
+          <div class="auth-modal__head modal-header">
+            <button type="button" data-dismiss="modal" class="auth-modal__close close">&times;</button>
+            <h4 class="modal-title">Login form</h4>
+          </div>
+          <div class="auth-modal__body modal-body">
+            <h4>For returning customores</h4>
+            <p>If you've purchased from us before, please login with your email address and password.</p>
+            <form>
+              <div class="form-group">
+                <label for="auth-login-email">Email address</label>
+                <input id="auth-login-email" type="email" placeholder="Email" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="auth-login-email">Email address</label>
+                <input id="auth-login-password" type="password" placeholder="Password" class="form-control">
+              </div>
+              <h4>New Customers</h4>
+              <p>If this is your first purchase with us, please proceed by clicking the following button to continue first-time registration.</p>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="header navbar navbar-default">
+      <div class="wrap">
+        <div class="container-fluid v"><span data-toggle="offcanvas" data-target=".offcanvas" data-canvas="body" class="navbar-toggle pull-left glyphicon glyphicon-menu-hamburger"></span>
+          <div class="logo"><img //data-src="holder.js/200x50?text=Logo" src="http://www.swingaway.com/default.asp" class="logo__image"></div>
+          <div class="shop-components pull-right">
+            <div class="auth-choice">
+              <ul class="auth-choice__list">
+                <li class="auth-choice__item"><a data-toggle="modal" data-target="#auth-modal" class="auth-choise__link">My account</a></li>
+              </ul>
+            </div>
+            <div class="search">
+              <div class="search__container clearfix">
+                <form>
+                  <input type="text" placeholder="search" name="input-search" class="search__input">
+                  <div class="search__submit">
+                    <div class="search__submit-icon glyphicon glyphicon-search"></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="services">
+              <div class="services__compare">
+                <div class="services__counter">5</div>
+              </div>
+              <div class="services__wishlist">
+                <div class="services__counter">43</div>
+              </div>
+              <div class="services__cart">
+                <div class="services__counter">2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <nav class="main-menu">
+            <ul class="main-menu__list">
+              <li class="main-menu__item Home"><a href="/" class="main-menu__link">Home</a>
+              </li>
+              <li class="main-menu__item main-menu__active"><a href="/baseball.html" class="main-menu__link">Baseball</a>
+              </li>
+              <li class="main-menu__item Softball"><a href="/softball.html" class="main-menu__link">Softball</a>
+              </li>
+              <li class="main-menu__item Pitching"><a href="/pitching.html" class="main-menu__link">Pitching</a>
+              </li>
+              <li class="main-menu__item Parts"><a href="/parts.html" class="main-menu__link">Parts</a>
+              </li>
+              <li class="main-menu__item Accessories"><a href="/accessories.html" class="main-menu__link">Accessories</a>
+              </li>
+              <li class="main-menu__item Customer Service"><a href="#" class="main-menu__link">Customer Service</a>
+                <ul class="main-menu__sublist">
+                  <li class="main-menu__subitem"><a href="/contacts.html" class="main-menu__sublink">Contacts</a></li>
+                  <li class="main-menu__subitem"><a href="/assembly_manuals.html" class="main-menu__sublink">Assembly manuals</a></li>
+                  <li class="main-menu__subitem"><a href="/videos.html" class="main-menu__sublink">Videos</a></li>
+                  <li class="main-menu__subitem"><a href="/videos.html" class="main-menu__sublink">Warranty</a></li>
+                  <li class="main-menu__subitem"><a href="/dealers.html" class="main-menu__sublink">Dealers</a></li>
+                  <li class="main-menu__subitem"><a href="/partners.html" class="main-menu__sublink">Partners</a></li>
+                </ul>
+              </li>
+              <li class="main-menu__item Meet the team"><a href="/meet_the_team.html" class="main-menu__link">Meet the team</a>
+              </li>
+              <li class="main-menu__item Store"><a href="/store" class="main-menu__link">Store</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <section class="breadcrumbs">
+      <div class="wrap">
+        <div class="container-fluid">
+          <ul class="breadcrumbs__list breadcrumb">
+            <li class="breadcrumbs__item"><a href="/" class="breadcrumbs__link">Home</a></li>
+            <li class="breadcrumbs__item"><a href="/catalog.html" class="breadcrumbs__link">Product category</a></li>
+            <li class="breadcrumbs__item"><a href="/product.html" class="breadcrumbs__link">Product title</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="cart-a">
+      <div class="wrap">
+        <div class="container-fluid">
+          <h2 class="cart-a__heading">Cart</h2>
+          <div class="cart-a__empty hide">Your cart is empty</div>
+          <div class="cart-a__container clearfix">
+            <div class="cart-a__cart col-md-9 clear-left-padding">
+              <table class="cart-a__table table table-hover td-vertical">
+                <thead>
+                  <tr>
+                    <th>&nbsp;</th>
+                    <th>Photo</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>&nbsp;</th>
+                    <th>Quantity</th>
+                    <th>Sum</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+                <tr data-product-id="1" class="cart-a__item">
+                  <td class="cart-a__cell cart-a__cell--remove">
+                    <div class="cart-a__item-remove"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--image">
+                    <div class="cart-a__item-image-wrap"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="cart-a__item-image"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--title">
+                    <div class="cart-a__item-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--price">
+                    <div class="cart-a__item-price">199.99</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--x">
+                    <div class="cart-a__item-x">X</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--input">
+                    <div class="cart-a__item-input-wrap">
+                      <input type="number" value="1" min="0" class="cart-a__item-input form-control bfh-number">
+                    </div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--sum">
+                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">199.99</span></div>
+                  </td>
+                </tr>
+                <tr data-product-id="2" class="cart-a__item">
+                  <td class="cart-a__cell cart-a__cell--remove">
+                    <div class="cart-a__item-remove"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--image">
+                    <div class="cart-a__item-image-wrap"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="cart-a__item-image"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--title">
+                    <div class="cart-a__item-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--price">
+                    <div class="cart-a__item-price">199.99</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--x">
+                    <div class="cart-a__item-x">X</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--input">
+                    <div class="cart-a__item-input-wrap">
+                      <input type="number" value="2" min="0" class="cart-a__item-input form-control bfh-number">
+                    </div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--sum">
+                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">399.98</span></div>
+                  </td>
+                </tr>
+                <tr data-product-id="3" class="cart-a__item">
+                  <td class="cart-a__cell cart-a__cell--remove">
+                    <div class="cart-a__item-remove"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--image">
+                    <div class="cart-a__item-image-wrap"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="cart-a__item-image"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--title">
+                    <div class="cart-a__item-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--price">
+                    <div class="cart-a__item-price">199.99</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--x">
+                    <div class="cart-a__item-x">X</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--input">
+                    <div class="cart-a__item-input-wrap">
+                      <input type="number" value="3" min="0" class="cart-a__item-input form-control bfh-number">
+                    </div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--sum">
+                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">599.97</span></div>
+                  </td>
+                </tr>
+                <tr data-product-id="4" class="cart-a__item">
+                  <td class="cart-a__cell cart-a__cell--remove">
+                    <div class="cart-a__item-remove"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--image">
+                    <div class="cart-a__item-image-wrap"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="cart-a__item-image"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--title">
+                    <div class="cart-a__item-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--price">
+                    <div class="cart-a__item-price">199.99</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--x">
+                    <div class="cart-a__item-x">X</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--input">
+                    <div class="cart-a__item-input-wrap">
+                      <input type="number" value="4" min="0" class="cart-a__item-input form-control bfh-number">
+                    </div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--sum">
+                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">799.96</span></div>
+                  </td>
+                </tr>
+                <tr data-product-id="5" class="cart-a__item">
+                  <td class="cart-a__cell cart-a__cell--remove">
+                    <div class="cart-a__item-remove"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--image">
+                    <div class="cart-a__item-image-wrap"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="cart-a__item-image"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--title">
+                    <div class="cart-a__item-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--price">
+                    <div class="cart-a__item-price">199.99</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--x">
+                    <div class="cart-a__item-x">X</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--input">
+                    <div class="cart-a__item-input-wrap">
+                      <input type="number" value="5" min="0" class="cart-a__item-input form-control bfh-number">
+                    </div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--sum">
+                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">999.95</span></div>
+                  </td>
+                </tr>
+                <tr data-product-id="6" class="cart-a__item">
+                  <td class="cart-a__cell cart-a__cell--remove">
+                    <div class="cart-a__item-remove"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--image">
+                    <div class="cart-a__item-image-wrap"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="cart-a__item-image"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--title">
+                    <div class="cart-a__item-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--price">
+                    <div class="cart-a__item-price">199.99</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--x">
+                    <div class="cart-a__item-x">X</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--input">
+                    <div class="cart-a__item-input-wrap">
+                      <input type="number" value="6" min="0" class="cart-a__item-input form-control bfh-number">
+                    </div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--sum">
+                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">1199.94</span></div>
+                  </td>
+                </tr>
+                <tr data-product-id="7" class="cart-a__item">
+                  <td class="cart-a__cell cart-a__cell--remove">
+                    <div class="cart-a__item-remove"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--image">
+                    <div class="cart-a__item-image-wrap"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="cart-a__item-image"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--title">
+                    <div class="cart-a__item-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--price">
+                    <div class="cart-a__item-price">199.99</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--x">
+                    <div class="cart-a__item-x">X</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--input">
+                    <div class="cart-a__item-input-wrap">
+                      <input type="number" value="7" min="0" class="cart-a__item-input form-control bfh-number">
+                    </div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--sum">
+                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">1399.93</span></div>
+                  </td>
+                </tr>
+                <tr data-product-id="8" class="cart-a__item">
+                  <td class="cart-a__cell cart-a__cell--remove">
+                    <div class="cart-a__item-remove"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--image">
+                    <div class="cart-a__item-image-wrap"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="cart-a__item-image"></div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--title">
+                    <div class="cart-a__item-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--price">
+                    <div class="cart-a__item-price">199.99</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--x">
+                    <div class="cart-a__item-x">X</div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--input">
+                    <div class="cart-a__item-input-wrap">
+                      <input type="number" value="8" min="0" class="cart-a__item-input form-control bfh-number">
+                    </div>
+                  </td>
+                  <td class="cart-a__cell cart-a__cell--sum">
+                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">1599.92</span></div>
+                  </td>
+                </tr>
+                <tfoot>
+                  <tr>
+                    <td colspan="6" class="cart-a__cell cart-a__cell--subtotal-text text-right">Subotal:</td>
+                    <td class="cart-a__cell cart-a__cell--subtotal">
+                      <div class="cart-a__item-subtotal"><span class="cart-a__item-subtotal-currency">$</span><span class="cart-a__item-subtotal-amout">6500.99</span></div>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <div class="cart-summary col-md-3">
+              <div class="cart-summary__container">
+                <table class="cart-summary__table table">
+                  <thead class="cart-summary__head">
+                    <tr class="cart-summary__row-head">
+                      <th colspan="2" class="cart-summary__cell cart-summary__cell--head">Summary</th>
+                    </tr>
+                  </thead>
+                  <tbody class="cart-summary__body">
+                    <tr class="cart-summary__row">
+                      <td class="cart-summary__cell cart-summary__title">Subtotal:</td>
+                      <td class="cart-summary__cell cart-summary__sum"><span class="cart-summary__subtotal-currency">$</span><span class="cart-summary__submotal-amount">15</span></td>
+                    </tr>
+                    <tr class="cart-summary__row">
+                      <td class="cart-summary__cell cart-summary__title">Shipping cost:</td>
+                      <td class="cart-summary__cell cart-summary__sum"><span class="cart-summary__shipping-currency">$</span><span class="cart-summary__shipping-amount">15</span></td>
+                    </tr>
+                  </tbody>
+                  <tfoot class="cart-summary__foot">
+                    <tr class="cart-summary__row-foot">
+                      <td class="cart-summary__cell cart-summary__cell--foot cart-summary__title">Total:</td>
+                      <td class="cart-summary__cell cart-summary__cell--foot cart-summary__sum"><span class="cart-summary__total-currency">$</span><span class="cart-summary__total-amount">15</span></td>
+                    </tr>
+                  </tfoot>
+                </table>
+                <div class="cart-summary__controls">
+                  <button class="cart-summary__submit btn btn-swingaway-ii">Go to checkout</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-nav">
+        <div class="container-fluid">
+          <div class="wrap">
+            <ul class="footer-nav__list">
+              <li class="footer-nav__item"><a href="/" class="footer-nav__link">Home</a></li>
+              <li class="footer-nav__item"><a href="/contacts.html" class="footer-nav__link">Contacts</a></li>
+              <li class="footer-nav__item"><a href="/assembly_manuals.html" class="footer-nav__link">Assembly manuals</a></li>
+              <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Videos</a></li>
+              <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Warranty</a></li>
+              <li class="footer-nav__item"><a href="/dealers.html" class="footer-nav__link">Dealers</a></li>
+              <li class="footer-nav__item"><a href="/partners.html" class="footer-nav__link">Partners</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-socials">
+        <div class="container-fluid">
+          <div class="wrap">
+            <div class="footer-socials__list">
+              <li class="footer-socials__item footer-socials__item--facebook"><a href="https://facebook.com" class="footer-socials__link"></a></li>
+              <li class="footer-socials__item footer-socials__item--twitter"><a href="https://twitter.com" class="footer-socials__link"></a></li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
