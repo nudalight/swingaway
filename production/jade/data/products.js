@@ -6,7 +6,7 @@ module.exports = [
     {
         id: 1,
         title: 'Jennie Finch Gold Medal Edition SwingAway Hitting Trainer',
-        price: '199.99',
+        price: '105.99',
         avaliability: 'in stock',
         attributes: {
             'Brand': 'ELEITE',
@@ -25,7 +25,7 @@ module.exports = [
     {
         id: 2,
         title: 'Jennie Finch Gold Medal Edition SwingAway Hitting Trainer',
-        price: '199.99',
+        price: '167.45',
         avaliability: 'in stock',
         attributes: {
             'Brand': 'ELEITE',
@@ -53,7 +53,7 @@ module.exports = [
     {
         id: 4,
         title: 'Jennie Finch Gold Medal Edition SwingAway Hitting Trainer',
-        price: '199.99',
+        price: '499.99',
         avaliability: 'in stock',
         attributes: {
             'Brand': 'ELEITE',
@@ -67,7 +67,7 @@ module.exports = [
     {
         id: 5,
         title: 'Jennie Finch Gold Medal Edition SwingAway Hitting Trainer',
-        price: '199.99',
+        price: '70.00',
         avaliability: 'in stock',
         attributes: {
             'Brand': 'ELEITE',
@@ -81,7 +81,7 @@ module.exports = [
     {
         id: 6,
         title: 'Jennie Finch Gold Medal Edition SwingAway Hitting Trainer',
-        price: '199.99',
+        price: '89.49',
         avaliability: 'in stock',
         attributes: {
             'Brand': 'ELEITE',
@@ -95,7 +95,7 @@ module.exports = [
     {
         id: 7,
         title: 'Jennie Finch Gold Medal Edition SwingAway Hitting Trainer',
-        price: '199.99',
+        price: '101.11',
         avaliability: 'in stock',
         attributes: {
             'Brand': 'ELEITE',
@@ -109,7 +109,7 @@ module.exports = [
     {
         id: 8,
         title: 'Jennie Finch Gold Medal Edition SwingAway Hitting Trainer',
-        price: '199.99',
+        price: '999.99',
         avaliability: 'in stock',
         attributes: {
             'Brand': 'ELEITE',

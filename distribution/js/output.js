@@ -16,6 +16,28 @@ new CartPage({
     itemPrice: '.cart-a__item-price',
     itemAmount: '.cart-a__item-sum-amount'
 });
+
+var compare_ = new Compare({
+    storageKey: 'swingaway__compare'
+}, {
+    mirror: '.services__compare .services__counter'
+});
+
+new ComparePage({
+    prod: '.compare-prod',
+    prodRemove: '.compare-prod__remove'
+});
+
+// good, but old
+Array.prototype.contains = function(obj) {
+    var i = this.length;
+    while (i--) {
+        if (this[i] == obj) {
+            return true;
+        }
+    }
+    return false;
+};
 var v_ = new Validate();
 
 $('.billing__form').on('blur', '.form-control', function(e){
@@ -315,7 +337,7 @@ function Cart(userConfig){
 
 
 $('.butt-add-to-cart').on('click', function(){
-    cart.increment(this);
+    cart_.increment(this);
 
 
 
@@ -331,6 +353,179 @@ $('.butt-add-to-cart').on('click', function(){
 
     // вывести из куки в блок
 });
+function ComparePage(userSelect){
+
+    this.select = userSelect;
+
+    var that = this;
+
+    $(this.select.prod).on('click', this.select.prodRemove, function(){
+        var id = $(this).closest('[data-product-id]').data('product-id').toString();
+        console.log(1, id, typeof id);
+
+        $(this).closest(that.select.prod).fadeOut('slow');
+        compare_.remove(id);
+
+    });
+
+    this.remove = function(){
+        
+    };
+
+
+
+}
+
+
+$(window).on('load resize', function(){
+
+    var selectCompareProd = '.compare-prod';
+    var heights = [];
+
+    setTimeout(res, 500);
+
+    function res(){
+        // define products cell heights
+        $(selectCompareProd).each(function(i, v, list){
+
+
+            $(v).children('.compare-prod__cell').each(function(i, v, list){
+                $(v).height('auto');
+
+                var cellH = $(v).height();
+                heights[i] = heights[i] > cellH ? heights[i] : cellH;
+            });
+
+
+            // console.log($(v).height());
+            //
+            // // max
+            //
+            // var h = $(v).height();
+            // $('.compare-attr__table tr:nth-child(' + (i+1) + ')').height(h);
+
+
+
+        });
+
+        $(selectCompareProd).each(function(i, v, list){
+            $(v).children('.compare-prod__cell').each(function(i, v, list){
+                $(v).height(heights[i]);
+            });
+        });
+
+        $('.compare-attr__cell').each(function(i, v, list){
+            $(v).height(heights[i]);
+        });
+
+        $('.compare').animate({ opacity: 1 }, 350);
+
+        heights = [];
+    }
+
+
+    console.dir(heights);
+
+});
+$('.compare__prods').slick({
+    infinite: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    prevArrow: '<button class="compare-nav compare-nav--next">1</button>',
+    nextArrow: '<button class="compare-nav compare-nav--next">2</button>',
+    appendArrows: '.compare__navs',
+    responsive: [
+        {
+            breakpoint: 1000,
+            settings: {
+                slidesToShow: 4
+            }
+        },
+        {
+            breakpoint: 800,
+            settings: {
+                slidesToShow: 3
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2
+            }
+        },
+        {
+            breakpoint: 420,
+            settings: {
+                slidesToShow: 1
+            }
+        }
+    ]
+});
+
+function Compare(config, select){
+    var that = this;
+    this.ls = localStorage;
+
+    this.select = select;
+    this.config = config;
+
+    var sk = this.config.storageKey;
+
+
+    this.parse = function(){
+        var sk = this.config.storageKey;
+        return this.ls[sk] ? this.ls[sk].split(',') : [];
+    };
+
+    this.isAdded = function(id){
+        return this.parse().contains(id);
+    };
+
+    this.add = function(id){
+        var compareData = this.parse();
+        compareData.push(id);
+        this.ls.setItem(this.config.storageKey, compareData);
+    };
+
+    this.remove = function(id){
+        var compareData = this.parse();
+
+        var pos = $.inArray(id,compareData);
+
+        if (pos != -1) {
+            compareData.pop(pos);
+        }
+
+
+        this.ls.setItem(sk, compareData);
+        console.log(this.parse());
+        this.mirror();
+    };
+
+
+    $('.butt-add-to-compare').on('click', function(){
+
+        var id = $(this).closest('[data-product-id]').data('product-id').toString();
+
+        !that.isAdded(id) && that.add(id);
+
+        console.log(that.parse(), that.count());
+
+        that.mirror();
+
+    });
+
+    this.count = function(){
+        return this.parse().length;
+    };
+
+    this.mirror = function(){
+        $(this.select.mirror).text( this.count() );
+    };
+
+
+
+}
 $('.footer-nav').on('click', function(e){
     var that = this;
 
@@ -397,12 +592,42 @@ if (!Array.prototype.some) {
         return false;
     };
 }
+var currentSlide;
+$('.image-gallery__preview').on('click', function(e){
+
+    currentSlide = $('.slider-for').slick('slickCurrentSlide');
+
+    $('#product-gallery-modal').modal({
+        show: true
+    });
+
+    console.log(5, currentSlide);
+
+    /*
+        1. click on the element
+        2. build modal
+        3. append modal to DOM
+        3.1 launch slick
+        4. appedd slides to modal from image-gallery
+        5. scroll modal slider to currentSlide
+     */
+});
 $('.slider-for').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
     fade: true,
-    asNavFor: '.slider-nav'
+    asNavFor: '.slider-nav',
+    responsive: [
+        {
+            breakpoint: 600,
+            settings: {
+                arrows: true,
+                prevArrow: '<button class="image-gallery__nav image-gallery__nav--prev"></button>',
+                nextArrow: '<button class="image-gallery__nav image-gallery__nav--next"></button>'
+            }
+        }
+    ]
 });
 
 $('.slider-nav').slick({
@@ -420,7 +645,7 @@ $('.slider-nav').slick({
             settings: {
                 centerMode: false,
                 adaptiveHeight: true,
-                slidesToShow: 1,
+                slidesToShow: 3,
                 vertical: false
             }
         }
@@ -467,5 +692,7 @@ $('.carousel-upsell-accessories').slick({
         }
     ]
 });
+
+
 
 });

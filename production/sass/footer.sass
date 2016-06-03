@@ -5,6 +5,12 @@
   background-color: #000
 
 .footer-nav
+  &__head
+    display: none
+
+  &__body
+    display: block
+
   &__list
     display: block
     color: #000
@@ -61,6 +67,7 @@
 @media all and (max-width: 420px)
   .footer-nav
     &__head
+      display: block
       text-align: center
       padding: 1em 0
       color: #fff

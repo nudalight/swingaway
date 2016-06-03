@@ -26,7 +26,7 @@ gulp.task('serve', ['sass'], () => {
         port: 4000
     });
     gulp.watch("production/sass/**/*.sass", ['sass']);
-    gulp.watch("production/jade/**/*.jade", ['jade:catalog']);
+    gulp.watch("production/jade/**/*.jade", ['jade:product']);
     gulp.watch("production/js/**.js", ['js']);
 });
 

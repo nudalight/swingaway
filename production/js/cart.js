@@ -124,7 +124,7 @@ function Cart(userConfig){
 
 
 $('.butt-add-to-cart').on('click', function(){
-    cart.increment(this);
+    cart_.increment(this);
 
 
 

@@ -1,0 +1,66 @@
+.compare
+  opacity: 0
+
+  &__container
+    display: flex
+    flex-wrap: wrap
+
+  &__attrs
+    width: 10%
+
+  &__prods
+    display: flex
+    flex-wrap: wrap
+    width: 90%
+
+  &__navs
+    width: 100%
+    text-align: center
+    border: 1px solid red
+
+.compare-attr
+
+  &__cell
+    border-bottom: 1px solid #ddd
+    padding: .5em 1.5em .5em .7em
+
+
+.compare-prod
+  position: relative
+  &__cell
+    border-bottom: 1px solid #ddd
+    padding: .5em .7em
+
+  &__image
+    max-width: 100%
+
+  &__remove
+    border: 1px solid red
+    width: 1.5em
+    border-radius: 50%
+
+
+.compare-nav
+  margin: .2em .3em
+
+  &--prev
+  &--next
+
+
+
+@media all and (max-width: 800px)
+  .compare
+    &__attrs
+      width: 20%
+
+    &__prods
+      width: 80%
+
+
+@media all and (max-width: 360px)
+  .compare
+    &__attrs
+      width: 25%
+
+    &__prods
+      width: 75%

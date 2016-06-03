@@ -3,6 +3,7 @@
 let ext = '.js';
 
 module.exports = {
+    currencySymbol: '$',
     mainMenu: require('./main-menu' + ext),
     socials: require('./socials' + ext),
     productImages: [

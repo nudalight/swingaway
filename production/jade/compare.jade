@@ -1,6 +1,7 @@
-        // two tabs needed!
-        - var i_compare = 0, i_compare_attr = 0;
+        //- two tabs needed!
 
+        - var i_compare_prod = 0, i_compare_attr = 0;
+        - var prodLen = products.length, attrLen = Object.keys(products[0].attributes).length;
 
         section.compare
             .wrap
@@ -8,21 +9,57 @@
                     h2.page-heading Compare products
 
                     .compare__container
-                        .compare__attributes
-                            table
-                        .compare__products
-                            table
-                                tr
-                                    - for (; i_compare < products.length; i_compare++)
-                                        td(
-                                            style='width: 200px'
-                                        )
-                                            img(
-                                                style="max-width: 100%",
-                                                src='#{ products[i_compare].photos[0] }'
-                                            )
-                                tr
-                                    - for (; i_compare_attr < Object.keys(products[0].attributes).length; i_compare_attr++)
-                                        td=i_compare + ' ' + i_compare_attr
+                        .compare__attrs
+                            .compare-attr
+                                .compare-attr__cell X
+                                .compare-attr__cell Image
+                                .compare-attr__cell Title
+                                .compare-attr__cell Price
+                                .compare-attr__cell Controls
+                                - for (attrKey in products[0].attributes)
+                                    .compare-attr__cell()=attrKey
 
-                                        //td=products[i_compare_attr].attributes[i_compare]
+                        .compare__prods
+                            - for (i_compare_prod = 0; i_compare_prod < products.length; i_compare_prod++)
+                                .compare-prod(
+                                    data-product-id="#{ products[i_compare_prod].id }"
+                                )
+                                    .compare-prod__cell
+                                        .compare-prod__remove X
+                                    .compare-prod__cell
+                                        .compare-prod__image-wrap
+                                            img.compare-prod__image(
+                                                src='#{ products[i_compare_prod].photos[0] }'
+                                            )
+                                    .compare-prod__cell
+                                        .compare-prod__title=products[i_compare_prod].title
+                                    .compare-prod__cell
+                                        .compare-prod__price=products[i_compare_prod].price
+                                    .compare-prod__cell
+                                        .compare-prod__controls
+                                            button(
+                                                class='compare-prod__button butt-add-to-wishlist'
+                                            ) Add to cart
+
+                                    - for (attrKey in products[0].attributes)
+                                        .compare-prod__cell.compare-prod__attr=products[i_compare_prod].attributes[attrKey]
+
+
+                        .compare__navs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
