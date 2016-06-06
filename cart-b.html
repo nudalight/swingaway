@@ -5,20 +5,67 @@
     <title>Default Title</title>
     <meta name="viewport" content="width=device-width">
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
-    <script src="bower_components/holderjs/holder.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css">
     <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
     <script src="bower_components/slick-carousel/slick/slick.js"></script>
-    <script src="production/js/polyfill/some.function.js"></script>
     <link rel="stylesheet" href="distribution/css/output.css">
     <script src="distribution/js/output.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300italic,400italic,700,700italic,900,300" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">OFFCANVAS CONTENT</div>
+    <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">
+      <div class="offcanvas-logo">
+        <div class="offcanvas-logo__heading">Swingaway</div>
+      </div>
+      <div class="offcanvas-search">
+        <div class="offcanvas-search__container">
+          <div class="offcanvas-search__form">
+            <input placeholder="Search query" class="offcanvas-search__input form-control">
+            <div class="offcanvas-search__submit glyphicon glyphicon-search"></div>
+          </div>
+        </div>
+      </div>
+      <div class="offcanvas-menu">
+        <!--h4.offcanvas-menu__heading Main Menu-->
+        <ul class="offcanvas-menu__list">
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Home</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Baseball</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened offcanvas-menu__item--active"><a class="offcanvas-menu__link">Softball</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Pitching</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Parts</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Accessories</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Customer Service</a>
+            <ul class="offcanvas-submenu">
+              <li class="offcanvas-submenu__item"><a href="/contacts.html" class="offcanvas-submenu__link">Contacts</a></li>
+              <li class="offcanvas-submenu__item"><a href="/assembly_manuals.html" class="offcanvas-submenu__link">Assembly manuals</a></li>
+              <li class="offcanvas-submenu__item"><a href="/videos.html" class="offcanvas-submenu__link">Videos</a></li>
+              <li class="offcanvas-submenu__item"><a href="/videos.html" class="offcanvas-submenu__link">Warranty</a></li>
+              <li class="offcanvas-submenu__item"><a href="/dealers.html" class="offcanvas-submenu__link">Dealers</a></li>
+              <li class="offcanvas-submenu__item"><a href="/partners.html" class="offcanvas-submenu__link">Partners</a></li>
+            </ul>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Meet the team</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Store</a>
+          </li>
+        </ul>
+      </div>
+      <div class="offcanvas-auth-choice">
+        <ul class="offcanvas-auth-choice__list">
+          <li class="offcanvas-auth-choice__item"><a class="offcanvas-auth-choice__link">Login</a></li>
+          <li class="offcanvas-auth-choice__item"><a class="offcanvas-auth-choice__link">Register</a></li>
+        </ul>
+      </div>
+    </div>
     <div id="auth-modal" role="dialog" class="auth-modal modal fade">
       <div class="auth-modal__container modal-dialog">
         <div class="auth-modal__inner modal-content">
@@ -26,7 +73,7 @@
             <button type="button" data-dismiss="modal" class="auth-modal__close close">&times;</button>
             <h4 class="modal-title">Login form</h4>
           </div>
-          <div class="auth-modal__body modal-body">
+          <div class="auth-modal__body">
             <h4>For returning customores</h4>
             <p>If you've purchased from us before, please login with your email address and password.</p>
             <form>
@@ -40,7 +87,7 @@
               </div>
               <h4>New Customers</h4>
               <p>If this is your first purchase with us, please proceed by clicking the following button to continue first-time registration.</p>
-              <button type="submit">Submit</button>
+              <button type="submit" class="auth-modal__submit">Submit</button>
             </form>
           </div>
         </div>
@@ -49,7 +96,7 @@
     <header class="header navbar navbar-default">
       <div class="wrap">
         <div class="container-fluid v"><span data-toggle="offcanvas" data-target=".offcanvas" data-canvas="body" class="navbar-toggle pull-left glyphicon glyphicon-menu-hamburger"></span>
-          <div class="logo"><img //data-src="holder.js/200x50?text=Logo" src="http://www.swingaway.com/default.asp" class="logo__image"></div>
+          <div class="logo"><img src="http://placehold.it/200x50?text=Logo" class="logo__image"></div>
           <div class="shop-components pull-right">
             <div class="auth-choice">
               <ul class="auth-choice__list">
@@ -173,7 +220,7 @@
                   <input id="billing-input-email" type="email" placeholder="Email" data-validate-as="email" class="billing__input form-control">
                 </div>
               </form>
-              <div class="billing__notice hide">You have to complete all form inputs in order to proceed</div>
+              <div class="billing__notice hide">You have to fill in all form inputs in order to proceed</div>
               <div class="billing__controls clearfix">
                 <button form="form-billing" class="billing__submit pull-right btn btn-default">Proceed</button>
               </div>
@@ -186,15 +233,20 @@
       <div class="footer-nav">
         <div class="container-fluid">
           <div class="wrap">
-            <ul class="footer-nav__list">
-              <li class="footer-nav__item"><a href="/" class="footer-nav__link">Home</a></li>
-              <li class="footer-nav__item"><a href="/contacts.html" class="footer-nav__link">Contacts</a></li>
-              <li class="footer-nav__item"><a href="/assembly_manuals.html" class="footer-nav__link">Assembly manuals</a></li>
-              <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Videos</a></li>
-              <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Warranty</a></li>
-              <li class="footer-nav__item"><a href="/dealers.html" class="footer-nav__link">Dealers</a></li>
-              <li class="footer-nav__item"><a href="/partners.html" class="footer-nav__link">Partners</a></li>
-            </ul>
+            <div class="footer-nav__container">
+              <div class="footer-nav__head">+ Menu</div>
+              <div class="footer-nav__body">
+                <ul class="footer-nav__list">
+                  <li class="footer-nav__item"><a href="/" class="footer-nav__link">Home</a></li>
+                  <li class="footer-nav__item"><a href="/contacts.html" class="footer-nav__link">Contacts</a></li>
+                  <li class="footer-nav__item"><a href="/assembly_manuals.html" class="footer-nav__link">Assembly manuals</a></li>
+                  <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Videos</a></li>
+                  <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Warranty</a></li>
+                  <li class="footer-nav__item"><a href="/dealers.html" class="footer-nav__link">Dealers</a></li>
+                  <li class="footer-nav__item"><a href="/partners.html" class="footer-nav__link">Partners</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

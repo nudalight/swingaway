@@ -14,19 +14,50 @@
     width: 90%
 
   &__navs
+    margin-top: 2em
     width: 100%
     text-align: center
-    border: 1px solid red
 
 .compare-attr
 
   &__cell
     border-bottom: 1px solid #ddd
     padding: .5em 1.5em .5em .7em
+    font-weight: 600
 
 
 .compare-prod
   position: relative
+
+  &__button
+    padding-left: 3em
+    background-image: url(../img/icons/basket-black.png)
+    background-position: 1em center
+    background-size: 1.2em
+    background-repeat: no-repeat
+
+    &:hover
+      background-image: url(../img/icons/basket-white.png)
+
+  &__cell
+    &--remove
+      text-align: right
+
+  &__remove
+    display: inline-block
+    width: 1.8em
+    height: 1.8em
+    background: url(../img/icons/close-black.png) center center no-repeat
+    background-size: 50%
+    cursor: pointer
+    border-radius: 50%
+    transition-duration: .3s
+
+    &:hover
+      transform: rotate(-90deg)
+      background-size: 60%
+      background-image: url(../img/icons/close-red.png)
+
   &__cell
     border-bottom: 1px solid #ddd
     padding: .5em .7em
@@ -34,17 +65,11 @@
   &__image
     max-width: 100%
 
-  &__remove
-    border: 1px solid red
-    width: 1.5em
-    border-radius: 50%
-
 
 .compare-nav
   margin: .2em .3em
 
-  &--prev
-  &--next
+
 
 
 

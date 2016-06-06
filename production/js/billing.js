@@ -1,5 +1,6 @@
 var v_ = new Validate();
 
+
 $('.billing__form').on('blur', '.form-control', function(e){
     v_.validate(e.target);
 });
@@ -14,6 +15,7 @@ $('.billing__submit').on('click', function(e){
     } else {
         e.preventDefault();
         v_.validateForm($(billingForm));
+        $('.billing__notice').removeClass('hide');
     }
 
 });

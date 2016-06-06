@@ -2,8 +2,8 @@ $('.compare__prods').slick({
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 1,
-    prevArrow: '<button class="compare-nav compare-nav--next">1</button>',
-    nextArrow: '<button class="compare-nav compare-nav--next">2</button>',
+    prevArrow: '<button class="compare-nav compare-nav--prev btn">move left</button>',
+    nextArrow: '<button class="compare-nav compare-nav--next btn">move right</button>',
     appendArrows: '.compare__navs',
     responsive: [
         {

@@ -1,5 +1,109 @@
-.offcanvas-fix
-  left: 0 !important
+.offcanvas-logo
+  font-size: 1.8em
+  text-transform: uppercase
+  padding: .6em .8em
+  background: #333
+  color: #fff
+
+
+.offcanvas-search
+  &__container
+    position: relative
+    padding: 1em 1.8em
+
+  &__input
+    padding: .3em 3.8em .3em .5em
+    width: 100%
+
+  &__submit
+    position: absolute
+    right: 3em
+    top: 1.7em
+
+
+.offcanvas-menu
+  &__heading
+    padding-left: 1.45em
+
+  &__list
+    display: block
+
+  &__item
+    &--active >  a
+      border-left: .4em solid #444
+      background: #ddd
+
+      &:before
+        position: absolute
+        display: block
+        content: ''
+        right: 1em
+        width: 1em
+        height: 1em
+        background: url(../img/icons/simple-arrow-right-black.png) right center no-repeat
+        background-size: .5em
+
+
+  &__link
+    cursor: pointer
+    display: block
+    font-size: 1.05em
+    padding: .8em 1.8em
+    border-bottom: .0125em solid #ccc
+    border-top: .0125em solid #eee
+    background-color: #eee
+    color: #222
+
+    &:before
+      position: absolute
+      display: block
+      content: ''
+      width: 1em
+      height: 1em
+      right: 1em
+      background:  url(../img/icons/simple-arrow-right-dark-grey.png) right center no-repeat
+      background-size: .5em
+
+    &:hover
+      background-color: #ddd
+      text-decoration: none
+
+
+
+.offcanvas-submenu
+  &__item
+    &--active >  a
+      border-left: .4em solid #444
+      background: #ddd url(../img/icons/simple-arrow-right-black.png) right center no-repeat
+      background-size: .5em
+
+  &__link
+    cursor: pointer
+    display: block
+    font-size: 1.05em
+    padding: .8em 1.8em .8em 2.6em
+    border-bottom: .0125em solid #ddd
+    background: url(../img/icons/simple-arrow-right-dark-grey.png) 18.9em center no-repeat
+    background-size: .5em
+
+    &:hover
+      background-color: #ddd
+      text-decoration: none
+
+
+
+.offcanvas-auth-choice
+  &__list
+    text-align: center
+
+  &__item
+    display: inline-block
+    padding: 1em 2em
+
+
+
+
+
 
 
 @media all and (max-width: 1000px)

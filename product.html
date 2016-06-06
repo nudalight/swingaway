@@ -5,20 +5,67 @@
     <title>Default Title</title>
     <meta name="viewport" content="width=device-width">
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
-    <script src="bower_components/holderjs/holder.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css">
     <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
     <script src="bower_components/slick-carousel/slick/slick.js"></script>
-    <script src="production/js/polyfill/some.function.js"></script>
     <link rel="stylesheet" href="distribution/css/output.css">
     <script src="distribution/js/output.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300italic,400italic,700,700italic,900,300" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">3</div>
+    <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">
+      <div class="offcanvas-logo">
+        <div class="offcanvas-logo__heading">Swingaway</div>
+      </div>
+      <div class="offcanvas-search">
+        <div class="offcanvas-search__container">
+          <div class="offcanvas-search__form">
+            <input placeholder="Search query" class="offcanvas-search__input form-control">
+            <div class="offcanvas-search__submit glyphicon glyphicon-search"></div>
+          </div>
+        </div>
+      </div>
+      <div class="offcanvas-menu">
+        <!--h4.offcanvas-menu__heading Main Menu-->
+        <ul class="offcanvas-menu__list">
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Home</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Baseball</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened offcanvas-menu__item--active"><a class="offcanvas-menu__link">Softball</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Pitching</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Parts</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Accessories</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Customer Service</a>
+            <ul class="offcanvas-submenu">
+              <li class="offcanvas-submenu__item"><a href="/contacts.html" class="offcanvas-submenu__link">Contacts</a></li>
+              <li class="offcanvas-submenu__item"><a href="/assembly_manuals.html" class="offcanvas-submenu__link">Assembly manuals</a></li>
+              <li class="offcanvas-submenu__item"><a href="/videos.html" class="offcanvas-submenu__link">Videos</a></li>
+              <li class="offcanvas-submenu__item"><a href="/videos.html" class="offcanvas-submenu__link">Warranty</a></li>
+              <li class="offcanvas-submenu__item"><a href="/dealers.html" class="offcanvas-submenu__link">Dealers</a></li>
+              <li class="offcanvas-submenu__item"><a href="/partners.html" class="offcanvas-submenu__link">Partners</a></li>
+            </ul>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Meet the team</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Store</a>
+          </li>
+        </ul>
+      </div>
+      <div class="offcanvas-auth-choice">
+        <ul class="offcanvas-auth-choice__list">
+          <li class="offcanvas-auth-choice__item"><a class="offcanvas-auth-choice__link">Login</a></li>
+          <li class="offcanvas-auth-choice__item"><a class="offcanvas-auth-choice__link">Register</a></li>
+        </ul>
+      </div>
+    </div>
     <div id="auth-modal" role="dialog" class="auth-modal modal fade">
       <div class="auth-modal__container modal-dialog">
         <div class="auth-modal__inner modal-content">
@@ -154,7 +201,7 @@
                     <h4 class="modal-title">Login form</h4>
                   </div>
                   <div class="product-gallery-modal__body">
-                    <p>dsffffffffffffffffffffffffffffffdsffffffffffffffffffffffffffffffdsffffffffffffffffffffffffffffffdsffffffffffffffffffffffffffffffdsffffffffffffffffffffffffffffffdsffffffffffffffffffffffffffffffdsffffffffffffffffffffffffffffffdsffffffffffffffffffffffffffffffdsffffffffffffffffffffffffffffffdsffffffffffffffffffffffffffffffdsffffffffffffffffffffffffffffffdsffffffffffffffffffffffffffffffdsffffffffffffffffffffffffffffffdsffffffffffffffffffffffffffffff</p>
+                    <p>BLACK</p>
                   </div>
                 </div>
               </div>
@@ -166,11 +213,11 @@
             <div class="product-basics__reviews">
               <div class="stars">
                 <div class="stars__container children-inline">
-                  <div class="stars__star">*</div>
-                  <div class="stars__star">*</div>
-                  <div class="stars__star">*</div>
-                  <div class="stars__star">*</div>
-                  <div class="stars__star">*</div>
+                  <div class="stars__star stars__star--red "></div>
+                  <div class="stars__star stars__star--red "></div>
+                  <div class="stars__star stars__star--red "></div>
+                  <div class="stars__star  "></div>
+                  <div class="stars__star  "></div>
                 </div>
               </div>
             </div>
@@ -188,7 +235,13 @@
               <li class="product-details__item active"><a data-toggle="tab" href="#tab-description" class="product-details__link">Description</a></li>
               <li class="product-details__item"><a data-toggle="tab" href="#tab-characteristics" class="product-details__link">Characteristics</a></li>
               <li class="product-details__item"><a data-toggle="tab" href="#tab-reviews" class="product-details__link">Reviews</a></li>
-              <li class="product-details__item"><a data-toggle="tab" href="#tab-qna" class="product-details__link">Q&A</a></li>
+              <!--li.product-details__item()
+              a.product-details__link(
+                  data-toggle='tab',
+                  href='#tab-qna'
+              ) Q&A
+              
+              -->
             </ul>
             <div class="product-details__container tab-content">
               <div id="tab-description" class="product-details__box product-details__box--description tab-pane active">
@@ -247,11 +300,11 @@
                         <div class="product-review__stars">
                           <div class="stars">
                             <div class="stars__container children-inline">
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
+                              <div class="stars__star stars__star--red "></div>
+                              <div class="stars__star stars__star--red "></div>
+                              <div class="stars__star stars__star--red "></div>
+                              <div class="stars__star  "></div>
+                              <div class="stars__star  "></div>
                             </div>
                           </div>
                         </div>
@@ -262,13 +315,7 @@
                     <div class="product-review__footline row">
                       <div class="product-review__summary col-md-8">Yes, i recommend this product!</div>
                       <div class="product-review__likes col-md-4 text-right">
-                        <div class="likes">
-                          <div class="likes__container children-inline">
-                            <div class="likes__like">---</div>
-                            <div class="likes__ballance">15</div>
-                            <div class="likes__dislike">===</div>
-                          </div>
-                        </div>
+                        <!--include ./element.likes.jade-->
                       </div>
                     </div>
                   </div>
@@ -281,11 +328,11 @@
                         <div class="product-review__stars">
                           <div class="stars">
                             <div class="stars__container children-inline">
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
+                              <div class="stars__star stars__star--red "></div>
+                              <div class="stars__star stars__star--red "></div>
+                              <div class="stars__star stars__star--red "></div>
+                              <div class="stars__star  "></div>
+                              <div class="stars__star  "></div>
                             </div>
                           </div>
                         </div>
@@ -296,13 +343,7 @@
                     <div class="product-review__footline row">
                       <div class="product-review__summary col-md-8">Yes, i recommend this product!</div>
                       <div class="product-review__likes col-md-4 text-right">
-                        <div class="likes">
-                          <div class="likes__container children-inline">
-                            <div class="likes__like">---</div>
-                            <div class="likes__ballance">15</div>
-                            <div class="likes__dislike">===</div>
-                          </div>
-                        </div>
+                        <!--include ./element.likes.jade-->
                       </div>
                     </div>
                   </div>
@@ -315,11 +356,11 @@
                         <div class="product-review__stars">
                           <div class="stars">
                             <div class="stars__container children-inline">
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
+                              <div class="stars__star stars__star--red "></div>
+                              <div class="stars__star stars__star--red "></div>
+                              <div class="stars__star stars__star--red "></div>
+                              <div class="stars__star  "></div>
+                              <div class="stars__star  "></div>
                             </div>
                           </div>
                         </div>
@@ -330,13 +371,7 @@
                     <div class="product-review__footline row">
                       <div class="product-review__summary col-md-8">Yes, i recommend this product!</div>
                       <div class="product-review__likes col-md-4 text-right">
-                        <div class="likes">
-                          <div class="likes__container children-inline">
-                            <div class="likes__like">---</div>
-                            <div class="likes__ballance">15</div>
-                            <div class="likes__dislike">===</div>
-                          </div>
-                        </div>
+                        <!--include ./element.likes.jade-->
                       </div>
                     </div>
                   </div>
@@ -349,11 +384,11 @@
                         <div class="product-review__stars">
                           <div class="stars">
                             <div class="stars__container children-inline">
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
-                              <div class="stars__star">*</div>
+                              <div class="stars__star stars__star--red "></div>
+                              <div class="stars__star stars__star--red "></div>
+                              <div class="stars__star stars__star--red "></div>
+                              <div class="stars__star  "></div>
+                              <div class="stars__star  "></div>
                             </div>
                           </div>
                         </div>
@@ -364,104 +399,18 @@
                     <div class="product-review__footline row">
                       <div class="product-review__summary col-md-8">Yes, i recommend this product!</div>
                       <div class="product-review__likes col-md-4 text-right">
-                        <div class="likes">
-                          <div class="likes__container children-inline">
-                            <div class="likes__like">---</div>
-                            <div class="likes__ballance">15</div>
-                            <div class="likes__dislike">===</div>
-                          </div>
-                        </div>
+                        <!--include ./element.likes.jade-->
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div id="tab-qna" class="product-details__box product-details__box--qna tab-pane">
-                <div class="product-qna">
-                  <div class="product-qna__container">
-                    <div class="product-qna__headline row">
-                      <div class="product-qna__question col-md-5">Question #857</div>
-                      <div class="product-qna__panel col-md-7 children-inline text-right">
-                        <div class="product-qna__author">Jack</div>
-                        <div class="product-qna__published">17 Jan, 2016</div>
-                        <div class="product-qna__likes">
-                          <div class="likes">
-                            <div class="likes__container children-inline">
-                              <div class="likes__like">---</div>
-                              <div class="likes__ballance">15</div>
-                              <div class="likes__dislike">===</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-qna__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nes sue Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</div>
-                  </div>
-                </div>
-                <div class="product-qna">
-                  <div class="product-qna__container">
-                    <div class="product-qna__headline row">
-                      <div class="product-qna__question col-md-5">Question #857</div>
-                      <div class="product-qna__panel col-md-7 children-inline text-right">
-                        <div class="product-qna__author">Jack</div>
-                        <div class="product-qna__published">17 Jan, 2016</div>
-                        <div class="product-qna__likes">
-                          <div class="likes">
-                            <div class="likes__container children-inline">
-                              <div class="likes__like">---</div>
-                              <div class="likes__ballance">15</div>
-                              <div class="likes__dislike">===</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-qna__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nes sue Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</div>
-                  </div>
-                </div>
-                <div class="product-qna">
-                  <div class="product-qna__container">
-                    <div class="product-qna__headline row">
-                      <div class="product-qna__question col-md-5">Question #857</div>
-                      <div class="product-qna__panel col-md-7 children-inline text-right">
-                        <div class="product-qna__author">Jack</div>
-                        <div class="product-qna__published">17 Jan, 2016</div>
-                        <div class="product-qna__likes">
-                          <div class="likes">
-                            <div class="likes__container children-inline">
-                              <div class="likes__like">---</div>
-                              <div class="likes__ballance">15</div>
-                              <div class="likes__dislike">===</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-qna__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nes sue Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</div>
-                  </div>
-                </div>
-                <div class="product-qna">
-                  <div class="product-qna__container">
-                    <div class="product-qna__headline row">
-                      <div class="product-qna__question col-md-5">Question #857</div>
-                      <div class="product-qna__panel col-md-7 children-inline text-right">
-                        <div class="product-qna__author">Jack</div>
-                        <div class="product-qna__published">17 Jan, 2016</div>
-                        <div class="product-qna__likes">
-                          <div class="likes">
-                            <div class="likes__container children-inline">
-                              <div class="likes__like">---</div>
-                              <div class="likes__ballance">15</div>
-                              <div class="likes__dislike">===</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-qna__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nes sue Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</div>
-                  </div>
-                </div>
-              </div>
+              <!--#tab-qna.product-details__box.product-details__box--qna(-->
+              <!--    class='tab-pane'-->
+              <!--)-->
+              <!--    include ./jade/incl/product.qna.jade-->
+              
+              
             </div>
           </div>
         </div>

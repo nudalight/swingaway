@@ -5,20 +5,67 @@
     <title>Default Title</title>
     <meta name="viewport" content="width=device-width">
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
-    <script src="bower_components/holderjs/holder.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css">
     <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
     <script src="bower_components/slick-carousel/slick/slick.js"></script>
-    <script src="production/js/polyfill/some.function.js"></script>
     <link rel="stylesheet" href="distribution/css/output.css">
     <script src="distribution/js/output.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300italic,400italic,700,700italic,900,300" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">3</div>
+    <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">
+      <div class="offcanvas-logo">
+        <div class="offcanvas-logo__heading">Swingaway</div>
+      </div>
+      <div class="offcanvas-search">
+        <div class="offcanvas-search__container">
+          <div class="offcanvas-search__form">
+            <input placeholder="Search query" class="offcanvas-search__input form-control">
+            <div class="offcanvas-search__submit glyphicon glyphicon-search"></div>
+          </div>
+        </div>
+      </div>
+      <div class="offcanvas-menu">
+        <!--h4.offcanvas-menu__heading Main Menu-->
+        <ul class="offcanvas-menu__list">
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Home</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Baseball</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened offcanvas-menu__item--active"><a class="offcanvas-menu__link">Softball</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Pitching</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Parts</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Accessories</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Customer Service</a>
+            <ul class="offcanvas-submenu">
+              <li class="offcanvas-submenu__item"><a href="/contacts.html" class="offcanvas-submenu__link">Contacts</a></li>
+              <li class="offcanvas-submenu__item"><a href="/assembly_manuals.html" class="offcanvas-submenu__link">Assembly manuals</a></li>
+              <li class="offcanvas-submenu__item"><a href="/videos.html" class="offcanvas-submenu__link">Videos</a></li>
+              <li class="offcanvas-submenu__item"><a href="/videos.html" class="offcanvas-submenu__link">Warranty</a></li>
+              <li class="offcanvas-submenu__item"><a href="/dealers.html" class="offcanvas-submenu__link">Dealers</a></li>
+              <li class="offcanvas-submenu__item"><a href="/partners.html" class="offcanvas-submenu__link">Partners</a></li>
+            </ul>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Meet the team</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Store</a>
+          </li>
+        </ul>
+      </div>
+      <div class="offcanvas-auth-choice">
+        <ul class="offcanvas-auth-choice__list">
+          <li class="offcanvas-auth-choice__item"><a class="offcanvas-auth-choice__link">Login</a></li>
+          <li class="offcanvas-auth-choice__item"><a class="offcanvas-auth-choice__link">Register</a></li>
+        </ul>
+      </div>
+    </div>
     <div id="auth-modal" role="dialog" class="auth-modal modal fade">
       <div class="auth-modal__container modal-dialog">
         <div class="auth-modal__inner modal-content">
@@ -128,14 +175,15 @@
       <div class="wrap">
         <div class="container-fluid">
           <h2 class="page-heading">Compare products</h2>
+          <div class="compare__empty alert alert-warning fade in hide">There are no products to compare</div>
           <div class="compare__container">
             <div class="compare__attrs">
               <div class="compare-attr">
-                <div class="compare-attr__cell">X</div>
+                <div class="compare-attr__cell"></div>
                 <div class="compare-attr__cell">Image</div>
                 <div class="compare-attr__cell">Title</div>
                 <div class="compare-attr__cell">Price</div>
-                <div class="compare-attr__cell">Controls</div>
+                <div class="compare-attr__cell"></div>
                 <div class="compare-attr__cell">Brand</div>
                 <div class="compare-attr__cell">SKU</div>
                 <div class="compare-attr__cell">Shipping</div>
@@ -143,8 +191,8 @@
             </div>
             <div class="compare__prods">
               <div data-product-id="1" class="compare-prod">
-                <div class="compare-prod__cell">
-                  <div class="compare-prod__remove">X</div>
+                <div class="compare-prod__cell compare-prod__cell--remove">
+                  <div class="compare-prod__remove"></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__image-wrap"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="compare-prod__image"></div>
@@ -153,11 +201,11 @@
                   <div class="compare-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
                 </div>
                 <div class="compare-prod__cell">
-                  <div class="compare-prod__price">105.99</div>
+                  <div class="compare-prod__price"><span class="compare-prod__price-currency">$</span><span class="compare-prod__price-amount">105.99</span></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__controls">
-                    <button class="compare-prod__button butt-add-to-wishlist">Add to cart</button>
+                    <button class="compare-prod__button btn butt-add-to-compare">Add to cart</button>
                   </div>
                 </div>
                 <div class="compare-prod__cell compare-prod__attr">ELEITE</div>
@@ -165,8 +213,8 @@
                 <div class="compare-prod__cell compare-prod__attr">Usually ships in 24 to 48 hrs</div>
               </div>
               <div data-product-id="2" class="compare-prod">
-                <div class="compare-prod__cell">
-                  <div class="compare-prod__remove">X</div>
+                <div class="compare-prod__cell compare-prod__cell--remove">
+                  <div class="compare-prod__remove"></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__image-wrap"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="compare-prod__image"></div>
@@ -175,11 +223,11 @@
                   <div class="compare-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
                 </div>
                 <div class="compare-prod__cell">
-                  <div class="compare-prod__price">167.45</div>
+                  <div class="compare-prod__price"><span class="compare-prod__price-currency">$</span><span class="compare-prod__price-amount">167.45</span></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__controls">
-                    <button class="compare-prod__button butt-add-to-wishlist">Add to cart</button>
+                    <button class="compare-prod__button btn butt-add-to-compare">Add to cart</button>
                   </div>
                 </div>
                 <div class="compare-prod__cell compare-prod__attr">ELEITE</div>
@@ -187,8 +235,8 @@
                 <div class="compare-prod__cell compare-prod__attr">Usually ships in 24 to 48 hrs</div>
               </div>
               <div data-product-id="3" class="compare-prod">
-                <div class="compare-prod__cell">
-                  <div class="compare-prod__remove">X</div>
+                <div class="compare-prod__cell compare-prod__cell--remove">
+                  <div class="compare-prod__remove"></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__image-wrap"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="compare-prod__image"></div>
@@ -197,11 +245,11 @@
                   <div class="compare-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
                 </div>
                 <div class="compare-prod__cell">
-                  <div class="compare-prod__price">199.99</div>
+                  <div class="compare-prod__price"><span class="compare-prod__price-currency">$</span><span class="compare-prod__price-amount">199.99</span></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__controls">
-                    <button class="compare-prod__button butt-add-to-wishlist">Add to cart</button>
+                    <button class="compare-prod__button btn butt-add-to-compare">Add to cart</button>
                   </div>
                 </div>
                 <div class="compare-prod__cell compare-prod__attr">ELEITE</div>
@@ -209,8 +257,8 @@
                 <div class="compare-prod__cell compare-prod__attr">Usually ships in 24 to 48 hrs</div>
               </div>
               <div data-product-id="4" class="compare-prod">
-                <div class="compare-prod__cell">
-                  <div class="compare-prod__remove">X</div>
+                <div class="compare-prod__cell compare-prod__cell--remove">
+                  <div class="compare-prod__remove"></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__image-wrap"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="compare-prod__image"></div>
@@ -219,11 +267,11 @@
                   <div class="compare-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
                 </div>
                 <div class="compare-prod__cell">
-                  <div class="compare-prod__price">499.99</div>
+                  <div class="compare-prod__price"><span class="compare-prod__price-currency">$</span><span class="compare-prod__price-amount">499.99</span></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__controls">
-                    <button class="compare-prod__button butt-add-to-wishlist">Add to cart</button>
+                    <button class="compare-prod__button btn butt-add-to-compare">Add to cart</button>
                   </div>
                 </div>
                 <div class="compare-prod__cell compare-prod__attr">ELEITE</div>
@@ -231,8 +279,8 @@
                 <div class="compare-prod__cell compare-prod__attr">Usually ships in 24 to 48 hrs</div>
               </div>
               <div data-product-id="5" class="compare-prod">
-                <div class="compare-prod__cell">
-                  <div class="compare-prod__remove">X</div>
+                <div class="compare-prod__cell compare-prod__cell--remove">
+                  <div class="compare-prod__remove"></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__image-wrap"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="compare-prod__image"></div>
@@ -241,11 +289,11 @@
                   <div class="compare-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
                 </div>
                 <div class="compare-prod__cell">
-                  <div class="compare-prod__price">70.00</div>
+                  <div class="compare-prod__price"><span class="compare-prod__price-currency">$</span><span class="compare-prod__price-amount">70.00</span></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__controls">
-                    <button class="compare-prod__button butt-add-to-wishlist">Add to cart</button>
+                    <button class="compare-prod__button btn butt-add-to-compare">Add to cart</button>
                   </div>
                 </div>
                 <div class="compare-prod__cell compare-prod__attr">ELEITE</div>
@@ -253,8 +301,8 @@
                 <div class="compare-prod__cell compare-prod__attr">Usually ships in 24 to 48 hrs</div>
               </div>
               <div data-product-id="6" class="compare-prod">
-                <div class="compare-prod__cell">
-                  <div class="compare-prod__remove">X</div>
+                <div class="compare-prod__cell compare-prod__cell--remove">
+                  <div class="compare-prod__remove"></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__image-wrap"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="compare-prod__image"></div>
@@ -263,11 +311,11 @@
                   <div class="compare-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
                 </div>
                 <div class="compare-prod__cell">
-                  <div class="compare-prod__price">89.49</div>
+                  <div class="compare-prod__price"><span class="compare-prod__price-currency">$</span><span class="compare-prod__price-amount">89.49</span></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__controls">
-                    <button class="compare-prod__button butt-add-to-wishlist">Add to cart</button>
+                    <button class="compare-prod__button btn butt-add-to-compare">Add to cart</button>
                   </div>
                 </div>
                 <div class="compare-prod__cell compare-prod__attr">ELEITE</div>
@@ -275,8 +323,8 @@
                 <div class="compare-prod__cell compare-prod__attr">Usually ships in 24 to 48 hrs</div>
               </div>
               <div data-product-id="7" class="compare-prod">
-                <div class="compare-prod__cell">
-                  <div class="compare-prod__remove">X</div>
+                <div class="compare-prod__cell compare-prod__cell--remove">
+                  <div class="compare-prod__remove"></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__image-wrap"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="compare-prod__image"></div>
@@ -285,11 +333,11 @@
                   <div class="compare-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
                 </div>
                 <div class="compare-prod__cell">
-                  <div class="compare-prod__price">101.11</div>
+                  <div class="compare-prod__price"><span class="compare-prod__price-currency">$</span><span class="compare-prod__price-amount">101.11</span></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__controls">
-                    <button class="compare-prod__button butt-add-to-wishlist">Add to cart</button>
+                    <button class="compare-prod__button btn butt-add-to-compare">Add to cart</button>
                   </div>
                 </div>
                 <div class="compare-prod__cell compare-prod__attr">ELEITE</div>
@@ -297,8 +345,8 @@
                 <div class="compare-prod__cell compare-prod__attr">Usually ships in 24 to 48 hrs</div>
               </div>
               <div data-product-id="8" class="compare-prod">
-                <div class="compare-prod__cell">
-                  <div class="compare-prod__remove">X</div>
+                <div class="compare-prod__cell compare-prod__cell--remove">
+                  <div class="compare-prod__remove"></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__image-wrap"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="compare-prod__image"></div>
@@ -307,11 +355,11 @@
                   <div class="compare-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
                 </div>
                 <div class="compare-prod__cell">
-                  <div class="compare-prod__price">999.99</div>
+                  <div class="compare-prod__price"><span class="compare-prod__price-currency">$</span><span class="compare-prod__price-amount">999.99</span></div>
                 </div>
                 <div class="compare-prod__cell">
                   <div class="compare-prod__controls">
-                    <button class="compare-prod__button butt-add-to-wishlist">Add to cart</button>
+                    <button class="compare-prod__button btn butt-add-to-compare">Add to cart</button>
                   </div>
                 </div>
                 <div class="compare-prod__cell compare-prod__attr">ELEITE</div>

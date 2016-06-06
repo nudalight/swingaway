@@ -5,20 +5,67 @@
     <title>Default Title</title>
     <meta name="viewport" content="width=device-width">
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
-    <script src="bower_components/holderjs/holder.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css">
     <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
     <script src="bower_components/slick-carousel/slick/slick.js"></script>
-    <script src="production/js/polyfill/some.function.js"></script>
     <link rel="stylesheet" href="distribution/css/output.css">
     <script src="distribution/js/output.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300italic,400italic,700,700italic,900,300" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">OFFCANVAS CONTENT</div>
+    <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">
+      <div class="offcanvas-logo">
+        <div class="offcanvas-logo__heading">Swingaway</div>
+      </div>
+      <div class="offcanvas-search">
+        <div class="offcanvas-search__container">
+          <div class="offcanvas-search__form">
+            <input placeholder="Search query" class="offcanvas-search__input form-control">
+            <div class="offcanvas-search__submit glyphicon glyphicon-search"></div>
+          </div>
+        </div>
+      </div>
+      <div class="offcanvas-menu">
+        <!--h4.offcanvas-menu__heading Main Menu-->
+        <ul class="offcanvas-menu__list">
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Home</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Baseball</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened offcanvas-menu__item--active"><a class="offcanvas-menu__link">Softball</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Pitching</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Parts</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Accessories</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Customer Service</a>
+            <ul class="offcanvas-submenu">
+              <li class="offcanvas-submenu__item"><a href="/contacts.html" class="offcanvas-submenu__link">Contacts</a></li>
+              <li class="offcanvas-submenu__item"><a href="/assembly_manuals.html" class="offcanvas-submenu__link">Assembly manuals</a></li>
+              <li class="offcanvas-submenu__item"><a href="/videos.html" class="offcanvas-submenu__link">Videos</a></li>
+              <li class="offcanvas-submenu__item"><a href="/videos.html" class="offcanvas-submenu__link">Warranty</a></li>
+              <li class="offcanvas-submenu__item"><a href="/dealers.html" class="offcanvas-submenu__link">Dealers</a></li>
+              <li class="offcanvas-submenu__item"><a href="/partners.html" class="offcanvas-submenu__link">Partners</a></li>
+            </ul>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Meet the team</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Store</a>
+          </li>
+        </ul>
+      </div>
+      <div class="offcanvas-auth-choice">
+        <ul class="offcanvas-auth-choice__list">
+          <li class="offcanvas-auth-choice__item"><a class="offcanvas-auth-choice__link">Login</a></li>
+          <li class="offcanvas-auth-choice__item"><a class="offcanvas-auth-choice__link">Register</a></li>
+        </ul>
+      </div>
+    </div>
     <div id="auth-modal" role="dialog" class="auth-modal modal fade">
       <div class="auth-modal__container modal-dialog">
         <div class="auth-modal__inner modal-content">
@@ -26,7 +73,7 @@
             <button type="button" data-dismiss="modal" class="auth-modal__close close">&times;</button>
             <h4 class="modal-title">Login form</h4>
           </div>
-          <div class="auth-modal__body modal-body">
+          <div class="auth-modal__body">
             <h4>For returning customores</h4>
             <p>If you've purchased from us before, please login with your email address and password.</p>
             <form>
@@ -40,7 +87,7 @@
               </div>
               <h4>New Customers</h4>
               <p>If this is your first purchase with us, please proceed by clicking the following button to continue first-time registration.</p>
-              <button type="submit">Submit</button>
+              <button type="submit" class="auth-modal__submit">Submit</button>
             </form>
           </div>
         </div>
@@ -49,7 +96,7 @@
     <header class="header navbar navbar-default">
       <div class="wrap">
         <div class="container-fluid v"><span data-toggle="offcanvas" data-target=".offcanvas" data-canvas="body" class="navbar-toggle pull-left glyphicon glyphicon-menu-hamburger"></span>
-          <div class="logo"><img //data-src="holder.js/200x50?text=Logo" src="http://www.swingaway.com/default.asp" class="logo__image"></div>
+          <div class="logo"><img src="http://placehold.it/200x50?text=Logo" class="logo__image"></div>
           <div class="shop-components pull-right">
             <div class="auth-choice">
               <ul class="auth-choice__list">
@@ -128,7 +175,7 @@
       <div class="wrap">
         <div class="container-fluid">
           <h2 class="cart-a__heading">Cart</h2>
-          <div class="cart-a__empty hide">Your cart is empty</div>
+          <div class="cart-a__empty alert alert-warning fade in hide">Your cart is empty</div>
           <div class="cart-a__container clearfix">
             <div class="cart-a__cart col-md-9 clear-left-padding">
               <table class="cart-a__table table table-hover td-vertical">
@@ -155,7 +202,7 @@
                     <div class="cart-a__item-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--price">
-                    <div class="cart-a__item-price">199.99</div>
+                    <div class="cart-a__item-price">105.99</div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--x">
                     <div class="cart-a__item-x">X</div>
@@ -166,7 +213,7 @@
                     </div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--sum">
-                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">199.99</span></div>
+                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">105.99</span></div>
                   </td>
                 </tr>
                 <tr data-product-id="2" class="cart-a__item">
@@ -180,7 +227,7 @@
                     <div class="cart-a__item-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--price">
-                    <div class="cart-a__item-price">199.99</div>
+                    <div class="cart-a__item-price">167.45</div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--x">
                     <div class="cart-a__item-x">X</div>
@@ -191,7 +238,7 @@
                     </div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--sum">
-                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">399.98</span></div>
+                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">334.9</span></div>
                   </td>
                 </tr>
                 <tr data-product-id="3" class="cart-a__item">
@@ -230,7 +277,7 @@
                     <div class="cart-a__item-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--price">
-                    <div class="cart-a__item-price">199.99</div>
+                    <div class="cart-a__item-price">499.99</div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--x">
                     <div class="cart-a__item-x">X</div>
@@ -241,7 +288,7 @@
                     </div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--sum">
-                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">799.96</span></div>
+                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">1999.96</span></div>
                   </td>
                 </tr>
                 <tr data-product-id="5" class="cart-a__item">
@@ -255,7 +302,7 @@
                     <div class="cart-a__item-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--price">
-                    <div class="cart-a__item-price">199.99</div>
+                    <div class="cart-a__item-price">70.00</div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--x">
                     <div class="cart-a__item-x">X</div>
@@ -266,7 +313,7 @@
                     </div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--sum">
-                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">999.95</span></div>
+                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">350</span></div>
                   </td>
                 </tr>
                 <tr data-product-id="6" class="cart-a__item">
@@ -280,7 +327,7 @@
                     <div class="cart-a__item-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--price">
-                    <div class="cart-a__item-price">199.99</div>
+                    <div class="cart-a__item-price">89.49</div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--x">
                     <div class="cart-a__item-x">X</div>
@@ -291,7 +338,7 @@
                     </div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--sum">
-                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">1199.94</span></div>
+                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">536.9399999999999</span></div>
                   </td>
                 </tr>
                 <tr data-product-id="7" class="cart-a__item">
@@ -305,7 +352,7 @@
                     <div class="cart-a__item-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--price">
-                    <div class="cart-a__item-price">199.99</div>
+                    <div class="cart-a__item-price">101.11</div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--x">
                     <div class="cart-a__item-x">X</div>
@@ -316,7 +363,7 @@
                     </div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--sum">
-                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">1399.93</span></div>
+                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">707.77</span></div>
                   </td>
                 </tr>
                 <tr data-product-id="8" class="cart-a__item">
@@ -330,7 +377,7 @@
                     <div class="cart-a__item-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--price">
-                    <div class="cart-a__item-price">199.99</div>
+                    <div class="cart-a__item-price">999.99</div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--x">
                     <div class="cart-a__item-x">X</div>
@@ -341,7 +388,7 @@
                     </div>
                   </td>
                   <td class="cart-a__cell cart-a__cell--sum">
-                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">1599.92</span></div>
+                    <div class="cart-a__item-sum"><span class="cart-a__item-sum-currency">$</span><span class="cart-a__item-sum-amount">7999.92</span></div>
                   </td>
                 </tr>
                 <tfoot>
@@ -380,7 +427,7 @@
                   </tfoot>
                 </table>
                 <div class="cart-summary__controls">
-                  <button class="cart-summary__submit btn btn-swingaway-ii">Go to checkout</button>
+                  <button class="cart-summary__submit btn btn-info">Go to checkout</button>
                 </div>
               </div>
             </div>
@@ -392,15 +439,20 @@
       <div class="footer-nav">
         <div class="container-fluid">
           <div class="wrap">
-            <ul class="footer-nav__list">
-              <li class="footer-nav__item"><a href="/" class="footer-nav__link">Home</a></li>
-              <li class="footer-nav__item"><a href="/contacts.html" class="footer-nav__link">Contacts</a></li>
-              <li class="footer-nav__item"><a href="/assembly_manuals.html" class="footer-nav__link">Assembly manuals</a></li>
-              <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Videos</a></li>
-              <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Warranty</a></li>
-              <li class="footer-nav__item"><a href="/dealers.html" class="footer-nav__link">Dealers</a></li>
-              <li class="footer-nav__item"><a href="/partners.html" class="footer-nav__link">Partners</a></li>
-            </ul>
+            <div class="footer-nav__container">
+              <div class="footer-nav__head">+ Menu</div>
+              <div class="footer-nav__body">
+                <ul class="footer-nav__list">
+                  <li class="footer-nav__item"><a href="/" class="footer-nav__link">Home</a></li>
+                  <li class="footer-nav__item"><a href="/contacts.html" class="footer-nav__link">Contacts</a></li>
+                  <li class="footer-nav__item"><a href="/assembly_manuals.html" class="footer-nav__link">Assembly manuals</a></li>
+                  <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Videos</a></li>
+                  <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Warranty</a></li>
+                  <li class="footer-nav__item"><a href="/dealers.html" class="footer-nav__link">Dealers</a></li>
+                  <li class="footer-nav__item"><a href="/partners.html" class="footer-nav__link">Partners</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

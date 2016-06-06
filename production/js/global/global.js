@@ -23,7 +23,9 @@ var compare_ = new Compare({
 
 new ComparePage({
     prod: '.compare-prod',
-    prodRemove: '.compare-prod__remove'
+    prodRemove: '.compare-prod__remove',
+    compareContainer: '.compare__container',
+    compareEmpty: '.compare__empty'
 });
 
 // good, but old

@@ -1,8 +1,49 @@
-        //- two tabs needed !
+        //- two tabs needed!
+        - var activeOffcanvasMenuItem = -3, activeHeadMenuItem = -1;
 
         .offcanvas(
             class="navmenu navmenu-default navmenu-fixed-left"
-        ) 3
+        )
+            .offcanvas-logo
+                .offcanvas-logo__heading Swingaway
+
+            .offcanvas-search
+                .offcanvas-search__container
+                    .offcanvas-search__form
+                        input.offcanvas-search__input(
+                            class='form-control',
+                            placeholder='Search query'
+                        )
+                        .offcanvas-search__submit(
+                            class='glyphicon glyphicon-search'
+                        )
+
+            .offcanvas-menu
+                //h4.offcanvas-menu__heading Main Menu
+                ul.offcanvas-menu__list
+                    - for (key in mainMenu)
+                        - activeOffcanvasMenuItem++
+                            li.offcanvas-menu__item.offcanvas-menu__item--has-sublist.offcanvas-menu__item--opened(
+                                class="#{ activeOffcanvasMenuItem == 0 ? 'offcanvas-menu__item--active' : '' }"
+                            )
+                                a.offcanvas-menu__link(
+                                )=key
+                                - if (typeof mainMenu[key] === 'object')
+                                    ul.offcanvas-submenu
+                                        - for (subKey in mainMenu[key])
+                                            li.offcanvas-submenu__item
+                                                a.offcanvas-submenu__link(
+                                                    href="#{ (typeof mainMenu[key][subKey] === 'object') ? '#' : mainMenu[key][subKey]}"
+                                                )=subKey
+
+            .offcanvas-auth-choice
+                ul.offcanvas-auth-choice__list
+                    li.offcanvas-auth-choice__item
+                        a.offcanvas-auth-choice__link Login
+                    li.offcanvas-auth-choice__item
+                        a.offcanvas-auth-choice__link Register
+
+
 
         .auth-modal(
             id='auth-modal',

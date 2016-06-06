@@ -59,6 +59,9 @@ function Compare(config, select){
         $(this.select.mirror).text( this.count() );
     };
 
+    function init(){
+        that.mirror();
+    }
 
-
+    init();
 }

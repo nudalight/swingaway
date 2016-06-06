@@ -8,24 +8,34 @@
     display: inline-block
     width: 3em
     height: 3em
-    border: 1px solid #fff
     position: relative
     cursor: pointer
+    transition-duration: .3s
 
     &:hover
-      box-shadow: 0px 0px 3px rgba(255,255,255, 1)
+      //box-shadow: 0 0  .19em rgba(255,255,255, 1)
+      background-color: rgba(255,255,255,.2)
 
   &__compare
-    background: url(https://d30y9cdsu7xlg0.cloudfront.net/png/483-200.png) center center no-repeat
+    background: url(../img/icons/scales-grey.png) center center no-repeat
     background-size: 2.2em
+
+    &:hover
+      background-image: url(../img/icons/scales-white.png)
 
   &__wishlist
-    background: url(http://indianweddingcards.ca/wp-content/themes/storefront/images/wishlist.png) center center no-repeat
+    background: url(../img/icons/wishlist-grey.png) center center no-repeat
     background-size: 2.2em
 
+    &:hover
+      background-image: url(../img/icons/wishlist-white.png)
+
   &__cart
-    background: url(http://image005.flaticon.com/1/svg/43/43898.svg) center center no-repeat
+    background: url(../img/icons/basket-grey.png) center center no-repeat
     background-size: 2.2em
+
+    &:hover
+      background-image: url(../img/icons/basket-white.png)
 
   &__counter
     width: 1.5em

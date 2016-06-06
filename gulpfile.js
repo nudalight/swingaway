@@ -2,7 +2,7 @@
 
 const gulp = require('gulp');
 const bs = require('browser-sync').create();
-const sass = require('gulp-sass');
+//const sass = require('gulp-sass');
 const jade = require('gulp-jade');
 const theJade = require('jade');
 const concat = require('gulp-concat');
@@ -12,6 +12,23 @@ const insert = require('gulp-insert');
 const uglify = require('gulp-uglify');
 const debug = require('gulp-debug');
 const order = require('gulp-order');
+const imagemin = require('gulp-imagemin');
+const styl = require('gulp-stylus');
+
+/*
+- home +
+- product
+- compare +
+- cart-a +
+- cart-b +
+- catalog
+- wishlist
+
+
+*/
+
+
+
 
 
 // use in the future gulp group
@@ -26,7 +43,7 @@ gulp.task('serve', ['sass'], () => {
         port: 4000
     });
     gulp.watch("production/sass/**/*.sass", ['sass']);
-    gulp.watch("production/jade/**/*.jade", ['jade:product']);
+    gulp.watch("production/jade/**/*.jade", ['jade:catalog']);
     gulp.watch("production/js/**.js", ['js']);
 });
 
@@ -34,6 +51,14 @@ gulp.task('serve', ['sass'], () => {
 gulp.task('reload', () => {
    bs.reload();
 });
+
+
+gulp.task('test-styl', function(){
+    return gulp.src('./production/sass/breadcrumbs.sass')
+    .pipe(styl())
+    .pipe(gulp.dest('./styl-test'))
+});
+
 
 
 gulp.task('js', () => {
@@ -47,15 +72,24 @@ gulp.task('js', () => {
         .pipe(concat('output.js'))
         .pipe(insert.wrap('$(document).ready(function(){\n\n', '\n\n});'))
         .pipe(gulp.dest('distribution/js'))
+        .pipe(rename('output.min.js'))
+        .pipe(gulp.dest('distribution/js'))
         .pipe(bs.stream());
 });
+
+gulp.task('img', () => {
+    return gulp.src('./production/img/**/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('./distribution/img'))
+});
+
 
 
 gulp.task('sass', () => {
     return gulp.src('./production/sass/*.sass')
         .pipe(debug())
         .pipe(concat('sassify.sass'))
-        .pipe(sass())
+        .pipe(styl())
         .pipe(rename('output.css'))
         .pipe(gulp.dest('distribution/css'))
         .pipe(bs.stream());

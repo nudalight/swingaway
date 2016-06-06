@@ -5,20 +5,67 @@
     <title>Default Title</title>
     <meta name="viewport" content="width=device-width">
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
-    <script src="bower_components/holderjs/holder.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css">
     <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
     <script src="bower_components/slick-carousel/slick/slick.js"></script>
-    <script src="production/js/polyfill/some.function.js"></script>
     <link rel="stylesheet" href="distribution/css/output.css">
     <script src="distribution/js/output.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300italic,400italic,700,700italic,900,300" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">3</div>
+    <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">
+      <div class="offcanvas-logo">
+        <div class="offcanvas-logo__heading">Swingaway</div>
+      </div>
+      <div class="offcanvas-search">
+        <div class="offcanvas-search__container">
+          <div class="offcanvas-search__form">
+            <input placeholder="Search query" class="offcanvas-search__input form-control">
+            <div class="offcanvas-search__submit glyphicon glyphicon-search"></div>
+          </div>
+        </div>
+      </div>
+      <div class="offcanvas-menu">
+        <!--h4.offcanvas-menu__heading Main Menu-->
+        <ul class="offcanvas-menu__list">
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Home</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Baseball</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened offcanvas-menu__item--active"><a class="offcanvas-menu__link">Softball</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Pitching</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Parts</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Accessories</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Customer Service</a>
+            <ul class="offcanvas-submenu">
+              <li class="offcanvas-submenu__item"><a href="/contacts.html" class="offcanvas-submenu__link">Contacts</a></li>
+              <li class="offcanvas-submenu__item"><a href="/assembly_manuals.html" class="offcanvas-submenu__link">Assembly manuals</a></li>
+              <li class="offcanvas-submenu__item"><a href="/videos.html" class="offcanvas-submenu__link">Videos</a></li>
+              <li class="offcanvas-submenu__item"><a href="/videos.html" class="offcanvas-submenu__link">Warranty</a></li>
+              <li class="offcanvas-submenu__item"><a href="/dealers.html" class="offcanvas-submenu__link">Dealers</a></li>
+              <li class="offcanvas-submenu__item"><a href="/partners.html" class="offcanvas-submenu__link">Partners</a></li>
+            </ul>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Meet the team</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Store</a>
+          </li>
+        </ul>
+      </div>
+      <div class="offcanvas-auth-choice">
+        <ul class="offcanvas-auth-choice__list">
+          <li class="offcanvas-auth-choice__item"><a class="offcanvas-auth-choice__link">Login</a></li>
+          <li class="offcanvas-auth-choice__item"><a class="offcanvas-auth-choice__link">Register</a></li>
+        </ul>
+      </div>
+    </div>
     <div id="auth-modal" role="dialog" class="auth-modal modal fade">
       <div class="auth-modal__container modal-dialog">
         <div class="auth-modal__inner modal-content">
@@ -40,7 +87,7 @@
               </div>
               <h4>New Customers</h4>
               <p>If this is your first purchase with us, please proceed by clicking the following button to continue first-time registration.</p>
-              <button type="submit">Submit</button>
+              <button type="submit" class="auth-modal__submit">Submit</button>
             </form>
           </div>
         </div>
@@ -173,34 +220,34 @@
           <h2 class="home-icon-grid__heading">Major Legue Baseball</h2>
           <ul class="home-icon-grid__list">
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_0"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon1"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_1"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon2"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_2"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon3"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_3"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon4"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_4"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon5"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_5"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon6"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_6"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon7"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_7"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon8"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_8"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon9"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_9"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon10"></div>
             </li>
           </ul>
         </div>
@@ -213,103 +260,103 @@
           <h2 class="home-icon-grid__heading">Top College programs</h2>
           <ul class="home-icon-grid__list">
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_0"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon0"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_1"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon1"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_2"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon2"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_3"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon3"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_4"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon4"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_5"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon5"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_6"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon6"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_7"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon7"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_8"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon8"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_9"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon9"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_10"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon10"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_11"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon11"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_12"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon12"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_13"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon13"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_14"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon14"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_15"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon15"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_16"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon16"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_17"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon17"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_18"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon18"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_19"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon19"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_20"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon20"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_21"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon21"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_22"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon22"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_23"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon23"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_24"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon24"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_25"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon25"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_26"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon26"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_27"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon27"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_28"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon28"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_29"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon29"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_30"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon30"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_31"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon31"></div>
             </li>
             <li class="home-icon-grid__item">
-              <div class="home-icon-grid__container"><img src="holder.js/100x100?text=banner_32"></div>
+              <div class="home-icon-grid__container"><img src="http://placehold.it/100x100?text=icon32"></div>
             </li>
           </ul>
         </div>
@@ -319,15 +366,20 @@
       <div class="footer-nav">
         <div class="container-fluid">
           <div class="wrap">
-            <ul class="footer-nav__list">
-              <li class="footer-nav__item"><a href="/" class="footer-nav__link">Home</a></li>
-              <li class="footer-nav__item"><a href="/contacts.html" class="footer-nav__link">Contacts</a></li>
-              <li class="footer-nav__item"><a href="/assembly_manuals.html" class="footer-nav__link">Assembly manuals</a></li>
-              <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Videos</a></li>
-              <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Warranty</a></li>
-              <li class="footer-nav__item"><a href="/dealers.html" class="footer-nav__link">Dealers</a></li>
-              <li class="footer-nav__item"><a href="/partners.html" class="footer-nav__link">Partners</a></li>
-            </ul>
+            <div class="footer-nav__container">
+              <div class="footer-nav__head">+ Menu</div>
+              <div class="footer-nav__body">
+                <ul class="footer-nav__list">
+                  <li class="footer-nav__item"><a href="/" class="footer-nav__link">Home</a></li>
+                  <li class="footer-nav__item"><a href="/contacts.html" class="footer-nav__link">Contacts</a></li>
+                  <li class="footer-nav__item"><a href="/assembly_manuals.html" class="footer-nav__link">Assembly manuals</a></li>
+                  <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Videos</a></li>
+                  <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Warranty</a></li>
+                  <li class="footer-nav__item"><a href="/dealers.html" class="footer-nav__link">Dealers</a></li>
+                  <li class="footer-nav__item"><a href="/partners.html" class="footer-nav__link">Partners</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
