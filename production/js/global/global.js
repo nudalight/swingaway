@@ -18,7 +18,8 @@ new CartPage({
 var compare_ = new Compare({
     storageKey: 'swingaway__compare'
 }, {
-    mirror: '.services__compare .services__counter'
+    mirror: '.services__compare .services__counter',
+    addButton: '.butt-add-to-compare'
 });
 
 new ComparePage({
@@ -27,6 +28,20 @@ new ComparePage({
     compareContainer: '.compare__container',
     compareEmpty: '.compare__empty'
 });
+
+
+new WishlistPage({
+   
+});
+
+var wishlist_ = new Wishlist({
+    storageKey: 'swingaway__wishlist'
+}, {
+    mirror: '.services__wishlist .services__counter',
+    addButton: '.butt-add-to-wishlist'
+});
+
+
 
 // good, but old
 Array.prototype.contains = function(obj) {

@@ -1,0 +1,182 @@
+// inc: modals
+
+.auth-modal(
+    id='auth-modal',
+    role='dialog',
+    class='modal fade'
+)
+    .auth-modal__container(
+    class='modal-dialog'
+    )
+        .auth-modal__inner(
+        class='modal-content'
+        )
+            .auth-modal__head(
+            class='modal-header'
+            )
+                button.auth-modal__close(
+                class='close',
+                type='button',
+                data-dismiss='modal'
+                ) &times;
+                h4(
+                class='modal-title'
+                ) Login form
+
+            .auth-modal__body(
+            class=''
+            )
+                h4 For returning customores
+                p If you've purchased from us before, please login with your email address and password.
+                form
+                    div(
+                    class='form-group'
+                    )
+                        label(
+                        for='auth-login-email'
+                        ) Email address
+                        input(
+                        class='form-control',
+                        id='auth-login-email',
+                        type='email',
+                        placeholder='Email'
+                        )
+                    div(
+                    class='form-group'
+                    )
+                        label(
+                        for='auth-login-email'
+                        ) Email address
+                        input(
+                        class='form-control',
+                        id='auth-login-password',
+                        type='password',
+                        placeholder='Password'
+                        )
+                    h4 New Customers
+                    p If this is your first purchase with us, please proceed by clicking the following button to continue first-time registration.
+                    button.auth-modal__submit(
+                    type='submit'
+                    ) Submit
+
+
+.alert-modal(
+id='alert-modal',
+role='dialog',
+class='modal fade'
+)
+    .alert-modal__container(
+    class='modal-dialog'
+    )
+        .alert-modal__inner(
+        class='modal-content'
+        )
+            .alert-modal__head(
+            class='modal-header'
+            )
+                button.alert-modal__close(
+                class='close',
+                type='button',
+                data-dismiss='modal'
+                ) &times;
+                h4(
+                class='modal-title'
+                ) Notice
+
+            .alert-modal__body
+                p.alert-modal__message
+
+            .alert-modal__foot(
+            class='modal-footer'
+            )
+                a.alert-modal__choice-a(
+                class='btn'
+                ) choice-a
+                a.alert-modal__choice-b(
+                class='btn btn-success'
+                ) choice-b
+
+
+
+.review-modal(
+    id='review-modal',
+    role='dialog',
+    class='modal fade'
+)
+    .review-modal__container(
+        class='modal-dialog'
+    )
+        .review-modal__inner(
+            class='modal-content'
+        )
+            form(
+                action='#',
+                method='post'
+            )
+                .review-modal__head(
+                    class='modal-header'
+                )
+                    button.review-modal__close(
+                        class='close',
+                        type='button',
+                        data-dismiss='modal'
+                    ) &times;
+                    h4(
+                        class='modal-title'
+                    ) Write a review
+
+                .review-modal__body
+
+                    .review-modal__inputs
+                        input.review-modal__input(
+                            class='form-control',
+                            placeholder='Your name'
+                        )
+                        input.review-modal__input(
+                            class='form-control',
+                            placeholder='Your email'
+                        )
+
+                    .review-modal__message-wrap
+                        textarea.review-modal__message(
+                            class='form-control',
+                            placeholder='Your review text here..'
+                        )
+
+                    .review-modal__opts
+                        .review-modal__opt
+                            input.review-modal__opt-input(
+                                id='review-opt-positive'
+                                name='review-opt',
+                                type='radio'
+                                value='positive'
+                            )
+                            label.review-modal__opt-label(
+                                for='review-opt-positive'
+                            )
+                                | Yes, I recommend this product
+
+                        .review-modal__opt
+                            input.review-modal__opt-input(
+                                id='review-opt-negative'
+                                name='review-opt',
+                                type='radio'
+                                value='negative'
+                            )
+                            label.review-modal__opt-label(
+                                for='review-opt-negative'
+                            )
+                                | No, I do not recommend this product
+
+                    .review-modal__stars.choose-from-stars
+                        include ./element.stars.jade
+
+                .review-modal__foot(
+                    class='modal-footer'
+                )
+                    button.review-modal__submit(
+                        class='btn btn-default'
+                    ) Submit
+
+
+

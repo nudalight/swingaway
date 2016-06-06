@@ -35,8 +35,10 @@
     border: none
     border-top: 1px solid #eee
 
+
   .nav-tabs > li.active > a,
-  .nav-tabs > li:focus
+  .nav-tabs > li:focus,
+  .nav-tabs > li a:focus
     background: #eee
     border-radius: .2em
 
@@ -45,6 +47,13 @@ ul, ol
 
 .btn
   transition-duration: .2s
+  border-radius: .1em
+
+.btn.btn-default
+  background: #eee
+
+  &:hover
+    background: #ddd
 
 .btn.btn-swingaway
   border: 1px solid #ddd
@@ -54,3 +63,8 @@ ul, ol
     border: 1px solid darken(salmon, 10%)
     background-color: salmon
     color: #fff
+
+
+.modal
+  &-content
+    border-radius: .2em

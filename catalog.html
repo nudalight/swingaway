@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Default Title</title>
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -93,6 +93,20 @@
         </div>
       </div>
     </div>
+    <div id="alert-modal" role="dialog" class="alert-modal modal fade">
+      <div class="alert-modal__container modal-dialog">
+        <div class="alert-modal__inner modal-content">
+          <div class="alert-modal__head modal-header">
+            <button type="button" data-dismiss="modal" class="alert-modal__close close">&times;</button>
+            <h4 class="modal-title">Notice</h4>
+          </div>
+          <div class="alert-modal__body">
+            <p class="alert-modal__message"></p>
+          </div>
+          <div class="alert-modal__foot modal-footer"><a class="alert-modal__choice-a btn">choice-a</a><a class="alert-modal__choice-b btn btn-success">choice-b</a></div>
+        </div>
+      </div>
+    </div>
     <header class="header navbar navbar-default">
       <div class="wrap">
         <div class="container-fluid v"><span data-toggle="offcanvas" data-target=".offcanvas" data-canvas="body" class="navbar-toggle pull-left glyphicon glyphicon-menu-hamburger"></span>
@@ -113,17 +127,10 @@
                 </form>
               </div>
             </div>
-            <div class="services">
-              <div class="services__compare">
-                <div class="services__counter">5</div>
-              </div>
-              <div class="services__wishlist">
-                <div class="services__counter">43</div>
-              </div>
-              <div class="services__cart">
-                <div class="services__counter">2</div>
-              </div>
-            </div>
+            <div class="services"><a href="/compare.html" class="services__compare">
+                <div class="services__counter">5</div></a><a href="/wishlist.html" class="services__wishlist">
+                <div class="services__counter">43</div></a><a href="/cart-a.html" class="services__cart">
+                <div class="services__counter">2</div></a></div>
           </div>
         </div>
         <div class="container-fluid">

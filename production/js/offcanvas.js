@@ -1,14 +1,5 @@
-console.log(12);
-
 var opened = 'offcanvas-menu__item--opened';
 var openedFix = 'offcanvas-submenu--fix';
-
-// offcanvas-menu__link.offcanvas-menu__link--has-submenu.offcanvas-menu__link--opened
-
-$('a').click(function(e){
-    e.preventDefault();
-});
-
 
 $('.offcanvas-menu__item--has-sublist').on('click', function(e){
 
@@ -29,8 +20,8 @@ $('.offcanvas-menu__item--has-sublist').on('click', function(e){
 $('.offcanvas-auth-choice__link').on('click', function(e){
     e.preventDefault();
     $('.navbar-toggle').click();
-    setTimeout((
-        $('#auth-modal').modal('show')
-    ), 2500)
+    setTimeout(function() {
+        $('#auth-modal').modal('show');
+    }, 400)
 
 });

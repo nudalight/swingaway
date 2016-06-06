@@ -1,22 +1,59 @@
 .product-basics
   padding-left: 1.5em
 
+  &__title
+    font-size: 2.2em
+
   &__price
     font-size: 1.8em
 
+  &__reviews
+    padding: 1em 0
+
   &__butt
-    border: 1px solid #ddd
-    background: #eee
     padding: .6em 1.8em
     font-weight: 600
 
+    //&:hover
+    //  color: #fff
+
     &--cart
+      border: 1px solid salmon
       background-color: salmon
+      
       &:hover
         background-color: darken(salmon, 10%)
+    
+    //&--compare
+    //  background: lighten(#337ab7, 15%)
+    //  border: 1px solid lighten(#337ab7, 5%)
+    //
+    //  &:hover
+    //    background-color: #337ab7
+    //
+    //&--wishlist
+    //  background: lighten(#337ab7, 15%)
+    //  border: 1px solid lighten(#337ab7, 5%)
+    //
+    //  &:hover
+    //    background-color: #337ab7
 
-    &--compare,
-    &--wishlist
-      &:hover
-        background-color: lighten(#337ab7, 30%)
 
+
+@media all and (max-width: 800px)
+  .product-basics
+    &__title
+      font-size: 2em
+
+
+@media all and (max-width: 420px)
+  .product-basics
+    padding-left: 0
+
+    &__title
+      font-size: 1.7em
+
+    &__butt
+      display: block
+      width: 16em
+      margin: .8em auto

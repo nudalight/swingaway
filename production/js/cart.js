@@ -89,6 +89,22 @@ function Cart(userConfig){
         console.info(cartData);
     };
 
+
+    $('.butt-add-to-cart').on('click', function(e){
+        cart_.increment(this);
+
+        var picon = $(e.target).closest('[data-product-id]').find('.control-pad__icon');
+        console.log(picon.length, 'OF LENGTH');
+
+        if (picon.length){
+            $(e.target).addClass('control-pad__icon--in-cart')
+        }
+
+        alert();
+
+    });
+
+
     function mirror(v){
         if (config.mirrorCart){
             $(config.mirrorCart).text(v);
@@ -112,6 +128,23 @@ function Cart(userConfig){
     function init(){
         mirror(countAll());
     }
+    
+    function alert(){
+        var alert = $('#alert-modal');
+        $(alert).modal('show');
+
+        var msg = 'You have <span>' + countAll() + '</span> products in your cart already! You can either continue shopping or go to checkout';
+
+        $(alert).find('.alert-modal__message').html(msg);
+
+        $(alert).find('.alert-modal__choice-a').text('Continue shopping');
+        $(alert).find('.alert-modal__choice-b').text('Go to cart');
+
+        $(alert).find('.alert-modal__choice-a').attr('data-dismiss', 'modal');
+        $(alert).find('.alert-modal__choice-b').attr('href', '/cart-a.html');
+
+
+    }
 
     init();
 }
@@ -122,21 +155,3 @@ function Cart(userConfig){
 
 
 
-
-$('.butt-add-to-cart').on('click', function(){
-    cart_.increment(this);
-
-
-
-
-    // console.log(1);
-    // записать в куки
-
-
-
-
-
-
-
-    // вывести из куки в блок
-});

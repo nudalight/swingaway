@@ -23,8 +23,8 @@ $('.slider-nav').slick({
     vertical: true,
     centerMode: true,
     focusOnSelect: true,
-    prevArrow: '<button class="image-gallery__nav image-gallery__nav-prev"></button>',
-    nextArrow: '<button class="image-gallery__nav image-gallery__nav-next"></button>',
+    prevArrow: '<button class="image-gallery__nav image-gallery__nav--prev"></button>',
+    nextArrow: '<button class="image-gallery__nav image-gallery__nav--next"></button>',
     responsive: [
         {
             breakpoint: 600,

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Default Title</title>
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -66,6 +66,7 @@
         </ul>
       </div>
     </div>
+    <!-- inc: modals-->
     <div id="auth-modal" role="dialog" class="auth-modal modal fade">
       <div class="auth-modal__container modal-dialog">
         <div class="auth-modal__inner modal-content">
@@ -93,6 +94,66 @@
         </div>
       </div>
     </div>
+    <div id="alert-modal" role="dialog" class="alert-modal modal fade">
+      <div class="alert-modal__container modal-dialog">
+        <div class="alert-modal__inner modal-content">
+          <div class="alert-modal__head modal-header">
+            <button type="button" data-dismiss="modal" class="alert-modal__close close">&times;</button>
+            <h4 class="modal-title">Notice</h4>
+          </div>
+          <div class="alert-modal__body">
+            <p class="alert-modal__message"></p>
+          </div>
+          <div class="alert-modal__foot modal-footer"><a class="alert-modal__choice-a btn">choice-a</a><a class="alert-modal__choice-b btn btn-success">choice-b</a></div>
+        </div>
+      </div>
+    </div>
+    <div id="review-modal" role="dialog" class="review-modal modal fade">
+      <div class="review-modal__container modal-dialog">
+        <div class="review-modal__inner modal-content">
+          <form action="#" method="post">
+            <div class="review-modal__head modal-header">
+              <button type="button" data-dismiss="modal" class="review-modal__close close">&times;</button>
+              <h4 class="modal-title">Write a review</h4>
+            </div>
+            <div class="review-modal__body">
+              <div class="review-modal__inputs">
+                <input placeholder="Your name" class="review-modal__input form-control">
+                <input placeholder="Your email" class="review-modal__input form-control">
+              </div>
+              <div class="review-modal__message-wrap">
+                <textarea placeholder="Your review text here.." class="review-modal__message form-control"></textarea>
+              </div>
+              <div class="review-modal__opts">
+                <div class="review-modal__opt">
+                  <input id="review-opt-positive" name="review-opt" type="radio" value="positive" class="review-modal__opt-input">
+                  <label for="review-opt-positive" class="review-modal__opt-label">Yes, I recommend this product</label>
+                </div>
+                <div class="review-modal__opt">
+                  <input id="review-opt-negative" name="review-opt" type="radio" value="negative" class="review-modal__opt-input">
+                  <label for="review-opt-negative" class="review-modal__opt-label">No, I do not recommend this product</label>
+                </div>
+              </div>
+              <div class="review-modal__stars choose-from-stars">
+                <div class="stars">
+                  <div class="stars__container children-inline">
+                    <input type="hidden" class="stars__starred">
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star  "></div>
+                    <div class="stars__star  "></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="review-modal__foot modal-footer">
+              <button class="review-modal__submit btn btn-default">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     <header class="header navbar navbar-default">
       <div class="wrap">
         <div class="container-fluid v"><span data-toggle="offcanvas" data-target=".offcanvas" data-canvas="body" class="navbar-toggle pull-left glyphicon glyphicon-menu-hamburger"></span>
@@ -113,17 +174,10 @@
                 </form>
               </div>
             </div>
-            <div class="services">
-              <div class="services__compare">
-                <div class="services__counter">5</div>
-              </div>
-              <div class="services__wishlist">
-                <div class="services__counter">43</div>
-              </div>
-              <div class="services__cart">
-                <div class="services__counter">2</div>
-              </div>
-            </div>
+            <div class="services"><a href="/compare.html" class="services__compare">
+                <div class="services__counter">5</div></a><a href="/wishlist.html" class="services__wishlist">
+                <div class="services__counter">43</div></a><a href="/cart-a.html" class="services__cart">
+                <div class="services__counter">2</div></a></div>
           </div>
         </div>
         <div class="container-fluid">
@@ -173,59 +227,62 @@
     </section>
     <section class="product">
       <div class="wrap">
-        <div class="container-fluid children-float">
-          <div class="image-gallery">
-            <div class="image-gallery__shortcuts slider-nav">
-              <div class="image-gallery__shortcut"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg"></div>
-              <div class="image-gallery__shortcut"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576"></div>
-              <div class="image-gallery__shortcut"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg"></div>
-              <div class="image-gallery__shortcut"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700"></div>
-              <div class="image-gallery__shortcut"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg"></div>
-              <div class="image-gallery__shortcut"><img src="http://i.turner.ncaa.com/sites/default/files/styles/640x360/public/media/hunt_no_hitter.jpg?itok=9grR4MvX"></div>
-            </div>
-            <div class="image-gallery__preview">
-              <div class="image-gallery__preview-container slider-for">
-                <div class="image-gallery__preview-item"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg"></div>
-                <div class="image-gallery__preview-item"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576"></div>
-                <div class="image-gallery__preview-item"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg"></div>
-                <div class="image-gallery__preview-item"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700"></div>
-                <div class="image-gallery__preview-item"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg"></div>
-                <div class="image-gallery__preview-item"><img src="http://i.turner.ncaa.com/sites/default/files/styles/640x360/public/media/hunt_no_hitter.jpg?itok=9grR4MvX"></div>
+        <div class="container-fluid">
+          <div class="product__container">
+            <div class="image-gallery">
+              <div class="image-gallery__shortcuts slider-nav">
+                <div class="image-gallery__shortcut"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg"></div>
+                <div class="image-gallery__shortcut"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576"></div>
+                <div class="image-gallery__shortcut"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg"></div>
+                <div class="image-gallery__shortcut"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700"></div>
+                <div class="image-gallery__shortcut"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg"></div>
+                <div class="image-gallery__shortcut"><img src="http://i.turner.ncaa.com/sites/default/files/styles/640x360/public/media/hunt_no_hitter.jpg?itok=9grR4MvX"></div>
               </div>
-            </div>
-            <div id="product-gallery-modal" role="dialog" class="product-gallery-modal modal fade">
-              <div class="product-gallery-modal__container modal-dialog">
-                <div class="product-gallery-modal__inner modal-content">
-                  <div class="product-gallery-modal__head modal-header">
-                    <button type="button" data-dismiss="modal" class="product-gallery-modal__close close">&times;</button>
-                    <h4 class="modal-title">Login form</h4>
-                  </div>
-                  <div class="product-gallery-modal__body">
-                    <p>BLACK</p>
+              <div class="image-gallery__preview">
+                <div class="image-gallery__preview-container slider-for">
+                  <div class="image-gallery__preview-item"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg"></div>
+                  <div class="image-gallery__preview-item"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576"></div>
+                  <div class="image-gallery__preview-item"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg"></div>
+                  <div class="image-gallery__preview-item"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700"></div>
+                  <div class="image-gallery__preview-item"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg"></div>
+                  <div class="image-gallery__preview-item"><img src="http://i.turner.ncaa.com/sites/default/files/styles/640x360/public/media/hunt_no_hitter.jpg?itok=9grR4MvX"></div>
+                </div>
+              </div>
+              <div id="product-gallery-modal" role="dialog" class="product-gallery-modal modal fade">
+                <div class="product-gallery-modal__container modal-dialog">
+                  <div class="product-gallery-modal__inner modal-content">
+                    <div class="product-gallery-modal__head modal-header">
+                      <button type="button" data-dismiss="modal" class="product-gallery-modal__close close">&times;</button>
+                      <h4 class="modal-title">Login form</h4>
+                    </div>
+                    <div class="product-gallery-modal__body">
+                      <p>BLACK</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div data-product-id="8" class="product-basics">
-            <h1 class="product-basics__title">Prodcuct title</h1>
-            <div class="product-basics__price">$500</div>
-            <div class="product-basics__reviews">
-              <div class="stars">
-                <div class="stars__container children-inline">
-                  <div class="stars__star stars__star--red "></div>
-                  <div class="stars__star stars__star--red "></div>
-                  <div class="stars__star stars__star--red "></div>
-                  <div class="stars__star  "></div>
-                  <div class="stars__star  "></div>
+            <div data-product-id="8" class="product-basics">
+              <h1 class="product-basics__title">Product title with Brandaname and model</h1>
+              <div class="product-basics__price">$500</div>
+              <div class="product-basics__reviews">
+                <div class="stars">
+                  <div class="stars__container children-inline">
+                    <input type="hidden" class="stars__starred">
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star  "></div>
+                    <div class="stars__star  "></div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="product-basics__characteristics"></div>
-            <div class="product-basics__controls">
-              <button class="product-basics__butt product-basics__butt--cart butt-add-to-cart">Add to cart</button>
-              <button class="product-basics__butt product-basics__butt--compare butt-add-to-compare">Compare</button>
-              <button class="product-basics__butt product-basics__butt--wishlist butt-add-to-wishlist">Add to Wishlist</button>
+              <div class="product-basics__characteristics"></div>
+              <div class="product-basics__controls">
+                <button class="product-basics__butt product-basics__butt--cart butt-add-to-cart btn">Add to cart</button>
+                <button class="product-basics__butt product-basics__butt--compare butt-add-to-compare btn btn-default">Compare</button>
+                <button class="product-basics__butt product-basics__butt--wishlist butt-add-to-wishlist btn btn-default">Add to Wishlist</button>
+              </div>
             </div>
           </div>
         </div>
@@ -292,6 +349,9 @@
                 </table>
               </div>
               <div id="tab-reviews" class="product-details__box product-details__box--reviews tab-pane">
+                <div class="product-details__controls">
+                  <button data-toggle="modal" data-target="#review-modal" class="product-detail__butt btn btn-default">Write a review</button>
+                </div>
                 <div class="product-review col-md-6">
                   <div class="product-review__container">
                     <div class="product-review__headline row">
@@ -300,6 +360,7 @@
                         <div class="product-review__stars">
                           <div class="stars">
                             <div class="stars__container children-inline">
+                              <input type="hidden" class="stars__starred">
                               <div class="stars__star stars__star--red "></div>
                               <div class="stars__star stars__star--red "></div>
                               <div class="stars__star stars__star--red "></div>
@@ -328,6 +389,7 @@
                         <div class="product-review__stars">
                           <div class="stars">
                             <div class="stars__container children-inline">
+                              <input type="hidden" class="stars__starred">
                               <div class="stars__star stars__star--red "></div>
                               <div class="stars__star stars__star--red "></div>
                               <div class="stars__star stars__star--red "></div>
@@ -356,6 +418,7 @@
                         <div class="product-review__stars">
                           <div class="stars">
                             <div class="stars__container children-inline">
+                              <input type="hidden" class="stars__starred">
                               <div class="stars__star stars__star--red "></div>
                               <div class="stars__star stars__star--red "></div>
                               <div class="stars__star stars__star--red "></div>
@@ -384,6 +447,7 @@
                         <div class="product-review__stars">
                           <div class="stars">
                             <div class="stars__container children-inline">
+                              <input type="hidden" class="stars__starred">
                               <div class="stars__star stars__star--red "></div>
                               <div class="stars__star stars__star--red "></div>
                               <div class="stars__star stars__star--red "></div>
@@ -541,7 +605,120 @@
                 </div>
               </div>
             </div>
-            <div id="tab-parts" class="upsell-grid__box upsell-grid__box--parts tab-pane carousel-upsell-parts">PARTS</div>
+            <div id="tab-parts" class="upsell-grid__box upsell-grid__box--parts tab-pane carousel-upsell-parts">
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$105.99</div>
+                  </div>
+                </div>
+              </div>
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$167.45</div>
+                  </div>
+                </div>
+              </div>
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$199.99</div>
+                  </div>
+                </div>
+              </div>
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$499.99</div>
+                  </div>
+                </div>
+              </div>
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$70.00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$89.49</div>
+                  </div>
+                </div>
+              </div>
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$101.11</div>
+                  </div>
+                </div>
+              </div>
+              <div class="upsell-grid__box-item">
+                <div class="grid-product">
+                  <div class="grid-product__container">
+                    <div class="grid-product__image-wrap">
+                      <div class="grid-prduct__controls controls">
+                        <div class="controls__add-to-cart butt-add-to-cart"></div>
+                        <div class="controls__add-to-cart butt-add-to-compare"></div>
+                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
+                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="grid-product__price">$999.99</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

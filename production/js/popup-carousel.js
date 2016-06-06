@@ -1,5 +1,5 @@
 var currentSlide;
-$('.image-gallery__preview').on('click', function(e){
+$('.image-gallery__preview').on('click', 'img', function(e){
 
     currentSlide = $('.slider-for').slick('slickCurrentSlide');
 

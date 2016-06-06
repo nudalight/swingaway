@@ -6,6 +6,9 @@
     .stars__container(
         class='children-inline'
     )
+        input.stars__starred(
+            type='hidden'
+        )
         - for (var i = 0; i < 5; i++)
             .stars__star(
                 class="#{ reds > i ? 'stars__star--red' : '' } "

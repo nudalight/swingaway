@@ -2,11 +2,11 @@
 
         section.product-grid
             .wrap
-                .container-fluid
+                .container-fluid 
                     .product-grid__container
-                        - for (var i_upsell_accessories = 0; i_upsell_accessories < products.length; i_upsell_accessories++)
+                        - for (var i_wl = 0; i_wl < products.length; i_wl++)
                             .product-grid__item(
-                                data-product-id=products[i_upsell_accessories].id
+                                data-product-id=products[i_wl].id
                             )
                                 .grid-product
                                     .grid-product__container
@@ -26,10 +26,10 @@
                                                             class='butt-add-to-compare'
                                                         )
                                             img.grid-product__image(
-                                                src='#{ products[i_upsell_accessories].photos[0] }'
+                                                src='#{ products[i_wl].photos[0] }'
                                             )
                                         a.grid-product__title(
                                             href='/product.html'
-                                        )= products[i_upsell_accessories].title
-                                        .grid-product__price= '$' + products[i_upsell_accessories].price
+                                        )= products[i_wl].title
+                                        .grid-product__price= '$' + products[i_wl].price
 

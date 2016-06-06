@@ -1,19 +1,12 @@
-.product-details
-  padding: 3em 0
+.product
+  padding-bottom: 3em
 
   &__container
-    padding-top: 1em
+    display: flex
 
 
-  &__box
-    &--description
-      h4
-        color: #337ab7
-
-
-      ul
-        li
-          list-style-type: disc
-      ol
-        li
-          list-style-type: decimal
+@media all and (max-width: 980px)
+  .product
+    &__container
+      display: block
+      text-align: center

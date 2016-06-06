@@ -44,66 +44,7 @@
                         a.offcanvas-auth-choice__link Register
 
 
-
-        .auth-modal(
-            id='auth-modal',
-            role='dialog',
-            class='modal fade'
-        )
-            .auth-modal__container(
-                class='modal-dialog'
-            )
-                .auth-modal__inner(
-                    class='modal-content'
-                )
-                    .auth-modal__head(
-                        class='modal-header'
-                    )
-                        button.auth-modal__close(
-                            class='close',
-                            type='button',
-                            data-dismiss='modal'
-                        ) &times;
-                        h4(
-                            class='modal-title'
-                        ) Login form
-
-                    .auth-modal__body(
-                        class=''
-                    )
-                        h4 For returning customores
-                        p If you've purchased from us before, please login with your email address and password.
-                        form
-                            div(
-                                class='form-group'
-                            )
-                                label(
-                                    for='auth-login-email'
-                                ) Email address
-                                input(
-                                    class='form-control',
-                                    id='auth-login-email',
-                                    type='email',
-                                    placeholder='Email'
-                                )
-                            div(
-                                class='form-group'
-                            )
-                                label(
-                                    for='auth-login-email'
-                                ) Email address
-                                input(
-                                    class='form-control',
-                                    id='auth-login-password',
-                                    type='password',
-                                    placeholder='Password'
-                                )
-                            h4 New Customers
-                            p If this is your first purchase with us, please proceed by clicking the following button to continue first-time registration.
-                            button.auth-modal__submit(
-                                type='submit'
-                            ) Submit
-
+        include ../production/jade/incl/modals.jade
 
         header.header(
             class='navbar navbar-default'
@@ -153,11 +94,17 @@
                                         )
 
                         .services()
-                            .services__compare()
+                            a.services__compare(
+                                href='/compare.html'
+                            )
                                 .services__counter() 5
-                            .services__wishlist()
+                            a.services__wishlist(
+                                href='/wishlist.html'
+                            )
                                 .services__counter() 43
-                            .services__cart()
+                            a.services__cart(
+                                href='/cart-a.html'
+                            )
                                 .services__counter() 2
 
                 .container-fluid()

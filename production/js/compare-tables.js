@@ -18,15 +18,6 @@ $(window).on('load resize', function(){
             });
 
 
-            // console.log($(v).height());
-            //
-            // // max
-            //
-            // var h = $(v).height();
-            // $('.compare-attr__table tr:nth-child(' + (i+1) + ')').height(h);
-
-
-
         });
 
         $(selectCompareProd).each(function(i, v, list){
@@ -43,8 +34,5 @@ $(window).on('load resize', function(){
 
         heights = [];
     }
-
-
-    console.dir(heights);
 
 });

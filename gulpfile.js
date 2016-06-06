@@ -2,7 +2,7 @@
 
 const gulp = require('gulp');
 const bs = require('browser-sync').create();
-//const sass = require('gulp-sass');
+const sass = require('gulp-sass');
 const jade = require('gulp-jade');
 const theJade = require('jade');
 const concat = require('gulp-concat');
@@ -11,9 +11,9 @@ const inject = require('gulp-inject');
 const insert = require('gulp-insert');
 const uglify = require('gulp-uglify');
 const debug = require('gulp-debug');
-const order = require('gulp-order');
+const order = require('gulp-order'); 
 const imagemin = require('gulp-imagemin');
-const styl = require('gulp-stylus');
+// const styl = require('gulp-stylus');
 
 /*
 - home +
@@ -43,7 +43,7 @@ gulp.task('serve', ['sass'], () => {
         port: 4000
     });
     gulp.watch("production/sass/**/*.sass", ['sass']);
-    gulp.watch("production/jade/**/*.jade", ['jade:catalog']);
+    gulp.watch("production/jade/**/*.jade", ['jade:wishlist']);
     gulp.watch("production/js/**.js", ['js']);
 });
 
@@ -89,7 +89,7 @@ gulp.task('sass', () => {
     return gulp.src('./production/sass/*.sass')
         .pipe(debug())
         .pipe(concat('sassify.sass'))
-        .pipe(styl())
+        .pipe(sass())
         .pipe(rename('output.css'))
         .pipe(gulp.dest('distribution/css'))
         .pipe(bs.stream());
@@ -222,6 +222,27 @@ gulp.task('jade:cart-b', () => {
             locals: require(jadeDataPath)
         }))
         .pipe(rename('cart-b.html'))
+        .pipe(gulp.dest('./'))
+        .pipe(bs.stream());
+});
+
+
+gulp.task('jade:wishlist', () => {
+    return gulp.src([
+        'production/**/head.jade',
+        'production/**/header.jade',
+        'production/**/breadcrumbs.jade',
+        'production/**/catalog-heading.jade', 
+        'production/**/wishlist.jade',
+        'production/**/footer.jade'
+    ])
+        .pipe(concat('jadify.jade'))
+        .pipe(jade({
+            pretty: true,
+            jade: theJade,
+            locals: require(jadeDataPath)
+        }))
+        .pipe(rename('wishlist.html'))
         .pipe(gulp.dest('./'))
         .pipe(bs.stream());
 });

@@ -2,73 +2,78 @@
 
         section.product
             .wrap
-                .container-fluid(
-                    class='children-float'
-                )
-                    .image-gallery(
-                        class=''
-                    )
-                        .image-gallery__shortcuts.slider-nav()
-                            - for (var i_prodg = 0; i_prodg < productImages.length; i_prodg++)
-                                .image-gallery__shortcut
-                                    img(
-                                        src='#{ productImages[i_prodg] }'
-                                    )
-
-                        .image-gallery__preview()
-                            .image-gallery__preview-container.slider-for()
-                                - for (var i_prodgprev = 0; i_prodgprev < productImages.length; i_prodgprev++)
-                                    .image-gallery__preview-item
+                .container-fluid
+                    .product__container
+                        .image-gallery(
+                            class=''
+                        )
+                            .image-gallery__shortcuts.slider-nav()
+                                - for (var i_prodg = 0; i_prodg < productImages.length; i_prodg++)
+                                    .image-gallery__shortcut
                                         img(
-                                            src='#{ productImages[i_prodgprev] }'
+                                            src='#{ productImages[i_prodg] }'
                                         )
 
+                            .image-gallery__preview()
+                                .image-gallery__preview-container.slider-for()
+                                    - for (var i_prodgprev = 0; i_prodgprev < productImages.length; i_prodgprev++)
+                                        .image-gallery__preview-item
+                                            img(
+                                                src='#{ productImages[i_prodgprev] }'
+                                            )
 
-                        .product-gallery-modal(
-                            id='product-gallery-modal',
-                            role='dialog',
-                            class='modal fade'
-                        )
-                            .product-gallery-modal__container(
-                                class='modal-dialog'
+
+                            .product-gallery-modal(
+                                id='product-gallery-modal',
+                                role='dialog',
+                                class='modal fade'
                             )
-                                .product-gallery-modal__inner(
-                                    class='modal-content'
+                                .product-gallery-modal__container(
+                                    class='modal-dialog'
                                 )
-                                    .product-gallery-modal__head(
-                                        class='modal-header'
+                                    .product-gallery-modal__inner(
+                                        class='modal-content'
                                     )
-                                        button.product-gallery-modal__close(
-                                            class='close',
-                                            type='button',
-                                            data-dismiss='modal'
-                                        ) &times;
-                                        h4(
-                                            class='modal-title'
-                                        ) Login form
+                                        .product-gallery-modal__head(
+                                            class='modal-header'
+                                        )
+                                            button.product-gallery-modal__close(
+                                                class='close',
+                                                type='button',
+                                                data-dismiss='modal'
+                                            ) &times;
+                                            h4(
+                                                class='modal-title'
+                                            ) Login form
 
-                                    .product-gallery-modal__body(
-                                        class=''
-                                    )
-                                        p BLACK
+                                        .product-gallery-modal__body(
+                                            class=''
+                                        )
+                                            p BLACK
 
 
 
 
-                    .product-basics(
-                        data-product-id='8'
-                    )
-                        h1.product-basics__title()
-                            | Prodcuct title
-                        .product-basics__price()
-                            | $500
-                        .product-basics__reviews()
-                            include ./jade/incl/element.stars.jade
-                        .product-basics__characteristics()
-                        .product-basics__controls()
-                            button.product-basics__butt.product-basics__butt--cart.butt-add-to-cart() Add to cart
-                            button.product-basics__butt.product-basics__butt--compare.butt-add-to-compare() Compare
-                            button.product-basics__butt.product-basics__butt--wishlist.butt-add-to-wishlist() Add to Wishlist
+                        .product-basics(
+                            data-product-id='8'
+                        )
+                            h1.product-basics__title()
+                                | Product title with Brandaname and model
+                            .product-basics__price()
+                                | $500
+                            .product-basics__reviews()
+                                include ./jade/incl/element.stars.jade
+                            .product-basics__characteristics()
+                            .product-basics__controls()
+                                button.product-basics__butt.product-basics__butt--cart.butt-add-to-cart(
+                                    class='btn'
+                                ) Add to cart
+                                button.product-basics__butt.product-basics__butt--compare.butt-add-to-compare(
+                                    class='btn btn-default'
+                                ) Compare
+                                button.product-basics__butt.product-basics__butt--wishlist.butt-add-to-wishlist(
+                                    class='btn btn-default'
+                                ) Add to Wishlist
 
 
                 .container-fluid()
@@ -118,6 +123,13 @@
                             #tab-reviews.product-details__box.product-details__box--reviews(
                                 class='tab-pane'
                             )
+                                .product-details__controls
+                                    button.product-detail__butt(
+                                        class='btn btn-default',
+                                        data-toggle='modal',
+                                        data-target='#review-modal'
+                                    ) Write a review
+
                                 include ./jade/incl/product.reviews.jade
 
                             //#tab-qna.product-details__box.product-details__box--qna(

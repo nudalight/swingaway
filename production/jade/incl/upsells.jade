@@ -1,0 +1,18 @@
+//- inc: upsells
+
+- for (var i_upsells = 0; i_upsells < products.length; i_upsells++)
+    .upsell-grid__box-item
+        .grid-product
+            .grid-product__container
+                .grid-product__image-wrap
+                    .grid-prduct__controls.controls
+                        .controls__add-to-cart.butt-add-to-cart
+                        .controls__add-to-cart.butt-add-to-compare
+                        .controls__add-to-cart.butt-add-to-wishlist
+                    img.grid-product__image(
+                        src='#{ products[i_upsells].photos[0] }'
+                    )
+                a.grid-product__title(
+                    href='/product.html'
+                )= products[i_upsells].title
+                .grid-product__price= '$' + products[i_upsells].price
