@@ -1,18 +1,22 @@
-$('.footer-nav').on('click', function(e){
+var footerNav = '.footer-nav';
+
+$(footerNav).on('click', function(e){
     var that = this;
 
-    var selectHead = '.footer-nav__head';
-    var selectNav = '.footer-nav__body';
-    var openClass = 'footer-nav--opened';
+    var navHead = '.footer-nav__head',
+        navBody = '.footer-nav__body',
+        openClass = 'footer-nav--opened',
+        plusText = '+ Links',
+        minusText = '- Links';
 
     function hideNav(){
-        $(selectNav).slideUp('fast');
-        $(selectHead).text('+ Links');
+        $(navBody).slideUp('fast');
+        $(navHead).text(plusText);
     }
 
     function showNav(){
-        $(selectNav).slideDown('fast');
-        $(selectHead).text('- Links');
+        $(navBody).slideDown('fast');
+        $(navHead).text(minusText);
     }
 
 
@@ -24,5 +28,14 @@ $('.footer-nav').on('click', function(e){
 
     $(this).toggleClass(openClass);
 
+    $(window).on('resize', function(e){
+        var w = $(window).width();
+        if (w >= 420) {
+            $('.footer-nav__body').css({ display: ''});
+            $(navHead).text(plusText);
+            $(footerNav).removeClass(openClass);
+        }
+    });
+    
 });
 

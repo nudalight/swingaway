@@ -18,18 +18,19 @@
   <body>
     <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">
       <div class="offcanvas-logo">
-        <div class="offcanvas-logo__heading">Swingaway</div>
+        <div class="offcanvas-logo__container">
+          <div class="offcanvas-logo__heading">Swingaway</div>
+        </div>
       </div>
       <div class="offcanvas-search">
         <div class="offcanvas-search__container">
-          <div class="offcanvas-search__form">
-            <input placeholder="Search query" class="offcanvas-search__input form-control">
+          <form name="form-search" method="post" action="/">
+            <input type="text" placeholder="search query" name="input-search" required class="offcanvas-search__input">
             <div class="offcanvas-search__submit glyphicon glyphicon-search"></div>
-          </div>
+          </form>
         </div>
       </div>
       <div class="offcanvas-menu">
-        <!--h4.offcanvas-menu__heading Main Menu-->
         <ul class="offcanvas-menu__list">
           <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Home</a>
           </li>
@@ -77,18 +78,20 @@
           <div class="auth-modal__body">
             <h4>For returning customores</h4>
             <p>If you've purchased from us before, please login with your email address and password.</p>
-            <form>
+            <form name="form-auth">
               <div class="form-group">
                 <label for="auth-login-email">Email address</label>
                 <input id="auth-login-email" type="email" placeholder="Email" class="form-control">
               </div>
               <div class="form-group">
-                <label for="auth-login-email">Email address</label>
+                <label for="auth-login-email">Password</label>
                 <input id="auth-login-password" type="password" placeholder="Password" class="form-control">
               </div>
               <h4>New Customers</h4>
-              <p>If this is your first purchase with us, please proceed by clicking the following button to continue first-time registration.</p>
-              <button type="submit" class="auth-modal__submit">Submit</button>
+              <p>If this is your first purchase with us, please proceed by clicking the following button to continue first-time<a href="/register.html" class="explicit-link">registration.</a></p>
+              <div class="auth-modal__controls text-right">
+                <button type="submit" class="auth-modal__submit btn btn-default">Submit</button>
+              </div>
             </form>
           </div>
         </div>
@@ -156,45 +159,45 @@
     </div>
     <header class="header navbar navbar-default">
       <div class="wrap">
-        <div class="container-fluid v"><span data-toggle="offcanvas" data-target=".offcanvas" data-canvas="body" class="navbar-toggle pull-left glyphicon glyphicon-menu-hamburger"></span>
-          <div class="logo"><img src="http://placehold.it/200x50?text=Logo" class="logo__image"></div>
+        <div class="container-fluid"><span data-toggle="offcanvas" data-target=".offcanvas" data-canvas="body" class="navbar-toggle pull-left glyphicon glyphicon-menu-hamburger"></span>
+          <div class="logo">
+            <div class="logo__container"><img src="http://placehold.it/200x50?text=Logo" class="logo__image"></div>
+          </div>
           <div class="shop-components pull-right">
             <div class="auth-choice">
-              <ul class="auth-choice__list">
-                <li class="auth-choice__item"><a data-toggle="modal" data-target="#auth-modal" class="auth-choise__link">My account</a></li>
-              </ul>
+              <div class="auth-choice__container">
+                <ul class="auth-choice__list">
+                  <li class="auth-choice__item"><a data-toggle="modal" data-target="#auth-modal" class="auth-choise__link">My account</a></li>
+                </ul>
+              </div>
             </div>
             <div class="search">
               <div class="search__container clearfix">
-                <form>
-                  <input type="text" placeholder="search" name="input-search" class="search__input">
+                <form name="form-search" method="post" action="/">
+                  <input type="text" placeholder="search query" name="input-search" required class="search__input">
                   <div class="search__submit">
                     <div class="search__submit-icon glyphicon glyphicon-search"></div>
                   </div>
                 </form>
               </div>
             </div>
-            <div class="services"><a href="/compare.html" class="services__compare">
-                <div class="services__counter">5</div></a><a href="/wishlist.html" class="services__wishlist">
-                <div class="services__counter">43</div></a><a href="/cart-a.html" class="services__cart">
-                <div class="services__counter">2</div></a></div>
+            <div class="services">
+              <div class="services__container"><a href="/compare.html" class="services__compare">
+                  <div class="services__counter">53</div></a><a href="/wishlist.html" class="services__wishlist">
+                  <div class="services__counter">55</div></a><a href="/cart-a.html" class="services__cart">
+                  <div class="services__counter">57</div></a></div>
+            </div>
           </div>
         </div>
         <div class="container-fluid">
           <nav class="main-menu">
             <ul class="main-menu__list">
               <li class="main-menu__item Home"><a href="/" class="main-menu__link">Home</a>
-              </li>
-              <li class="main-menu__item main-menu__active"><a href="/baseball.html" class="main-menu__link">Baseball</a>
-              </li>
+              <li class="main-menu__item Baseball"><a href="/baseball.html" class="main-menu__link">Baseball</a>
               <li class="main-menu__item Softball"><a href="/softball.html" class="main-menu__link">Softball</a>
-              </li>
-              <li class="main-menu__item Pitching"><a href="/pitching.html" class="main-menu__link">Pitching</a>
-              </li>
+              <li class="main-menu__item main-menu__active"><a href="/pitching.html" class="main-menu__link">Pitching</a>
               <li class="main-menu__item Parts"><a href="/parts.html" class="main-menu__link">Parts</a>
-              </li>
               <li class="main-menu__item Accessories"><a href="/accessories.html" class="main-menu__link">Accessories</a>
-              </li>
               <li class="main-menu__item Customer Service"><a href="#" class="main-menu__link">Customer Service</a>
                 <ul class="main-menu__sublist">
                   <li class="main-menu__subitem"><a href="/contacts.html" class="main-menu__sublink">Contacts</a></li>
@@ -204,9 +207,7 @@
                   <li class="main-menu__subitem"><a href="/dealers.html" class="main-menu__sublink">Dealers</a></li>
                   <li class="main-menu__subitem"><a href="/partners.html" class="main-menu__sublink">Partners</a></li>
                 </ul>
-              </li>
               <li class="main-menu__item Meet the team"><a href="/meet_the_team.html" class="main-menu__link">Meet the team</a>
-              </li>
               <li class="main-menu__item Store"><a href="/store" class="main-menu__link">Store</a>
               </li>
             </ul>
@@ -217,11 +218,13 @@
     <section class="breadcrumbs">
       <div class="wrap">
         <div class="container-fluid">
-          <ul class="breadcrumbs__list breadcrumb">
-            <li class="breadcrumbs__item"><a href="/" class="breadcrumbs__link">Home</a></li>
-            <li class="breadcrumbs__item"><a href="/catalog.html" class="breadcrumbs__link">Product category</a></li>
-            <li class="breadcrumbs__item"><a href="/product.html" class="breadcrumbs__link">Product title</a></li>
-          </ul>
+          <div class="breadcrumbs__container">
+            <ul class="breadcrumbs__list breadcrumb">
+              <li class="breadcrumbs__item"><a href="/" class="breadcrumbs__link">Home</a></li>
+              <li class="breadcrumbs__item"><a href="/catalog.html" class="breadcrumbs__link">Product category</a></li>
+              <li class="breadcrumbs__item"><a href="/product.html" class="breadcrumbs__link">Product title</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>

@@ -23,6 +23,7 @@ function Wishlist(config, select){
     };
 
     this.remove = function(id){
+        console.log('has to be removed: ', id);
         var storedData = this.parse();
 
         var pos = $.inArray(id,storedData);
@@ -73,3 +74,5 @@ function Wishlist(config, select){
 
     init();
 }
+
+

@@ -3,21 +3,21 @@
         section.breadcrumbs()
             .wrap
                 .container-fluid()
+                    .breadcrumbs__container
+                        ul.breadcrumbs__list(
+                            class='breadcrumb'
+                        )
+                            li.breadcrumbs__item
+                                a.breadcrumbs__link(
+                                    href='/'
+                                ) Home
 
-                    ul.breadcrumbs__list(
-                        class='breadcrumb'
-                    )
-                        li.breadcrumbs__item
-                            a.breadcrumbs__link(
-                                href='/'
-                            ) Home
+                            li.breadcrumbs__item
+                                a.breadcrumbs__link(
+                                href='/catalog.html'
+                                ) Product category
 
-                        li.breadcrumbs__item
-                            a.breadcrumbs__link(
-                            href='/catalog.html'
-                            ) Product category
-
-                        li.breadcrumbs__item
-                            a.breadcrumbs__link(
-                            href='/product.html'
-                            ) Product title
+                            li.breadcrumbs__item
+                                a.breadcrumbs__link(
+                                href='/product.html'
+                                ) Product title

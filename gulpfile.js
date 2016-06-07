@@ -35,15 +35,15 @@ const imagemin = require('gulp-imagemin');
 // what gulp-ignore/run-sequence/gulp-sequence is ?
 // http://stackoverflow.com/questions/22824546/how-to-run-gulp-tasks-synchronously-one-after-the-other
 
-let jadeDataPath = './production/jade/data/index.js'; 
+let jadeDataPath = './production/jade/data/index.js';
 
 gulp.task('serve', ['sass'], () => {
-    bs.init({
+    bs.init({ 
         server: "./",
         port: 4000
     });
     gulp.watch("production/sass/**/*.sass", ['sass']);
-    gulp.watch("production/jade/**/*.jade", ['jade:wishlist']);
+    gulp.watch("production/jade/**/*.jade", ['jade:compare', 'jade:home', 'jade:cart-a', 'jade:cart-b', 'jade:wishlist', 'jade:catalog', 'jade:product']);
     gulp.watch("production/js/**.js", ['js']);
 });
 
@@ -51,14 +51,6 @@ gulp.task('serve', ['sass'], () => {
 gulp.task('reload', () => {
    bs.reload();
 });
-
-
-gulp.task('test-styl', function(){
-    return gulp.src('./production/sass/breadcrumbs.sass')
-    .pipe(styl())
-    .pipe(gulp.dest('./styl-test'))
-});
-
 
 
 gulp.task('js', () => {
@@ -77,6 +69,7 @@ gulp.task('js', () => {
         .pipe(bs.stream());
 });
 
+
 gulp.task('img', () => {
     return gulp.src('./production/img/**/*')
         .pipe(imagemin())
@@ -86,7 +79,12 @@ gulp.task('img', () => {
 
 
 gulp.task('sass', () => {
-    return gulp.src('./production/sass/*.sass')
+    return gulp.src('./production/sass/**/*.sass')
+        .pipe(order([
+            '**/global/*.sass',
+            '**/override/*.sass',
+            '**/*.sass'
+        ]))
         .pipe(debug())
         .pipe(concat('sassify.sass'))
         .pipe(sass())
@@ -127,7 +125,7 @@ gulp.task('jade:catalog', () => {
         'production/**/header.jade',
         'production/**/breadcrumbs.jade',
         'production/**/wide-banner.jade',
-
+        'production/**/catalog-description.jade',
         'production/**/catalog-heading.jade',
         'production/**/sorter.jade',
         'production/**/product-grid.jade',
@@ -232,7 +230,6 @@ gulp.task('jade:wishlist', () => {
         'production/**/head.jade',
         'production/**/header.jade',
         'production/**/breadcrumbs.jade',
-        'production/**/catalog-heading.jade', 
         'production/**/wishlist.jade',
         'production/**/footer.jade'
     ])

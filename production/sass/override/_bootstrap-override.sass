@@ -1,17 +1,21 @@
 .nav-tabs
-  border-bottom: 1px solid #337ab7
+  border-bottom: 1px solid $swa_red
   display: flex
   justify-content: center
+
+.nav-tabs > li.active > a
+  color: #000
 
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus
-  border: 1px solid #337ab7
+  border: 1px solid $swa_red
   border-bottom: 1px solid transparent
   margin-bottom: -1px
+  color: $swa_red
 
 .nav-tabs > li > a:hover
-  border-color: #eee #eee #337ab7
+  border-color: #eee #eee $swa_red
 
 
 
@@ -52,6 +56,7 @@ ul, ol
 .btn.btn-default
   background: #eee
 
+
   &:hover
     background: #ddd
 
@@ -68,3 +73,14 @@ ul, ol
 .modal
   &-content
     border-radius: .2em
+
+
+a
+  color: #000
+
+  &:hover
+    color: #000
+
+
+.modal-title
+  font-weight: 600

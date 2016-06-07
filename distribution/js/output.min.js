@@ -24,6 +24,13 @@ var compare_ = new Compare({
     addButton: '.butt-add-to-compare'
 });
 
+var wishlist_ = new Wishlist({
+    storageKey: 'swingaway__wishlist'
+}, {
+    mirror: '.services__wishlist .services__counter',
+    addButton: '.butt-add-to-wishlist'
+});
+
 new ComparePage({
     prod: '.compare-prod',
     prodRemove: '.compare-prod__remove',
@@ -32,12 +39,14 @@ new ComparePage({
 });
 
 
-var wishlist_ = new Wishlist({
-    storageKey: 'swingaway__wishlist'
-}, {
-    mirror: '.services__wishlist .services__counter',
-    addButton: '.butt-add-to-wishlist'
+new WishlistPage({
+    item: '.wishlist-item',
+    itemRemove: '.wishlist-item__remove',
+    container: '.wishlist__container',
+    empty: '.wishlist__empty'
 });
+
+
 
 
 
@@ -629,21 +638,25 @@ function Compare(config, select){
 
     init();
 }
-$('.footer-nav').on('click', function(e){
+var footerNav = '.footer-nav';
+
+$(footerNav).on('click', function(e){
     var that = this;
 
-    var selectHead = '.footer-nav__head';
-    var selectNav = '.footer-nav__body';
-    var openClass = 'footer-nav--opened';
+    var navHead = '.footer-nav__head',
+        navBody = '.footer-nav__body',
+        openClass = 'footer-nav--opened',
+        plusText = '+ Links',
+        minusText = '- Links';
 
     function hideNav(){
-        $(selectNav).slideUp('fast');
-        $(selectHead).text('+ Links');
+        $(navBody).slideUp('fast');
+        $(navHead).text(plusText);
     }
 
     function showNav(){
-        $(selectNav).slideDown('fast');
-        $(selectHead).text('- Links');
+        $(navBody).slideDown('fast');
+        $(navHead).text(minusText);
     }
 
 
@@ -655,6 +668,15 @@ $('.footer-nav').on('click', function(e){
 
     $(this).toggleClass(openClass);
 
+    $(window).on('resize', function(e){
+        var w = $(window).width();
+        if (w >= 420) {
+            $('.footer-nav__body').css({ display: ''});
+            $(navHead).text(plusText);
+            $(footerNav).removeClass(openClass);
+        }
+    });
+    
 });
 
 
@@ -684,26 +706,6 @@ $('.offcanvas-auth-choice__link').on('click', function(e){
         $('#auth-modal').modal('show');
     }, 400)
 
-});
-var currentSlide;
-$('.image-gallery__preview').on('click', 'img', function(e){
-
-    currentSlide = $('.slider-for').slick('slickCurrentSlide');
-
-    $('#product-gallery-modal').modal({
-        show: true
-    });
-
-    console.log(5, currentSlide);
-
-    /*
-        1. click on the element
-        2. build modal
-        3. append modal to DOM
-        3.1 launch slick
-        4. appedd slides to modal from image-gallery
-        5. scroll modal slider to currentSlide
-     */
 });
 $('.slider-for').slick({
     slidesToShow: 1,
@@ -743,6 +745,9 @@ $('.slider-nav').slick({
             }
         }
     ]
+});
+$('.search__submit').on('click', function(){
+    $(this).closest('form').submit();
 });
 $('.carousel-upsell-accessories').slick({
     infinite: true,
@@ -816,100 +821,32 @@ $('.carousel-upsell-parts').slick({
         }
     ]
 });
-function WishlistPage(cl){
+function WishlistPage(select){
     var that = this;
-
-    this.select = cl;
-
-    var items = $('.cart-a__item');
-
-    this.items = items;
-
-    $(items).each(function(i, item, list){
-        $(item).find('.cart-a__item-input').on('change', function(e){
-            var itemRoot = $(e.target).closest('.cart-a__item');
-            var itemQty = +$(this).val();
-            var itemPrice = +$(itemRoot).find('.cart-a__item-price').text();
-            var itemSum = $(itemRoot).find('.cart-a__item-sum-amount');
-            var calculated = (itemQty * itemPrice).toFixed(2);
-            $(itemSum).text(calculated);
-            that.recalc();
-
-            cart_.setQty(item, itemQty);
-        });
-    });
+    this.select = select;
+    this.items = $(this.select.prod);
 
     $(this.select.itemRemove).on('click', function(e){
-        var tg = $(e.target).closest(that.select.item);
-        $(tg).fadeOut(200, function(){
+        var it = $(e.target).closest(that.select.item);
+        var id = $(it).data('product-id').toString();
+
+        $(it).slideUp(200, function(){
             $(this).remove();
-            cart_.remove(tg);
-            that.recalc();
+            wishlist_.remove(id);
+            that.lookForEpty();
         });
     });
-
-
-    $('.wishlist').on('click', '.control-pad__icon--in-wishlist', function(e){
-
-        var id = $(this).closest('[data-product-id]').data('product-id').toString();
-
-        var unbroken = $(this).hasClass('.control-pad__icon-in-wishlist');
-        console.warn('unbroken: ', !!unbroken);
-
-        if (!unbroken) {
-            !that.isAdded(id) && that.add(id);
-
-            console.log(that.parse(), that.count());
-
-            that.mirror();
-
-            that.markControlIcon(e.target);
-
-        }
-
-
-    });
-
-
-
-
-
-    console.log(111);
-
-    this.recalc = function(){
-        var sum = 0;
-
-        $(this.select.item).each(function(i, item, list){
-            sum += +$(item).find(that.select.itemAmount).text();
-        });
-
-        var subtotal = +sum.toFixed(2);
-
-        this.lookForEpty(subtotal);
-
-        $(this.select.subtotal).text(subtotal);
-        $(this.select.sumSubtotal).text(subtotal);
-
-        var shipping = +$(this.select.sumShipping).text();
-        var total = (subtotal + shipping).toFixed(2);
-        $(this.select.sumTotal).text(total);
-    };
 
     this.lookForEpty = function(subtotal){
-        if (subtotal == 0) {
-            $(this.select.cartEmpty).removeClass('hide');
-            $(this.select.cartContainer).addClass('hide');
-            console.log('EMPTY')
-        } else {
-            $(this.select.cartEmpty).addClass('hide');
-            $(this.select.cartContainer).removeClass('hide');
-            console.log('NOT EMPTY');
+        if (!wishlist_.count()) {
+            $(this.select.empty).removeClass('hide');
+            $(this.select.container).addClass('hide');
         }
     };
 
 
     function init(){
-        that.recalc();
+        that.lookForEpty();
     }
 
     init();
@@ -940,6 +877,7 @@ function Wishlist(config, select){
     };
 
     this.remove = function(id){
+        console.log('has to be removed: ', id);
         var storedData = this.parse();
 
         var pos = $.inArray(id,storedData);
@@ -990,5 +928,8 @@ function Wishlist(config, select){
 
     init();
 }
+
+
+
 
 });

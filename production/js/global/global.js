@@ -22,6 +22,13 @@ var compare_ = new Compare({
     addButton: '.butt-add-to-compare'
 });
 
+var wishlist_ = new Wishlist({
+    storageKey: 'swingaway__wishlist'
+}, {
+    mirror: '.services__wishlist .services__counter',
+    addButton: '.butt-add-to-wishlist'
+});
+
 new ComparePage({
     prod: '.compare-prod',
     prodRemove: '.compare-prod__remove',
@@ -31,15 +38,13 @@ new ComparePage({
 
 
 new WishlistPage({
-   
+    item: '.wishlist-item',
+    itemRemove: '.wishlist-item__remove',
+    container: '.wishlist__container',
+    empty: '.wishlist__empty'
 });
 
-var wishlist_ = new Wishlist({
-    storageKey: 'swingaway__wishlist'
-}, {
-    mirror: '.services__wishlist .services__counter',
-    addButton: '.butt-add-to-wishlist'
-});
+
 
 
 

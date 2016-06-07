@@ -6,94 +6,109 @@
     class='modal fade'
 )
     .auth-modal__container(
-    class='modal-dialog'
+        class='modal-dialog'
     )
         .auth-modal__inner(
-        class='modal-content'
+            class='modal-content'
         )
             .auth-modal__head(
-            class='modal-header'
+                class='modal-header'
             )
                 button.auth-modal__close(
-                class='close',
-                type='button',
-                data-dismiss='modal'
+                    class='close',
+                    type='button',
+                    data-dismiss='modal'
                 ) &times;
                 h4(
-                class='modal-title'
+                    class='modal-title'
                 ) Login form
 
-            .auth-modal__body(
-            class=''
-            )
+            .auth-modal__body
                 h4 For returning customores
                 p If you've purchased from us before, please login with your email address and password.
-                form
+
+                form(
+                    name='form-auth'
+                )
                     div(
-                    class='form-group'
+                        class='form-group'
                     )
                         label(
-                        for='auth-login-email'
+                            for='auth-login-email'
                         ) Email address
+
                         input(
-                        class='form-control',
-                        id='auth-login-email',
-                        type='email',
-                        placeholder='Email'
+                            class='form-control',
+                            id='auth-login-email',
+                            type='email',
+                            placeholder='Email'
                         )
+
                     div(
-                    class='form-group'
+                        class='form-group'
                     )
                         label(
-                        for='auth-login-email'
-                        ) Email address
+                            for='auth-login-email'
+                        ) Password
+
                         input(
-                        class='form-control',
-                        id='auth-login-password',
-                        type='password',
-                        placeholder='Password'
+                            class='form-control',
+                            id='auth-login-password',
+                            type='password',
+                            placeholder='Password'
                         )
+
                     h4 New Customers
-                    p If this is your first purchase with us, please proceed by clicking the following button to continue first-time registration.
-                    button.auth-modal__submit(
-                    type='submit'
-                    ) Submit
+                    p If this is your first purchase with us, please proceed by clicking the following button to continue first-time
+                        a(
+                            class='explicit-link',
+                            href='/register.html'
+                        ) registration.
+
+                    .auth-modal__controls(
+                        class='text-right'
+                    )
+                        button.auth-modal__submit(
+                            type='submit',
+                            class='btn btn-default'
+                        ) Submit
 
 
 .alert-modal(
-id='alert-modal',
-role='dialog',
-class='modal fade'
+    id='alert-modal',
+    role='dialog',
+    class='modal fade'
 )
     .alert-modal__container(
-    class='modal-dialog'
+        class='modal-dialog'
     )
         .alert-modal__inner(
-        class='modal-content'
+            class='modal-content'
         )
             .alert-modal__head(
-            class='modal-header'
+                class='modal-header'
             )
                 button.alert-modal__close(
-                class='close',
-                type='button',
-                data-dismiss='modal'
+                    class='close',
+                    type='button',
+                    data-dismiss='modal'
                 ) &times;
                 h4(
-                class='modal-title'
+                    class='modal-title'
                 ) Notice
 
             .alert-modal__body
                 p.alert-modal__message
 
             .alert-modal__foot(
-            class='modal-footer'
+                class='modal-footer'
             )
                 a.alert-modal__choice-a(
-                class='btn'
+                    class='btn'
                 ) choice-a
+
                 a.alert-modal__choice-b(
-                class='btn btn-success'
+                    class='btn btn-success'
                 ) choice-b
 
 

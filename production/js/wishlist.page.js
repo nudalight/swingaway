@@ -1,97 +1,29 @@
-function WishlistPage(cl){
+function WishlistPage(select){
     var that = this;
-
-    this.select = cl;
-
-    var items = $('.cart-a__item');
-
-    this.items = items;
-
-    $(items).each(function(i, item, list){
-        $(item).find('.cart-a__item-input').on('change', function(e){
-            var itemRoot = $(e.target).closest('.cart-a__item');
-            var itemQty = +$(this).val();
-            var itemPrice = +$(itemRoot).find('.cart-a__item-price').text();
-            var itemSum = $(itemRoot).find('.cart-a__item-sum-amount');
-            var calculated = (itemQty * itemPrice).toFixed(2);
-            $(itemSum).text(calculated);
-            that.recalc();
-
-            cart_.setQty(item, itemQty);
-        });
-    });
+    this.select = select;
+    this.items = $(this.select.prod);
 
     $(this.select.itemRemove).on('click', function(e){
-        var tg = $(e.target).closest(that.select.item);
-        $(tg).fadeOut(200, function(){
+        var it = $(e.target).closest(that.select.item);
+        var id = $(it).data('product-id').toString();
+
+        $(it).slideUp(200, function(){
             $(this).remove();
-            cart_.remove(tg);
-            that.recalc();
+            wishlist_.remove(id);
+            that.lookForEpty();
         });
     });
-
-
-    $('.wishlist').on('click', '.control-pad__icon--in-wishlist', function(e){
-
-        var id = $(this).closest('[data-product-id]').data('product-id').toString();
-
-        var unbroken = $(this).hasClass('.control-pad__icon-in-wishlist');
-        console.warn('unbroken: ', !!unbroken);
-
-        if (!unbroken) {
-            !that.isAdded(id) && that.add(id);
-
-            console.log(that.parse(), that.count());
-
-            that.mirror();
-
-            that.markControlIcon(e.target);
-
-        }
-
-
-    });
-
-
-
-
-
-    console.log(111);
-
-    this.recalc = function(){
-        var sum = 0;
-
-        $(this.select.item).each(function(i, item, list){
-            sum += +$(item).find(that.select.itemAmount).text();
-        });
-
-        var subtotal = +sum.toFixed(2);
-
-        this.lookForEpty(subtotal);
-
-        $(this.select.subtotal).text(subtotal);
-        $(this.select.sumSubtotal).text(subtotal);
-
-        var shipping = +$(this.select.sumShipping).text();
-        var total = (subtotal + shipping).toFixed(2);
-        $(this.select.sumTotal).text(total);
-    };
 
     this.lookForEpty = function(subtotal){
-        if (subtotal == 0) {
-            $(this.select.cartEmpty).removeClass('hide');
-            $(this.select.cartContainer).addClass('hide');
-            console.log('EMPTY')
-        } else {
-            $(this.select.cartEmpty).addClass('hide');
-            $(this.select.cartContainer).removeClass('hide');
-            console.log('NOT EMPTY');
+        if (!wishlist_.count()) {
+            $(this.select.empty).removeClass('hide');
+            $(this.select.container).addClass('hide');
         }
     };
 
 
     function init(){
-        that.recalc();
+        that.lookForEpty();
     }
 
     init();

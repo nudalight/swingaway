@@ -1,17 +1,17 @@
-        // two tabs needed!
+        //- two tabs needed!
 
         section.product-grid
             .wrap
                 .container-fluid 
                     .product-grid__container
-                        - for (var i_wl = 0; i_wl < products.length; i_wl++)
+                        - for (var i_grid = 0; i_grid < products.length; i_grid++)
                             .product-grid__item(
-                                data-product-id=products[i_wl].id
+                                data-product-id=products[i_grid].id
                             )
-                                .grid-product
-                                    .grid-product__container
-                                        .grid-product__image-wrap
-                                            .grid-product__controls.control-pad
+                                .product-in-grid
+                                    .product-in-grid__container
+                                        .product-in-grid__image-wrap
+                                            .product-in-grid__controls.control-pad
                                                 .control-pad__controls
                                                     .control-pad__item.control-pad__item--cart
                                                         .control-pad__icon.control-pad__icon--cart(
@@ -25,11 +25,15 @@
                                                         .control-pad__icon.control-pad__icon--compare(
                                                             class='butt-add-to-compare'
                                                         )
-                                            img.grid-product__image(
-                                                src='#{ products[i_wl].photos[0] }'
-                                            )
-                                        a.grid-product__title(
+
+                                            .product-in-grid__image-wrap
+                                                img.product-in-grid__image(
+                                                    src=products[i_grid].photos[0]
+                                                )
+
+                                        a.product-in-grid__title(
                                             href='/product.html'
-                                        )= products[i_wl].title
-                                        .grid-product__price= '$' + products[i_wl].price
+                                        )=products[i_grid].title
+
+                                        .product-in-grid__price= '$' + products[i_grid].price
 

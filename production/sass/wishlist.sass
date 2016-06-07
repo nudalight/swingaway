@@ -1,20 +1,67 @@
-.wishlist
+.wishlist-item
+  padding: .6em 0
+  border-bottom: 1px solid #ddd
 
-  .product-grid__container
+  &:first-child
+    border-top: 1px solid #ddd
+
+  &:hover
+    background: #eee
+
+  &__container
     display: flex
-    flex-wrap: wrap
+    justify-content: space-between
+    align-items: center
 
-  .product-grid__item
-    flex-basis: 100%
+  &__remove
+    padding: .5em
 
-  .grid-product
-    width: 100%
-    max-width: initial
-    flex-basis: 50%
+  &__image-wrap
+    max-width: 8em
+    padding: 0 .5em
 
-  .grid-product__container
-    display: flex
-    flex-wrap: nowrap
+  &__image
+    max-width: 100%
 
-  .grid-product__image
-    max-height: 5em
+  &__title
+    padding: .5em
+
+  &__price
+    padding: .5em
+    font-size: 1.05em
+    font-weight: 600
+
+  &__controls
+    padding: .5em .5em .5em 1em
+
+
+
+@media all and (max-width: 920px)
+  .wishlist-item
+    &__butt
+      width: 100%
+
+
+@media all and (max-width: 660px)
+  .wishlist-item
+    &__container
+      flex-wrap: wrap
+
+    &__remove
+      flex-basis: 100%
+
+    &__image-wrap
+      display: none
+
+    &__title
+      flex-basis: 100%
+
+    &__price
+      flex-basis: 30%
+
+    &__controls
+      flex-basis: 70%
+      text-align: right
+
+    &__butt
+      width: auto

@@ -17,7 +17,7 @@
                                     - for (key in mainMenu['Customer Service'])
                                         li.footer-nav__item
                                             a.footer-nav__link(
-                                                href="#{ mainMenu['Customer Service'][key] }"
+                                                href=mainMenu['Customer Service'][key]
                                             )=key
 
             .footer-socials
@@ -26,8 +26,8 @@
                         .footer-socials__list
                             - for (key in socials)
                                 li.footer-socials__item(
-                                    class='footer-socials__item--#{ key }'
+                                    class='footer-socials__item--' + key
                                 )
                                     a.footer-socials__link(
-                                        href="#{ socials[key] }"
+                                        href=socials[key]
                                     )
