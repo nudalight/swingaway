@@ -19,59 +19,154 @@
                     type='button',
                     data-dismiss='modal'
                 ) &times;
-                h4(
+                h4.auth-modal__heading(
                     class='modal-title'
-                ) Login form
+                ) Authentification
 
             .auth-modal__body
-                h4 For returning customores
-                p If you've purchased from us before, please login with your email address and password.
-
-                form(
-                    name='form-auth'
+                ul.auth-modal__nav-tabs(
+                    class='nav nav-tabs'
                 )
-                    div(
-                        class='form-group'
+                    li.auth-modal__nav-tab(
+                        class='active'
                     )
-                        label(
-                            for='auth-login-email'
-                        ) Email address
+                        a.auth-modal__nav-link(
+                            data-toggle='tab',
+                            href='#tab-auth-login'
+                        ) Login
 
-                        input(
-                            class='form-control',
-                            id='auth-login-email',
-                            type='email',
-                            placeholder='Email'
+                    li.auth-modal__nav-tab
+                        a.auth-modal__nav-link(
+                            data-toggle='tab',
+                            href='#tab-auth-register'
+                        ) Register
+
+                .auth-modal__inner(
+                    class='tab-content'
+                )
+                    .auth-modal__content-auth(
+                        id='tab-auth-login',
+                        class='tab-pane active'
+                    )
+                        .auth-modal__content(
+                            class='swingaway-content-markup'
                         )
+                            h4 For returning customers
+                            p If you've purchased from us before, please login with your email address and password.
 
-                    div(
-                        class='form-group'
-                    )
-                        label(
-                            for='auth-login-email'
-                        ) Password
-
-                        input(
-                            class='form-control',
-                            id='auth-login-password',
-                            type='password',
-                            placeholder='Password'
+                        form.auth-modal__form(
+                            name='form-auth-login'
                         )
+                            .auth-modal__form-group(
+                                class='form-group'
+                            )
+                                label.auth-modal__form-label(
+                                    for='auth-login-email'
+                                ) Email address
 
-                    h4 New Customers
-                    p If this is your first purchase with us, please proceed by clicking the following button to continue first-time
-                        a(
-                            class='explicit-link',
-                            href='/register.html'
-                        ) registration.
+                                input.auth-modal__form-input(
+                                    class='form-control',
+                                    id='auth-login-email',
+                                    type='email',
+                                    placeholder='Email'
+                                )
+                                .auth-modal__form-error(
+                                    class='hide'
+                                )
 
-                    .auth-modal__controls(
-                        class='text-right'
+                            .auth-modal__form-group(
+                                class='form-group'
+                            )
+                                label.auth-modal__form-label(
+                                    for='auth-login-password'
+                                ) Password
+
+                                input.auth-modal__form-input(
+                                    class='form-control',
+                                    id='auth-login-password',
+                                    type='password',
+                                    placeholder='Password'
+                                )
+                                .auth-modal__form-error(
+                                    class='hide'
+                                )
+
+                            .auth-modal__controls
+                                button.auth-modal__submit(
+                                    type='submit',
+                                    class='btn btn-swingaway'
+                                ) Login
+
+
+                    .auth-modal__content-auth(
+                        id='tab-auth-register',
+                        class='tab-pane'
                     )
-                        button.auth-modal__submit(
-                            type='submit',
-                            class='btn btn-default'
-                        ) Submit
+                        .auth-modal__content(
+                            class='swingaway-content-markup'
+                        )
+                            h4 New customers
+                            p If you've a new customer ...
+
+                        form.auth-modal__form(
+                            name='form-auth-register'
+                        )
+                            .auth-modal__form-group(
+                                class='form-group'
+                            )
+                                label.auth-modal__form-label(
+                                    for='auth-register-email'
+                                ) Email address
+
+                                input.auth-modal__form-input(
+                                    class='form-control',
+                                    id='auth-register-email',
+                                    type='email',
+                                    placeholder='Email'
+                                )
+                                .auth-modal__form-error(
+                                    class='hide'
+                                )
+
+                            .auth-modal__form-group(
+                                class='form-group'
+                            )
+                                label.auth-modal__form-label(
+                                    for='auth-register-password'
+                                ) Password
+
+                                input.auth-modal__form-input(
+                                    class='form-control',
+                                    id='auth-register-password',
+                                    type='password',
+                                    placeholder='Password'
+                                )
+                                .auth-modal__form-error(
+                                    class='hide'
+                                )
+
+                            .auth-modal__form-group(
+                                class='form-group'
+                            )
+                                label.auth-modal__form-label(
+                                    for='auth-register-password-confirm'
+                                ) Password confirm
+
+                                input.auth-modal__form-input(
+                                    class='form-control',
+                                    id='auth-register-password-confirm',
+                                    type='password',
+                                    placeholder='Re-type password'
+                                )
+                                .auth-modal__form-error(
+                                    class='hide'
+                                )
+
+                            .auth-modal__controls
+                                button.auth-modal__submit(
+                                    type='submit',
+                                    class='btn btn-swingaway'
+                                ) Register
 
 
 .alert-modal(

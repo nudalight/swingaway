@@ -1,0 +1,39 @@
+.contact-info
+  padding-left: 2.5em
+
+  &__container
+    margin-top: 1em
+    padding: 2em 1.5em
+    border: 1px solid #ddd
+
+  &__group
+    padding-bottom: 1.5em
+
+  &__label
+    font-size: 1.15em
+    font-weight: 600
+
+  &__info
+    font-size: 1em
+
+
+
+@media all and (max-width: 994px)
+  .contact-info
+    padding-left: 0
+
+    &__container
+      display: flex
+      justify-content: space-between
+
+    &__group
+      padding: 1em 2em
+
+
+@media all and (max-width: 760px)
+  .contact-info
+    &__container
+      display: block
+
+    &__group
+      padding: 0 0 1.5em

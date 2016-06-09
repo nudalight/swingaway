@@ -4,80 +4,110 @@
             .wrap
                 .container-fluid
                     .product__container
-                        .image-gallery(
-                            class=''
-                        )
-                            .image-gallery__shortcuts.slider-nav()
-                                - for (var i_prodg = 0; i_prodg < productImages.length; i_prodg++)
-                                    .image-gallery__shortcut
-                                        img(
-                                            src='#{ productImages[i_prodg] }'
-                                        )
 
-                            .image-gallery__preview()
-                                .image-gallery__preview-container.slider-for()
-                                    - for (var i_prodgprev = 0; i_prodgprev < productImages.length; i_prodgprev++)
-                                        .image-gallery__preview-item
-                                            img(
-                                                src='#{ productImages[i_prodgprev] }'
+                        .product-gallery
+                            .product-gallery__container
+                                .product-gallery__shortcuts
+                                    - for (var i_prodg = 0; i_prodg < productImages.length; i_prodg++)
+                                        .product-gallery__shortcut-wrap
+                                            img.product-gallery__shortcut(
+                                                src=productImages[i_prodg]
                                             )
 
-
-                            .product-gallery-modal(
-                                id='product-gallery-modal',
-                                role='dialog',
-                                class='modal fade'
-                            )
-                                .product-gallery-modal__container(
-                                    class='modal-dialog'
-                                )
-                                    .product-gallery-modal__inner(
-                                        class='modal-content'
-                                    )
-                                        .product-gallery-modal__head(
-                                            class='modal-header'
-                                        )
-                                            button.product-gallery-modal__close(
-                                                class='close',
-                                                type='button',
-                                                data-dismiss='modal'
-                                            ) &times;
-                                            h4(
-                                                class='modal-title'
-                                            ) Login form
-
-                                        .product-gallery-modal__body(
-                                            class=''
-                                        )
-                                            p BLACK
-
-
+                                .product-gallery__previews
+                                    - for (var i_prodgprev = 0; i_prodgprev < productImages.length; i_prodgprev++)
+                                        .product-gallery__preview-wrap
+                                            img.product-gallery__preview(
+                                                src=productImages[i_prodgprev]
+                                            )
 
 
                         .product-basics(
                             data-product-id='8'
                         )
-                            h1.product-basics__title()
-                                | Product title with Brandaname and model
-                            .product-basics__price()
-                                | $500
-                            .product-basics__reviews()
-                                include ./jade/incl/element.stars.jade
-                            .product-basics__characteristics()
-                            .product-basics__controls()
-                                button.product-basics__butt.product-basics__butt--cart.butt-add-to-cart(
-                                    class='btn'
-                                ) Add to cart
-                                button.product-basics__butt.product-basics__butt--compare.butt-add-to-compare(
-                                    class='btn btn-default'
-                                ) Compare
-                                button.product-basics__butt.product-basics__butt--wishlist.butt-add-to-wishlist(
-                                    class='btn btn-default'
-                                ) Add to Wishlist
+                            .product-basics__container
+                                h1.product-title=products[0].title
 
 
-                .container-fluid()
-                    .product-details()
+                                .product-price
+                                    .product-price__container
+                                        span.product-price__currency=currencySymbol
+                                        span.product-price__amount 500
+
+
+                                .product-reviews
+                                    .product-reviews__container
+                                        .product-reviews__stars
+                                            include ./jade/incl/element.stars.jade
+                                        .product-reviews__controls
+                                            a.product-review__link(
+                                                data-scroll-to='[href="#tab-reviews"]',
+                                                data-click-after-scroll='[href="#tab-reviews"]',
+                                                href='product.html' + '#tab-reviews'
+                                            )
+                                                span.product-review__link-qu 4
+                                                span.product-review__link-text reviews
+
+
+                                .product-optoins
+                                    .product-options__container
+                                        h4.product-options__heading Product options
+
+                                        .product-options__group
+                                            label.product-options__label(
+                                                for='product-select-color'
+                                            ) Product color:
+                                            select.product-options__select(
+                                                class='form-control',
+                                                id='product-select-color',
+                                                name='product-select-color'
+                                            )
+                                                option.product-options__option(
+                                                    value='red'
+                                                ) Red
+                                                option.product-options__option(
+                                                    value='green'
+                                                ) Green
+                                                option.product-options__option(
+                                                    value='blue'
+                                                ) Blue
+
+                                        .product-options__group
+                                            label.product-options__label(
+                                                for='product-select-size'
+                                            ) Product size:
+                                            select.product-options__select(
+                                                class='form-control',
+                                                id='product-select-size',
+                                                name='product-select-size'
+                                            )
+                                                option.product-options__option(
+                                                    value='lg'
+                                                ) Large
+                                                option.product-options__option(
+                                                    value='md'
+                                                ) Medium
+                                                option.product-options__option(
+                                                    value='sm'
+                                                ) Small
+
+
+                                .product-controls
+                                    .product-controls__container
+                                        button.product-controls__butt.product-controls__butt--cart(
+                                            class='butt-add-to-cart btn btn-swingaway'
+                                        ) Add to cart
+                                        button.product-controls__butt.product-controls__butt--compare(
+                                            class='butt-add-to-compare btn btn-default'
+                                        ) Compare
+                                        button.product-controls__butt.product-controls__butt--wishlist(
+                                            class='butt-add-to-wishlist btn btn-default'
+                                        ) Add to Wishlist
+
+
+
+                .container-fluid
+                    .product-details
                         ul.product-details__list(
                             class='nav nav-tabs'
                         )
@@ -111,7 +141,7 @@
                             class='tab-content'
                         )
                             #tab-description.product-details__box.product-details__box--description(
-                                class='tab-pane active'
+                                class='tab-pane active swingaway-content-markup'
                             )
                                 include ./jade/incl/product.description.jade
 
@@ -139,4 +169,3 @@
 
 
 
-                .container-fluid()

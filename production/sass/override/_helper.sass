@@ -1,6 +1,3 @@
-//*
-//  transition-duration: .3s
-
 .children-inline > *
   display: inline-block
 
@@ -17,10 +14,10 @@ table.td-vertical tr td
     vertical-align: middle
 
 
-
 .pos-relative
   position: relative
 
+  
 @keyframes emerge
   from
     opacity: 0
@@ -34,17 +31,14 @@ table.td-vertical tr td
     opacity: 1
 
 
-
-.btn-swingaway-ii
-  &:hover
-    border: 1px solid $color_ii
-
-
 .clear-left-padding
   padding-left: 0 !important
 
 .clear-right-pading
   padding-right: 0
+
+.clear-paddings
+  padding: 0
 
 
 @keyframes lurk
@@ -58,21 +52,6 @@ table.td-vertical tr td
     transform: scaleY(1)
 
 
-html
-  position: relative
-  width: 100%
-  min-height: 100%
-
-body
-  padding-bottom: 12em
-
-
-//@media all and (max-width: 420px)
-//  .container-fluid
-//    padding: 0
-
-
-
 @keyframes buzz
   from
     transform: rotate(15deg)
@@ -81,3 +60,19 @@ body
 
 .buzz
   animation: buzz 1s 5
+
+
+.explicit-link
+  text-decoration: underline
+  color: $swa_red
+
+  &:hover
+    text-decoration: none
+
+  &:active,
+  &:focus
+    color: $swa_red
+
+[class*='error']
+  color: $swa_red
+

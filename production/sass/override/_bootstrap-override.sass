@@ -61,13 +61,14 @@ ul, ol
     background: #ddd
 
 .btn.btn-swingaway
-  border: 1px solid #ddd
+  color: #fff
+  background: $swa_red
+  border: .0125em solid darken($swa_red, 10%)
   transition-duration: .2s
 
   &:hover
-    border: 1px solid darken(salmon, 10%)
-    background-color: salmon
-    color: #fff
+    background: lighten($swa_red, 10%)
+    border: .0125em solid $swa_red
 
 
 .modal
@@ -84,3 +85,18 @@ a
 
 .modal-title
   font-weight: 600
+
+
+.form-control
+  border-radius: .1em
+
+.bootstrap-select .btn-default
+  background: #fff
+
+.has-success
+  input, select, textarea
+    background-color: rgb(224, 233, 224)
+
+.has-error
+  input, select, textarea
+    background-color: #efcccc

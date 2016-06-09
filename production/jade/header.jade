@@ -94,6 +94,7 @@
                                     action='/'
                                 )
                                     input.search__input(
+                                        class='form-control',
                                         type='text',
                                         placeholder='search query',
                                         name='input-search',
@@ -107,17 +108,17 @@
                         .services()
                             .services__container
                                 a.services__compare(
-                                    href='/compare.html'
+                                    href=rootPath + 'compare.html'
                                 )
                                     .services__counter() 53
 
                                 a.services__wishlist(
-                                    href='/wishlist.html'
+                                    href=rootPath + 'wishlist.html'
                                 )
                                     .services__counter() 55
 
                                 a.services__cart(
-                                    href='/cart-a.html'
+                                    href=rootPath + 'cart-a.html'
                                 )
                                     .services__counter() 57
 
@@ -131,14 +132,14 @@
                                 class=(activeHeadMenuItem == 0) ? 'main-menu__active' : key
                             )
                                 a.main-menu__link(
-                                    href=(typeof mainMenu[key] === 'object') ? '#' : mainMenu[key]
+                                    href=(typeof mainMenu[key] === 'object') ? '#' : rootPath + mainMenu[key]
                                 )=key
                                 - if (typeof mainMenu[key] === 'object'){
                                     ul.main-menu__sublist
                                         - for (subKey in mainMenu[key]) {
                                         li.main-menu__subitem()
                                             a.main-menu__sublink(
-                                                href=(typeof mainMenu[key][subKey] === 'object') ? '#' : mainMenu[key][subKey]
+                                                href=(typeof mainMenu[key][subKey] === 'object') ? '#' : rootPath + mainMenu[key][subKey]
                                             )=subKey
                                         -}
                                     -}

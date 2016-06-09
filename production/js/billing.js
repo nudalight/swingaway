@@ -15,7 +15,7 @@ $('.billing__submit').on('click', function(e){
     } else {
         e.preventDefault();
         v_.validateForm($(billingForm));
-        $('.billing__notice').removeClass('hide');
+        $('.billing__form-error').removeClass('hide');
     }
 
 });
@@ -28,8 +28,15 @@ function Validate(){
         var result = true;
         switch (tg.dataset.validateAs){
             case 'text': result = v_.asText(tg);  break;
+            case 'select': result = v_.asSelect(tg);  break;
             default: result = v_.asText(tg);
         }
+        return result;
+    };
+
+    this.asSelect = function(tg){
+        var result = $(tg).val().trim() != 'placeholder';
+        this.handleResult(tg, result);
         return result;
     };
 
@@ -52,12 +59,20 @@ function Validate(){
         $(tgLink).removeClass('has-success');
 
         this.setFormInvalid($(tg).closest('form'));
+
+        var x = $(tgLink).find('[class*="error"]');
+
+        console.warn(x);
+
+        $(tgLink).find('[class*="error"]').removeClass('hide');
     };
 
     this.setValid = function(tg){
         var tgLink = $(tg).closest('.form-group');
         $(tgLink).addClass('has-success');
         $(tgLink).removeClass('has-error');
+
+        $(tgLink).find('[class*="error"]').addClass('hide');
     };
 
     this.handleResult = function(tg, isValid){

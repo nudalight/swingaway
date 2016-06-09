@@ -11,13 +11,13 @@
                                 ul.footer-nav__list
                                     li.footer-nav__item
                                         a.footer-nav__link(
-                                            href="/"
+                                            href=rootPath
                                         ) Home
 
                                     - for (key in mainMenu['Customer Service'])
                                         li.footer-nav__item
                                             a.footer-nav__link(
-                                                href=mainMenu['Customer Service'][key]
+                                                href=rootPath + mainMenu['Customer Service'][key]
                                             )=key
 
             .footer-socials

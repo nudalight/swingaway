@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Default Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css">
+    <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
+    <!--link(rel='stylesheet', href='bower_components/bootstrap-select/dist/css/bootstrap-select.min.css')-->
+    <!--script(src='bower_components/bootstrap-select/dist/js/bootstrap-select.min.js')-->
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
+    <script src="bower_components/slick-carousel/slick/slick.js"></script>
+    <link rel="stylesheet" href="distribution/css/output.css">
+    <script src="distribution/js/output.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300italic,400italic,700,700italic,900,300" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">
+      <div class="offcanvas-logo">
+        <div class="offcanvas-logo__container">
+          <div class="offcanvas-logo__heading">Swingaway</div>
+        </div>
+      </div>
+      <div class="offcanvas-search">
+        <div class="offcanvas-search__container">
+          <form name="form-search" method="post" action="/">
+            <input type="text" placeholder="search query" name="input-search" required class="offcanvas-search__input">
+            <div class="offcanvas-search__submit glyphicon glyphicon-search"></div>
+          </form>
+        </div>
+      </div>
+      <div class="offcanvas-menu">
+        <ul class="offcanvas-menu__list">
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Home</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Baseball</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened offcanvas-menu__item--active"><a class="offcanvas-menu__link">Softball</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Pitching</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Parts</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Accessories</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Customer Service</a>
+            <ul class="offcanvas-submenu">
+              <li class="offcanvas-submenu__item"><a href="contacts.html" class="offcanvas-submenu__link">Contacts</a></li>
+              <li class="offcanvas-submenu__item"><a href="manuals.html" class="offcanvas-submenu__link">Assembly manuals</a></li>
+              <li class="offcanvas-submenu__item"><a href="videos.html" class="offcanvas-submenu__link">Videos</a></li>
+              <li class="offcanvas-submenu__item"><a href="videos.html" class="offcanvas-submenu__link">Warranty</a></li>
+              <li class="offcanvas-submenu__item"><a href="dealers.html" class="offcanvas-submenu__link">Dealers</a></li>
+              <li class="offcanvas-submenu__item"><a href="partners.html" class="offcanvas-submenu__link">Partners</a></li>
+            </ul>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Meet the team</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Store</a>
+          </li>
+        </ul>
+      </div>
+      <div class="offcanvas-auth-choice">
+        <ul class="offcanvas-auth-choice__list">
+          <li class="offcanvas-auth-choice__item"><a class="offcanvas-auth-choice__link">Login</a></li>
+          <li class="offcanvas-auth-choice__item"><a class="offcanvas-auth-choice__link">Register</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- inc: modals-->
+    <div id="auth-modal" role="dialog" class="auth-modal modal fade">
+      <div class="auth-modal__container modal-dialog">
+        <div class="auth-modal__inner modal-content">
+          <div class="auth-modal__head modal-header">
+            <button type="button" data-dismiss="modal" class="auth-modal__close close">&times;</button>
+            <h4 class="auth-modal__heading modal-title">Authentification</h4>
+          </div>
+          <div class="auth-modal__body">
+            <ul class="auth-modal__nav-tabs nav nav-tabs">
+              <li class="auth-modal__nav-tab active"><a data-toggle="tab" href="#tab-auth-login" class="auth-modal__nav-link">Login</a></li>
+              <li class="auth-modal__nav-tab"><a data-toggle="tab" href="#tab-auth-register" class="auth-modal__nav-link">Register</a></li>
+            </ul>
+            <div class="auth-modal__inner tab-content">
+              <div id="tab-auth-login" class="auth-modal__content-auth tab-pane active">
+                <div class="auth-modal__content swingaway-content-markup">
+                  <h4>For returning customers</h4>
+                  <p>If you've purchased from us before, please login with your email address and password.</p>
+                </div>
+                <form name="form-auth-login" class="auth-modal__form">
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-login-email" class="auth-modal__form-label">Email address</label>
+                    <input id="auth-login-email" type="email" placeholder="Email" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-login-password" class="auth-modal__form-label">Password</label>
+                    <input id="auth-login-password" type="password" placeholder="Password" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__controls">
+                    <button type="submit" class="auth-modal__submit btn btn-swingaway">Login</button>
+                  </div>
+                </form>
+              </div>
+              <div id="tab-auth-register" class="auth-modal__content-auth tab-pane">
+                <div class="auth-modal__content swingaway-content-markup">
+                  <h4>New customers</h4>
+                  <p>If you've a new customer ...</p>
+                </div>
+                <form name="form-auth-register" class="auth-modal__form">
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-register-email" class="auth-modal__form-label">Email address</label>
+                    <input id="auth-register-email" type="email" placeholder="Email" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-register-password" class="auth-modal__form-label">Password</label>
+                    <input id="auth-register-password" type="password" placeholder="Password" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-register-password-confirm" class="auth-modal__form-label">Password confirm</label>
+                    <input id="auth-register-password-confirm" type="password" placeholder="Re-type password" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__controls">
+                    <button type="submit" class="auth-modal__submit btn btn-swingaway">Register</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="alert-modal" role="dialog" class="alert-modal modal fade">
+      <div class="alert-modal__container modal-dialog">
+        <div class="alert-modal__inner modal-content">
+          <div class="alert-modal__head modal-header">
+            <button type="button" data-dismiss="modal" class="alert-modal__close close">&times;</button>
+            <h4 class="modal-title">Notice</h4>
+          </div>
+          <div class="alert-modal__body">
+            <p class="alert-modal__message"></p>
+          </div>
+          <div class="alert-modal__foot modal-footer"><a class="alert-modal__choice-a btn">choice-a</a><a class="alert-modal__choice-b btn btn-success">choice-b</a></div>
+        </div>
+      </div>
+    </div>
+    <div id="review-modal" role="dialog" class="review-modal modal fade">
+      <div class="review-modal__container modal-dialog">
+        <div class="review-modal__inner modal-content">
+          <form action="#" method="post">
+            <div class="review-modal__head modal-header">
+              <button type="button" data-dismiss="modal" class="review-modal__close close">&times;</button>
+              <h4 class="modal-title">Write a review</h4>
+            </div>
+            <div class="review-modal__body">
+              <div class="review-modal__inputs">
+                <input placeholder="Your name" class="review-modal__input form-control">
+                <input placeholder="Your email" class="review-modal__input form-control">
+              </div>
+              <div class="review-modal__message-wrap">
+                <textarea placeholder="Your review text here.." class="review-modal__message form-control"></textarea>
+              </div>
+              <div class="review-modal__opts">
+                <div class="review-modal__opt">
+                  <input id="review-opt-positive" name="review-opt" type="radio" value="positive" class="review-modal__opt-input">
+                  <label for="review-opt-positive" class="review-modal__opt-label">Yes, I recommend this product</label>
+                </div>
+                <div class="review-modal__opt">
+                  <input id="review-opt-negative" name="review-opt" type="radio" value="negative" class="review-modal__opt-input">
+                  <label for="review-opt-negative" class="review-modal__opt-label">No, I do not recommend this product</label>
+                </div>
+              </div>
+              <div class="review-modal__stars choose-from-stars">
+                <div class="stars">
+                  <div class="stars__container children-inline">
+                    <input type="hidden" class="stars__starred">
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star  "></div>
+                    <div class="stars__star  "></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="review-modal__foot modal-footer">
+              <button class="review-modal__submit btn btn-default">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <header class="header navbar navbar-default">
+      <div class="wrap">
+        <div class="container-fluid"><span data-toggle="offcanvas" data-target=".offcanvas" data-canvas="body" class="navbar-toggle pull-left glyphicon glyphicon-menu-hamburger"></span>
+          <div class="logo">
+            <div class="logo__container"><img src="http://placehold.it/200x50?text=Logo" class="logo__image"></div>
+          </div>
+          <div class="shop-components pull-right">
+            <div class="auth-choice">
+              <div class="auth-choice__container">
+                <ul class="auth-choice__list">
+                  <li class="auth-choice__item"><a data-toggle="modal" data-target="#auth-modal" class="auth-choise__link">My account</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="search">
+              <div class="search__container clearfix">
+                <form name="form-search" method="post" action="/">
+                  <input type="text" placeholder="search query" name="input-search" required class="search__input form-control">
+                  <div class="search__submit">
+                    <div class="search__submit-icon glyphicon glyphicon-search"></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="services">
+              <div class="services__container"><a href="/root/compare.html" class="services__compare">
+                  <div class="services__counter">53</div></a><a href="/root/wishlist.html" class="services__wishlist">
+                  <div class="services__counter">55</div></a><a href="/root/cart-a.html" class="services__cart">
+                  <div class="services__counter">57</div></a></div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <nav class="main-menu">
+            <ul class="main-menu__list">
+              <li class="main-menu__item Home"><a href="/root/" class="main-menu__link">Home</a>
+              <li class="main-menu__item Baseball"><a href="/root/baseball.html" class="main-menu__link">Baseball</a>
+              <li class="main-menu__item Softball"><a href="/root/softball.html" class="main-menu__link">Softball</a>
+              <li class="main-menu__item main-menu__active"><a href="/root/pitching.html" class="main-menu__link">Pitching</a>
+              <li class="main-menu__item Parts"><a href="/root/parts.html" class="main-menu__link">Parts</a>
+              <li class="main-menu__item Accessories"><a href="/root/accessories.html" class="main-menu__link">Accessories</a>
+              <li class="main-menu__item Customer Service"><a href="#" class="main-menu__link">Customer Service</a>
+                <ul class="main-menu__sublist">
+                  <li class="main-menu__subitem"><a href="/root/contacts.html" class="main-menu__sublink">Contacts</a></li>
+                  <li class="main-menu__subitem"><a href="/root/manuals.html" class="main-menu__sublink">Assembly manuals</a></li>
+                  <li class="main-menu__subitem"><a href="/root/videos.html" class="main-menu__sublink">Videos</a></li>
+                  <li class="main-menu__subitem"><a href="/root/videos.html" class="main-menu__sublink">Warranty</a></li>
+                  <li class="main-menu__subitem"><a href="/root/dealers.html" class="main-menu__sublink">Dealers</a></li>
+                  <li class="main-menu__subitem"><a href="/root/partners.html" class="main-menu__sublink">Partners</a></li>
+                </ul>
+              <li class="main-menu__item Meet the team"><a href="/root/meet_the_team.html" class="main-menu__link">Meet the team</a>
+              <li class="main-menu__item Store"><a href="/root/store" class="main-menu__link">Store</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <section class="breadcrumbs">
+      <div class="wrap">
+        <div class="container-fluid">
+          <div class="breadcrumbs__container">
+            <ul class="breadcrumbs__list breadcrumb">
+              <li class="breadcrumbs__item"><a href="/" class="breadcrumbs__link">Home</a></li>
+              <li class="breadcrumbs__item"><a href="/catalog.html" class="breadcrumbs__link">Product category</a></li>
+              <li class="breadcrumbs__item"><a href="/product.html" class="breadcrumbs__link">Product title</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="warranty">
+      <div class="wrap">
+        <div class="container-fluid">
+          <div class="warranty__container">
+            <h2 class="warranty__heading">Warranty registration</h2>
+            <div class="warranty__content swingaway-content-markup">
+              <p>All customers must register their warranty within 1 week of purchase. Please be prepared to produce a copy of the Original Sales Receipt which clearly shows the Date of Purchase.</p>
+              <p>All SwingAway Hitting Systems - Are covered with a special 90 Day Limited Warranty, which covers all defects in material and workmanship for the Original Owner Only. This Warranty covers the steel tubing and components but does not cover cords, bungee and balls. The warranty does not cover institutional, commercial use or the misuse by Any consumer. ALL SwingAway OWNERS MUST BE REGISTERED to be covered by the warranty. Please register the product below. PLEASE NOTE ALL INFORMATION MUST BE SUPPLIED TO COMPLETE THE REGISTRATION PROCESS.</p>
+            </div>
+            <div class="warranty__form-wrap clearfix">
+              <form name="form-warranty-registration" method="post" action="/"></form>
+              <div class="personal-info col-md-6 col-sm-6 clear-paddings">
+                <div class="personal-info__container">
+                  <h3 class="personal-info__heading">Personal informaion</h3>
+                  <div class="personal-info__item form-group">
+                    <label for="input-warranty-name" class="personal-info__label">Your name:</label>
+                    <input id="input-warranty-name" name="input-warranty-name" type="text" placeholder="John Doe" class="personal-info__input form-control">
+                    <div class="personal-info__error hide">Please, enter your name</div>
+                  </div>
+                  <div class="personal-info__item form-group">
+                    <label for="input-warranty-address" class="personal-info__label">Address:</label>
+                    <input id="input-warranty-address" name="input-warranty-address" type="text" placeholder="Elm street, 1" class="personal-info__input form-control">
+                    <div class="personal-info__error hide">Please, enter your address</div>
+                  </div>
+                  <div class="personal-info__item form-group">
+                    <label for="input-warranty-city" class="personal-info__label">City:</label>
+                    <input id="input-warranty-city" name="input-warranty-city" type="text" placeholder="New York" class="personal-info__input form-control">
+                    <div class="personal-info__error hide">Please, enter your city name</div>
+                  </div>
+                  <div class="personal-info__item form-group">
+                    <label for="input-warranty-state" class="personal-info__label">State:</label>
+                    <input id="input-warranty-state" name="input-warranty-state" type="text" placeholder="State" class="personal-info__input form-control">
+                    <div class="personal-info__error hide">Please, enter your state</div>
+                  </div>
+                  <div class="personal-info__item form-group">
+                    <label for="input-warranty-zip" class="personal-info__label">Zip-code:</label>
+                    <input id="input-warranty-zip" name="input-warranty-zip" type="text" placeholder="zip code" class="personal-info__input form-control">
+                    <div class="personal-info__error hide">Please, provide valid zip-code</div>
+                  </div>
+                  <div class="personal-info__item form-group">
+                    <label for="input-warranty-country" class="personal-info__label">Country</label>
+                    <select id="input-warranty-country" name="input-warranty-country" class="personal-info__select form-control">
+                      <option value="america">America</option>
+                      <option value="canada">Canada</option>
+                    </select>
+                    <div class="personal-info__error hide">Please, select your country</div>
+                  </div>
+                  <div class="personal-info__item form-group">
+                    <label for="input-warranty-phone" class="personal-info__label">Phone:</label>
+                    <input id="input-warranty-phone" name="input-warranty-phone" type="text" placeholder="555-5555-555" class="personal-info__input form-control">
+                    <div class="personal-info__error hide">Please, provide valid phone number</div>
+                  </div>
+                  <div class="personal-info__item form-group">
+                    <label for="input-warranty-email" class="personal-info__label">Email:</label>
+                    <input id="input-warranty-email" name="input-warranty-email" type="email" placeholder="example@domain.com" class="personal-info__input form-control">
+                    <div class="personal-info__error hide">Please, provide valid email address</div>
+                  </div>
+                </div>
+              </div>
+              <div class="purchase-details col-md-6 col-sm-6 clear-paddings">
+                <div class="purchase-details__container">
+                  <h3 class="purchase-details__heading">Purchase details</h3>
+                  <div class="purchase-details__item form-group">
+                    <label for="input-warranty-date" class="purchase-details__label">Date of purchase:</label>
+                    <input id="input-warranty-date" name="input-warranty-date" type="text" placeholder="4/22/2016" class="purchase-details__input form-control">
+                    <div class="purchase-details__error hide">Please, select date of purchase</div>
+                  </div>
+                  <div class="purchase-details__item form-group">
+                    <label for="input-warranty-dealer" class="purchase-details__label">Retail dealer:</label>
+                    <input id="input-warranty-dealer" name="input-warranty-dealer" type="text" placeholder="Retail dealer" class="purchase-details__input form-control">
+                    <div class="purchase-details__error hide">Please, tell us what is your retails dealer</div>
+                  </div>
+                  <div class="purchase-details__item form-group">
+                    <label for="input-warranty-model" class="purchase-details__label">Swingaway model:</label>
+                    <input id="input-warranty-model" name="input-warranty-model" type="text" placeholder="Product model" class="purchase-details__input form-control">
+                    <div class="purchase-details__error hide">Please, type in your product model</div>
+                  </div>
+                  <div class="purchase-details__item form-group">
+                    <label for="input-warranty-comment" class="purchase-details__label">Comments and warranty:</label>
+                    <textarea id="input-warranty-comment" name="input-warranty-comment" placeholder="Comment text" class="purchase-details__textarea form-control"></textarea>
+                    <div class="purchase-details__error hide">Please, add some comments</div>
+                  </div>
+                </div>
+              </div>
+              <div class="warranty__form-error hide clear">You have to fill in all fields correctly to complete you warranty registration</div>
+              <div class="warranty__controls  text-right">
+                <button type="submit" class="btn btn-default">Complete registration</button>
+              </div>
+            </div>
+            <div class="warranty__content swingaway-content-markup clear-paddings">
+              <p>All customers must register their warranty within 1 week of purchase. Please be prepared to produce a copy of the Original Sales Receipt which clearly shows the Date of Purchase.</p>
+              <p>All SwingAway Hitting Systems - Are covered with a special 90 Day Limited Warranty, which covers all defects in material and workmanship for the Original Owner Only. This Warranty covers the steel tubing and components but does not cover cords, bungee and balls. The warranty does not cover institutional, commercial use or the misuse by Any consumer. ALL SwingAway OWNERS MUST BE REGISTERED to be covered by the warranty. Please register the product below. PLEASE NOTE ALL INFORMATION MUST BE SUPPLIED TO COMPLETE THE REGISTRATION PROCESS.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-nav">
+        <div class="container-fluid">
+          <div class="wrap">
+            <div class="footer-nav__container">
+              <div class="footer-nav__head">+ Menu</div>
+              <div class="footer-nav__body">
+                <ul class="footer-nav__list">
+                  <li class="footer-nav__item"><a href="/root/" class="footer-nav__link">Home</a></li>
+                  <li class="footer-nav__item"><a href="/root/contacts.html" class="footer-nav__link">Contacts</a></li>
+                  <li class="footer-nav__item"><a href="/root/manuals.html" class="footer-nav__link">Assembly manuals</a></li>
+                  <li class="footer-nav__item"><a href="/root/videos.html" class="footer-nav__link">Videos</a></li>
+                  <li class="footer-nav__item"><a href="/root/videos.html" class="footer-nav__link">Warranty</a></li>
+                  <li class="footer-nav__item"><a href="/root/dealers.html" class="footer-nav__link">Dealers</a></li>
+                  <li class="footer-nav__item"><a href="/root/partners.html" class="footer-nav__link">Partners</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-socials">
+        <div class="container-fluid">
+          <div class="wrap">
+            <div class="footer-socials__list">
+              <li class="footer-socials__item footer-socials__item--facebook"><a href="https://facebook.com" class="footer-socials__link"></a></li>
+              <li class="footer-socials__item footer-socials__item--twitter"><a href="https://twitter.com" class="footer-socials__link"></a></li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

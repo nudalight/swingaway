@@ -3,7 +3,7 @@
         section.cart-a
             .wrap
                 .container-fluid
-                    h2.cart-a__heading Cart
+                    h2.cart-a__heading Cart 1. Purchases preview
 
                     .cart-a__empty(
                         class='alert alert-warning fade in hide'
@@ -37,7 +37,9 @@
                                         )
 
                                             td.cart-a__cell.cart-a__cell--remove
-                                                .cart-a__item-remove
+                                                .cart-a__item-remove(
+                                                    class='swing-remove-icon'
+                                                )
 
                                             td.cart-a__cell.cart-a__cell--image
                                                 .cart-a__item-image-wrap
@@ -119,8 +121,20 @@
 
                                     .cart-summary__controls
                                         button.cart-summary__submit(
-                                            class='btn btn-info'
+                                            class='btn btn-swingaway'
                                         ) Go to checkout
+
+
+                            .order-preview-return(
+                                class='col-md-3'
+                            )
+                                .order-preview-return__container
+                                    a.order-preview-return__butt(
+                                        class='explicit-link',
+                                        href='#',
+                                        onclick='history.back()'
+                                    ) &#8617; Go back to shopping
+
 
 
 

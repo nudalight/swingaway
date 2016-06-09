@@ -2,17 +2,30 @@
 
 - for (var i_upsells = 0; i_upsells < products.length; i_upsells++)
     .upsell-grid__box-item
-        .grid-product
-            .grid-product__container
-                .grid-product__image-wrap
-                    .grid-prduct__controls.controls
-                        .controls__add-to-cart.butt-add-to-cart
-                        .controls__add-to-cart.butt-add-to-compare
-                        .controls__add-to-cart.butt-add-to-wishlist
-                    img.grid-product__image(
+        .product-in-grid(
+            data-product-id=products[i_upsells].id
+        )
+            .product-in-grid__container
+                .product-in-grid__image-wrap
+                    .product-in-grid__controls.control-pad
+                        .control-pad__controls
+                            .control-pad__item.control-pad__item--cart
+                                .control-pad__icon.control-pad__icon--cart(
+                                    class='butt-add-to-cart'
+                                )
+                            .control-pad__item.control-pad__item--wishlist
+                                .control-pad__icon.control-pad__icon--wishlist(
+                                    class='butt-add-to-wishlist'
+                                )
+                            .control-pad__item.control-pad__item--compare
+                                .control-pad__icon.control-pad__icon--compare(
+                                    class='butt-add-to-compare'
+                                )
+                    img.product-in-grid__image(
                         src='#{ products[i_upsells].photos[0] }'
                     )
-                a.grid-product__title(
-                    href='/product.html'
+                a.product-in-grid__title(
+                    href=rootPath + 'product.html'
                 )= products[i_upsells].title
-                .grid-product__price= '$' + products[i_upsells].price
+                .product-in-grid__price= '$' + products[i_upsells].price
+

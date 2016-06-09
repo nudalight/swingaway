@@ -1,0 +1,104 @@
+.product-gallery
+  &__container
+    display: flex
+    align-items: center
+    max-width: 100%
+    padding-top: 1.5em
+    padding-bottom: 2em
+
+  &__shortcuts
+    text-align: center
+    width: 12em
+
+    &:hover .product-gallery__nav
+      transition-duration: .35s
+      opacity: 1
+
+  &__shortcuts-nav
+    height: 1.4em
+    border: none
+    width: 100%
+    position: absolute
+    z-index: 1
+    opacity: .4
+
+    &--prev
+      top: -2.5em
+      background: url($carousel-arrow-up-png) center center no-repeat
+      background-size: contain
+
+    &--next
+      bottom: -2.5em
+      background: url($carousel-arrow-down-png) center center no-repeat
+      background-size: contain
+
+  &__preview
+    max-width: 100%
+    max-height: 390px
+
+  &__shortcut
+    max-width: 100%
+
+  &__previews
+    max-width: 30em
+    max-height: 30em
+    margin: 0 1em
+    border: 1px solid #ccc
+    padding: .2em
+
+  &__previews-nav
+    position: absolute
+    border: none
+    height: 2.5em
+    width: 2.5em
+    top: 45%
+    opacity: .5
+    z-index: 1
+
+    &--prev
+      left: 1em
+      background: url($carousel-arrow-left-png) center center no-repeat
+      background-size: contain
+
+    &--next
+      right: 1em
+      background: url($carousel-arrow-right-png) center center no-repeat
+      background-size: contain
+
+
+
+@media all and (max-width: 1100px)
+  .product-gallery
+    &__shortcuts
+      display: none
+
+
+
+
+
+@media all and (max-width: 920px)
+  .product-gallery
+    &__container
+      width: 100%
+      justify-content: space-around
+
+    &__shortcuts
+      display: block
+
+
+
+@media all and (max-width: 620px)
+  .product-gallery
+    &__shortcuts
+      display: none
+
+    &__previews
+      margin: 0
+      display: block
+      max-width: 100%
+
+
+
+
+
+

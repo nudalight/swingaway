@@ -1,0 +1,44 @@
+.product-options
+  margin: 0 auto
+  max-width: 30em
+
+  &__container
+    margin: .4em 0 1.6em
+    display: inline-block
+
+  &__heading
+    text-align: left
+    color: #000
+
+  &__group
+    display: flex
+    align-items: center
+    background: #EEEEEE
+    padding: .8em 1em
+    margin: .5em 0
+
+
+  &__label
+    display: block
+    min-width: 10em
+    text-align: left
+
+  &__select
+    width: initial
+    min-width: 10em
+
+
+@media all and (max-width: 360px)
+  .product-options
+    &__container
+      display: block
+
+    &__group
+      display: block
+
+    &__label
+      padding-bottom: .3em
+      text-align: left
+
+    &__select
+      width: 100%

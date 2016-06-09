@@ -1,6 +1,9 @@
 .compare
   opacity: 0
 
+  *
+    transition-duration: .35s
+
   &__container
     display: flex
     flex-wrap: wrap
@@ -31,13 +34,13 @@
 
   &__button
     padding-left: 3em
-    background-image: url(../img/icons/basket-black.png)
+    background-image: url($basket-black-png)
     background-position: 1em center
     background-size: 1.2em
     background-repeat: no-repeat
 
     &:hover
-      background-image: url(../img/icons/basket-white.png)
+      background-image: url($basket-swa-red-png)
 
   &__cell
     &--remove
@@ -47,7 +50,7 @@
     display: inline-block
     width: 1.8em
     height: 1.8em
-    background: url(../img/icons/close-black.png) center center no-repeat
+    background: url($close-black-png) center center no-repeat
     background-size: 50%
     cursor: pointer
     border-radius: 50%
@@ -56,14 +59,20 @@
     &:hover
       transform: rotate(-90deg)
       background-size: 60%
-      background-image: url(../img/icons/close-red.png)
+      background-image: url($close-swa-red-png)
 
   &__cell
     border-bottom: 1px solid #ddd
     padding: .5em .7em
 
+  &__image-wrap
+    height: 100%
+    max-height: 12em
+    min-height: 10em
+
   &__image
     max-width: 100%
+    max-height: 100%
 
 
 .compare-nav

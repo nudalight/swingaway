@@ -1,0 +1,111 @@
+.control-pad
+  > *
+    transition-duration: .35s
+
+  display: flex
+  align-items: flex-end
+  justify-content: center
+  opacity: 0
+  overflow: hidden
+  transition-duration: .5s
+  z-index: 1
+
+  &:hover
+    opacity: 1
+
+    .control-pad
+      &__controls
+        margin-bottom: 0
+
+      &__item
+        &--cart,
+        &--compare,
+        &--wishlist
+          transform: translate(0, 0) rotate(60deg)
+
+      &__item
+        &--cart,
+        &--compare,
+        &--wishlist
+          &::before
+            transform: translate(0, 0) rotate(-60deg)
+
+        &--compare,
+        &--wishlist
+          &::before
+            transform: translate(0, 0) rotate(-60deg)
+
+
+  &__controls
+    margin-bottom: -3em
+    padding-bottom: 1em
+    display: flex
+    flex-wrap: wrap
+
+  &__item
+    margin: .2em .2em
+    width: 3em
+    height: 3em
+    border: 1px solid #eee
+    background: $sun_yellow
+    opacity: .7
+    cursor: pointer
+    transition-duration: .5s
+
+    &:hover
+      opacity: 1
+      background: darken($sun_yellow, 15%)
+
+    &--cart
+      transform: translate(-2em, 0)
+
+    &--wishlist
+      transform: translate(0, 2em)
+
+    &--compare
+      transform: translate(2em, 0)
+
+
+  &__icon
+    background: url() center center no-repeat
+    height: 100%
+    transform: rotate(-60deg)
+    background-size: 65%
+
+    &--cart
+      background-image: url($basket-black-png)
+
+      &:hover
+        background-image: url($basket-swa-red-png)
+
+    &--in-cart
+      background-image: url($basket-swa-red-png)
+
+      &:hover
+        background-image: url($basket-swa-red-png)
+
+    &--compare
+      background-image: url($scales-black-png)
+
+      &:hover
+        background-image: url($scales-swa-red-png)
+
+    &--in-compare
+      background-image: url($scales-swa-red-png)
+
+      &:hover
+        background-image: url($scales-swa-red-png)
+
+    &--wishlist
+      background-image: url($wishlist-black-png)
+
+      &:hover
+        background-image: url($wishlist-swa-red-png)
+
+    &--in-wishlist
+      background-image: url($wishlist-swa-red-png)
+
+      &:hover
+        background-image: url($wishlist-swa-red-broken-png)
+
+

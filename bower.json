@@ -15,6 +15,7 @@
     "holderjs": "^2.9.3",
     "slick-carousel": "^1.6.0",
     "jquery.cookie": "jquery-cookie#^1.4.1",
-    "bootstrap-formhelpers": "^2.3.0"
+    "bootstrap-formhelpers": "^2.3.0",
+    "bootstrap-select": "^1.10.0"
   }
 }

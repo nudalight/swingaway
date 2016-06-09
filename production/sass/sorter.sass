@@ -14,17 +14,16 @@
       cursor: pointer
       background: #eee
     
-    &--active > span
+    &--active > .sorter__indicator
       margin: 0 0 -.125em .5em
       display: inline-block
       width: 1em
       height: 1em
 
-
-    &--asc > span
-      background: url(../img/icons/arrow-down-black.png) center center no-repeat
+    &--asc > .sorter__indicator
+      background: url($arrow-down-black-png) center center no-repeat
       background-size: contain
 
-    &--desc > span
-      background: url(../img/icons/arrow-up-black.png) center center no-repeat
+    &--desc > .sorter__indicator
+      background: url($arrow-up-black-png) center center no-repeat
       background-size: contain

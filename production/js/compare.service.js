@@ -39,7 +39,7 @@ function Compare(config, select){
     };
 
 
-    $('.butt-add-to-compare').on('click', function(){
+    $('.butt-add-to-compare').on('click', function(e){
 
         var id = $(this).closest('[data-product-id]').data('product-id').toString();
 
@@ -49,7 +49,17 @@ function Compare(config, select){
 
         that.mirror();
 
+        that.markControlIcon(e.target);
     });
+
+    this.markControlIcon = function(tg){
+        var picon = $(tg).closest('[data-product-id]').find('.control-pad__icon');
+
+        console.warn(333, tg);
+        if (picon.length){
+            $(tg).addClass('control-pad__icon--in-compare')
+        }
+    };
 
     this.count = function(){
         return this.parse().length;
@@ -62,6 +72,8 @@ function Compare(config, select){
     function init(){
         that.mirror();
     }
+
+
 
     init();
 }

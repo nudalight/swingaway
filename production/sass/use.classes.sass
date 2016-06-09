@@ -1,5 +1,5 @@
 .swing-remove-icon
-  background: url(../img/icons/close-black.png) center center no-repeat
+  background: url($close-black-png) center center no-repeat
   background-size: 60%
   width: 1.5em
   height: 1.5em
@@ -7,6 +7,36 @@
   transition-duration: .35s
 
   &:hover
-    background-image: url(../img/icons/close-red.png)
+    background-image: url($close-red-png)
     transform: rotate(90deg)
     background-size: 70%
+
+
+.color-swa-red
+  color: $swa_red
+
+
+.grid-group-4
+  &__list
+    display: flex
+    flex-wrap: wrap
+
+  &__item
+    list-style-type: none
+    padding: .3em
+    flex-basis: 20%
+
+  &__image
+    max-width: 100%
+
+
+@media all and (max-width: 920px)
+  .grid-group-4
+    &__item
+      flex-basis: 25%
+
+
+@media all and (max-width: 760px)
+  .grid-group-4
+    &__item
+      flex-basis: 33.33%

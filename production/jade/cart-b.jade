@@ -1,158 +1,214 @@
         // two tabs needed!
 
-        section.cart-billing
+        section.billing
             .wrap
                 .container-fluid
                     h2.cart-billing__heading
-                        | Billing information
+                        | Cart 2. Billing information
 
-                    .billing
-                        .billing__container(
+                    .billing__container
+
+                        .billing__content(
+                            class='swingaway-content-markup'
+                        )
+                            p Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est.
+
+                        form.billing__form(
+                            id='form-billing',
+                            name='form-billing',
+                            method='post',
+                            action='/',
                             class='well'
                         )
-                            form.billing__form(
-                                id='form-billing'
+
+                            .billing__item(
+                                class='form-group'
                             )
+                                label.billing__label(
+                                    for='billing-input-first-name'
+                                ) First name:
 
-                                .billing__item(
-                                    class='form-group'
+                                input.billing__input(
+                                    id='billing-input-first-name',
+                                    class='form-control',
+                                    placeholder='First name'
+                                    data-validate-as='text'
                                 )
-                                    label.billing__label(
-                                        for='billing-input-first-name'
-                                    ) First name:
+                                .billing__error(
+                                    class='hide'
+                                ) First name is too short!
 
-                                    input.billing__input(
-                                        id='billing-input-first-name',
-                                        class='form-control',
-                                        placeholder='First name'
-                                        data-validate-as='text'
-                                    )
+                            .billing__item(
+                                class='form-group'
+                            )
+                                label.billing__label(
+                                    for='billing-input-last-name'
+                                ) Last name:
 
-                                .billing__item(
-                                    class='form-group'
+                                input.billing__input(
+                                    id='billing-input-last-name',
+                                    class='form-control',
+                                    placeholder='Last name'
                                 )
-                                    label.billing__label(
-                                        for='billing-input-last-name'
-                                    ) Last name:
+                                .billing__error(
+                                    class='hide'
+                                ) Last name is too short!
 
-                                    input.billing__input(
-                                        id='billing-input-last-name',
-                                        class='form-control',
-                                        placeholder='Last name'
-                                    )
+                            .billing__item(
+                                class='form-group'
+                            )
+                                label.billing__label(
+                                    for='billing-input-company'
+                                ) Company:
 
-                                .billing__item(
-                                    class='form-group'
+                                input.billing__input(
+                                    id='billing-input-company',
+                                    class='form-control',
+                                    placeholder='Company'
                                 )
-                                    label.billing__label(
-                                        for='billing-input-company'
-                                    ) Company:
+                                .billing__error(
+                                    class='hide'
+                                ) Company name is too short!
 
-                                    input.billing__input(
-                                        id='billing-input-company',
-                                        class='form-control',
-                                        placeholder='Company'
-                                    )
+                            .billing__item(
+                                class='form-group'
+                            )
+                                label.billing__label(
+                                    for='billing-input-address'
+                                ) Address:
 
-                                .billing__item(
-                                    class='form-group'
+                                input.billing__input(
+                                    id='billing-input-address',
+                                    class='form-control',
+                                    placeholder='Address'
                                 )
-                                    label.billing__label(
-                                        for='billing-input-address'
-                                    ) Address:
+                                .billing__error(
+                                    class='hide'
+                                ) Address is too short!
 
-                                    input.billing__input(
-                                        id='billing-input-address',
-                                        class='form-control',
-                                        placeholder='Address'
-                                    )
 
-                                .billing__item(
-                                    class='form-group'
+                            .billing__item(
+                                class='form-group'
+                            )
+                                label.billing__label(
+                                    for='billing-input-city'
+                                ) City:
+
+                                input.billing__input(
+                                    id='billing-input-city',
+                                    class='form-control',
+                                    placeholder='City'
                                 )
-                                    label.billing__label(
-                                        for='billing-input-city'
-                                    ) City:
+                                .billing__error(
+                                    class='hide'
+                                ) City name is too short!
 
-                                    input.billing__input(
-                                        id='billing-input-city',
-                                        class='form-control',
-                                        placeholder='City'
-                                    )
+                            .billing__item(
+                                class='form-group'
+                            )
+                                label.billing__label(
+                                    for='billing-input-country'
+                                ) Country:
 
-                                .billing__item(
-                                    class='form-group'
+                                select.billing__select(
+                                    class='form-control',
+                                    id='billing-input-country',
+                                    name='billing-input-country',
+                                    data-validate-as='select'
                                 )
-                                    label.billing__label(
-                                        for='billing-input-country'
-                                    ) Country:
+                                    option(
+                                        value='placeholder'
+                                    ) -- choose your country --
+                                    option(
+                                        value='america'
+                                    ) America
+                                    option(
+                                        value='canada'
+                                    ) Canada
+                                .billing__error(
+                                    class='hide'
+                                ) Country name is too short!
 
-                                    input.billing__input(
-                                        id='billing-input-country',
-                                        class='form-control',
-                                        placeholder='Country'
-                                    )
+                            .billing__item(
+                                class='form-group'
+                            )
+                                label.billing__label(
+                                    for='billing-input-state'
+                                ) State:
 
-                                .billing__item(
-                                    class='form-group'
+                                input.billing__input(
+                                    id='billing-input-state',
+                                    class='form-control',
+                                    placeholder='State'
                                 )
-                                    label.billing__label(
-                                        for='billing-input-state'
-                                    ) State:
+                                .billing__error(
+                                    class='hide'
+                                ) State name is too short!
 
-                                    input.billing__input(
-                                        id='billing-input-state',
-                                        class='form-control',
-                                        placeholder='State'
-                                    )
+                            .billing__item(
+                                class='form-group'
+                            )
+                                label.billing__label(
+                                    for='billing-input-zip'
+                                ) Zip-code:
 
-                                .billing__item(
-                                    class='form-group'
+                                input.billing__input(
+                                    id='billing-input-zip',
+                                    class='form-control',
+                                    placeholder='Zip'
                                 )
-                                    label.billing__label(
-                                        for='billing-input-zip'
-                                    ) Zip-code:
+                                .billing__error(
+                                    class='hide'
+                                ) Zip-code is too short!
 
-                                    input.billing__input(
-                                        id='billing-input-zip',
-                                        class='form-control',
-                                        placeholder='Zip'
-                                    )
+                            .billing__item(
+                                class='form-group'
+                            )
+                                label.billing__label(
+                                    for='billing-input-phone'
+                                ) Phone number:
 
-                                .billing__item(
-                                    class='form-group'
+                                input.billing__input(
+                                    id='billing-input-phone',
+                                    class='form-control',
+                                    placeholder='Phone number'
                                 )
-                                    label.billing__label(
-                                        for='billing-input-phone'
-                                    ) Phone number:
+                                .billing__error(
+                                    class='hide'
+                                ) Phone number is incorrect!
 
-                                    input.billing__input(
-                                        id='billing-input-phone',
-                                        class='form-control',
-                                        placeholder='Phone number'
-                                    )
+                            .billing__item(
+                                class='form-group'
+                            )
+                                label.billing__label(
+                                    for='billing-input-email'
+                                ) Email:
 
-                                .billing__item(
-                                    class='form-group'
+                                input.billing__input(
+                                    id='billing-input-email',
+                                    type='email',
+                                    class='form-control',
+                                    placeholder='Email',
+                                    data-validate-as='email'
                                 )
-                                    label.billing__label(
-                                        for='billing-input-email'
-                                    ) Email:
-
-                                    input.billing__input(
-                                        id='billing-input-email',
-                                        type='email',
-                                        class='form-control',
-                                        placeholder='Email',
-                                        data-validate-as='email'
-                                    )
+                                .billing__error(
+                                    class='hide'
+                                ) Email is not valid!
 
 
-                            .billing__notice.hide
-                                | You have to fill in all form inputs in order to proceed
+                        .billing__form-error(
+                            class='hide alert alert-warning'
+                        )
+                            | You have to fill in all form inputs in order to proceed
 
-                            .billing__controls.clearfix
-                                button.billing__submit(
-                                    form='form-billing',
-                                    class='pull-right btn btn-default'
-                                ) Proceed
+                        .billing__controls.clearfix
+                            a.billing__return(
+                                class='explicit-link',
+                                href='#',
+                                onclick='history.back()'
+                            ) &#8617; Go back to purchases preview
+
+                            button.billing__submit(
+                                form='form-billing',
+                                class='pull-right btn btn-swingaway'
+                            ) Proceed

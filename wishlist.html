@@ -9,6 +9,8 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css">
     <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
+    <!--link(rel='stylesheet', href='bower_components/bootstrap-select/dist/css/bootstrap-select.min.css')-->
+    <!--script(src='bower_components/bootstrap-select/dist/js/bootstrap-select.min.js')-->
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
     <script src="bower_components/slick-carousel/slick/slick.js"></script>
     <link rel="stylesheet" href="distribution/css/output.css">
@@ -46,12 +48,12 @@
           </li>
           <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Customer Service</a>
             <ul class="offcanvas-submenu">
-              <li class="offcanvas-submenu__item"><a href="/contacts.html" class="offcanvas-submenu__link">Contacts</a></li>
-              <li class="offcanvas-submenu__item"><a href="/assembly_manuals.html" class="offcanvas-submenu__link">Assembly manuals</a></li>
-              <li class="offcanvas-submenu__item"><a href="/videos.html" class="offcanvas-submenu__link">Videos</a></li>
-              <li class="offcanvas-submenu__item"><a href="/videos.html" class="offcanvas-submenu__link">Warranty</a></li>
-              <li class="offcanvas-submenu__item"><a href="/dealers.html" class="offcanvas-submenu__link">Dealers</a></li>
-              <li class="offcanvas-submenu__item"><a href="/partners.html" class="offcanvas-submenu__link">Partners</a></li>
+              <li class="offcanvas-submenu__item"><a href="contacts.html" class="offcanvas-submenu__link">Contacts</a></li>
+              <li class="offcanvas-submenu__item"><a href="manuals.html" class="offcanvas-submenu__link">Assembly manuals</a></li>
+              <li class="offcanvas-submenu__item"><a href="videos.html" class="offcanvas-submenu__link">Videos</a></li>
+              <li class="offcanvas-submenu__item"><a href="videos.html" class="offcanvas-submenu__link">Warranty</a></li>
+              <li class="offcanvas-submenu__item"><a href="dealers.html" class="offcanvas-submenu__link">Dealers</a></li>
+              <li class="offcanvas-submenu__item"><a href="partners.html" class="offcanvas-submenu__link">Partners</a></li>
             </ul>
           </li>
           <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Meet the team</a>
@@ -73,26 +75,62 @@
         <div class="auth-modal__inner modal-content">
           <div class="auth-modal__head modal-header">
             <button type="button" data-dismiss="modal" class="auth-modal__close close">&times;</button>
-            <h4 class="modal-title">Login form</h4>
+            <h4 class="auth-modal__heading modal-title">Authentification</h4>
           </div>
           <div class="auth-modal__body">
-            <h4>For returning customores</h4>
-            <p>If you've purchased from us before, please login with your email address and password.</p>
-            <form name="form-auth">
-              <div class="form-group">
-                <label for="auth-login-email">Email address</label>
-                <input id="auth-login-email" type="email" placeholder="Email" class="form-control">
+            <ul class="auth-modal__nav-tabs nav nav-tabs">
+              <li class="auth-modal__nav-tab active"><a data-toggle="tab" href="#tab-auth-login" class="auth-modal__nav-link">Login</a></li>
+              <li class="auth-modal__nav-tab"><a data-toggle="tab" href="#tab-auth-register" class="auth-modal__nav-link">Register</a></li>
+            </ul>
+            <div class="auth-modal__inner tab-content">
+              <div id="tab-auth-login" class="auth-modal__content-auth tab-pane active">
+                <div class="auth-modal__content swingaway-content-markup">
+                  <h4>For returning customers</h4>
+                  <p>If you've purchased from us before, please login with your email address and password.</p>
+                </div>
+                <form name="form-auth-login" class="auth-modal__form">
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-login-email" class="auth-modal__form-label">Email address</label>
+                    <input id="auth-login-email" type="email" placeholder="Email" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-login-password" class="auth-modal__form-label">Password</label>
+                    <input id="auth-login-password" type="password" placeholder="Password" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__controls">
+                    <button type="submit" class="auth-modal__submit btn btn-swingaway">Login</button>
+                  </div>
+                </form>
               </div>
-              <div class="form-group">
-                <label for="auth-login-email">Password</label>
-                <input id="auth-login-password" type="password" placeholder="Password" class="form-control">
+              <div id="tab-auth-register" class="auth-modal__content-auth tab-pane">
+                <div class="auth-modal__content swingaway-content-markup">
+                  <h4>New customers</h4>
+                  <p>If you've a new customer ...</p>
+                </div>
+                <form name="form-auth-register" class="auth-modal__form">
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-register-email" class="auth-modal__form-label">Email address</label>
+                    <input id="auth-register-email" type="email" placeholder="Email" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-register-password" class="auth-modal__form-label">Password</label>
+                    <input id="auth-register-password" type="password" placeholder="Password" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-register-password-confirm" class="auth-modal__form-label">Password confirm</label>
+                    <input id="auth-register-password-confirm" type="password" placeholder="Re-type password" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__controls">
+                    <button type="submit" class="auth-modal__submit btn btn-swingaway">Register</button>
+                  </div>
+                </form>
               </div>
-              <h4>New Customers</h4>
-              <p>If this is your first purchase with us, please proceed by clicking the following button to continue first-time<a href="/register.html" class="explicit-link">registration.</a></p>
-              <div class="auth-modal__controls text-right">
-                <button type="submit" class="auth-modal__submit btn btn-default">Submit</button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -174,7 +212,7 @@
             <div class="search">
               <div class="search__container clearfix">
                 <form name="form-search" method="post" action="/">
-                  <input type="text" placeholder="search query" name="input-search" required class="search__input">
+                  <input type="text" placeholder="search query" name="input-search" required class="search__input form-control">
                   <div class="search__submit">
                     <div class="search__submit-icon glyphicon glyphicon-search"></div>
                   </div>
@@ -182,9 +220,9 @@
               </div>
             </div>
             <div class="services">
-              <div class="services__container"><a href="/compare.html" class="services__compare">
-                  <div class="services__counter">53</div></a><a href="/wishlist.html" class="services__wishlist">
-                  <div class="services__counter">55</div></a><a href="/cart-a.html" class="services__cart">
+              <div class="services__container"><a href="/root/compare.html" class="services__compare">
+                  <div class="services__counter">53</div></a><a href="/root/wishlist.html" class="services__wishlist">
+                  <div class="services__counter">55</div></a><a href="/root/cart-a.html" class="services__cart">
                   <div class="services__counter">57</div></a></div>
             </div>
           </div>
@@ -192,23 +230,23 @@
         <div class="container-fluid">
           <nav class="main-menu">
             <ul class="main-menu__list">
-              <li class="main-menu__item Home"><a href="/" class="main-menu__link">Home</a>
-              <li class="main-menu__item Baseball"><a href="/baseball.html" class="main-menu__link">Baseball</a>
-              <li class="main-menu__item Softball"><a href="/softball.html" class="main-menu__link">Softball</a>
-              <li class="main-menu__item main-menu__active"><a href="/pitching.html" class="main-menu__link">Pitching</a>
-              <li class="main-menu__item Parts"><a href="/parts.html" class="main-menu__link">Parts</a>
-              <li class="main-menu__item Accessories"><a href="/accessories.html" class="main-menu__link">Accessories</a>
+              <li class="main-menu__item Home"><a href="/root/" class="main-menu__link">Home</a>
+              <li class="main-menu__item Baseball"><a href="/root/baseball.html" class="main-menu__link">Baseball</a>
+              <li class="main-menu__item Softball"><a href="/root/softball.html" class="main-menu__link">Softball</a>
+              <li class="main-menu__item main-menu__active"><a href="/root/pitching.html" class="main-menu__link">Pitching</a>
+              <li class="main-menu__item Parts"><a href="/root/parts.html" class="main-menu__link">Parts</a>
+              <li class="main-menu__item Accessories"><a href="/root/accessories.html" class="main-menu__link">Accessories</a>
               <li class="main-menu__item Customer Service"><a href="#" class="main-menu__link">Customer Service</a>
                 <ul class="main-menu__sublist">
-                  <li class="main-menu__subitem"><a href="/contacts.html" class="main-menu__sublink">Contacts</a></li>
-                  <li class="main-menu__subitem"><a href="/assembly_manuals.html" class="main-menu__sublink">Assembly manuals</a></li>
-                  <li class="main-menu__subitem"><a href="/videos.html" class="main-menu__sublink">Videos</a></li>
-                  <li class="main-menu__subitem"><a href="/videos.html" class="main-menu__sublink">Warranty</a></li>
-                  <li class="main-menu__subitem"><a href="/dealers.html" class="main-menu__sublink">Dealers</a></li>
-                  <li class="main-menu__subitem"><a href="/partners.html" class="main-menu__sublink">Partners</a></li>
+                  <li class="main-menu__subitem"><a href="/root/contacts.html" class="main-menu__sublink">Contacts</a></li>
+                  <li class="main-menu__subitem"><a href="/root/manuals.html" class="main-menu__sublink">Assembly manuals</a></li>
+                  <li class="main-menu__subitem"><a href="/root/videos.html" class="main-menu__sublink">Videos</a></li>
+                  <li class="main-menu__subitem"><a href="/root/videos.html" class="main-menu__sublink">Warranty</a></li>
+                  <li class="main-menu__subitem"><a href="/root/dealers.html" class="main-menu__sublink">Dealers</a></li>
+                  <li class="main-menu__subitem"><a href="/root/partners.html" class="main-menu__sublink">Partners</a></li>
                 </ul>
-              <li class="main-menu__item Meet the team"><a href="/meet_the_team.html" class="main-menu__link">Meet the team</a>
-              <li class="main-menu__item Store"><a href="/store" class="main-menu__link">Store</a>
+              <li class="main-menu__item Meet the team"><a href="/root/meet_the_team.html" class="main-menu__link">Meet the team</a>
+              <li class="main-menu__item Store"><a href="/root/store" class="main-menu__link">Store</a>
               </li>
             </ul>
           </nav>
@@ -350,13 +388,13 @@
               <div class="footer-nav__head">+ Menu</div>
               <div class="footer-nav__body">
                 <ul class="footer-nav__list">
-                  <li class="footer-nav__item"><a href="/" class="footer-nav__link">Home</a></li>
-                  <li class="footer-nav__item"><a href="/contacts.html" class="footer-nav__link">Contacts</a></li>
-                  <li class="footer-nav__item"><a href="/assembly_manuals.html" class="footer-nav__link">Assembly manuals</a></li>
-                  <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Videos</a></li>
-                  <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Warranty</a></li>
-                  <li class="footer-nav__item"><a href="/dealers.html" class="footer-nav__link">Dealers</a></li>
-                  <li class="footer-nav__item"><a href="/partners.html" class="footer-nav__link">Partners</a></li>
+                  <li class="footer-nav__item"><a href="/root/" class="footer-nav__link">Home</a></li>
+                  <li class="footer-nav__item"><a href="/root/contacts.html" class="footer-nav__link">Contacts</a></li>
+                  <li class="footer-nav__item"><a href="/root/manuals.html" class="footer-nav__link">Assembly manuals</a></li>
+                  <li class="footer-nav__item"><a href="/root/videos.html" class="footer-nav__link">Videos</a></li>
+                  <li class="footer-nav__item"><a href="/root/videos.html" class="footer-nav__link">Warranty</a></li>
+                  <li class="footer-nav__item"><a href="/root/dealers.html" class="footer-nav__link">Dealers</a></li>
+                  <li class="footer-nav__item"><a href="/root/partners.html" class="footer-nav__link">Partners</a></li>
                 </ul>
               </div>
             </div>

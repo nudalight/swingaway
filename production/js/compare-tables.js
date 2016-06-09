@@ -1,13 +1,14 @@
 $(window).on('load resize', function(){
 
-    var selectCompareProd = '.compare-prod';
+    var compareProds = '.compare__prods';
+    var compareProd = '.compare-prod';
     var heights = [];
 
     setTimeout(res, 500);
 
     function res(){
         // define products cell heights
-        $(selectCompareProd).each(function(i, v, list){
+        $(compareProd).each(function(i, v, list){
 
 
             $(v).children('.compare-prod__cell').each(function(i, v, list){
@@ -20,7 +21,7 @@ $(window).on('load resize', function(){
 
         });
 
-        $(selectCompareProd).each(function(i, v, list){
+        $(compareProd).each(function(i, v, list){
             $(v).children('.compare-prod__cell').each(function(i, v, list){
                 $(v).height(heights[i]);
             });
@@ -34,5 +35,23 @@ $(window).on('load resize', function(){
 
         heights = [];
     }
+
+
+    // carousel items width fix
+
+    setTimeout(function(){
+
+        var q = $(compareProd).length;
+
+        if (q > 5) return false;
+
+        var l = (100 / q) || 1;
+
+        $(compareProds).find('.slick-list').css({ width: '100%' });
+        $(compareProds).find('.slick-track').css({ width: '100%' });
+        $(compareProds).find(compareProd).css({ width: l + '%' });
+
+    }, 350);
+
 
 });

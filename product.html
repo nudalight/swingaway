@@ -9,6 +9,8 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css">
     <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
+    <!--link(rel='stylesheet', href='bower_components/bootstrap-select/dist/css/bootstrap-select.min.css')-->
+    <!--script(src='bower_components/bootstrap-select/dist/js/bootstrap-select.min.js')-->
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
     <script src="bower_components/slick-carousel/slick/slick.js"></script>
     <link rel="stylesheet" href="distribution/css/output.css">
@@ -46,12 +48,12 @@
           </li>
           <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Customer Service</a>
             <ul class="offcanvas-submenu">
-              <li class="offcanvas-submenu__item"><a href="/contacts.html" class="offcanvas-submenu__link">Contacts</a></li>
-              <li class="offcanvas-submenu__item"><a href="/assembly_manuals.html" class="offcanvas-submenu__link">Assembly manuals</a></li>
-              <li class="offcanvas-submenu__item"><a href="/videos.html" class="offcanvas-submenu__link">Videos</a></li>
-              <li class="offcanvas-submenu__item"><a href="/videos.html" class="offcanvas-submenu__link">Warranty</a></li>
-              <li class="offcanvas-submenu__item"><a href="/dealers.html" class="offcanvas-submenu__link">Dealers</a></li>
-              <li class="offcanvas-submenu__item"><a href="/partners.html" class="offcanvas-submenu__link">Partners</a></li>
+              <li class="offcanvas-submenu__item"><a href="contacts.html" class="offcanvas-submenu__link">Contacts</a></li>
+              <li class="offcanvas-submenu__item"><a href="manuals.html" class="offcanvas-submenu__link">Assembly manuals</a></li>
+              <li class="offcanvas-submenu__item"><a href="videos.html" class="offcanvas-submenu__link">Videos</a></li>
+              <li class="offcanvas-submenu__item"><a href="videos.html" class="offcanvas-submenu__link">Warranty</a></li>
+              <li class="offcanvas-submenu__item"><a href="dealers.html" class="offcanvas-submenu__link">Dealers</a></li>
+              <li class="offcanvas-submenu__item"><a href="partners.html" class="offcanvas-submenu__link">Partners</a></li>
             </ul>
           </li>
           <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Meet the team</a>
@@ -73,26 +75,62 @@
         <div class="auth-modal__inner modal-content">
           <div class="auth-modal__head modal-header">
             <button type="button" data-dismiss="modal" class="auth-modal__close close">&times;</button>
-            <h4 class="modal-title">Login form</h4>
+            <h4 class="auth-modal__heading modal-title">Authentification</h4>
           </div>
           <div class="auth-modal__body">
-            <h4>For returning customores</h4>
-            <p>If you've purchased from us before, please login with your email address and password.</p>
-            <form name="form-auth">
-              <div class="form-group">
-                <label for="auth-login-email">Email address</label>
-                <input id="auth-login-email" type="email" placeholder="Email" class="form-control">
+            <ul class="auth-modal__nav-tabs nav nav-tabs">
+              <li class="auth-modal__nav-tab active"><a data-toggle="tab" href="#tab-auth-login" class="auth-modal__nav-link">Login</a></li>
+              <li class="auth-modal__nav-tab"><a data-toggle="tab" href="#tab-auth-register" class="auth-modal__nav-link">Register</a></li>
+            </ul>
+            <div class="auth-modal__inner tab-content">
+              <div id="tab-auth-login" class="auth-modal__content-auth tab-pane active">
+                <div class="auth-modal__content swingaway-content-markup">
+                  <h4>For returning customers</h4>
+                  <p>If you've purchased from us before, please login with your email address and password.</p>
+                </div>
+                <form name="form-auth-login" class="auth-modal__form">
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-login-email" class="auth-modal__form-label">Email address</label>
+                    <input id="auth-login-email" type="email" placeholder="Email" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-login-password" class="auth-modal__form-label">Password</label>
+                    <input id="auth-login-password" type="password" placeholder="Password" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__controls">
+                    <button type="submit" class="auth-modal__submit btn btn-swingaway">Login</button>
+                  </div>
+                </form>
               </div>
-              <div class="form-group">
-                <label for="auth-login-email">Password</label>
-                <input id="auth-login-password" type="password" placeholder="Password" class="form-control">
+              <div id="tab-auth-register" class="auth-modal__content-auth tab-pane">
+                <div class="auth-modal__content swingaway-content-markup">
+                  <h4>New customers</h4>
+                  <p>If you've a new customer ...</p>
+                </div>
+                <form name="form-auth-register" class="auth-modal__form">
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-register-email" class="auth-modal__form-label">Email address</label>
+                    <input id="auth-register-email" type="email" placeholder="Email" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-register-password" class="auth-modal__form-label">Password</label>
+                    <input id="auth-register-password" type="password" placeholder="Password" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-register-password-confirm" class="auth-modal__form-label">Password confirm</label>
+                    <input id="auth-register-password-confirm" type="password" placeholder="Re-type password" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__controls">
+                    <button type="submit" class="auth-modal__submit btn btn-swingaway">Register</button>
+                  </div>
+                </form>
               </div>
-              <h4>New Customers</h4>
-              <p>If this is your first purchase with us, please proceed by clicking the following button to continue first-time<a href="/register.html" class="explicit-link">registration.</a></p>
-              <div class="auth-modal__controls text-right">
-                <button type="submit" class="auth-modal__submit btn btn-default">Submit</button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -174,7 +212,7 @@
             <div class="search">
               <div class="search__container clearfix">
                 <form name="form-search" method="post" action="/">
-                  <input type="text" placeholder="search query" name="input-search" required class="search__input">
+                  <input type="text" placeholder="search query" name="input-search" required class="search__input form-control">
                   <div class="search__submit">
                     <div class="search__submit-icon glyphicon glyphicon-search"></div>
                   </div>
@@ -182,9 +220,9 @@
               </div>
             </div>
             <div class="services">
-              <div class="services__container"><a href="/compare.html" class="services__compare">
-                  <div class="services__counter">53</div></a><a href="/wishlist.html" class="services__wishlist">
-                  <div class="services__counter">55</div></a><a href="/cart-a.html" class="services__cart">
+              <div class="services__container"><a href="/root/compare.html" class="services__compare">
+                  <div class="services__counter">53</div></a><a href="/root/wishlist.html" class="services__wishlist">
+                  <div class="services__counter">55</div></a><a href="/root/cart-a.html" class="services__cart">
                   <div class="services__counter">57</div></a></div>
             </div>
           </div>
@@ -192,23 +230,23 @@
         <div class="container-fluid">
           <nav class="main-menu">
             <ul class="main-menu__list">
-              <li class="main-menu__item Home"><a href="/" class="main-menu__link">Home</a>
-              <li class="main-menu__item Baseball"><a href="/baseball.html" class="main-menu__link">Baseball</a>
-              <li class="main-menu__item Softball"><a href="/softball.html" class="main-menu__link">Softball</a>
-              <li class="main-menu__item main-menu__active"><a href="/pitching.html" class="main-menu__link">Pitching</a>
-              <li class="main-menu__item Parts"><a href="/parts.html" class="main-menu__link">Parts</a>
-              <li class="main-menu__item Accessories"><a href="/accessories.html" class="main-menu__link">Accessories</a>
+              <li class="main-menu__item Home"><a href="/root/" class="main-menu__link">Home</a>
+              <li class="main-menu__item Baseball"><a href="/root/baseball.html" class="main-menu__link">Baseball</a>
+              <li class="main-menu__item Softball"><a href="/root/softball.html" class="main-menu__link">Softball</a>
+              <li class="main-menu__item main-menu__active"><a href="/root/pitching.html" class="main-menu__link">Pitching</a>
+              <li class="main-menu__item Parts"><a href="/root/parts.html" class="main-menu__link">Parts</a>
+              <li class="main-menu__item Accessories"><a href="/root/accessories.html" class="main-menu__link">Accessories</a>
               <li class="main-menu__item Customer Service"><a href="#" class="main-menu__link">Customer Service</a>
                 <ul class="main-menu__sublist">
-                  <li class="main-menu__subitem"><a href="/contacts.html" class="main-menu__sublink">Contacts</a></li>
-                  <li class="main-menu__subitem"><a href="/assembly_manuals.html" class="main-menu__sublink">Assembly manuals</a></li>
-                  <li class="main-menu__subitem"><a href="/videos.html" class="main-menu__sublink">Videos</a></li>
-                  <li class="main-menu__subitem"><a href="/videos.html" class="main-menu__sublink">Warranty</a></li>
-                  <li class="main-menu__subitem"><a href="/dealers.html" class="main-menu__sublink">Dealers</a></li>
-                  <li class="main-menu__subitem"><a href="/partners.html" class="main-menu__sublink">Partners</a></li>
+                  <li class="main-menu__subitem"><a href="/root/contacts.html" class="main-menu__sublink">Contacts</a></li>
+                  <li class="main-menu__subitem"><a href="/root/manuals.html" class="main-menu__sublink">Assembly manuals</a></li>
+                  <li class="main-menu__subitem"><a href="/root/videos.html" class="main-menu__sublink">Videos</a></li>
+                  <li class="main-menu__subitem"><a href="/root/videos.html" class="main-menu__sublink">Warranty</a></li>
+                  <li class="main-menu__subitem"><a href="/root/dealers.html" class="main-menu__sublink">Dealers</a></li>
+                  <li class="main-menu__subitem"><a href="/root/partners.html" class="main-menu__sublink">Partners</a></li>
                 </ul>
-              <li class="main-menu__item Meet the team"><a href="/meet_the_team.html" class="main-menu__link">Meet the team</a>
-              <li class="main-menu__item Store"><a href="/store" class="main-menu__link">Store</a>
+              <li class="main-menu__item Meet the team"><a href="/root/meet_the_team.html" class="main-menu__link">Meet the team</a>
+              <li class="main-menu__item Store"><a href="/root/store" class="main-menu__link">Store</a>
               </li>
             </ul>
           </nav>
@@ -232,59 +270,77 @@
       <div class="wrap">
         <div class="container-fluid">
           <div class="product__container">
-            <div class="image-gallery">
-              <div class="image-gallery__shortcuts slider-nav">
-                <div class="image-gallery__shortcut"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg"></div>
-                <div class="image-gallery__shortcut"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576"></div>
-                <div class="image-gallery__shortcut"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg"></div>
-                <div class="image-gallery__shortcut"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700"></div>
-                <div class="image-gallery__shortcut"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg"></div>
-                <div class="image-gallery__shortcut"><img src="http://i.turner.ncaa.com/sites/default/files/styles/640x360/public/media/hunt_no_hitter.jpg?itok=9grR4MvX"></div>
-              </div>
-              <div class="image-gallery__preview">
-                <div class="image-gallery__preview-container slider-for">
-                  <div class="image-gallery__preview-item"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg"></div>
-                  <div class="image-gallery__preview-item"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576"></div>
-                  <div class="image-gallery__preview-item"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg"></div>
-                  <div class="image-gallery__preview-item"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700"></div>
-                  <div class="image-gallery__preview-item"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg"></div>
-                  <div class="image-gallery__preview-item"><img src="http://i.turner.ncaa.com/sites/default/files/styles/640x360/public/media/hunt_no_hitter.jpg?itok=9grR4MvX"></div>
+            <div class="product-gallery">
+              <div class="product-gallery__container">
+                <div class="product-gallery__shortcuts">
+                  <div class="product-gallery__shortcut-wrap"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="product-gallery__shortcut"></div>
+                  <div class="product-gallery__shortcut-wrap"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="product-gallery__shortcut"></div>
+                  <div class="product-gallery__shortcut-wrap"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="product-gallery__shortcut"></div>
+                  <div class="product-gallery__shortcut-wrap"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="product-gallery__shortcut"></div>
+                  <div class="product-gallery__shortcut-wrap"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="product-gallery__shortcut"></div>
+                  <div class="product-gallery__shortcut-wrap"><img src="http://i.turner.ncaa.com/sites/default/files/styles/640x360/public/media/hunt_no_hitter.jpg?itok=9grR4MvX" class="product-gallery__shortcut"></div>
                 </div>
-              </div>
-              <div id="product-gallery-modal" role="dialog" class="product-gallery-modal modal fade">
-                <div class="product-gallery-modal__container modal-dialog">
-                  <div class="product-gallery-modal__inner modal-content">
-                    <div class="product-gallery-modal__head modal-header">
-                      <button type="button" data-dismiss="modal" class="product-gallery-modal__close close">&times;</button>
-                      <h4 class="modal-title">Login form</h4>
-                    </div>
-                    <div class="product-gallery-modal__body">
-                      <p>BLACK</p>
-                    </div>
-                  </div>
+                <div class="product-gallery__previews">
+                  <div class="product-gallery__preview-wrap"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="product-gallery__preview"></div>
+                  <div class="product-gallery__preview-wrap"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="product-gallery__preview"></div>
+                  <div class="product-gallery__preview-wrap"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="product-gallery__preview"></div>
+                  <div class="product-gallery__preview-wrap"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="product-gallery__preview"></div>
+                  <div class="product-gallery__preview-wrap"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="product-gallery__preview"></div>
+                  <div class="product-gallery__preview-wrap"><img src="http://i.turner.ncaa.com/sites/default/files/styles/640x360/public/media/hunt_no_hitter.jpg?itok=9grR4MvX" class="product-gallery__preview"></div>
                 </div>
               </div>
             </div>
             <div data-product-id="8" class="product-basics">
-              <h1 class="product-basics__title">Product title with Brandaname and model</h1>
-              <div class="product-basics__price">$500</div>
-              <div class="product-basics__reviews">
-                <div class="stars">
-                  <div class="stars__container children-inline">
-                    <input type="hidden" class="stars__starred">
-                    <div class="stars__star stars__star--red "></div>
-                    <div class="stars__star stars__star--red "></div>
-                    <div class="stars__star stars__star--red "></div>
-                    <div class="stars__star  "></div>
-                    <div class="stars__star  "></div>
+              <div class="product-basics__container">
+                <h1 class="product-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</h1>
+                <div class="product-price">
+                  <div class="product-price__container"><span class="product-price__currency">$</span><span class="product-price__amount">500</span></div>
+                </div>
+                <div class="product-reviews">
+                  <div class="product-reviews__container">
+                    <div class="product-reviews__stars">
+                      <div class="stars">
+                        <div class="stars__container children-inline">
+                          <input type="hidden" class="stars__starred">
+                          <div class="stars__star stars__star--red "></div>
+                          <div class="stars__star stars__star--red "></div>
+                          <div class="stars__star stars__star--red "></div>
+                          <div class="stars__star  "></div>
+                          <div class="stars__star  "></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="product-reviews__controls"><a data-scroll-to="[href=&quot;#tab-reviews&quot;]" data-click-after-scroll="[href=&quot;#tab-reviews&quot;]" href="product.html#tab-reviews" class="product-review__link"><span class="product-review__link-qu">4</span><span class="product-review__link-text">reviews</span></a></div>
                   </div>
                 </div>
-              </div>
-              <div class="product-basics__characteristics"></div>
-              <div class="product-basics__controls">
-                <button class="product-basics__butt product-basics__butt--cart butt-add-to-cart btn">Add to cart</button>
-                <button class="product-basics__butt product-basics__butt--compare butt-add-to-compare btn btn-default">Compare</button>
-                <button class="product-basics__butt product-basics__butt--wishlist butt-add-to-wishlist btn btn-default">Add to Wishlist</button>
+                <div class="product-optoins">
+                  <div class="product-options__container">
+                    <h4 class="product-options__heading">Product options</h4>
+                    <div class="product-options__group">
+                      <label for="product-select-color" class="product-options__label">Product color:</label>
+                      <select id="product-select-color" name="product-select-color" class="product-options__select form-control">
+                        <option value="red" class="product-options__option">Red</option>
+                        <option value="green" class="product-options__option">Green</option>
+                        <option value="blue" class="product-options__option">Blue</option>
+                      </select>
+                    </div>
+                    <div class="product-options__group">
+                      <label for="product-select-size" class="product-options__label">Product size:</label>
+                      <select id="product-select-size" name="product-select-size" class="product-options__select form-control">
+                        <option value="lg" class="product-options__option">Large</option>
+                        <option value="md" class="product-options__option">Medium</option>
+                        <option value="sm" class="product-options__option">Small</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-controls">
+                  <div class="product-controls__container">
+                    <button class="product-controls__butt product-controls__butt--cart butt-add-to-cart btn btn-swingaway">Add to cart</button>
+                    <button class="product-controls__butt product-controls__butt--compare butt-add-to-compare btn btn-default">Compare</button>
+                    <button class="product-controls__butt product-controls__butt--wishlist butt-add-to-wishlist btn btn-default">Add to Wishlist</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -304,7 +360,7 @@
               -->
             </ul>
             <div class="product-details__container tab-content">
-              <div id="tab-description" class="product-details__box product-details__box--description tab-pane active">
+              <div id="tab-description" class="product-details__box product-details__box--description tab-pane active swingaway-content-markup">
                 <h4></h4>
                 <p>The ultimate power hitting station & pro-class pitchback - for home training</p>
                 <p>The Jennie Finch Gold Medal Edition SwingAway Hitting Trainer is specifically designed for Home Training of all players regardless of their age or skill level plus for Team Use from Tee Ball thru Little League. The MVP allows varsity and youth players to Train Year- Round on the Most Effective and Popular Professional Training Station ever made.The SWINGAWAY once was limited to only Pro Players and Teams, Now the MVP is perfect hitting training aid for ALL Players! The MVP is the Most Affordable SWINGAWAY Model, But Don’t let the Price Fool You! This machine ROCKS!! The MVP Converts very easily to a World Class Pitch-Back and Folds Base to Frame in seconds for maximum storability.</p>
@@ -478,10 +534,10 @@
               <!--    include ./jade/incl/product.qna.jade-->
               
               
+              
             </div>
           </div>
         </div>
-        <div class="container-fluid"></div>
       </div>
     </section>
     <section class="upsell-grid">
@@ -496,228 +552,356 @@
           <div class="upsell-grid__content tab-content">
             <div id="tab-accessories" class="upsell-grid__box upsell-grid__box--accessories tab-pane active carousel-upsell-accessories">
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$105.99</div>
+                <div data-product-id='1' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$105.99</div>
                   </div>
                 </div>
               </div>
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$167.45</div>
+                <div data-product-id='2' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$167.45</div>
                   </div>
                 </div>
               </div>
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$199.99</div>
+                <div data-product-id='3' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$199.99</div>
                   </div>
                 </div>
               </div>
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$499.99</div>
+                <div data-product-id='4' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$499.99</div>
                   </div>
                 </div>
               </div>
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$70.00</div>
+                <div data-product-id='5' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$70.00</div>
                   </div>
                 </div>
               </div>
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$89.49</div>
+                <div data-product-id='6' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$89.49</div>
                   </div>
                 </div>
               </div>
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$101.11</div>
+                <div data-product-id='7' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$101.11</div>
                   </div>
                 </div>
               </div>
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$999.99</div>
+                <div data-product-id='8' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$999.99</div>
                   </div>
                 </div>
               </div>
             </div>
             <div id="tab-parts" class="upsell-grid__box upsell-grid__box--parts tab-pane carousel-upsell-parts">
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$105.99</div>
+                <div data-product-id='1' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$105.99</div>
                   </div>
                 </div>
               </div>
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$167.45</div>
+                <div data-product-id='2' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$167.45</div>
                   </div>
                 </div>
               </div>
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$199.99</div>
+                <div data-product-id='3' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$199.99</div>
                   </div>
                 </div>
               </div>
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$499.99</div>
+                <div data-product-id='4' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$499.99</div>
                   </div>
                 </div>
               </div>
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$70.00</div>
+                <div data-product-id='5' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$70.00</div>
                   </div>
                 </div>
               </div>
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$89.49</div>
+                <div data-product-id='6' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$89.49</div>
                   </div>
                 </div>
               </div>
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$101.11</div>
+                <div data-product-id='7' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$101.11</div>
                   </div>
                 </div>
               </div>
               <div class="upsell-grid__box-item">
-                <div class="grid-product">
-                  <div class="grid-product__container">
-                    <div class="grid-product__image-wrap">
-                      <div class="grid-prduct__controls controls">
-                        <div class="controls__add-to-cart butt-add-to-cart"></div>
-                        <div class="controls__add-to-cart butt-add-to-compare"></div>
-                        <div class="controls__add-to-cart butt-add-to-wishlist"></div>
-                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="grid-product__image">
-                    </div><a href="/product.html" class="grid-product__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
-                    <div class="grid-product__price">$999.99</div>
+                <div data-product-id='8' class="product-in-grid">
+                  <div class="product-in-grid__container">
+                    <div class="product-in-grid__image-wrap">
+                      <div class="product-in-grid__controls control-pad">
+                        <div class="control-pad__controls">
+                          <div class="control-pad__item control-pad__item--cart">
+                            <div class="control-pad__icon control-pad__icon--cart butt-add-to-cart"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--wishlist">
+                            <div class="control-pad__icon control-pad__icon--wishlist butt-add-to-wishlist"></div>
+                          </div>
+                          <div class="control-pad__item control-pad__item--compare">
+                            <div class="control-pad__icon control-pad__icon--compare butt-add-to-compare"></div>
+                          </div>
+                        </div>
+                      </div><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="product-in-grid__image">
+                    </div><a href="/root/product.html" class="product-in-grid__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a>
+                    <div class="product-in-grid__price">$999.99</div>
                   </div>
                 </div>
               </div>
@@ -734,13 +918,13 @@
               <div class="footer-nav__head">+ Menu</div>
               <div class="footer-nav__body">
                 <ul class="footer-nav__list">
-                  <li class="footer-nav__item"><a href="/" class="footer-nav__link">Home</a></li>
-                  <li class="footer-nav__item"><a href="/contacts.html" class="footer-nav__link">Contacts</a></li>
-                  <li class="footer-nav__item"><a href="/assembly_manuals.html" class="footer-nav__link">Assembly manuals</a></li>
-                  <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Videos</a></li>
-                  <li class="footer-nav__item"><a href="/videos.html" class="footer-nav__link">Warranty</a></li>
-                  <li class="footer-nav__item"><a href="/dealers.html" class="footer-nav__link">Dealers</a></li>
-                  <li class="footer-nav__item"><a href="/partners.html" class="footer-nav__link">Partners</a></li>
+                  <li class="footer-nav__item"><a href="/root/" class="footer-nav__link">Home</a></li>
+                  <li class="footer-nav__item"><a href="/root/contacts.html" class="footer-nav__link">Contacts</a></li>
+                  <li class="footer-nav__item"><a href="/root/manuals.html" class="footer-nav__link">Assembly manuals</a></li>
+                  <li class="footer-nav__item"><a href="/root/videos.html" class="footer-nav__link">Videos</a></li>
+                  <li class="footer-nav__item"><a href="/root/videos.html" class="footer-nav__link">Warranty</a></li>
+                  <li class="footer-nav__item"><a href="/root/dealers.html" class="footer-nav__link">Dealers</a></li>
+                  <li class="footer-nav__item"><a href="/root/partners.html" class="footer-nav__link">Partners</a></li>
                 </ul>
               </div>
             </div>
