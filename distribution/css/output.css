@@ -184,6 +184,43 @@ textarea {
   min-width: 100%;
   max-width: 100%; }
 
+.about-person__container {
+  padding: 1em 0 1em 11em;
+  position: relative;
+  min-height: 160px; }
+
+.about-person__name {
+  width: 100%;
+  font-size: 1.2em;
+  color: #9d2a39; }
+
+.about-person__photo-wrap {
+  max-width: 20em;
+  position: absolute;
+  left: 0;
+  top: 1em; }
+
+.about-person__photo {
+  width: 120px;
+  border-radius: 50%; }
+
+.about-person__history {
+  text-align: justify; }
+
+@media all and (max-width: 580px) {
+  .about-person__container {
+    padding: 12em 0 1em 0; }
+  .about-person__name {
+    text-align: center;
+    padding-bottom: .5em; }
+  .about-person__photo-wrap {
+    margin: 0 auto;
+    text-align: center;
+    right: 0;
+    top: 2em; }
+  .about-person__photo {
+    display: inline-block; } }
+
 .auth-choice {
   display: inline-block; }
   .auth-choice__list {
@@ -581,7 +618,52 @@ textarea {
   .contact-info__container {
     display: block; }
   .contact-info__group {
-    padding: 0 0 1.5em; } }
+    padding: 0 0 1.5em;
+    width: 48%;
+    display: inline-block; } }
+
+@media all and (max-width: 440px) {
+  .contact-info__group {
+    display: block; } }
+
+.distributor {
+  flex-basis: 25%;
+  margin: 1em 0 1.5em; }
+  .distributor__container {
+    margin-bottom: .7em; }
+  .distributor__location {
+    padding-bottom: .4em;
+    font-size: 1.2em;
+    color: #9d2a39; }
+    .distributor__location::first-letter {
+      font-weight: 600;
+      font-size: 1.3em; }
+  .distributor__shop {
+    font-size: 1.1em;
+    color: #000; }
+
+@media all and (max-width: 1020px) {
+  .distributor {
+    flex-basis: 33.33%; } }
+
+@media all and (max-width: 760px) {
+  .distributor {
+    display: block; }
+    .distributor__item {
+      display: inline; }
+      .distributor__item:not(:last-child)::after {
+        padding: 0 .5em;
+        content: '| ';
+        font-weight: 600;
+        color: #9d2a39; } }
+
+.distributors {
+  display: flex;
+  flex-wrap: wrap; }
+
+@media all and (max-width: 760px) {
+  .distributors {
+    display: block; } }
 
 .feedback-form__container {
   margin-top: 1em;
@@ -1102,7 +1184,8 @@ textarea {
 
 .personal-info__select {
   display: inline-block;
-  min-width: 12.5em; }
+  width: initial;
+  min-width: 14em; }
 
 .personal-info__input {
   display: inline-block;
@@ -1529,6 +1612,9 @@ textarea {
   .choose-from-stars .stars__star--red {
     background-image: url("../img/icons/star-swa-red.png"); }
 
+.swingaway-content-markup p {
+  text-align: justify; }
+
 .swingaway-content-markup ol {
   padding-left: 2.5em; }
   .swingaway-content-markup ol li {
@@ -1677,6 +1763,9 @@ textarea {
 
 .warranty__controls {
   padding: 1em 0 2em; }
+
+.warranty__select {
+  width: initial; }
 
 .wide-banner {
   padding-bottom: 1.5em; }

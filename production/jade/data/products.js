@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 module.exports = [
     {
         id: 1,
@@ -24,7 +22,7 @@ module.exports = [
     },
     {
         id: 2,
-        title: 'Jennie Finch Gold Medal Edition SwingAway Hitting Trainer',
+        title: 'SwingAway FASTPITCH Traveler',
         price: '167.45',
         avaliability: 'in stock',
         attributes: {
@@ -38,7 +36,7 @@ module.exports = [
     },
     {
         id: 3,
-        title: 'Jennie Finch Gold Medal Edition SwingAway Hitting Trainer',
+        title: 'The Original ELITE Traveler (with Water-filled Homeplate)',
         price: '199.99',
         avaliability: 'in stock',
         attributes: {
@@ -52,7 +50,7 @@ module.exports = [
     },
     {
         id: 4,
-        title: 'Jennie Finch Gold Medal Edition SwingAway Hitting Trainer',
+        title: 'SwingAway Softball Pro XXL',
         price: '499.99',
         avaliability: 'in stock',
         attributes: {
@@ -82,7 +80,7 @@ module.exports = [
         id: 6,
         title: 'Jennie Finch Gold Medal Edition SwingAway Hitting Trainer',
         price: '89.49',
-        avaliability: 'in stock',
+        avaliability: 'out of stock',
         attributes: {
             'Brand': 'ELEITE',
             'SKU': 'SA300SBT',
@@ -94,9 +92,9 @@ module.exports = [
     },
     {
         id: 7,
-        title: 'Jennie Finch Gold Medal Edition SwingAway Hitting Trainer',
+        title: 'SwingAway Softball Pro Stadium Edition-BLUE',
         price: '101.11',
-        avaliability: 'in stock',
+        avaliability: 'out of stock',
         attributes: {
             'Brand': 'ELEITE',
             'SKU': 'SA300SBT',
@@ -108,7 +106,7 @@ module.exports = [
     },
     {
         id: 8,
-        title: 'Jennie Finch Gold Medal Edition SwingAway Hitting Trainer',
+        title: 'Extreme Baseball Tune Up Kit',
         price: '999.99',
         avaliability: 'in stock',
         attributes: {

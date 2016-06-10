@@ -58,6 +58,7 @@ gulp.task('serve', ['sass'], () => {
         'jade:manuals',
         'jade:videos',
         'jade:warranty',
+        'jade:dealers',
         'jade:about-us'
     ]);
     gulp.watch("production/js/**.js", ['js']);
@@ -417,6 +418,27 @@ gulp.task('jade:about-us', () => {
             locals: require(jadeDataPath)
         }))
         .pipe(rename('about-us.html'))
+        .pipe(gulp.dest('./'))
+        .pipe(bs.stream());
+});
+
+
+
+gulp.task('jade:dealers', () => {
+    return gulp.src([
+        'production/**/head.jade',
+        'production/**/header.jade',
+        'production/**/breadcrumbs.jade',
+        'production/**/dealers.jade',
+        'production/**/footer.jade'
+    ])
+        .pipe(concat('jadify.jade'))
+        .pipe(jade({
+            pretty: true,
+            jade: theJade,
+            locals: require(jadeDataPath)
+        }))
+        .pipe(rename('dealers.html'))
         .pipe(gulp.dest('./'))
         .pipe(bs.stream());
 });

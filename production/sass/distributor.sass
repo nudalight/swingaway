@@ -1,0 +1,45 @@
+.distributor
+  flex-basis: 25%
+  margin: 1em 0 1.5em
+
+  &__container
+    margin-bottom: .7em
+
+  &__location
+    padding-bottom: .4em
+    font-size: 1.2em
+    color: $swa_red
+
+    &::first-letter
+      font-weight: 600
+      font-size: 1.3em
+
+
+  &__shop
+    font-size: 1.1em
+    color: #000
+
+
+
+
+@media all and (max-width: 1020px)
+  .distributor
+    flex-basis: 33.33%
+
+
+
+@media all and (max-width: 760px)
+  .distributor
+    display: block
+
+    &__item
+      display: inline
+
+      &:not(:last-child)::after
+        padding: 0 .5em
+        content: '| '
+        font-weight: 600
+        color: $swa_red
+
+
+

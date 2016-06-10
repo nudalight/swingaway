@@ -22,33 +22,36 @@
                                         action=''
                                         method='post'
                                     )
-                                        .feedback-form__item(
-                                            class='form-group col-md-6 col-sm-6'
+                                        div(
+                                            class='row' style='padding: 0 1em'
                                         )
-                                            label.feedback-form__label(
-                                                for='input-feedback-name'
-                                            ) Your name:
-                                            input.feedbak-form__input(
-                                                class='form-control',
-                                                type='text',
-                                                id='input-feedback-name',
-                                                name='input-feedback-name'
-                                                placeholder='John Doe'
+                                            .feedback-form__item(
+                                            class='form-group col-md-6 col-sm-6'
                                             )
+                                                label.feedback-form__label(
+                                                    for='input-feedback-name'
+                                                ) Your name:
+                                                input.feedbak-form__input(
+                                                    class='form-control',
+                                                    type='text',
+                                                    id='input-feedback-name',
+                                                    name='input-feedback-name',
+                                                    placeholder='John Doe'
+                                                )
 
-                                        .feedback-form__item(
-                                            class='form-group col-md-6 col-sm-6'
-                                        )
-                                            label.feedback-form__label(
-                                                for='input-feedback-email'
-                                            ) Your email:
-                                            input.feedbak-form__input(
-                                                class='form-control',
-                                                type='email',
-                                                id='input-feedback-email',
-                                                name='input-feedback-email'
-                                                placeholder='example@domail.com'
+                                            .feedback-form__item(
+                                                class='form-group col-md-6 col-sm-6'
                                             )
+                                                label.feedback-form__label(
+                                                    for='input-feedback-email'
+                                                ) Your email:
+                                                input.feedbak-form__input(
+                                                    class='form-control',
+                                                    type='email',
+                                                    id='input-feedback-email',
+                                                    name='input-feedback-email',
+                                                    placeholder='example@domail.com'
+                                                )
 
                                         .feedback-form__item(
                                             class='form-group col-md-12'
@@ -60,7 +63,7 @@
                                                 class='form-control',
                                                 type='text',
                                                 id='input-feedback-subject',
-                                                name='input-feedback-subkect'
+                                                name='input-feedback-subkect',
                                                 placeholder='Customer complaint'
                                             )
                                             .feedback-form__error(
@@ -76,7 +79,7 @@
                                             textarea.feedback-form__textarea(
                                                 class='form-control'
                                                 id='input-feedback-message',
-                                                name='input-feedback-message'
+                                                name='input-feedback-message',
                                                 placeholder='Message text'
                                             )
 
@@ -87,10 +90,13 @@
                                                 for='input-feedback-heard-from'
                                             ) How have you heard about us?
                                             select.feedbak-form__select(
-                                                class='form-control'
+                                                class='form-control',
                                                 id='input-feedback-heard-from',
                                                 name='input-feedback-heard-from'
                                             )
+                                                option.feedback-form__option(
+                                                    value='placeholder'
+                                                ) -- select --
                                                 option.feedback-form__option(
                                                     value='search-engine'
                                                 ) Search Engine
@@ -118,7 +124,7 @@
                                         )
                                             button.feedbak-form__submit(
                                                 type='submit',
-                                                class='btn btn-default'
+                                                class='btn btn-swingaway'
                                             ) Send message
 
 
@@ -130,6 +136,7 @@
                         )
                             .contact-info
                                 .contact-info__container
+
                                     .contact-info__group
                                         .contact-info__label Email
                                         .contact-info__info
@@ -137,9 +144,15 @@
                                                 class='explicit-link',
                                                 href='mailto:example@domain.com?subject=Question'
                                             ) example@domain.com
+
                                     .contact-info__group
                                         .contact-info__label Phone
                                         .contact-info__info 555-555-5555
+
+                                    .contact-info__group
+                                        .contact-info__label Fax
+                                        .contact-info__info 866.474.4323
+
                                     .contact-info__group
                                         .contact-info__label On the web
                                         .contact-info__info

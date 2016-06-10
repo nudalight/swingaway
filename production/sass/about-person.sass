@@ -1,0 +1,42 @@
+.about-person
+  &__container
+    padding: 1em 0 1em 11em
+    position: relative
+    min-height: 160px
+
+  &__name
+    width: 100%
+    font-size: 1.2em
+    color: $swa_red
+
+  &__photo-wrap
+    max-width: 20em
+    position: absolute
+    left: 0
+    top: 1em
+
+  &__photo
+    width: 120px
+    border-radius: 50%
+
+  &__history
+    text-align: justify
+
+
+@media all and (max-width: 580px)
+  .about-person
+    &__container
+      padding: 12em 0 1em 0
+
+    &__name
+      text-align: center
+      padding-bottom: .5em
+
+    &__photo-wrap
+      margin: 0 auto
+      text-align: center
+      right: 0
+      top: 2em
+
+    &__photo
+      display: inline-block

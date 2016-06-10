@@ -5,14 +5,15 @@
     <title>Default Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
+    <script src="bower_components/slick-carousel/slick/slick.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css">
     <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
     <!--link(rel='stylesheet', href='bower_components/bootstrap-select/dist/css/bootstrap-select.min.css')-->
     <!--script(src='bower_components/bootstrap-select/dist/js/bootstrap-select.min.js')-->
-    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
-    <script src="bower_components/slick-carousel/slick/slick.js"></script>
+    
     <link rel="stylesheet" href="distribution/css/output.css">
     <script src="distribution/js/output.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,300italic,400italic,700,700italic,900,300" rel="stylesheet" type="text/css">
@@ -278,13 +279,15 @@
               <div class="feedback-form">
                 <div class="feedback-form__container">
                   <form name="form-feedback" action="" method="post" class="clearfix">
-                    <div class="feedback-form__item form-group col-md-6 col-sm-6">
-                      <label for="input-feedback-name" class="feedback-form__label">Your name:</label>
-                      <input type="text" id="input-feedback-name" name="input-feedback-name" placeholder="John Doe" class="feedbak-form__input form-control">
-                    </div>
-                    <div class="feedback-form__item form-group col-md-6 col-sm-6">
-                      <label for="input-feedback-email" class="feedback-form__label">Your email:</label>
-                      <input type="email" id="input-feedback-email" name="input-feedback-email" placeholder="example@domail.com" class="feedbak-form__input form-control">
+                    <div style="padding: 0 1em" class="row">
+                      <div class="feedback-form__item form-group col-md-6 col-sm-6">
+                        <label for="input-feedback-name" class="feedback-form__label">Your name:</label>
+                        <input type="text" id="input-feedback-name" name="input-feedback-name" placeholder="John Doe" class="feedbak-form__input form-control">
+                      </div>
+                      <div class="feedback-form__item form-group col-md-6 col-sm-6">
+                        <label for="input-feedback-email" class="feedback-form__label">Your email:</label>
+                        <input type="email" id="input-feedback-email" name="input-feedback-email" placeholder="example@domail.com" class="feedbak-form__input form-control">
+                      </div>
                     </div>
                     <div class="feedback-form__item form-group col-md-12">
                       <label for="input-feedback-email" class="feedback-form__label">Subject:</label>
@@ -298,6 +301,7 @@
                     <div class="feedback-form__item form-group col-md-12 form-inline text-right">
                       <label for="input-feedback-heard-from" class="feedback-form__label">How have you heard about us?</label>
                       <select id="input-feedback-heard-from" name="input-feedback-heard-from" class="feedbak-form__select form-control">
+                        <option value="placeholder" class="feedback-form__option">-- select --</option>
                         <option value="search-engine" class="feedback-form__option">Search Engine</option>
                         <option value="tradestow" class="feedback-form__option">Tradestow</option>
                         <option value="word-of-mouth" class="feedback-form__option">Word of mouth</option>
@@ -308,7 +312,7 @@
                       </select>
                     </div>
                     <div class="feedbak-form__item col-md-12 text-right">
-                      <button type="submit" class="feedbak-form__submit btn btn-default">Send message</button>
+                      <button type="submit" class="feedbak-form__submit btn btn-swingaway">Send message</button>
                     </div>
                   </form>
                 </div>
@@ -324,6 +328,10 @@
                   <div class="contact-info__group">
                     <div class="contact-info__label">Phone</div>
                     <div class="contact-info__info">555-555-5555</div>
+                  </div>
+                  <div class="contact-info__group">
+                    <div class="contact-info__label">Fax</div>
+                    <div class="contact-info__info">866.474.4323</div>
                   </div>
                   <div class="contact-info__group">
                     <div class="contact-info__label">On the web</div>
