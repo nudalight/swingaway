@@ -18,22 +18,31 @@
                         .order-review-prods(
                             class='col-md-8 clear-left-padding'
                         )
-                            - for (var i_rev = 0; i_rev < products.length; i_rev++)
-                                .order-review-prod
-                                    .order-review-prod__container
-                                        .order-review-prod__no=(i_rev +1) + '.'
-                                        .order-review-prod__image-wrap
-                                            img.order-review-prod__image(
-                                                src=products[i_rev].photos[0]
-                                            )
-                                        .order-review-prod__title=products[i_rev].title
-                                        .order-review-prod__price
-                                            span.order-review-prod__price-currency=currencySymbol
-                                            span.order-review-prod__price-amount=products[i_rev].price
-                                        .order-review-prod__quantity 5
-                                        .order-review-prod__sum
-                                            span.order-review-prod__sum-currency=currencySymbol
-                                            span.order-review-prod__sum-amount=products[i_rev].price
+                            table.order-review-prods__table
+                                thead.order-review-prods__head
+                                    tr.order-review-prod__row
+                                        th.order-review-prods__cell.order-review-prods__cell--head.order-review-prods__cell--head-no #
+                                        th.order-review-prods__cell.order-review-prods__cell--head.order-review-prods__cell--head-image Image
+                                        th.order-review-prods__cell.order-review-prods__cell--head.order-review-prods__cell--head-title Title
+                                        th.order-review-prods__cell.order-review-prods__cell--head.order-review-prods__cell--head-qu Quantity
+                                        th.order-review-prods__cell.order-review-prods__cell--head.order-review-prods__cell--head-sum Sum
+
+                                tbody.order-review-prods__body
+                                    - for (var i_rev = 0; i_rev < products.length; i_rev++)
+                                        tr.order-review-prods__row.order-review-prod
+                                            td.order-review-prods__cell.order-review-prods__cell--no=(i_rev + 1) + '.'
+                                            td.order-review-prods__cell.order-review-prods__cell--image
+                                                img.order-review-prod__image(
+                                                    src=products[i_rev].photos[0],
+                                                    title=products[i_rev].title,
+                                                    alt=products[i_rev].title
+                                                )
+                                            td.order-review-prods__cell.order-review-prods__cell--title=products[i_rev].title
+                                            td.order-review-prods__cell.order-review-prods__cell--qu=i_rev+1
+                                            td.order-review-prods__cell.order-review-prods__cell--sum
+                                                span.order-review-prod__sum--prepend Sum: &nbsp;
+                                                span.order-review-prod__sum--currency=currencySymbol
+                                                span.order-review-prod__sum--amount=Math.round((i_rev + 1) * products[i_rev].price, 2)
 
 
                         .order-review-profile(

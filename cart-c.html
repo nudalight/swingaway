@@ -5,15 +5,12 @@
     <title>Default Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
-    <script src="bower_components/slick-carousel/slick/slick.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css">
     <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
-    <!--link(rel='stylesheet', href='bower_components/bootstrap-select/dist/css/bootstrap-select.min.css')-->
-    <!--script(src='bower_components/bootstrap-select/dist/js/bootstrap-select.min.js')-->
-    
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
+    <script src="bower_components/slick-carousel/slick/slick.js"></script>
     <link rel="stylesheet" href="distribution/css/output.css">
     <script src="distribution/js/output.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,300italic,400italic,700,700italic,900,300" rel="stylesheet" type="text/css">
@@ -22,7 +19,7 @@
     <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">
       <div class="offcanvas-logo">
         <div class="offcanvas-logo__container">
-          <div class="offcanvas-logo__heading">Swingaway</div>
+          <div onclick="alert(1)" class="offcanvas-logo__heading">Swingaway</div>
         </div>
       </div>
       <div class="offcanvas-search">
@@ -232,11 +229,17 @@
           <nav class="main-menu">
             <ul class="main-menu__list">
               <li class="main-menu__item Home"><a href="/root/" class="main-menu__link">Home</a>
+              </li>
               <li class="main-menu__item Baseball"><a href="/root/baseball.html" class="main-menu__link">Baseball</a>
+              </li>
               <li class="main-menu__item Softball"><a href="/root/softball.html" class="main-menu__link">Softball</a>
+              </li>
               <li class="main-menu__item main-menu__active"><a href="/root/pitching.html" class="main-menu__link">Pitching</a>
+              </li>
               <li class="main-menu__item Parts"><a href="/root/parts.html" class="main-menu__link">Parts</a>
+              </li>
               <li class="main-menu__item Accessories"><a href="/root/accessories.html" class="main-menu__link">Accessories</a>
+              </li>
               <li class="main-menu__item Customer Service"><a href="#" class="main-menu__link">Customer Service</a>
                 <ul class="main-menu__sublist">
                   <li class="main-menu__subitem"><a href="/root/contacts.html" class="main-menu__sublink">Contacts</a></li>
@@ -246,7 +249,9 @@
                   <li class="main-menu__subitem"><a href="/root/dealers.html" class="main-menu__sublink">Dealers</a></li>
                   <li class="main-menu__subitem"><a href="/root/partners.html" class="main-menu__sublink">Partners</a></li>
                 </ul>
+              </li>
               <li class="main-menu__item Meet the team"><a href="/root/meet_the_team.html" class="main-menu__link">Meet the team</a>
+              </li>
               <li class="main-menu__item Store"><a href="/root/store" class="main-menu__link">Store</a>
               </li>
             </ul>
@@ -276,86 +281,75 @@
               <p>Please, make sure, that all your personal info is correct and you want to buy all products, that are currenty in the cart in corresponding amount. Press the button below, if everything is correct.</p>
             </div>
             <div class="order-review-prods col-md-8 clear-left-padding">
-              <div class="order-review-prod">
-                <div class="order-review-prod__container">
-                  <div class="order-review-prod__no">1.</div>
-                  <div class="order-review-prod__image-wrap"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="order-review-prod__image"></div>
-                  <div class="order-review-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
-                  <div class="order-review-prod__price"><span class="order-review-prod__price-currency">$</span><span class="order-review-prod__price-amount">105.99</span></div>
-                  <div class="order-review-prod__quantity">5</div>
-                  <div class="order-review-prod__sum"><span class="order-review-prod__sum-currency">$</span><span class="order-review-prod__sum-amount">105.99</span></div>
-                </div>
-              </div>
-              <div class="order-review-prod">
-                <div class="order-review-prod__container">
-                  <div class="order-review-prod__no">2.</div>
-                  <div class="order-review-prod__image-wrap"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="order-review-prod__image"></div>
-                  <div class="order-review-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
-                  <div class="order-review-prod__price"><span class="order-review-prod__price-currency">$</span><span class="order-review-prod__price-amount">167.45</span></div>
-                  <div class="order-review-prod__quantity">5</div>
-                  <div class="order-review-prod__sum"><span class="order-review-prod__sum-currency">$</span><span class="order-review-prod__sum-amount">167.45</span></div>
-                </div>
-              </div>
-              <div class="order-review-prod">
-                <div class="order-review-prod__container">
-                  <div class="order-review-prod__no">3.</div>
-                  <div class="order-review-prod__image-wrap"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="order-review-prod__image"></div>
-                  <div class="order-review-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
-                  <div class="order-review-prod__price"><span class="order-review-prod__price-currency">$</span><span class="order-review-prod__price-amount">199.99</span></div>
-                  <div class="order-review-prod__quantity">5</div>
-                  <div class="order-review-prod__sum"><span class="order-review-prod__sum-currency">$</span><span class="order-review-prod__sum-amount">199.99</span></div>
-                </div>
-              </div>
-              <div class="order-review-prod">
-                <div class="order-review-prod__container">
-                  <div class="order-review-prod__no">4.</div>
-                  <div class="order-review-prod__image-wrap"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="order-review-prod__image"></div>
-                  <div class="order-review-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
-                  <div class="order-review-prod__price"><span class="order-review-prod__price-currency">$</span><span class="order-review-prod__price-amount">499.99</span></div>
-                  <div class="order-review-prod__quantity">5</div>
-                  <div class="order-review-prod__sum"><span class="order-review-prod__sum-currency">$</span><span class="order-review-prod__sum-amount">499.99</span></div>
-                </div>
-              </div>
-              <div class="order-review-prod">
-                <div class="order-review-prod__container">
-                  <div class="order-review-prod__no">5.</div>
-                  <div class="order-review-prod__image-wrap"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-review-prod__image"></div>
-                  <div class="order-review-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
-                  <div class="order-review-prod__price"><span class="order-review-prod__price-currency">$</span><span class="order-review-prod__price-amount">70.00</span></div>
-                  <div class="order-review-prod__quantity">5</div>
-                  <div class="order-review-prod__sum"><span class="order-review-prod__sum-currency">$</span><span class="order-review-prod__sum-amount">70.00</span></div>
-                </div>
-              </div>
-              <div class="order-review-prod">
-                <div class="order-review-prod__container">
-                  <div class="order-review-prod__no">6.</div>
-                  <div class="order-review-prod__image-wrap"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-review-prod__image"></div>
-                  <div class="order-review-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
-                  <div class="order-review-prod__price"><span class="order-review-prod__price-currency">$</span><span class="order-review-prod__price-amount">89.49</span></div>
-                  <div class="order-review-prod__quantity">5</div>
-                  <div class="order-review-prod__sum"><span class="order-review-prod__sum-currency">$</span><span class="order-review-prod__sum-amount">89.49</span></div>
-                </div>
-              </div>
-              <div class="order-review-prod">
-                <div class="order-review-prod__container">
-                  <div class="order-review-prod__no">7.</div>
-                  <div class="order-review-prod__image-wrap"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-review-prod__image"></div>
-                  <div class="order-review-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
-                  <div class="order-review-prod__price"><span class="order-review-prod__price-currency">$</span><span class="order-review-prod__price-amount">101.11</span></div>
-                  <div class="order-review-prod__quantity">5</div>
-                  <div class="order-review-prod__sum"><span class="order-review-prod__sum-currency">$</span><span class="order-review-prod__sum-amount">101.11</span></div>
-                </div>
-              </div>
-              <div class="order-review-prod">
-                <div class="order-review-prod__container">
-                  <div class="order-review-prod__no">8.</div>
-                  <div class="order-review-prod__image-wrap"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-review-prod__image"></div>
-                  <div class="order-review-prod__title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</div>
-                  <div class="order-review-prod__price"><span class="order-review-prod__price-currency">$</span><span class="order-review-prod__price-amount">999.99</span></div>
-                  <div class="order-review-prod__quantity">5</div>
-                  <div class="order-review-prod__sum"><span class="order-review-prod__sum-currency">$</span><span class="order-review-prod__sum-amount">999.99</span></div>
-                </div>
-              </div>
+              <table class="order-review-prods__table">
+                <thead class="order-review-prods__head">
+                  <tr class="order-review-prod__row">
+                    <th class="order-review-prods__cell order-review-prods__cell--head order-review-prods__cell--head-no">#</th>
+                    <th class="order-review-prods__cell order-review-prods__cell--head order-review-prods__cell--head-image">Image</th>
+                    <th class="order-review-prods__cell order-review-prods__cell--head order-review-prods__cell--head-title">Title</th>
+                    <th class="order-review-prods__cell order-review-prods__cell--head order-review-prods__cell--head-qu">Quantity</th>
+                    <th class="order-review-prods__cell order-review-prods__cell--head order-review-prods__cell--head-sum">Sum</th>
+                  </tr>
+                </thead>
+                <tbody class="order-review-prods__body">
+                  <tr class="order-review-prods__row order-review-prod">
+                    <td class="order-review-prods__cell order-review-prods__cell--no">1.</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--image"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" title="Jennie Finch Gold Medal Edition SwingAway Hitting Trainer" alt="Jennie Finch Gold Medal Edition SwingAway Hitting Trainer" class="order-review-prod__image"></td>
+                    <td class="order-review-prods__cell order-review-prods__cell--title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--qu">1</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--sum"><span class="order-review-prod__sum--prepend">Sum: &nbsp;</span><span class="order-review-prod__sum--currency">$</span><span class="order-review-prod__sum--amount">106</span></td>
+                  </tr>
+                  <tr class="order-review-prods__row order-review-prod">
+                    <td class="order-review-prods__cell order-review-prods__cell--no">2.</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--image"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" title="SwingAway FASTPITCH Traveler" alt="SwingAway FASTPITCH Traveler" class="order-review-prod__image"></td>
+                    <td class="order-review-prods__cell order-review-prods__cell--title">SwingAway FASTPITCH Traveler</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--qu">2</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--sum"><span class="order-review-prod__sum--prepend">Sum: &nbsp;</span><span class="order-review-prod__sum--currency">$</span><span class="order-review-prod__sum--amount">335</span></td>
+                  </tr>
+                  <tr class="order-review-prods__row order-review-prod">
+                    <td class="order-review-prods__cell order-review-prods__cell--no">3.</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--image"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" title="The Original ELITE Traveler (with Water-filled Homeplate)" alt="The Original ELITE Traveler (with Water-filled Homeplate)" class="order-review-prod__image"></td>
+                    <td class="order-review-prods__cell order-review-prods__cell--title">The Original ELITE Traveler (with Water-filled Homeplate)</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--qu">3</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--sum"><span class="order-review-prod__sum--prepend">Sum: &nbsp;</span><span class="order-review-prod__sum--currency">$</span><span class="order-review-prod__sum--amount">600</span></td>
+                  </tr>
+                  <tr class="order-review-prods__row order-review-prod">
+                    <td class="order-review-prods__cell order-review-prods__cell--no">4.</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--image"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" title="SwingAway Softball Pro XXL" alt="SwingAway Softball Pro XXL" class="order-review-prod__image"></td>
+                    <td class="order-review-prods__cell order-review-prods__cell--title">SwingAway Softball Pro XXL</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--qu">4</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--sum"><span class="order-review-prod__sum--prepend">Sum: &nbsp;</span><span class="order-review-prod__sum--currency">$</span><span class="order-review-prod__sum--amount">2000</span></td>
+                  </tr>
+                  <tr class="order-review-prods__row order-review-prod">
+                    <td class="order-review-prods__cell order-review-prods__cell--no">5.</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" title="Jennie Finch Gold Medal Edition SwingAway Hitting Trainer" alt="Jennie Finch Gold Medal Edition SwingAway Hitting Trainer" class="order-review-prod__image"></td>
+                    <td class="order-review-prods__cell order-review-prods__cell--title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--qu">5</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--sum"><span class="order-review-prod__sum--prepend">Sum: &nbsp;</span><span class="order-review-prod__sum--currency">$</span><span class="order-review-prod__sum--amount">350</span></td>
+                  </tr>
+                  <tr class="order-review-prods__row order-review-prod">
+                    <td class="order-review-prods__cell order-review-prods__cell--no">6.</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" title="Jennie Finch Gold Medal Edition SwingAway Hitting Trainer" alt="Jennie Finch Gold Medal Edition SwingAway Hitting Trainer" class="order-review-prod__image"></td>
+                    <td class="order-review-prods__cell order-review-prods__cell--title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--qu">6</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--sum"><span class="order-review-prod__sum--prepend">Sum: &nbsp;</span><span class="order-review-prod__sum--currency">$</span><span class="order-review-prod__sum--amount">537</span></td>
+                  </tr>
+                  <tr class="order-review-prods__row order-review-prod">
+                    <td class="order-review-prods__cell order-review-prods__cell--no">7.</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" title="SwingAway Softball Pro Stadium Edition-BLUE" alt="SwingAway Softball Pro Stadium Edition-BLUE" class="order-review-prod__image"></td>
+                    <td class="order-review-prods__cell order-review-prods__cell--title">SwingAway Softball Pro Stadium Edition-BLUE</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--qu">7</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--sum"><span class="order-review-prod__sum--prepend">Sum: &nbsp;</span><span class="order-review-prod__sum--currency">$</span><span class="order-review-prod__sum--amount">708</span></td>
+                  </tr>
+                  <tr class="order-review-prods__row order-review-prod">
+                    <td class="order-review-prods__cell order-review-prods__cell--no">8.</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" title="Extreme Baseball Tune Up Kit" alt="Extreme Baseball Tune Up Kit" class="order-review-prod__image"></td>
+                    <td class="order-review-prods__cell order-review-prods__cell--title">Extreme Baseball Tune Up Kit</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--qu">8</td>
+                    <td class="order-review-prods__cell order-review-prods__cell--sum"><span class="order-review-prod__sum--prepend">Sum: &nbsp;</span><span class="order-review-prod__sum--currency">$</span><span class="order-review-prod__sum--amount">8000</span></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <div class="order-review-profile col-md-4 col-sm-6 clear-right-padding">
               <div class="order-review-profile__container">

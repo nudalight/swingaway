@@ -31,4 +31,4 @@ module.exports = [
         url: '#',
         image: 'http://www.wdsu.com/image/view/-/4877390/medRes/6/-/h/252/maxh/92/maxw/138/w/378/-/14ngi79z/-/Passwords---17-jpg.jpg'
     }
-],
+];

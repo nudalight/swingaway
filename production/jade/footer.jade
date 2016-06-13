@@ -14,10 +14,10 @@
                                             href=rootPath
                                         ) Home
 
-                                    - for (key in mainMenu['Customer Service'])
+                                    - for (key in menu['Customer Service'])
                                         li.footer-nav__item
                                             a.footer-nav__link(
-                                                href=rootPath + mainMenu['Customer Service'][key]
+                                                href=rootPath + menu['Customer Service'][key]
                                             )=key
 
             .footer-socials

@@ -14,4 +14,3 @@ module.exports = {
     socials: require('./socials' + ext)
 };
 
- 

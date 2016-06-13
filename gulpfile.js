@@ -11,21 +11,15 @@ const inject = require('gulp-inject');
 const insert = require('gulp-insert');
 const uglify = require('gulp-uglify');
 const debug = require('gulp-debug');
-const order = require('gulp-order'); 
+const order = require('gulp-order');
+const autoprefixer = require('gulp-autoprefixer');
 const imagemin = require('gulp-imagemin');
 // const styl = require('gulp-stylus');
 
 /*
-- home +
-- product
-- compare +
-- cart-a +
-- cart-b +
-- catalog
-- wishlist
-
-
-*/
+    warranty - validation
+    contact-us - validation
+ */
 
 
 
@@ -98,13 +92,16 @@ gulp.task('img', () => {
 gulp.task('sass', () => {
     return gulp.src('./production/sass/**/*.sass')
         .pipe(order([
-            '**/global/*.sass',
+            '**/variable/*.sass',
+            '**/mixin/*.sass',
             '**/override/*.sass',
+            '**/block/*.sass',
             '**/*.sass'
         ]))
         .pipe(debug())
         .pipe(concat('sassify.sass'))
         .pipe(sass())
+        .pipe(autoprefixer())
         .pipe(rename('output.css'))
         .pipe(gulp.dest('distribution/css'))
         .pipe(bs.stream());

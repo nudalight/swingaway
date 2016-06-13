@@ -1,0 +1,54 @@
+.order-review-prods
+  padding: 0
+
+  &__table
+    width: 100%
+
+  &__row
+    border-top: 1px solid #ddd
+
+    &:hover
+      background: #eee
+
+
+  &__cell
+    vertical-align: middle
+    padding: .5em
+
+    &--image
+      width: 12em
+
+
+
++degradate(640)
+  .order-review-prods
+    &__cell
+      &--image,
+      &--head-image
+        display: none
+
+
+
++degradate(440)
+  .order-review-prods
+    &__cell
+      display: inline-block
+      padding: 1em .5em
+
+      &--qu
+        display: none
+
+      &--image
+        display: none
+
+      &--title
+        width: 88%
+
+      &--head
+        display: none
+
+      &--sum
+        display: block
+        float: right
+
+

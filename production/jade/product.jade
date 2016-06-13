@@ -8,17 +8,17 @@
                         .product-gallery
                             .product-gallery__container
                                 .product-gallery__shortcuts
-                                    - for (var i_prodg = 0; i_prodg < productImages.length; i_prodg++)
+                                    - for (var i_prodg = 0; i_prodg < products[0].photos.length; i_prodg++)
                                         .product-gallery__shortcut-wrap
                                             img.product-gallery__shortcut(
-                                                src=productImages[i_prodg]
+                                                src=products[0].photos[i_prodg]
                                             )
 
                                 .product-gallery__previews
-                                    - for (var i_prodgprev = 0; i_prodgprev < productImages.length; i_prodgprev++)
+                                    - for (var i_prodgprev = 0; i_prodgprev < products[0].photos.length; i_prodgprev++)
                                         .product-gallery__preview-wrap
                                             img.product-gallery__preview(
-                                                src=productImages[i_prodgprev]
+                                                src=products[0].photos[i_prodgprev]
                                             )
 
 
