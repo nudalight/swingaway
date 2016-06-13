@@ -1,0 +1,61 @@
+//- inc: wishlist
+
+.wishlist
+    .wishlist__empty(
+        class='alert alert-warning fade in hide'
+    ) You haven't added anything into your wishlist
+
+    .wishlist__container
+        .wishlist__content(
+            class='swingaway-content-markup'
+        )
+            p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+
+        table.wishlist__table
+            thead.wishlist__head
+                tr.wishlist__row
+                    th.wishlist__head-cell &nbsp;
+                    th.wishlist__head-cell Image
+                    th.wishlist__head-cell Title
+                    th.wishlist__head-cell Price
+                    th.wishlist__head-cell(
+                        class='text-right'
+                    ) Actions
+
+            tbody.wishlist__body
+                - for (var i_wl = 0; i_wl < products.length; i_wl++)
+                    tr.wishlist-item(
+                        data-product-id=products[i_wl].id
+                    )
+
+                        td.wishlist-item__cell.wishlist-item__cell--remove
+                            .wishlist-item__remove.swing-remove-icon
+
+                        td.wishlist-item__cell.wishlist-item__cell--image
+                            img.wishlist-item__image(
+                                src=products[i_wl].photos[0],
+                                alt=products[i_wl].title,
+                                title=products[i_wl].title
+                            )
+
+                        td.wishlsit-item__cell.wishlist-item__cell--title
+                            a(
+                                href=products[i_wl].link,
+                                title='product: ' + products[i_wl].title,
+                                target='_blank'
+                            )=products[i_wl].title
+
+                        td.wishlist-item__cell.wishlist-item__cell--price
+                            span.wishlist-item__price-currency=currencySymbol
+                            span.wishlist-item__price-amout=products[i_wl].price
+
+                        td.wishlist-item__cell.wishlist-item__cell--actions(
+                            class='text-right'
+                        )
+                            button.wishlist-item__butt(
+                                class='butt-add-to-cart btn btn-default'
+                            ) Add to cart
+                            button.wishlist-item__butt(
+                                class='butt-add-to-compare btn btn-default'
+                            ) Add to compare
+

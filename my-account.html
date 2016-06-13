@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Default Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css">
+    <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
+    <script src="bower_components/slick-carousel/slick/slick.js"></script>
+    <link rel="stylesheet" href="distribution/css/output.css">
+    <script src="distribution/js/output.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300italic,400italic,700,700italic,900,300" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="offcanvas navmenu navmenu-default navmenu-fixed-left">
+      <div class="offcanvas-logo">
+        <div class="offcanvas-logo__container">
+          <div onclick="alert(1)" class="offcanvas-logo__heading">Swingaway</div>
+        </div>
+      </div>
+      <div class="offcanvas-search">
+        <div class="offcanvas-search__container">
+          <form name="form-search" method="post" action="/">
+            <input type="text" placeholder="search query" name="input-search" required class="offcanvas-search__input">
+            <div class="offcanvas-search__submit glyphicon glyphicon-search"></div>
+          </form>
+        </div>
+      </div>
+      <div class="offcanvas-menu">
+        <ul class="offcanvas-menu__list">
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Home</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Baseball</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened offcanvas-menu__item--active"><a class="offcanvas-menu__link">Softball</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Pitching</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Parts</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Accessories</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Customer Service</a>
+            <ul class="offcanvas-submenu">
+              <li class="offcanvas-submenu__item"><a href="contacts.html" class="offcanvas-submenu__link">Contacts</a></li>
+              <li class="offcanvas-submenu__item"><a href="manuals.html" class="offcanvas-submenu__link">Assembly manuals</a></li>
+              <li class="offcanvas-submenu__item"><a href="videos.html" class="offcanvas-submenu__link">Videos</a></li>
+              <li class="offcanvas-submenu__item"><a href="videos.html" class="offcanvas-submenu__link">Warranty</a></li>
+              <li class="offcanvas-submenu__item"><a href="dealers.html" class="offcanvas-submenu__link">Dealers</a></li>
+              <li class="offcanvas-submenu__item"><a href="partners.html" class="offcanvas-submenu__link">Partners</a></li>
+            </ul>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Meet the team</a>
+          </li>
+          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Store</a>
+          </li>
+        </ul>
+      </div>
+      <div class="offcanvas-auth-choice">
+        <ul class="offcanvas-auth-choice__list">
+          <li class="offcanvas-auth-choice__item"><a class="offcanvas-auth-choice__link">Login</a></li>
+          <li class="offcanvas-auth-choice__item"><a class="offcanvas-auth-choice__link">Register</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- inc: modals-->
+    <div id="auth-modal" role="dialog" class="auth-modal modal fade">
+      <div class="auth-modal__container modal-dialog">
+        <div class="auth-modal__inner modal-content">
+          <div class="auth-modal__head modal-header">
+            <button type="button" data-dismiss="modal" class="auth-modal__close close">&times;</button>
+            <h4 class="auth-modal__heading modal-title">Authentification</h4>
+          </div>
+          <div class="auth-modal__body">
+            <ul class="auth-modal__nav-tabs nav nav-tabs">
+              <li class="auth-modal__nav-tab active"><a data-toggle="tab" href="#tab-auth-login" class="auth-modal__nav-link">Login</a></li>
+              <li class="auth-modal__nav-tab"><a data-toggle="tab" href="#tab-auth-register" class="auth-modal__nav-link">Register</a></li>
+            </ul>
+            <div class="auth-modal__inner tab-content">
+              <div id="tab-auth-login" class="auth-modal__content-auth tab-pane active">
+                <div class="auth-modal__content swingaway-content-markup">
+                  <h4>For returning customers</h4>
+                  <p>If you've purchased from us before, please login with your email address and password.</p>
+                </div>
+                <form name="form-auth-login" class="auth-modal__form">
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-login-email" class="auth-modal__form-label">Email address</label>
+                    <input id="auth-login-email" type="email" placeholder="Email" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-login-password" class="auth-modal__form-label">Password</label>
+                    <input id="auth-login-password" type="password" placeholder="Password" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__controls">
+                    <button type="submit" class="auth-modal__submit btn btn-swingaway">Login</button>
+                  </div>
+                </form>
+              </div>
+              <div id="tab-auth-register" class="auth-modal__content-auth tab-pane">
+                <div class="auth-modal__content swingaway-content-markup">
+                  <h4>New customers</h4>
+                  <p>If you've a new customer ...</p>
+                </div>
+                <form name="form-auth-register" class="auth-modal__form">
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-register-email" class="auth-modal__form-label">Email address</label>
+                    <input id="auth-register-email" type="email" placeholder="Email" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-register-password" class="auth-modal__form-label">Password</label>
+                    <input id="auth-register-password" type="password" placeholder="Password" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__form-group form-group">
+                    <label for="auth-register-password-confirm" class="auth-modal__form-label">Password confirm</label>
+                    <input id="auth-register-password-confirm" type="password" placeholder="Re-type password" class="auth-modal__form-input form-control">
+                    <div class="auth-modal__form-error hide"></div>
+                  </div>
+                  <div class="auth-modal__controls">
+                    <button type="submit" class="auth-modal__submit btn btn-swingaway">Register</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="alert-modal" role="dialog" class="alert-modal modal fade">
+      <div class="alert-modal__container modal-dialog">
+        <div class="alert-modal__inner modal-content">
+          <div class="alert-modal__head modal-header">
+            <button type="button" data-dismiss="modal" class="alert-modal__close close">&times;</button>
+            <h4 class="modal-title">Notice</h4>
+          </div>
+          <div class="alert-modal__body">
+            <p class="alert-modal__message"></p>
+          </div>
+          <div class="alert-modal__foot modal-footer"><a class="alert-modal__choice-a btn">choice-a</a><a class="alert-modal__choice-b btn btn-success">choice-b</a></div>
+        </div>
+      </div>
+    </div>
+    <div id="review-modal" role="dialog" class="review-modal modal fade">
+      <div class="review-modal__container modal-dialog">
+        <div class="review-modal__inner modal-content">
+          <form action="#" method="post">
+            <div class="review-modal__head modal-header">
+              <button type="button" data-dismiss="modal" class="review-modal__close close">&times;</button>
+              <h4 class="modal-title">Write a review</h4>
+            </div>
+            <div class="review-modal__body">
+              <div class="review-modal__inputs">
+                <input placeholder="Your name" class="review-modal__input form-control">
+                <input placeholder="Your email" class="review-modal__input form-control">
+              </div>
+              <div class="review-modal__message-wrap">
+                <textarea placeholder="Your review text here.." class="review-modal__message form-control"></textarea>
+              </div>
+              <div class="review-modal__opts">
+                <div class="review-modal__opt">
+                  <input id="review-opt-positive" name="review-opt" type="radio" value="positive" class="review-modal__opt-input">
+                  <label for="review-opt-positive" class="review-modal__opt-label">Yes, I recommend this product</label>
+                </div>
+                <div class="review-modal__opt">
+                  <input id="review-opt-negative" name="review-opt" type="radio" value="negative" class="review-modal__opt-input">
+                  <label for="review-opt-negative" class="review-modal__opt-label">No, I do not recommend this product</label>
+                </div>
+              </div>
+              <div class="review-modal__stars choose-from-stars">
+                <div class="stars">
+                  <div class="stars__container children-inline">
+                    <input type="hidden" class="stars__starred">
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star  "></div>
+                    <div class="stars__star  "></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="review-modal__foot modal-footer">
+              <button class="review-modal__submit btn btn-default">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <header class="header navbar navbar-default">
+      <div class="wrap">
+        <div class="container-fluid"><span data-toggle="offcanvas" data-target=".offcanvas" data-canvas="body" class="navbar-toggle pull-left glyphicon glyphicon-menu-hamburger"></span>
+          <div class="logo">
+            <div class="logo__container"><img src="http://placehold.it/200x50?text=Logo" class="logo__image"></div>
+          </div>
+          <div class="shop-components pull-right">
+            <div class="auth-choice">
+              <div class="auth-choice__container">
+                <ul class="auth-choice__list">
+                  <li class="auth-choice__item"><a data-toggle="modal" data-target="#auth-modal" class="auth-choise__link">My account</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="search">
+              <div class="search__container clearfix">
+                <form name="form-search" method="post" action="/">
+                  <input type="text" placeholder="search query" name="input-search" required class="search__input form-control">
+                  <div class="search__submit">
+                    <div class="search__submit-icon glyphicon glyphicon-search"></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="services">
+              <div class="services__container"><a href="/root/compare.html" class="services__compare">
+                  <div class="services__counter">53</div></a><a href="/root/wishlist.html" class="services__wishlist">
+                  <div class="services__counter">55</div></a><a href="/root/cart-a.html" class="services__cart">
+                  <div class="services__counter">57</div></a></div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <nav class="main-menu">
+            <ul class="main-menu__list">
+              <li class="main-menu__item Home"><a href="/root/" class="main-menu__link">Home</a>
+              </li>
+              <li class="main-menu__item Baseball"><a href="/root/baseball.html" class="main-menu__link">Baseball</a>
+              </li>
+              <li class="main-menu__item Softball"><a href="/root/softball.html" class="main-menu__link">Softball</a>
+              </li>
+              <li class="main-menu__item main-menu__active"><a href="/root/pitching.html" class="main-menu__link">Pitching</a>
+              </li>
+              <li class="main-menu__item Parts"><a href="/root/parts.html" class="main-menu__link">Parts</a>
+              </li>
+              <li class="main-menu__item Accessories"><a href="/root/accessories.html" class="main-menu__link">Accessories</a>
+              </li>
+              <li class="main-menu__item Customer Service"><a href="#" class="main-menu__link">Customer Service</a>
+                <ul class="main-menu__sublist">
+                  <li class="main-menu__subitem"><a href="/root/contacts.html" class="main-menu__sublink">Contacts</a></li>
+                  <li class="main-menu__subitem"><a href="/root/manuals.html" class="main-menu__sublink">Assembly manuals</a></li>
+                  <li class="main-menu__subitem"><a href="/root/videos.html" class="main-menu__sublink">Videos</a></li>
+                  <li class="main-menu__subitem"><a href="/root/videos.html" class="main-menu__sublink">Warranty</a></li>
+                  <li class="main-menu__subitem"><a href="/root/dealers.html" class="main-menu__sublink">Dealers</a></li>
+                  <li class="main-menu__subitem"><a href="/root/partners.html" class="main-menu__sublink">Partners</a></li>
+                </ul>
+              </li>
+              <li class="main-menu__item Meet the team"><a href="/root/meet_the_team.html" class="main-menu__link">Meet the team</a>
+              </li>
+              <li class="main-menu__item Store"><a href="/root/store" class="main-menu__link">Store</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <section class="breadcrumbs">
+      <div class="wrap">
+        <div class="container-fluid">
+          <div class="breadcrumbs__container">
+            <ul class="breadcrumbs__list breadcrumb">
+              <li class="breadcrumbs__item"><a href="/" class="breadcrumbs__link">Home</a></li>
+              <li class="breadcrumbs__item"><a href="/catalog.html" class="breadcrumbs__link">Product category</a></li>
+              <li class="breadcrumbs__item"><a href="/product.html" class="breadcrumbs__link">Product title</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="my-account">
+      <div class="wrap">
+        <div class="container-fluid">
+          <h2 class="my-account__heading">My account</h2>
+          <div class="my-account__container">
+            <div class="my-account__content swingaway-content-markup">
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+            </div>
+            <div class="my-account-nav">
+              <div class="my-account-nav__container">
+                <ul class="my-account-nav__list nav nav-tabs">
+                  <li class="my-account-nav__item active"><a data-toggle="tab" href="#tab-my-profile" class="my-account-nav__link">My profile</a></li>
+                  <li class="my-account-nav__item"><a data-toggle="tab" href="#tab-my-wishlist" class="my-account-nav__link">My wishlist</a></li>
+                  <li class="my-account-nav__item"><a data-toggle="tab" href="#tab-my-reviews" class="my-account-nav__link">My reviews</a></li>
+                  <li class="my-account-nav__item"><a data-toggle="tab" href="#tab-my-orders" class="my-account-nav__link">My orders</a></li>
+                  <li class="my-account-nav__item"><a data-toggle="tab" href="#tab-my-payments" class="my-account-nav__link">Payment settings</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="my-account-content">
+              <div class="my-account-content__container tab-content">
+                <div id="tab-my-profile" class="my-account-content__content tab-pane active">
+                  <div class="my-profile">
+                    <div class="my-profile__container"></div>
+                  </div>
+                </div>
+                <div id="tab-my-wishlist" class="my-account-content__content tab-pane">
+                  <div class="wishlist">
+                    <div class="wishlist__empty alert alert-warning fade in hide">You haven't added anything into your wishlist</div>
+                    <div class="wishlist__container">
+                      <div class="wishlist__content swingaway-content-markup">
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                      </div>
+                      <table class="wishlist__table">
+                        <thead class="wishlist__head">
+                          <tr class="wishlist__row">
+                            <th class="wishlist__head-cell">&nbsp;</th>
+                            <th class="wishlist__head-cell">Image</th>
+                            <th class="wishlist__head-cell">Title</th>
+                            <th class="wishlist__head-cell">Price</th>
+                            <th class="wishlist__head-cell text-right">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody class="wishlist__body">
+                          <tr data-product-id='1' class="wishlist-item">
+                            <td class="wishlist-item__cell wishlist-item__cell--remove">
+                              <div class="wishlist-item__remove swing-remove-icon"></div>
+                            </td>
+                            <td class="wishlist-item__cell wishlist-item__cell--image"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" alt="Jennie Finch Gold Medal Edition SwingAway Hitting Trainer" title="Jennie Finch Gold Medal Edition SwingAway Hitting Trainer" class="wishlist-item__image"></td>
+                            <td class="wishlsit-item__cell wishlist-item__cell--title"><a title="product: Jennie Finch Gold Medal Edition SwingAway Hitting Trainer" target="_blank">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--price"><span class="wishlist-item__price-currency">$</span><span class="wishlist-item__price-amout">105.99</span></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--actions text-right">
+                              <button class="wishlist-item__butt butt-add-to-cart btn btn-default">Add to cart</button>
+                              <button class="wishlist-item__butt butt-add-to-compare btn btn-default">Add to compare</button>
+                            </td>
+                          </tr>
+                          <tr data-product-id='2' class="wishlist-item">
+                            <td class="wishlist-item__cell wishlist-item__cell--remove">
+                              <div class="wishlist-item__remove swing-remove-icon"></div>
+                            </td>
+                            <td class="wishlist-item__cell wishlist-item__cell--image"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" alt="SwingAway FASTPITCH Traveler" title="SwingAway FASTPITCH Traveler" class="wishlist-item__image"></td>
+                            <td class="wishlsit-item__cell wishlist-item__cell--title"><a title="product: SwingAway FASTPITCH Traveler" target="_blank">SwingAway FASTPITCH Traveler</a></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--price"><span class="wishlist-item__price-currency">$</span><span class="wishlist-item__price-amout">167.45</span></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--actions text-right">
+                              <button class="wishlist-item__butt butt-add-to-cart btn btn-default">Add to cart</button>
+                              <button class="wishlist-item__butt butt-add-to-compare btn btn-default">Add to compare</button>
+                            </td>
+                          </tr>
+                          <tr data-product-id='3' class="wishlist-item">
+                            <td class="wishlist-item__cell wishlist-item__cell--remove">
+                              <div class="wishlist-item__remove swing-remove-icon"></div>
+                            </td>
+                            <td class="wishlist-item__cell wishlist-item__cell--image"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" alt="The Original ELITE Traveler (with Water-filled Homeplate)" title="The Original ELITE Traveler (with Water-filled Homeplate)" class="wishlist-item__image"></td>
+                            <td class="wishlsit-item__cell wishlist-item__cell--title"><a title="product: The Original ELITE Traveler (with Water-filled Homeplate)" target="_blank">The Original ELITE Traveler (with Water-filled Homeplate)</a></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--price"><span class="wishlist-item__price-currency">$</span><span class="wishlist-item__price-amout">199.99</span></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--actions text-right">
+                              <button class="wishlist-item__butt butt-add-to-cart btn btn-default">Add to cart</button>
+                              <button class="wishlist-item__butt butt-add-to-compare btn btn-default">Add to compare</button>
+                            </td>
+                          </tr>
+                          <tr data-product-id='4' class="wishlist-item">
+                            <td class="wishlist-item__cell wishlist-item__cell--remove">
+                              <div class="wishlist-item__remove swing-remove-icon"></div>
+                            </td>
+                            <td class="wishlist-item__cell wishlist-item__cell--image"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" alt="SwingAway Softball Pro XXL" title="SwingAway Softball Pro XXL" class="wishlist-item__image"></td>
+                            <td class="wishlsit-item__cell wishlist-item__cell--title"><a title="product: SwingAway Softball Pro XXL" target="_blank">SwingAway Softball Pro XXL</a></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--price"><span class="wishlist-item__price-currency">$</span><span class="wishlist-item__price-amout">499.99</span></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--actions text-right">
+                              <button class="wishlist-item__butt butt-add-to-cart btn btn-default">Add to cart</button>
+                              <button class="wishlist-item__butt butt-add-to-compare btn btn-default">Add to compare</button>
+                            </td>
+                          </tr>
+                          <tr data-product-id='5' class="wishlist-item">
+                            <td class="wishlist-item__cell wishlist-item__cell--remove">
+                              <div class="wishlist-item__remove swing-remove-icon"></div>
+                            </td>
+                            <td class="wishlist-item__cell wishlist-item__cell--image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" alt="Jennie Finch Gold Medal Edition SwingAway Hitting Trainer" title="Jennie Finch Gold Medal Edition SwingAway Hitting Trainer" class="wishlist-item__image"></td>
+                            <td class="wishlsit-item__cell wishlist-item__cell--title"><a title="product: Jennie Finch Gold Medal Edition SwingAway Hitting Trainer" target="_blank">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--price"><span class="wishlist-item__price-currency">$</span><span class="wishlist-item__price-amout">70.00</span></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--actions text-right">
+                              <button class="wishlist-item__butt butt-add-to-cart btn btn-default">Add to cart</button>
+                              <button class="wishlist-item__butt butt-add-to-compare btn btn-default">Add to compare</button>
+                            </td>
+                          </tr>
+                          <tr data-product-id='6' class="wishlist-item">
+                            <td class="wishlist-item__cell wishlist-item__cell--remove">
+                              <div class="wishlist-item__remove swing-remove-icon"></div>
+                            </td>
+                            <td class="wishlist-item__cell wishlist-item__cell--image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" alt="Jennie Finch Gold Medal Edition SwingAway Hitting Trainer" title="Jennie Finch Gold Medal Edition SwingAway Hitting Trainer" class="wishlist-item__image"></td>
+                            <td class="wishlsit-item__cell wishlist-item__cell--title"><a title="product: Jennie Finch Gold Medal Edition SwingAway Hitting Trainer" target="_blank">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--price"><span class="wishlist-item__price-currency">$</span><span class="wishlist-item__price-amout">89.49</span></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--actions text-right">
+                              <button class="wishlist-item__butt butt-add-to-cart btn btn-default">Add to cart</button>
+                              <button class="wishlist-item__butt butt-add-to-compare btn btn-default">Add to compare</button>
+                            </td>
+                          </tr>
+                          <tr data-product-id='7' class="wishlist-item">
+                            <td class="wishlist-item__cell wishlist-item__cell--remove">
+                              <div class="wishlist-item__remove swing-remove-icon"></div>
+                            </td>
+                            <td class="wishlist-item__cell wishlist-item__cell--image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" alt="SwingAway Softball Pro Stadium Edition-BLUE" title="SwingAway Softball Pro Stadium Edition-BLUE" class="wishlist-item__image"></td>
+                            <td class="wishlsit-item__cell wishlist-item__cell--title"><a title="product: SwingAway Softball Pro Stadium Edition-BLUE" target="_blank">SwingAway Softball Pro Stadium Edition-BLUE</a></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--price"><span class="wishlist-item__price-currency">$</span><span class="wishlist-item__price-amout">101.11</span></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--actions text-right">
+                              <button class="wishlist-item__butt butt-add-to-cart btn btn-default">Add to cart</button>
+                              <button class="wishlist-item__butt butt-add-to-compare btn btn-default">Add to compare</button>
+                            </td>
+                          </tr>
+                          <tr data-product-id='8' class="wishlist-item">
+                            <td class="wishlist-item__cell wishlist-item__cell--remove">
+                              <div class="wishlist-item__remove swing-remove-icon"></div>
+                            </td>
+                            <td class="wishlist-item__cell wishlist-item__cell--image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" alt="Extreme Baseball Tune Up Kit" title="Extreme Baseball Tune Up Kit" class="wishlist-item__image"></td>
+                            <td class="wishlsit-item__cell wishlist-item__cell--title"><a title="product: Extreme Baseball Tune Up Kit" target="_blank">Extreme Baseball Tune Up Kit</a></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--price"><span class="wishlist-item__price-currency">$</span><span class="wishlist-item__price-amout">999.99</span></td>
+                            <td class="wishlist-item__cell wishlist-item__cell--actions text-right">
+                              <button class="wishlist-item__butt butt-add-to-cart btn btn-default">Add to cart</button>
+                              <button class="wishlist-item__butt butt-add-to-compare btn btn-default">Add to compare</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div id="tab-my-reviews" class="my-account-content__content tab-pane">
+                  
+                  <div class="my-reviews">
+                    <div class="my-reviews__container">
+                      <div class="my-reviews__empty alert alert-warning">You haven't leave a product review yet.</div>
+                      <div class="my-reviews__content swingaway-content-markup">
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                      </div>
+                      <div class="my-reviews__list-wrap">
+                        <div class="my-review">
+                          <div class="my-review__product-url"><a>Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a></div>
+                          <div class="my-review__text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</div>
+                          <div class="my-review__recommend"><span class="my-review__recommend-pre">Conclusion:</span><span class="my-review__recommned-text">Yes, I recommend this product!</span></div>
+                          <div class="my-review__datetime"></div>
+                          <div class="my-review__rated"></div>
+                          <div class="my-review__actions">
+                            <button>Edit</button>
+                            <button>Delete</button>
+                          </div>
+                        </div>
+                        <div class="my-review">
+                          <div class="my-review__product-url"><a>SwingAway FASTPITCH Traveler</a></div>
+                          <div class="my-review__text">Vel an oblique oporteat maluisset. Mea copiosae tractatos sapientem at, cu appareat tincidunt nec. Et numquam fabulas eam, vix eu verterem molestiae concludaturque. Eu vel alii nominavi.</div>
+                          <div class="my-review__recommend"><span class="my-review__recommend-pre">Conclusion:</span><span class="my-review__recommned-text">No, I do not recommend to buy this</span></div>
+                          <div class="my-review__datetime"></div>
+                          <div class="my-review__rated"></div>
+                          <div class="my-review__actions">
+                            <button>Edit</button>
+                            <button>Delete</button>
+                          </div>
+                        </div>
+                        <div class="my-review">
+                          <div class="my-review__product-url"><a>SwingAway Softball Pro XXL</a></div>
+                          <div class="my-review__text">Melius maiorum ea per, nibh urbanitas assueverit et vis, dico stet viris ut pro. Mel ad legere partiendo molestiae. Dolor soluta eloquentiam mel ad, ius adhuc instructior id. Rebum mnesarchum id mei, ei vix vivendum dissentiunt. Pro sumo aliquip interpretaris et, vel ne populo quodsi albucius. Brute graeci cu sea, ceteros adipisci ex nec. Eros principes constituto te eum, et summo deterruisset mea, duo alterum legimus adolescens eu.</div>
+                          <div class="my-review__recommend"><span class="my-review__recommend-pre">Conclusion:</span><span class="my-review__recommned-text">Yes, I recommend this product!</span></div>
+                          <div class="my-review__datetime"></div>
+                          <div class="my-review__rated"></div>
+                          <div class="my-review__actions">
+                            <button>Edit</button>
+                            <button>Delete</button>
+                          </div>
+                        </div>
+                        <div class="my-review">
+                          <div class="my-review__product-url"><a>SwingAway Softball Pro Stadium Edition-BLUE </a></div>
+                          <div class="my-review__text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</div>
+                          <div class="my-review__recommend"><span class="my-review__recommend-pre">Conclusion:</span><span class="my-review__recommned-text">Yes, I recommend this product!</span></div>
+                          <div class="my-review__datetime"></div>
+                          <div class="my-review__rated"></div>
+                          <div class="my-review__actions">
+                            <button>Edit</button>
+                            <button>Delete</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="tab-my-orders" class="my-account-content__content tab-pane">
+                  <div class="order-history">
+                    <div class="order-history__container">
+                      <div class="order-history-filter">
+                        <div class="order-history-filter__container"></div>
+                      </div>
+                      <div class="order-hishory-item">
+                        <div class="order-history-item__container">
+                          <div class="order-history-item__no"></div>
+                          <div class="order-history-item__datetime"></div>
+                          <div class="order-history-item__items"></div>
+                          <div class="order-history-item__status"></div>
+                          <div class="order-history-item__total"></div>
+                          <div class="order-history-item__tracking-no"></div>
+                          <div class="order-history-item__reorder"></div>
+                          <div class="order-history-item__more"></div>
+                          <div class="order-in-history">
+                            <div class="order-in-history__container">
+                              <table class="order-in-history__table">
+                                <thead class="order-in-history__head">
+                                  <tr class="order-in-history__row">
+                                    <th class="order-in-history__cell order-in-history__cell--head">Image</th>
+                                    <th class="order-in-history__cell order-in-history__cell--head">Title</th>
+                                    <th class="order-in-history__cell order-in-history__cell--head">Price</th>
+                                    <th class="order-in-history__cell order-in-history__cell--head">Quantity</th>
+                                    <th class="order-in-history__cell order-in-history__cell--head">Sum</th>
+                                  </tr>
+                                </thead>
+                                <tbody class="order-in-history__body">
+                                  <tr class="order-in-history__row">
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-image"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="order-in-history__image"></td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-price">105.99</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-qu">0</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-sum">0</td>
+                                  </tr>
+                                  <tr class="order-in-history__row">
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-image"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="order-in-history__image"></td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-title">SwingAway FASTPITCH Traveler</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-price">167.45</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-qu">1</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-sum">167.45</td>
+                                  </tr>
+                                  <tr class="order-in-history__row">
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-image"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="order-in-history__image"></td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-title">The Original ELITE Traveler (with Water-filled Homeplate)</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-price">199.99</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-qu">2</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-sum">399.98</td>
+                                  </tr>
+                                  <tr class="order-in-history__row">
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-image"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="order-in-history__image"></td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-title">SwingAway Softball Pro XXL</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-price">499.99</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-qu">3</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-sum">1499.97</td>
+                                  </tr>
+                                  <tr class="order-in-history__row">
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history__image"></td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-price">70.00</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-qu">4</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-sum">280</td>
+                                  </tr>
+                                  <tr class="order-in-history__row">
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history__image"></td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-price">89.49</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-qu">5</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-sum">447.45</td>
+                                  </tr>
+                                  <tr class="order-in-history__row">
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history__image"></td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-title">SwingAway Softball Pro Stadium Edition-BLUE</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-price">101.11</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-qu">6</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-sum">606.66</td>
+                                  </tr>
+                                  <tr class="order-in-history__row">
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history__image"></td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-title">Extreme Baseball Tune Up Kit</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-price">999.99</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-qu">7</td>
+                                    <td class="order-in-history__cell order-in-history__cell--wrap-sum">6999.93</td>
+                                  </tr>
+                                </tbody>
+                                <tfoot class="order-in-history__foot">
+                                  <tr class="order-in-history__row">
+                                    <td class="order-in-history__cell order-in-history__cell--foot order-in-history__cell--foot-label">Subtotal</td>
+                                    <td class="order-in-history__cell order-in-history__cell--foot order-in-history__cell--foot-data"><span class="order-in-history__span order-in-history__span--currency">$</span><span class="order-in-history__span order-in-history__span--amount">9500</span></td>
+                                  </tr>
+                                  <tr class="order-in-history__row">
+                                    <td class="order-in-history__cell order-in-history__cell--foot order-in-history__cell--foot-label">Delivery</td>
+                                    <td class="order-in-history__cell order-in-history__cell--foot order-in-history__cell--foot-data"><span class="order-in-history__span order-in-history__span--currency">$</span><span class="order-in-history__span order-in-history__span--amount">800</span></td>
+                                  </tr>
+                                  <tr class="order-in-history__row">
+                                    <td class="order-in-history__cell order-in-history__cell--foot order-in-history__cell--foot-label">Total</td>
+                                    <td class="order-in-history__cell order-in-history__cell--foot order-in-history__cell--foot-data"><span class="order-in-history__span order-in-history__span--currency">$</span><span class="order-in-history__span order-in-history__span--amount">10300</span></td>
+                                  </tr>
+                                </tfoot>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="tab-my-payments" class="my-account-content__content tab-pane"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-nav">
+        <div class="container-fluid">
+          <div class="wrap">
+            <div class="footer-nav__container">
+              <div class="footer-nav__head">+ Menu</div>
+              <div class="footer-nav__body">
+                <ul class="footer-nav__list">
+                  <li class="footer-nav__item"><a href="/root/" class="footer-nav__link">Home</a></li>
+                  <li class="footer-nav__item"><a href="/root/contacts.html" class="footer-nav__link">Contacts</a></li>
+                  <li class="footer-nav__item"><a href="/root/manuals.html" class="footer-nav__link">Assembly manuals</a></li>
+                  <li class="footer-nav__item"><a href="/root/videos.html" class="footer-nav__link">Videos</a></li>
+                  <li class="footer-nav__item"><a href="/root/videos.html" class="footer-nav__link">Warranty</a></li>
+                  <li class="footer-nav__item"><a href="/root/dealers.html" class="footer-nav__link">Dealers</a></li>
+                  <li class="footer-nav__item"><a href="/root/partners.html" class="footer-nav__link">Partners</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-socials">
+        <div class="container-fluid">
+          <div class="wrap">
+            <div class="footer-socials__list">
+              <li class="footer-socials__item footer-socials__item--facebook"><a href="https://facebook.com" class="footer-socials__link"></a></li>
+              <li class="footer-socials__item footer-socials__item--twitter"><a href="https://twitter.com" class="footer-socials__link"></a></li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

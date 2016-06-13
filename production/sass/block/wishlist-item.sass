@@ -1,0 +1,57 @@
+.wishlist-item
+  border-top: 1px solid #ddd
+
+  &:hover
+    background: #efefef
+
+  &__cell
+    padding: .6em .8em
+
+    &--image
+      width: 12em
+
+    &--actions
+      text-align: right
+
+  &__image
+    max-width: 100%
+
+  &__butt
+    margin-bottom: .4em
+
+
+
++degradate(820)
+  .wishlist-item
+    display: flex
+    flex-wrap: wrap
+    padding: .4em 0
+
+    &__cell
+
+      &--image
+        display: none
+
+      &--title
+        padding-top: .65em
+        flex-basis: 80%
+        font-weight: 600
+
+      &--price
+        padding-left: 3em
+        flex-basis: 100%
+
+      &--actions
+        flex-basis: 100%
+
+
++degradate(340)
+  .wishlist-item
+    &__cell
+      &--actions
+        padding-left: 3em
+        flex-basis: 100%
+
+
+    &__butt
+      width: 100%

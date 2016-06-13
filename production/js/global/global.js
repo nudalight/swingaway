@@ -40,7 +40,7 @@ new ComparePage({
 new WishlistPage({
     item: '.wishlist-item',
     itemRemove: '.wishlist-item__remove',
-    container: '.wishlist__container',
+    container: '.wishlist__table',
     empty: '.wishlist__empty'
 });
 

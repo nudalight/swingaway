@@ -11,6 +11,7 @@ module.exports = {
     menu: require('./menu' + ext),
     products: require('./products' + ext),
     reviews: require('./reviews' + ext),
-    socials: require('./socials' + ext)
+    socials: require('./socials' + ext),
+    plh: require('./plh' + ext)
 };
 

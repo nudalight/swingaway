@@ -1,0 +1,38 @@
+//- inc: my-reviews
+
+
+.my-reviews
+    .my-reviews__container
+        .my-reviews__empty(
+            class='alert alert-warning'
+        ) You haven't leave a product review yet.
+
+        .my-reviews__content(
+            class='swingaway-content-markup'
+        )
+            p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+
+        .my-reviews__list-wrap
+
+            - for (var i_rev = 0; i_rev < reviews.length; i_rev++)
+
+                .my-review
+                    .my-review__product-url
+                        a()=reviews[i_rev].productTitle
+
+                    .my-review__text=reviews[i_rev].text
+
+                    .my-review__recommend
+                        span.my-review__recommend-pre Conclusion:
+                        span.my-review__recommned-text(
+                        )=reviews[i_rev].recommend ? plh.doRec : plh.dontRec
+
+                    .my-review__datetime
+
+                    .my-review__rated
+
+                    .my-review__actions
+                        button() Edit
+                        button() Delete
+
+
