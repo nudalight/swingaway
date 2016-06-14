@@ -53,7 +53,8 @@ gulp.task('serve', ['sass'], () => {
         'jade:warranty',
         'jade:dealers',
         'jade:about-us', 
-        'jade:my-account'
+        'jade:my-account',
+        'jade:search-results'
     ]);
     gulp.watch("production/js/**.js", ['js']);
 });
@@ -440,6 +441,28 @@ gulp.task('jade:my-account', () => {
         .pipe(bs.stream());
 });
 
+
+gulp.task('jade:search-results', () => {
+    return gulp.src([
+        'production/**/head.jade',
+        'production/**/header.jade',
+        'production/**/breadcrumbs.jade',
+        'production/**/catalog-heading.jade',
+        'production/**/srd.jade',
+        'production/**/sorter.jade',
+        'production/**/search-results.jade',
+        'production/**/footer.jade'
+    ])
+        .pipe(concat('jadify.jade'))
+        .pipe(jade({
+            pretty: true,
+            jade: theJade,
+            locals: require(jadeDataPath)
+        }))
+        .pipe(rename('search-results.html'))
+        .pipe(gulp.dest('./'))
+        .pipe(bs.stream());
+});
 
 
 gulp.task('default', ['serve']);

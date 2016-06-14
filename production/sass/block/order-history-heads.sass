@@ -1,0 +1,20 @@
+.order-history-heads
+  &__container
+    display: flex
+    justify-content: space-between
+    padding: 2.5em 1em 1.5em
+
+  &__item
+    font-weight: 600
+    flex-basis: 10%
+
+
++degradate(900)
+  .order-history-heads
+    &__item
+      &--no
+        display: none
+
++degradate(720)
+  .order-history-heads
+    display: none

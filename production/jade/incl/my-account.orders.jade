@@ -6,61 +6,115 @@
         .order-history-filter
             .order-history-filter__container
 
-        .order-hishory-item
-            .order-history-item__container
-                .order-history-item__no
-                .order-history-item__datetime
-                .order-history-item__items
-                .order-history-item__status
-                .order-history-item__total
-                .order-history-item__tracking-no
-                .order-history-item__reorder
-                .order-history-item__more
 
-                .order-in-history
-                    .order-in-history__container
-                        table.order-in-history__table
+        .order-history-heads
+            .order-history-heads__container
+                .order-history-heads__item.order-history-heads__item--no Order number
+                .order-history-heads__item.order-history-heads__item--datetime Order date
+                .order-history-heads__item.order-history-heads__item--items Items bought
+                .order-history-heads__item.order-history-heads__item--total Order sum
+                .order-history-heads__item.order-history-heads__item--status Order status
+                .order-history-heads__item.order-history-heads__item--track-no Track no
+                .order-history-heads__item.order-history-heads__item--actions Actions
 
-                            thead.order-in-history__head
-                                tr.order-in-history__row
-                                    th.order-in-history__cell.order-in-history__cell--head Image
-                                    th.order-in-history__cell.order-in-history__cell--head Title
-                                    th.order-in-history__cell.order-in-history__cell--head Price
-                                    th.order-in-history__cell.order-in-history__cell--head Quantity
-                                    th.order-in-history__cell.order-in-history__cell--head Sum
+        ul.order-history__items(
+            class='panel-group',
+            id='order-in-history-accordion'
+        )
+            - for (var i_oihb = 0; i_oihb < orders.length; i_oihb++)
+                li.order-in-history-basics(
+                    data-order-id=orders[i_oihb].id,
+                    class='panel'
+                )
+                    .order-in-history-basics__container
 
-                            tbody.order-in-history__body
-                                - for (var i_oih = 0; i_oih < products.length; i_oih++)
-                                    tr.order-in-history__row
-                                        td.order-in-history__cell.order-in-history__cell--wrap-image
-                                            img.order-in-history__image(
-                                                src=products[i_oih].photos[0]
-                                            )
-                                        td.order-in-history__cell.order-in-history__cell--wrap-title(
-                                        )=products[i_oih].title
-                                        td.order-in-history__cell.order-in-history__cell--wrap-price(
-                                        )=products[i_oih].price
-                                        td.order-in-history__cell.order-in-history__cell--wrap-qu(
-                                        )=i_oih
-                                        td.order-in-history__cell.order-in-history__cell--wrap-sum(
-                                        )=i_oih * products[i_oih].price
+                        .order-in-history-basics__info
 
-                            tfoot.order-in-history__foot
-                                tr.order-in-history__row
-                                    td.order-in-history__cell.order-in-history__cell--foot.order-in-history__cell--foot-label Subtotal
-                                    td.order-in-history__cell.order-in-history__cell--foot.order-in-history__cell--foot-data
-                                        span.order-in-history__span.order-in-history__span--currency=currencySymbol
-                                        span.order-in-history__span.order-in-history__span--amount 9500
+                            .order-in-history-basics__item.order-in-history-basics__item--no
+                                label.order-in-history-basics__label #:
+                                span.order-in-history-basics__data(
+                                )=(i_oihb + 1) + '.'
 
-                                tr.order-in-history__row
-                                    td.order-in-history__cell.order-in-history__cell--foot.order-in-history__cell--foot-label Delivery
-                                    td.order-in-history__cell.order-in-history__cell--foot.order-in-history__cell--foot-data
-                                        span.order-in-history__span.order-in-history__span--currency=currencySymbol
-                                        span.order-in-history__span.order-in-history__span--amount 800
+                            .order-in-history-basics__item.order-in-history-basics__item--datetime
+                                label.order-in-history-basics__label Order date:
+                                span.order-in-history-basics__data(
+                                )=orders[i_oihb].timestamp
 
-                                tr.order-in-history__row
-                                    td.order-in-history__cell.order-in-history__cell--foot.order-in-history__cell--foot-label Total
-                                    td.order-in-history__cell.order-in-history__cell--foot.order-in-history__cell--foot-data
-                                        span.order-in-history__span.order-in-history__span--currency=currencySymbol
-                                        span.order-in-history__span.order-in-history__span--amount 10300
+                            .order-in-history-basics__item.order-in-history-basics__item--items
+                                label.order-in-history-basics__label Items bought:
+                                span.order-in-history__data(
+                                )=orders[i_oihb].items
+
+                            .order-in-history-basics__item.order-in-history-basics__item--total
+                                label.order-in-history-basics__label Costs:
+                                span.order-in-history-basics__total-currency(
+                                )=currencySymbol
+                                span.order-in-history-basics__total-amount(
+                                )=orders[i_oihb].total
+
+                            .order-in-history-basics__item.order-in-history-basics__item--status
+                                label.order-in-history-basics__label Status:
+                                span.order-in-history-basics__data(
+                                )=orders[i_oihb].status
+
+                            .order-in-history-basics__item.order-in-history-basics__item--track-no
+                                label.order-in-history-basics__label Track no:
+                                span.order-in-history-basics__data(
+                                )=orders[i_oihb].trackNo
+
+                            .order-in-history-basics__item.order-in-history-basics__item--more
+                                a(
+                                    class='btn btn-default butt-toggle-order-history-item'
+                                    data-toggle='collapse',
+                                    data-parent='order-in-history-accordion',
+                                    href='[data-accordion-child=' + i_oihb + ']'
+                                ) More Details
+
+                        .order-in-history-details(
+                            data-accordion-child=i_oihb,
+                            class='panel-collapse collapse'
+                        )
+                            table.order-in-history-details__table
+                                thead.order-in-history-details__head
+                                    tr.order-in-history-details__row
+                                        th.order-in-history-details__head-cell Image
+                                        th.order-in-history-details__head-cell Title
+                                        th.order-in-history-details__head-cell Price
+                                        th.order-in-history-details__head-cell Quantity
+                                        th.order-in-history-details__head-cell Sum
+
+                                tbody.order-in-history-details__body
+                                    - for (var i_oih = 0; i_oih < products.length; i_oih++)
+                                        tr.order-in-history-details__row
+                                            td.order-in-history-details__cell.order-in-history__cell--wrap-image
+                                                img.order-in-history-details__image(
+                                                    src=products[i_oih].photos[0]
+                                                )
+                                            td.order-in-history-details__cell.order-in-history-details__cell--wrap-title(
+                                            )=products[i_oih].title
+                                            td.order-in-history-details__cell.order-in-history-details__cell--wrap-price(
+                                            )=products[i_oih].price
+                                            td.order-in-history-details__cell.order-in-history-details__cell--wrap-qu(
+                                            )=i_oih
+                                            td.order-in-history-details__cell.order-in-history-details__cell--wrap-sum(
+                                            )=i_oih * products[i_oih].price
+
+                                tfoot.order-in-history-details__foot
+                                    tr.order-in-history-details__row
+                                        td.order-in-history-details__cell.order-in-history-details__cell--foot.order-in-history-details__cell--foot-label Subtotal
+                                        td.order-in-history-details__cell.order-in-history-details__cell--foot.order-in-history-details__cell--foot-data
+                                            span.order-in-history-details__span.order-in-history-details__span--currency=currencySymbol
+                                            span.order-in-history-details__span.order-in-history-details__span--amount 9500
+
+                                    tr.order-in-history-details__row
+                                        td.order-in-history-details__cell.order-in-history-details__cell--foot.order-in-history-details__cell--foot-label Delivery
+                                        td.order-in-history-details__cell.order-in-history-details__cell--foot.order-in-history-details__cell--foot-data
+                                            span.order-in-history-details__span.order-in-history-details__span--currency=currencySymbol
+                                            span.order-in-history-details__span.order-in-history-details__span--amount 800
+
+                                    tr.order-in-history-details__row
+                                        td.order-in-history-details__cell.order-in-history-details__cell--foot.order-in-history-details__cell--foot-label Total
+                                        td.order-in-history-details__cell.order-in-history-details__cell--foot.order-in-history-details__cell--foot-data
+                                            span.order-in-history-details__span.order-in-history-details__span--currency=currencySymbol
+                                            span.order-in-history-details__span.order-in-history-details__span--amount 10300
 

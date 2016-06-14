@@ -1,0 +1,57 @@
+//- inc: pagination
+
+nav.pag
+    .pag__container
+
+        ul.pag-pagination(
+            class='pagination'
+        )
+
+            li.pag-pagination__item
+                a.pag-pagination__link(
+                    aria-label='Previous',
+                    aria-hidden='true',
+                    title='Go to the previous page',
+                    href='search-resutls.html?q=somequery&p=#prev'
+                ) &laquo;
+
+
+            - var iter = 0, pagLim = 8;
+            - for (var i_pag = 0; i_pag < pagLim; i_pag++)
+                - iter = (i_pag + 1)
+                    li.pag-pagination__item
+                        a.pag-pagination__link(
+                            href='search-resutls.html?q=somequery&p=' + iter
+                            title='Go to page: ' + iter + '/' + pagLim
+                        )=iter
+
+
+            li.pag-pagination__item
+                a.pag-pagination__link(
+                    aria-label='Next',
+                    aria-hidden='true',
+                    title='Go to the next page',
+                    href='search-resutls.html?q=somequery&p=#next'
+                ) &raquo;
+
+
+
+        ul.pag-pager
+
+            li.pag-pager__item.pag__item--prev(
+                class='previous'
+            )
+                a.pag-pager__link(
+                    aria-label='Previous',
+                    title='Go to previous page',
+                    href='search-resutls.html?q=somequery&p=#next'
+                ) &larr;
+
+            li.pag-pager__item.pag-pager__item--next(
+                class='next'
+            )
+                a.pag-pager__link(
+                    aria-label='Next',
+                    title='Go to previous page',
+                    href='search-resutls.html?q=somequery&p=#next'
+                ) &rarr;

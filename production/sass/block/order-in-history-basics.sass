@@ -1,0 +1,69 @@
+.order-in-history-basics
+  &__container
+    border-top: 1px solid #ddd
+    padding: 1.5em 1em
+
+    &:hover
+      background-color: #eee
+
+  &__info
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+  &__item
+    flex-basis: 10%
+
+  &__label
+    display: none
+
+    &::after
+      content: ''
+      padding-right: .5em
+
+
+
++degradate(900)
+  .order-in-history-basics
+    &__item
+      &--no
+        display: none
+
+      &--track-no
+        text-align: right
+
+
+
++degradate(720)
+  .order-in-history-basics
+    &__item
+      padding: 1em 1em 1em 0
+      flex-basis: 33.33%
+
+      &--track-no
+        text-align: left
+
+    &__label
+      display: inline
+
+
+
++degradate(560)
+  .order-in-history-basics
+    &__item
+      flex-basis: 50%
+
+
+
++degradate(420)
+  .order-in-history-basics
+    &__item
+      flex-basis: 100%
+
+      &--more
+        text-align: right
+
+    &__label
+      display: inline-block
+      min-width: 9em
+

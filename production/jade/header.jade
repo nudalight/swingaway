@@ -87,26 +87,7 @@
                                             data-target='#auth-modal'
                                         ) My account
 
-                        .search()
-                            .search__container(
-                                class='clearfix'
-                            )
-                                form(
-                                    name='form-search',
-                                    method='post',
-                                    action='/'
-                                )
-                                    input.search__input(
-                                        class='form-control',
-                                        type='text',
-                                        placeholder='search query',
-                                        name='input-search',
-                                        required
-                                    )
-                                    .search__submit()
-                                        .search__submit-icon(
-                                            class='glyphicon glyphicon-search'
-                                        )
+                        include ./jade/incl/search.jade
 
                         .services()
                             .services__container
