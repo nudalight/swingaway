@@ -174,7 +174,7 @@
               <div class="review-modal__stars choose-from-stars">
                 <div class="stars">
                   <div class="stars__container children-inline">
-                    <input type="hidden" class="stars__starred">
+                    <input name="starred" type="hidden" value="3" class="stars__starred">
                     <div class="stars__star stars__star--red "></div>
                     <div class="stars__star stars__star--red "></div>
                     <div class="stars__star stars__star--red "></div>
@@ -191,6 +191,49 @@
         </div>
       </div>
     </div>
+    <div id="edit-review-modal" role="dialog" class="edit-review-modal modal fade">
+      <div class="edit-review-modal__container modal-dialog">
+        <div class="edit-review-modal__inner modal-content">
+          <form action="#" method="post" name="form-edit-review" class="edit-review-modal__form">
+            <div class="edit-review-modal__head modal-header">
+              <button type="button" data-dismiss="modal" class="edit-review-modal__close close">&times;</button>
+              <h4 class="modal-title">Edit review</h4>
+            </div>
+            <div class="edit-review-modal__body">
+              <div class="edit-review-modal__message-wrap">
+                <textarea placeholder="Your review text here.." name="edit-review-text" class="edit-review-modal__message form-control"></textarea>
+              </div>
+              <div class="edit-review-modal__opts">
+                <div class="edit-review-modal__opt">
+                  <input id="edit-review-opt-positive" name="edit-review-opt" type="radio" value="positive" class="edit-review-modal__opt-input">
+                  <label for="edit-review-opt-positive" class="edit-review-modal__opt-label">Yes, I recommend this product!</label>
+                </div>
+                <div class="edit-review-modal__opt">
+                  <input id="edit-review-opt-negative" name="edit-review-opt" type="radio" value="negative" class="edit-review-modal__opt-input">
+                  <label for="edit-review-opt-negative" class="edit-review-modal__opt-label">No, I do not recommend to buy this</label>
+                </div>
+              </div>
+              <div class="edit-review-modal__stars choose-from-stars">
+                <div class="stars">
+                  <div class="stars__container children-inline">
+                    <input name="starred" type="hidden" value="3" class="stars__starred">
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star  "></div>
+                    <div class="stars__star  "></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="edit-review-modal__foot modal-footer">
+              <input name="edit-review-id" type="hidden" value="">
+              <button type="submit" class="edit-review-modal__butt btn btn-swingaway">Save changes</button><a data-dismiss="modal" class="edit-review-modal__butt btn btn-default">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     <div id="cancel-order-modal" role="dialog" class="cancel-order-modal modal fade">
       <div class="cancel-order-modal__container modal-dialog">
         <div class="cancel-order-modal__inner modal-content">
@@ -202,6 +245,24 @@
             <p class="cancel-order-modal__message"></p>Are you sure want to delete this order?
           </div>
           <div class="cancel-order-modal__foot modal-footer"><a class="cancel-order-modal__choice-a btn btn-danger">Delete order</a><a data-dismiss="modal" class="cancel-order-modal__choice-b btn btn-default">Cancel</a></div>
+        </div>
+      </div>
+    </div>
+    <div id="delete-review-modal" role="dialog" class="delete-review-modal modal fade">
+      <div class="delete-review-modal__container modal-dialog">
+        <div class="delete-review-modal__inner modal-content">
+          <form method="post" action="#" name="form-delete-review" class="delete-review-modal__form">
+            <div class="delete-review-modal__head modal-header">
+              <button type="button" data-dismiss="modal" class="delete-review-modal__close close">&times;</button>
+              <h4 class="delete-review-modal__heading modal-title">Delete review</h4>
+            </div>
+            <div class="delete-review-modal__body">
+              <p class="delete-review-modal__message"></p>Are you sure want to delete this review?
+            </div>
+            <div class="delete-review-modal__foot modal-footer">
+              <input name="delete-review-id" type="hidden"><a type="submit" class="delete-review-modal__choice-a btn btn-danger">Delete review</a><a data-dismiss="modal" class="delete-review-modal__choice-b btn btn-default">Cancel</a>
+            </div>
+          </form>
         </div>
       </div>
     </div>

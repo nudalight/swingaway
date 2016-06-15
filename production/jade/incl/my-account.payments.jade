@@ -1,0 +1,56 @@
+//- inc: payment
+
+.payment-setts
+    .payment-setts__container
+
+        .gift-sert-ballance
+            .gift-sert-ballance__container
+                h4.gift-sert-ballance__heading Ballance
+                .gift-sert-ballance__text
+                    | You currently have a gift certificate balance of
+                .gift-sert-ballance__info
+                    span.gift-ballance__info-currency=currencySymbol
+                    span.gift-ballance__info-amount 0.00
+                .gift-sert-ballance__explain
+                    | This balance will be automatically applied to any future purchases you make.
+
+        .apply-sert
+            .apply-sert__container
+
+                .apply-sert__content(
+                    class='swingaway-content-markup'
+                )
+                    h4 Redeeming your Gift Certificate is easy!
+                    p Simply type the gift certificate code below to apply the gift certificate to your account. We will automatically use this gift certificate to pay for any purchases you make today or in the future. You can always check your gift certificate balance from your "My Account" page.
+
+                form.apply-sert__form(
+                    action='#',
+                    method='post',
+                    name='form-gift-sertificate'
+                )
+                    .apply-sert__controls
+                        input.apply-sert__input(
+                            name='gift-sertificate-code-1',
+                            placeholder='0000',
+                            class='form-control'
+                        )
+
+                        span.apply-sert__divide &#8210;
+
+                        input.apply-sert__input(
+                            name='gift-sertificate-code-2'
+                            placeholder='0000',
+                            class='form-control'
+                        )
+
+                        span.apply-sert__divide &#8210;
+
+                        input.apply-sert__input(
+                            name='gift-sertificate-code-3'
+                            placeholder='0000',
+                            class='form-control'
+                        )
+
+                        button.apply-sert__submit(
+                            class='btn btn-swingaway'
+                        ) Apply

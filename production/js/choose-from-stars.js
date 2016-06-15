@@ -15,25 +15,26 @@ function Stars(node){
         });
     };
 
-    $('.choose-from-stars').on('mouseover', '.stars__star', function(e){
+    $(this.root).on('mouseover', '.stars__star', function(e){
 
         var pos = that.getPos(e.target);
 
         that.colorTo(pos);
     });
 
-    $('.choose-from-stars').on('mouseout', '.stars__star', function(e){
+    $(this.root).on('mouseout', '.stars__star', function(e){
 
         var pos = +$(that.root).find('.stars__starred').val();
 
         that.colorTo(pos);
     });
 
-    $('.choose-from-stars').on('click', '.stars__star', function(e){
+    $(this.root).on('click', '.stars__star', function(e){
 
         var pos = that.getPos(e.target);
 
         $(that.root).find('.stars__starred').val(pos);
+        that.colorTo(pos);
     });
 
     this.getPos = function(tg){
@@ -61,4 +62,6 @@ function Stars(node){
 
 }
 
-new Stars( $('.choose-from-stars .stars') );
+$('.choose-from-stars').each(function(i, v, list){
+    new Stars( $(v).find('.stars') );
+});

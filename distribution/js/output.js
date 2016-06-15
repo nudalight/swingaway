@@ -57,6 +57,53 @@ Array.prototype.contains = function(obj) {
     }
     return false;
 };
+$('.butt-delete-review').on('click', function(){
+
+    var modal = $('#delete-review-modal');
+    var reviewId = +$(this).closest('[data-review-id]').data('review-id');
+
+    $(modal).find('[name="delete-review-id"]').val(reviewId);
+
+    $(modal).modal('show');
+
+});
+$('.butt-edit-review').on('click', function(){
+
+    var
+        modal = $('#edit-review-modal');
+        review = $(this).closest('[data-review-id]');
+
+        text = $(review).find('.my-review__text').text();
+        reviewId = $(review).data('review-id');
+
+        conclusion = $(review).find('.my-review__recommned-text').text().trim();
+        starred = +$(review).find('[name="starred"]').val();
+
+
+    $(modal).find('.edit-review-modal__message').val(text);
+    $(modal).find('[name="edit-review-id"]').val(reviewId);
+
+    $(modal).find('.edit-review-modal__opt').each(function(i, v, list){
+        var
+            label = $(v).find('label'),
+            cond = $(label).text().trim() == conclusion,
+            input = $(v).find('input');
+
+        cond && $(input).trigger('click');
+    });
+
+    $(modal).find('.stars__star').each(function(i, v, list){
+        if (i + 1 == starred) {
+            $(this).trigger('click');
+            console.log('starred true: ', i);
+        } else {
+            console.log('starred false: ', i);
+        }
+    });
+
+
+    $(modal).modal('show');
+});
 (function(){
 
     var triggerButt = '.butt-toggle-order-in-history';
@@ -475,25 +522,26 @@ function Stars(node){
         });
     };
 
-    $('.choose-from-stars').on('mouseover', '.stars__star', function(e){
+    $(this.root).on('mouseover', '.stars__star', function(e){
 
         var pos = that.getPos(e.target);
 
         that.colorTo(pos);
     });
 
-    $('.choose-from-stars').on('mouseout', '.stars__star', function(e){
+    $(this.root).on('mouseout', '.stars__star', function(e){
 
         var pos = +$(that.root).find('.stars__starred').val();
 
         that.colorTo(pos);
     });
 
-    $('.choose-from-stars').on('click', '.stars__star', function(e){
+    $(this.root).on('click', '.stars__star', function(e){
 
         var pos = that.getPos(e.target);
 
         $(that.root).find('.stars__starred').val(pos);
+        that.colorTo(pos);
     });
 
     this.getPos = function(tg){
@@ -521,7 +569,10 @@ function Stars(node){
 
 }
 
-new Stars( $('.choose-from-stars .stars') );
+$('.choose-from-stars').each(function(i, v, list){
+    new Stars( $(v).find('.stars') );
+});
+
 function ComparePage(select){
 
     this.select = select;

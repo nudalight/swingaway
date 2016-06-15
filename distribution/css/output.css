@@ -280,6 +280,42 @@ table.td-vertical tr td {
   .about-person__photo {
     display: inline-block; } }
 
+.apply-sert__container {
+  margin-top: 1em;
+  background: #eee;
+  padding: 1em; }
+
+.apply-sert__controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1em 0; }
+
+.apply-sert__input {
+  position: relative;
+  width: 4.2em; }
+
+.apply-sert__divide {
+  padding: 0 .35em; }
+
+.apply-sert__submit {
+  margin-left: 1.5em; }
+
+@media all and (max-width: 25em) {
+  .apply-sert__controls {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+  .apply-sert__submit {
+    margin: 1em 0 0;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%; } }
+
 .auth-choice {
   display: inline-block; }
   .auth-choice__list {
@@ -850,6 +886,29 @@ table.td-vertical tr td {
   .footer-nav__body {
     display: none; } }
 
+.gift-sert-ballance__container {
+  margin-top: 1em;
+  background: #eee;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 1em; }
+
+.gift-sert-ballance__info {
+  font-weight: 600;
+  font-size: 1.1em; }
+
+.gift-sert-ballance__heading {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%; }
+
+.gift-sert-ballance__explain {
+  padding-top: .3em;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%; }
+
 .header {
   background-color: #000; }
   .header a {
@@ -1064,6 +1123,20 @@ table.td-vertical tr td {
         -ms-flex-pack: center;
             justify-content: center; } }
 
+.edit-review-modal__body {
+  padding: 1em; }
+
+.edit-review-modal__opts {
+  padding: 1em .5em; }
+
+.edit-review-modal__stars {
+  padding: 0 .2em; }
+
+.edit-review-modal__message {
+  border: .0125em solid #ddd;
+  min-height: 10em;
+  max-height: 20em; }
+
 .review-modal__body {
   padding: 1em 2em; }
 
@@ -1131,8 +1204,47 @@ table.td-vertical tr td {
 .cancel-order-modal__body {
   padding: 1.5em 1em; }
 
+.delete-review-modal__container {
+  max-width: 30em; }
+
+.delete-review-modal__body {
+  padding: 1.5em 1em; }
+
 .my-account-nav__container {
   padding-top: 1em; }
+
+.my-review__container {
+  padding: 1em 1em 2em;
+  border-top: .0125em solid #ddd; }
+  .my-review__container:hover {
+    background: #eee; }
+
+.my-review__product-url-wrap {
+  padding: .5em 0;
+  font-size: 1.05em; }
+
+.my-review__product-url {
+  font-weight: 600; }
+
+.my-review__text {
+  font-size: 1em; }
+
+.my-review__rated {
+  padding-top: .5em; }
+
+.my-review__datetime {
+  padding-top: .5em;
+  font-style: italic; }
+
+.my-review__actions {
+  text-align: right; }
+
+@media all and (max-width: 45em) {
+  .my-review__actions {
+    padding-top: 1.5em; } }
+
+.my-reviews__empty {
+  margin-top: 1em; }
 
 .offcanvas-logo {
   font-size: 1.8em;

@@ -290,6 +290,90 @@
 
 
 
+.edit-review-modal(
+    id='edit-review-modal',
+    role='dialog',
+    class='modal fade'
+)
+    .edit-review-modal__container(
+        class='modal-dialog'
+    )
+        .edit-review-modal__inner(
+            class='modal-content'
+        )
+            form.edit-review-modal__form(
+                action='#',
+                method='post'
+                name='form-edit-review'
+            )
+                .edit-review-modal__head(
+                    class='modal-header'
+                )
+                    button.edit-review-modal__close(
+                        class='close',
+                        type='button',
+                        data-dismiss='modal'
+                    ) &times;
+                    h4(
+                        class='modal-title'
+                    ) Edit review
+
+                .edit-review-modal__body
+
+                    .edit-review-modal__message-wrap
+                        textarea.edit-review-modal__message(
+                            class='form-control',
+                            placeholder='Your review text here..'
+                            name='edit-review-text'
+                        )
+
+                    .edit-review-modal__opts
+                        .edit-review-modal__opt
+                            input.edit-review-modal__opt-input(
+                                id='edit-review-opt-positive'
+                                name='edit-review-opt',
+                                type='radio'
+                                value='positive'
+                            )
+                            label.edit-review-modal__opt-label(
+                                for='edit-review-opt-positive'
+                            )=plh.doRec
+
+                        .edit-review-modal__opt
+                            input.edit-review-modal__opt-input(
+                                id='edit-review-opt-negative'
+                                name='edit-review-opt',
+                                type='radio'
+                                value='negative',
+
+                            )
+                            label.edit-review-modal__opt-label(
+                                for='edit-review-opt-negative'
+                            )=plh.dontRec
+
+                    .edit-review-modal__stars.choose-from-stars
+                        include ./element.stars.jade
+
+                .edit-review-modal__foot(
+                    class='modal-footer'
+                )
+                    input(
+                        name='edit-review-id',
+                        type='hidden',
+                        value=''
+                    )
+
+                    button.edit-review-modal__butt(
+                        class='btn btn-swingaway',
+                        type='submit'
+                    ) Save changes
+
+                    a.edit-review-modal__butt(
+                        class='btn btn-default',
+                        data-dismiss='modal'
+                    ) Cancel
+
+
 
 
 .cancel-order-modal(
@@ -330,3 +414,55 @@
                     class='btn btn-default',
                     data-dismiss='modal'
                 ) Cancel
+
+
+
+.delete-review-modal(
+    id='delete-review-modal',
+    role='dialog',
+    class='modal fade'
+)
+    .delete-review-modal__container(
+        class='modal-dialog'
+    )
+        .delete-review-modal__inner(
+            class='modal-content'
+        )
+            form.delete-review-modal__form(
+                method='post',
+                action='#',
+                name='form-delete-review'
+            )
+                .delete-review-modal__head(
+                    class='modal-header'
+                )
+                    button.delete-review-modal__close(
+                        class='close',
+                        type='button',
+                        data-dismiss='modal'
+                    ) &times;
+                    h4.delete-review-modal__heading(
+                        class='modal-title'
+                    ) Delete review
+
+                .delete-review-modal__body
+                    p.delete-review-modal__message
+                    | Are you sure want to delete this review?
+
+                .delete-review-modal__foot(
+                 class='modal-footer'
+                )
+                    input(
+                        name='delete-review-id',
+                        type='hidden'
+                    )
+
+                    a.delete-review-modal__choice-a(
+                        class='btn btn-danger',
+                        type='submit'
+                    ) Delete review
+
+                    a.delete-review-modal__choice-b(
+                        class='btn btn-default',
+                        data-dismiss='modal'
+                    ) Cancel

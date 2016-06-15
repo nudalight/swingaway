@@ -174,7 +174,7 @@
               <div class="review-modal__stars choose-from-stars">
                 <div class="stars">
                   <div class="stars__container children-inline">
-                    <input type="hidden" class="stars__starred">
+                    <input name="starred" type="hidden" value="3" class="stars__starred">
                     <div class="stars__star stars__star--red "></div>
                     <div class="stars__star stars__star--red "></div>
                     <div class="stars__star stars__star--red "></div>
@@ -191,6 +191,49 @@
         </div>
       </div>
     </div>
+    <div id="edit-review-modal" role="dialog" class="edit-review-modal modal fade">
+      <div class="edit-review-modal__container modal-dialog">
+        <div class="edit-review-modal__inner modal-content">
+          <form action="#" method="post" name="form-edit-review" class="edit-review-modal__form">
+            <div class="edit-review-modal__head modal-header">
+              <button type="button" data-dismiss="modal" class="edit-review-modal__close close">&times;</button>
+              <h4 class="modal-title">Edit review</h4>
+            </div>
+            <div class="edit-review-modal__body">
+              <div class="edit-review-modal__message-wrap">
+                <textarea placeholder="Your review text here.." name="edit-review-text" class="edit-review-modal__message form-control"></textarea>
+              </div>
+              <div class="edit-review-modal__opts">
+                <div class="edit-review-modal__opt">
+                  <input id="edit-review-opt-positive" name="edit-review-opt" type="radio" value="positive" class="edit-review-modal__opt-input">
+                  <label for="edit-review-opt-positive" class="edit-review-modal__opt-label">Yes, I recommend this product!</label>
+                </div>
+                <div class="edit-review-modal__opt">
+                  <input id="edit-review-opt-negative" name="edit-review-opt" type="radio" value="negative" class="edit-review-modal__opt-input">
+                  <label for="edit-review-opt-negative" class="edit-review-modal__opt-label">No, I do not recommend to buy this</label>
+                </div>
+              </div>
+              <div class="edit-review-modal__stars choose-from-stars">
+                <div class="stars">
+                  <div class="stars__container children-inline">
+                    <input name="starred" type="hidden" value="3" class="stars__starred">
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star stars__star--red "></div>
+                    <div class="stars__star  "></div>
+                    <div class="stars__star  "></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="edit-review-modal__foot modal-footer">
+              <input name="edit-review-id" type="hidden" value="">
+              <button type="submit" class="edit-review-modal__butt btn btn-swingaway">Save changes</button><a data-dismiss="modal" class="edit-review-modal__butt btn btn-default">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     <div id="cancel-order-modal" role="dialog" class="cancel-order-modal modal fade">
       <div class="cancel-order-modal__container modal-dialog">
         <div class="cancel-order-modal__inner modal-content">
@@ -202,6 +245,24 @@
             <p class="cancel-order-modal__message"></p>Are you sure want to delete this order?
           </div>
           <div class="cancel-order-modal__foot modal-footer"><a class="cancel-order-modal__choice-a btn btn-danger">Delete order</a><a data-dismiss="modal" class="cancel-order-modal__choice-b btn btn-default">Cancel</a></div>
+        </div>
+      </div>
+    </div>
+    <div id="delete-review-modal" role="dialog" class="delete-review-modal modal fade">
+      <div class="delete-review-modal__container modal-dialog">
+        <div class="delete-review-modal__inner modal-content">
+          <form method="post" action="#" name="form-delete-review" class="delete-review-modal__form">
+            <div class="delete-review-modal__head modal-header">
+              <button type="button" data-dismiss="modal" class="delete-review-modal__close close">&times;</button>
+              <h4 class="delete-review-modal__heading modal-title">Delete review</h4>
+            </div>
+            <div class="delete-review-modal__body">
+              <p class="delete-review-modal__message"></p>Are you sure want to delete this review?
+            </div>
+            <div class="delete-review-modal__foot modal-footer">
+              <input name="delete-review-id" type="hidden"><a type="submit" class="delete-review-modal__choice-a btn btn-danger">Delete review</a><a data-dismiss="modal" class="delete-review-modal__choice-b btn btn-default">Cancel</a>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -436,48 +497,100 @@
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
                       </div>
                       <div class="my-reviews__list-wrap">
-                        <div class="my-review">
-                          <div class="my-review__product-url"><a>Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a></div>
-                          <div class="my-review__text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</div>
-                          <div class="my-review__recommend"><span class="my-review__recommend-pre">Conclusion:</span><span class="my-review__recommned-text">Yes, I recommend this product!</span></div>
-                          <div class="my-review__datetime">1465567523</div>
-                          <div class="my-review__rated"></div>
-                          <div class="my-review__actions">
-                            <button>Edit</button>
-                            <button>Delete</button>
+                        <div data-review-id='1' class="my-review">
+                          <div class="my-review__container">
+                            <div class="my-review__product-url-wrap"><span class="my-review__product-pre"></span><a target="_blank" href="product.html" class="my-review__product-url">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</a></div>
+                            <blockquote class="my-review__text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</blockquote>
+                            <div class="my-review__recommend"><span class="my-review__recommend-pre">Conclusion:</span><span class="my-review__recommned-text">Yes, I recommend this product!</span></div>
+                            <div class="my-review__datetime">5 jul, 2016</div>
+                            <div class="my-review__rated">
+                              <div class="stars">
+                                <div class="stars__container children-inline">
+                                  <input name="starred" type="hidden" value="3" class="stars__starred">
+                                  <div class="stars__star stars__star--red "></div>
+                                  <div class="stars__star stars__star--red "></div>
+                                  <div class="stars__star stars__star--red "></div>
+                                  <div class="stars__star  "></div>
+                                  <div class="stars__star  "></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="my-review__actions">
+                              <button class="my-review__butt btn btn-default butt-edit-review">Edit review</button>
+                              <button class="my-review__butt btn btn-default butt-delete-review">Delete</button>
+                            </div>
                           </div>
                         </div>
-                        <div class="my-review">
-                          <div class="my-review__product-url"><a>SwingAway FASTPITCH Traveler</a></div>
-                          <div class="my-review__text">Vel an oblique oporteat maluisset. Mea copiosae tractatos sapientem at, cu appareat tincidunt nec. Et numquam fabulas eam, vix eu verterem molestiae concludaturque. Eu vel alii nominavi.</div>
-                          <div class="my-review__recommend"><span class="my-review__recommend-pre">Conclusion:</span><span class="my-review__recommned-text">No, I do not recommend to buy this</span></div>
-                          <div class="my-review__datetime">1411567523</div>
-                          <div class="my-review__rated"></div>
-                          <div class="my-review__actions">
-                            <button>Edit</button>
-                            <button>Delete</button>
+                        <div data-review-id='2' class="my-review">
+                          <div class="my-review__container">
+                            <div class="my-review__product-url-wrap"><span class="my-review__product-pre"></span><a target="_blank" href="product.html" class="my-review__product-url">SwingAway FASTPITCH Traveler</a></div>
+                            <blockquote class="my-review__text">Vel an oblique oporteat maluisset. Mea copiosae tractatos sapientem at, cu appareat tincidunt nec. Et numquam fabulas eam, vix eu verterem molestiae concludaturque. Eu vel alii nominavi.</blockquote>
+                            <div class="my-review__recommend"><span class="my-review__recommend-pre">Conclusion:</span><span class="my-review__recommned-text">No, I do not recommend to buy this</span></div>
+                            <div class="my-review__datetime">5 jul, 2016</div>
+                            <div class="my-review__rated">
+                              <div class="stars">
+                                <div class="stars__container children-inline">
+                                  <input name="starred" type="hidden" value="3" class="stars__starred">
+                                  <div class="stars__star stars__star--red "></div>
+                                  <div class="stars__star stars__star--red "></div>
+                                  <div class="stars__star stars__star--red "></div>
+                                  <div class="stars__star  "></div>
+                                  <div class="stars__star  "></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="my-review__actions">
+                              <button class="my-review__butt btn btn-default butt-edit-review">Edit review</button>
+                              <button class="my-review__butt btn btn-default butt-delete-review">Delete</button>
+                            </div>
                           </div>
                         </div>
-                        <div class="my-review">
-                          <div class="my-review__product-url"><a>SwingAway Softball Pro XXL</a></div>
-                          <div class="my-review__text">Melius maiorum ea per, nibh urbanitas assueverit et vis, dico stet viris ut pro. Mel ad legere partiendo molestiae. Dolor soluta eloquentiam mel ad, ius adhuc instructior id. Rebum mnesarchum id mei, ei vix vivendum dissentiunt. Pro sumo aliquip interpretaris et, vel ne populo quodsi albucius. Brute graeci cu sea, ceteros adipisci ex nec. Eros principes constituto te eum, et summo deterruisset mea, duo alterum legimus adolescens eu.</div>
-                          <div class="my-review__recommend"><span class="my-review__recommend-pre">Conclusion:</span><span class="my-review__recommned-text">Yes, I recommend this product!</span></div>
-                          <div class="my-review__datetime">1411500523</div>
-                          <div class="my-review__rated"></div>
-                          <div class="my-review__actions">
-                            <button>Edit</button>
-                            <button>Delete</button>
+                        <div data-review-id='3' class="my-review">
+                          <div class="my-review__container">
+                            <div class="my-review__product-url-wrap"><span class="my-review__product-pre"></span><a target="_blank" href="product.html" class="my-review__product-url">SwingAway Softball Pro XXL</a></div>
+                            <blockquote class="my-review__text">Melius maiorum ea per, nibh urbanitas assueverit et vis, dico stet viris ut pro. Mel ad legere partiendo molestiae. Dolor soluta eloquentiam mel ad, ius adhuc instructior id. Rebum mnesarchum id mei, ei vix vivendum dissentiunt. Pro sumo aliquip interpretaris et, vel ne populo quodsi albucius. Brute graeci cu sea, ceteros adipisci ex nec. Eros principes constituto te eum, et summo deterruisset mea, duo alterum legimus adolescens eu.</blockquote>
+                            <div class="my-review__recommend"><span class="my-review__recommend-pre">Conclusion:</span><span class="my-review__recommned-text">Yes, I recommend this product!</span></div>
+                            <div class="my-review__datetime">5 jul, 2016</div>
+                            <div class="my-review__rated">
+                              <div class="stars">
+                                <div class="stars__container children-inline">
+                                  <input name="starred" type="hidden" value="3" class="stars__starred">
+                                  <div class="stars__star stars__star--red "></div>
+                                  <div class="stars__star stars__star--red "></div>
+                                  <div class="stars__star stars__star--red "></div>
+                                  <div class="stars__star  "></div>
+                                  <div class="stars__star  "></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="my-review__actions">
+                              <button class="my-review__butt btn btn-default butt-edit-review">Edit review</button>
+                              <button class="my-review__butt btn btn-default butt-delete-review">Delete</button>
+                            </div>
                           </div>
                         </div>
-                        <div class="my-review">
-                          <div class="my-review__product-url"><a>SwingAway Softball Pro Stadium Edition-BLUE </a></div>
-                          <div class="my-review__text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</div>
-                          <div class="my-review__recommend"><span class="my-review__recommend-pre">Conclusion:</span><span class="my-review__recommned-text">Yes, I recommend this product!</span></div>
-                          <div class="my-review__datetime">1311567523</div>
-                          <div class="my-review__rated"></div>
-                          <div class="my-review__actions">
-                            <button>Edit</button>
-                            <button>Delete</button>
+                        <div data-review-id='4' class="my-review">
+                          <div class="my-review__container">
+                            <div class="my-review__product-url-wrap"><span class="my-review__product-pre"></span><a target="_blank" href="product.html" class="my-review__product-url">SwingAway Softball Pro Stadium Edition-BLUE </a></div>
+                            <blockquote class="my-review__text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</blockquote>
+                            <div class="my-review__recommend"><span class="my-review__recommend-pre">Conclusion:</span><span class="my-review__recommned-text">Yes, I recommend this product!</span></div>
+                            <div class="my-review__datetime">5 jul, 2016</div>
+                            <div class="my-review__rated">
+                              <div class="stars">
+                                <div class="stars__container children-inline">
+                                  <input name="starred" type="hidden" value="3" class="stars__starred">
+                                  <div class="stars__star stars__star--red "></div>
+                                  <div class="stars__star stars__star--red "></div>
+                                  <div class="stars__star stars__star--red "></div>
+                                  <div class="stars__star  "></div>
+                                  <div class="stars__star  "></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="my-review__actions">
+                              <button class="my-review__butt btn btn-default butt-edit-review">Edit review</button>
+                              <button class="my-review__butt btn btn-default butt-delete-review">Delete</button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -967,7 +1080,36 @@
                     </div>
                   </div>
                 </div>
-                <div id="tab-my-payments" class="my-account-content__content tab-pane"></div>
+                <div id="tab-my-payments" class="my-account-content__content tab-pane">
+                  <div class="payment-setts">
+                    <div class="payment-setts__container">
+                      <div class="gift-sert-ballance">
+                        <div class="gift-sert-ballance__container">
+                          <h4 class="gift-sert-ballance__heading">Ballance</h4>
+                          <div class="gift-sert-ballance__text">You currently have a gift certificate balance of</div>
+                          <div class="gift-sert-ballance__info"><span class="gift-ballance__info-currency">$</span><span class="gift-ballance__info-amount">0.00</span></div>
+                          <div class="gift-sert-ballance__explain">This balance will be automatically applied to any future purchases you make.</div>
+                        </div>
+                      </div>
+                      <div class="apply-sert">
+                        <div class="apply-sert__container">
+                          <div class="apply-sert__content swingaway-content-markup">
+                            <h4>Redeeming your Gift Certificate is easy!</h4>
+                            <p>Simply type the gift certificate code below to apply the gift certificate to your account. We will automatically use this gift certificate to pay for any purchases you make today or in the future. You can always check your gift certificate balance from your "My Account" page.</p>
+                          </div>
+                          <form action="#" method="post" name="form-gift-sertificate" class="apply-sert__form">
+                            <div class="apply-sert__controls">
+                              <input name="gift-sertificate-code-1" placeholder="0000" class="apply-sert__input form-control"><span class="apply-sert__divide">&#8210;</span>
+                              <input name="gift-sertificate-code-2" placeholder="0000" class="apply-sert__input form-control"><span class="apply-sert__divide">&#8210;</span>
+                              <input name="gift-sertificate-code-3" placeholder="0000" class="apply-sert__input form-control">
+                              <button class="apply-sert__submit btn btn-swingaway">Apply</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

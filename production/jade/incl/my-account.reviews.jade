@@ -3,6 +3,7 @@
 
 .my-reviews
     .my-reviews__container
+
         .my-reviews__empty(
             class='alert alert-warning'
         ) You haven't leave a product review yet.
@@ -16,23 +17,35 @@
 
             - for (var i_rev = 0; i_rev < reviews.length; i_rev++)
 
-                .my-review
-                    .my-review__product-url
-                        a()=reviews[i_rev].productTitle
+                .my-review(
+                    data-review-id=reviews[i_rev].id
+                )
+                    .my-review__container
+                        .my-review__product-url-wrap
+                            span.my-review__product-pre
+                            a.my-review__product-url(
+                                target='_blank',
+                                href='product.html'
+                            )=reviews[i_rev].productTitle
 
-                    .my-review__text=reviews[i_rev].text
+                        blockquote.my-review__text=reviews[i_rev].text
 
-                    .my-review__recommend
-                        span.my-review__recommend-pre Conclusion:
-                        span.my-review__recommned-text(
-                        )=reviews[i_rev].recommend ? plh.doRec : plh.dontRec
+                        .my-review__recommend
+                            span.my-review__recommend-pre Conclusion:
+                            span.my-review__recommned-text(
+                            )=reviews[i_rev].recommend ? plh.doRec : plh.dontRec
 
-                    .my-review__datetime=reviews[i_rev].timestamp
+                        .my-review__datetime 5 jul, 2016
 
-                    .my-review__rated
+                        .my-review__rated
+                            include ./element.stars.jade
 
-                    .my-review__actions
-                        button() Edit
-                        button() Delete
+                        .my-review__actions
+                            button.my-review__butt(
+                                class='btn btn-default butt-edit-review'
+                            ) Edit review
+                            button.my-review__butt(
+                                class='btn btn-default butt-delete-review'
+                            ) Delete
 
 

@@ -7,7 +7,9 @@
         class='children-inline'
     )
         input.stars__starred(
-            type='hidden'
+            name='starred',
+            type='hidden',
+            value=reds
         )
         - for (var i = 0; i < 5; i++)
             .stars__star(
