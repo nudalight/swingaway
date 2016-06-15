@@ -1,14 +1,95 @@
 .order-in-history-details
   &__table
+    margin-top: 2em
     width: 100%
+    background-color: #fff
 
   &__head-cell
-    padding: 1em .2em
+    padding: 1em .7em
 
   &__cell
+    padding: .5em .7em
+
     &--wrap-image
       width: 8em
+
+  &__foot-cell
+    padding: 1em .7em
+    font-weight: 600
+
+  &__cell,
+  &__head-cell,
+  &__foot-cell
+    border: 1px solid #ddd
+
+    &--label
+      text-align: right
 
 
   &__image
     max-width: 100%
+
+
+
++degradate(720)
+  .order-in-history-details
+    &__head-cell
+      &--image
+        display: none
+
+    &__cell
+      &--wrap-image
+        display: none
+
+
+
+
++degradate(540)
+  .order-in-history-details
+    &__head
+      display: none
+
+    &__row
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      border-top: .0125em solid #ddd
+      padding: .8em 0
+
+    &__cell
+      display: inline-block
+      border: none
+
+      &--wrap-image
+        display: none
+
+      &--wrap-title
+        flex-basis: 100%
+        font-weight: 600
+
+      &--wrap-price
+        &::after
+          content: 'x'
+          color: #000
+          padding-left: 1.2em
+
+      &--wrap-qu
+        flex-grow: 10
+
+      &--wrap-sum
+        flex-basis: 20%
+        min-width: 6em
+
+    &__foot
+      text-align: right
+
+    &__foot-cell
+      display: inline-block
+      border: none
+      padding: .2em 1em
+
+      &--data
+        min-width: 6em
+        text-align: left
+
+

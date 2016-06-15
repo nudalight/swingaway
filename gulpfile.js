@@ -56,7 +56,7 @@ gulp.task('serve', ['sass'], () => {
         'jade:my-account',
         'jade:search-results'
     ]);
-    gulp.watch("production/js/**.js", ['js']);
+    gulp.watch("production/js/**/*.js", ['js']);
 });
 
 
@@ -69,7 +69,7 @@ gulp.task('js', () => {
     return gulp.src('./production/js/**/*.js')
         .pipe(order([
             '**/global/*.js',
-            '**/constructor/*.js',
+            '**/page-dependant/*.js',
             '**/*.js'
         ]))
         .pipe(debug())

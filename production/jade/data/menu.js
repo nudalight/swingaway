@@ -17,6 +17,5 @@ module.exports = {
         "Dealers": "dealers" + ext,
         "Partners": "partners" + ext
     },
-    "Meet the team": "meet_the_team" + ext,
-    "Store": 'store'
+    "Meet the team": "meet_the_team" + ext
 };

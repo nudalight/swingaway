@@ -1,10 +1,19 @@
 .order-in-history-basics
+  .butt-toggle-order-in-history::before
+    content: 'Show Details'
+
+  &--active
+    background: #eee
+
+    .butt-toggle-order-in-history::before
+      content: 'Hide Details'
+
+  &:hover
+    background-color: #eee
+
   &__container
     border-top: 1px solid #ddd
     padding: 1.5em 1em
-
-    &:hover
-      background-color: #eee
 
   &__info
     display: flex
@@ -20,6 +29,11 @@
     &::after
       content: ''
       padding-right: .5em
+
+
+
+
+
 
 
 

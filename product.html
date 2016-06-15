@@ -56,8 +56,6 @@
           </li>
           <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Meet the team</a>
           </li>
-          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Store</a>
-          </li>
         </ul>
       </div>
       <div class="offcanvas-auth-choice">
@@ -133,7 +131,7 @@
         </div>
       </div>
     </div>
-    <div id="alert-modal" role="dialog" class="alert-modal modal fade">
+    <div id="reusable-modal" role="dialog" class="reusable-modal modal fade">
       <div class="alert-modal__container modal-dialog">
         <div class="alert-modal__inner modal-content">
           <div class="alert-modal__head modal-header">
@@ -190,6 +188,20 @@
               <button class="review-modal__submit btn btn-default">Submit</button>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+    <div id="cancel-order-modal" role="dialog" class="cancel-order-modal modal fade">
+      <div class="cancel-order-modal__container modal-dialog">
+        <div class="cancel-order-modal__inner modal-content">
+          <div class="cancel-order-modal__head modal-header">
+            <button type="button" data-dismiss="modal" class="cancel-order-modal__close close">&times;</button>
+            <h4 class="modal-title">Cancel order</h4>
+          </div>
+          <div class="cancel-order-modal__body">
+            <p class="cancel-order-modal__message"></p>Are you sure want to delete this order?
+          </div>
+          <div class="cancel-order-modal__foot modal-footer"><a class="cancel-order-modal__choice-a btn btn-danger">Delete order</a><a data-dismiss="modal" class="cancel-order-modal__choice-b btn btn-default">Cancel</a></div>
         </div>
       </div>
     </div>
@@ -251,8 +263,6 @@
                 </ul>
               </li>
               <li class="main-menu__item Meet the team"><a href="/root/meet_the_team.html" class="main-menu__link">Meet the team</a>
-              </li>
-              <li class="main-menu__item Store"><a href="/root/store" class="main-menu__link">Store</a>
               </li>
             </ul>
           </nav>

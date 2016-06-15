@@ -45,9 +45,6 @@ new WishlistPage({
 });
 
 
-
-
-
 // good, but old
 Array.prototype.contains = function(obj) {
     var i = this.length;

@@ -19,13 +19,14 @@
 
         ul.order-history__items(
             class='panel-group',
-            id='order-in-history-accordion'
+            id='order-history-accordion'
         )
             - for (var i_oihb = 0; i_oihb < orders.length; i_oihb++)
                 li.order-in-history-basics(
                     data-order-id=orders[i_oihb].id,
                     class='panel'
                 )
+
                     .order-in-history-basics__container
 
                         .order-in-history-basics__info
@@ -64,57 +65,111 @@
 
                             .order-in-history-basics__item.order-in-history-basics__item--more
                                 a(
-                                    class='btn btn-default butt-toggle-order-history-item'
+                                    class='btn btn-default butt-toggle-order-in-history'
                                     data-toggle='collapse',
-                                    data-parent='order-in-history-accordion',
-                                    href='[data-accordion-child=' + i_oihb + ']'
-                                ) More Details
+                                    href='[data-accordion-child=' + orders[i_oihb].id + ']',
+                                    data-parent='#order-history-accordion'
+                                )
+
 
                         .order-in-history-details(
-                            data-accordion-child=i_oihb,
+                            data-accordion-child=orders[i_oihb].id,
                             class='panel-collapse collapse'
                         )
                             table.order-in-history-details__table
                                 thead.order-in-history-details__head
                                     tr.order-in-history-details__row
-                                        th.order-in-history-details__head-cell Image
-                                        th.order-in-history-details__head-cell Title
-                                        th.order-in-history-details__head-cell Price
-                                        th.order-in-history-details__head-cell Quantity
-                                        th.order-in-history-details__head-cell Sum
+                                        th.order-in-history-details__head-cell.order-in-history-details__head-cell--image Image
+                                        th.order-in-history-details__head-cell.order-in-history-details__head-cell--title Title
+                                        th.order-in-history-details__head-cell.order-in-history-details__head-cell--price Price
+                                        th.order-in-history-details__head-cell.order-in-history-details__head-cell--qu Quantity
+                                        th.order-in-history-details__head-cell.order-in-history-details__head-cell--sum Sum
 
                                 tbody.order-in-history-details__body
                                     - for (var i_oih = 0; i_oih < products.length; i_oih++)
                                         tr.order-in-history-details__row
-                                            td.order-in-history-details__cell.order-in-history__cell--wrap-image
+                                            td.order-in-history-details__cell.order-in-history-details__cell--wrap-image
                                                 img.order-in-history-details__image(
                                                     src=products[i_oih].photos[0]
                                                 )
+
                                             td.order-in-history-details__cell.order-in-history-details__cell--wrap-title(
                                             )=products[i_oih].title
-                                            td.order-in-history-details__cell.order-in-history-details__cell--wrap-price(
-                                            )=products[i_oih].price
+
+                                            td.order-in-history-details__cell.order-in-history-details__cell--wrap-price
+                                                span.order-in-history-details__price-currency=currencySymbol
+                                                span.order-in-history-details__price-amount=products[i_oih].price
+
                                             td.order-in-history-details__cell.order-in-history-details__cell--wrap-qu(
                                             )=i_oih
-                                            td.order-in-history-details__cell.order-in-history-details__cell--wrap-sum(
-                                            )=i_oih * products[i_oih].price
+
+                                            td.order-in-history-details__cell.order-in-history-details__cell--wrap-sum
+                                                span.order-in-history-details__sum-currency=currencySymbol
+                                                span.order-in-history-details__sum-amount=i_oih * products[i_oih].price
 
                                 tfoot.order-in-history-details__foot
                                     tr.order-in-history-details__row
-                                        td.order-in-history-details__cell.order-in-history-details__cell--foot.order-in-history-details__cell--foot-label Subtotal
-                                        td.order-in-history-details__cell.order-in-history-details__cell--foot.order-in-history-details__cell--foot-data
+                                        td.order-in-history-details__foot-cell.order-in-history-details__foot-cell--label(
+                                            colspan=2
+                                        ) Subtotal:
+                                        td.order-in-history-details__foot-cell.order-in-history-details__foot-cell--data(
+                                            colspan=3
+                                        )
                                             span.order-in-history-details__span.order-in-history-details__span--currency=currencySymbol
                                             span.order-in-history-details__span.order-in-history-details__span--amount 9500
 
                                     tr.order-in-history-details__row
-                                        td.order-in-history-details__cell.order-in-history-details__cell--foot.order-in-history-details__cell--foot-label Delivery
-                                        td.order-in-history-details__cell.order-in-history-details__cell--foot.order-in-history-details__cell--foot-data
+                                        td.order-in-history-details__foot-cell.order-in-history-details__foot-cell--label(
+                                            colspan=2
+                                        ) Delivery:
+                                        td.order-in-history-details__foot-cell.order-in-history-details__foot-cell--data(
+                                            colspan=3
+                                        )
                                             span.order-in-history-details__span.order-in-history-details__span--currency=currencySymbol
                                             span.order-in-history-details__span.order-in-history-details__span--amount 800
 
                                     tr.order-in-history-details__row
-                                        td.order-in-history-details__cell.order-in-history-details__cell--foot.order-in-history-details__cell--foot-label Total
-                                        td.order-in-history-details__cell.order-in-history-details__cell--foot.order-in-history-details__cell--foot-data
+                                        td.order-in-history-details__foot-cell.order-in-history-details__foot-cell--label(
+                                            colspan=2
+                                        ) Total:
+                                        td.order-in-history-details__foot-cell.order-in-history-details__foot-cell--data(
+                                            colspan=3
+                                        )
                                             span.order-in-history-details__span.order-in-history-details__span--currency=currencySymbol
                                             span.order-in-history-details__span.order-in-history-details__span--amount 10300
 
+
+                            .order-in-history-actions
+                                .order-in-history-actions__container
+                                    a.order-in-history-actions__butt(
+                                        class='btn btn-default butt-toggle-order-in-history'
+                                        data-toggle='collapse',
+                                        href='[data-accordion-child=' + orders[i_oihb].id + ']',
+                                        data-parent='#order-history-accordion'
+                                    )
+
+                                    a.order-in-history-actions__butt(
+                                        class='btn btn-default',
+                                        target='_blank',
+                                        href='http://www.redminecrm.com/attachments/download/3838/invoice_pdf.png'
+                                    ) Print invoice
+
+                                    - if (orders[i_oihb].status == 'in quee')
+                                        a.order-in-history-actions__butt(
+                                            class='btn btn-default butt-cancel-order',
+                                            data-toggle='modal'
+                                            data-target='#cancel-order-modal'
+                                        ) Cancel order
+
+                                    a.order-in-history-actions__butt(
+                                        class='btn btn-swingaway'
+                                    ) Order this again
+
+
+
+
+        .return-ordered
+            .return-ordered__container
+                .return-ordered__content(
+                    class='alert alert-warning'
+                ) If you wand to return ordered items, please contact <a href='about-us.html' class='explicit-link'>customer service</a> for more information on returning an item. Thank you.

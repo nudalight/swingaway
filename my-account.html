@@ -56,8 +56,6 @@
           </li>
           <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Meet the team</a>
           </li>
-          <li class="offcanvas-menu__item offcanvas-menu__item--has-sublist offcanvas-menu__item--opened"><a class="offcanvas-menu__link">Store</a>
-          </li>
         </ul>
       </div>
       <div class="offcanvas-auth-choice">
@@ -133,7 +131,7 @@
         </div>
       </div>
     </div>
-    <div id="alert-modal" role="dialog" class="alert-modal modal fade">
+    <div id="reusable-modal" role="dialog" class="reusable-modal modal fade">
       <div class="alert-modal__container modal-dialog">
         <div class="alert-modal__inner modal-content">
           <div class="alert-modal__head modal-header">
@@ -190,6 +188,20 @@
               <button class="review-modal__submit btn btn-default">Submit</button>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+    <div id="cancel-order-modal" role="dialog" class="cancel-order-modal modal fade">
+      <div class="cancel-order-modal__container modal-dialog">
+        <div class="cancel-order-modal__inner modal-content">
+          <div class="cancel-order-modal__head modal-header">
+            <button type="button" data-dismiss="modal" class="cancel-order-modal__close close">&times;</button>
+            <h4 class="modal-title">Cancel order</h4>
+          </div>
+          <div class="cancel-order-modal__body">
+            <p class="cancel-order-modal__message"></p>Are you sure want to delete this order?
+          </div>
+          <div class="cancel-order-modal__foot modal-footer"><a class="cancel-order-modal__choice-a btn btn-danger">Delete order</a><a data-dismiss="modal" class="cancel-order-modal__choice-b btn btn-default">Cancel</a></div>
         </div>
       </div>
     </div>
@@ -252,8 +264,6 @@
               </li>
               <li class="main-menu__item Meet the team"><a href="/root/meet_the_team.html" class="main-menu__link">Meet the team</a>
               </li>
-              <li class="main-menu__item Store"><a href="/root/store" class="main-menu__link">Store</a>
-              </li>
             </ul>
           </nav>
         </div>
@@ -300,11 +310,11 @@
                 </div>
                 <div id="tab-my-wishlist" class="my-account-content__content tab-pane">
                   <div class="wishlist">
-                    <div class="wishlist__empty alert alert-warning fade in hide">You haven't added anything into your wishlist</div>
                     <div class="wishlist__container">
                       <div class="wishlist__content swingaway-content-markup">
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
                       </div>
+                      <div class="wishlist__empty alert alert-warning fade in hide">You haven't added anything into your wishlist</div>
                       <table class="wishlist__table">
                         <thead class="wishlist__head">
                           <tr class="wishlist__row">
@@ -491,7 +501,7 @@
                           <div class="order-history-heads__item order-history-heads__item--actions">Actions</div>
                         </div>
                       </div>
-                      <ul id="order-in-history-accordion" class="order-history__items panel-group">
+                      <ul id="order-history-accordion" class="order-history__items panel-group">
                         <li data-order-id='1' class="order-in-history-basics panel">
                           <div class="order-in-history-basics__container">
                             <div class="order-in-history-basics__info">
@@ -511,94 +521,98 @@
                                 <label class="order-in-history-basics__label">Status:</label><span class="order-in-history-basics__data">in progress</span>
                               </div>
                               <div class="order-in-history-basics__item order-in-history-basics__item--track-no">
-                                <label class="order-in-history-basics__label">Track no:</label><span class="order-in-history-basics__data">4111</span>
+                                <label class="order-in-history-basics__label">Track no:</label><span class="order-in-history-basics__data">4309</span>
                               </div>
-                              <div class="order-in-history-basics__item order-in-history-basics__item--more"><a data-toggle="collapse" data-parent="order-in-history-accordion" href="[data-accordion-child=0]" class="btn btn-default butt-toggle-order-history-item">More Details</a></div>
+                              <div class="order-in-history-basics__item order-in-history-basics__item--more"><a data-toggle="collapse" href="[data-accordion-child=1]" data-parent="#order-history-accordion" class="btn btn-default butt-toggle-order-in-history"></a></div>
                             </div>
-                            <div data-accordion-child='0' class="order-in-history-details panel-collapse collapse">
+                            <div data-accordion-child='1' class="order-in-history-details panel-collapse collapse">
                               <table class="order-in-history-details__table">
                                 <thead class="order-in-history-details__head">
                                   <tr class="order-in-history-details__row">
-                                    <th class="order-in-history-details__head-cell">Image</th>
-                                    <th class="order-in-history-details__head-cell">Title</th>
-                                    <th class="order-in-history-details__head-cell">Price</th>
-                                    <th class="order-in-history-details__head-cell">Quantity</th>
-                                    <th class="order-in-history-details__head-cell">Sum</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--image">Image</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--title">Title</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--price">Price</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--qu">Quantity</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--sum">Sum</th>
                                   </tr>
                                 </thead>
                                 <tbody class="order-in-history-details__body">
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">105.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">105.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">0</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">0</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">0</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">SwingAway FASTPITCH Traveler</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">167.45</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">167.45</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">1</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">167.45</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">167.45</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">The Original ELITE Traveler (with Water-filled Homeplate)</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">199.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">199.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">2</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">399.98</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">399.98</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">SwingAway Softball Pro XXL</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">499.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">499.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">3</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">1499.97</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">1499.97</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">70.00</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">70.00</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">4</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">280</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">280</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">89.49</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">89.49</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">5</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">447.45</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">447.45</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">SwingAway Softball Pro Stadium Edition-BLUE</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">101.11</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">101.11</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">6</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">606.66</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">606.66</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Extreme Baseball Tune Up Kit</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">999.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">999.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">7</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">6999.93</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">6999.93</span></td>
                                   </tr>
                                 </tbody>
                                 <tfoot class="order-in-history-details__foot">
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-label">Subtotal</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">9500</span></td>
+                                    <td colspan="2" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--label">Subtotal:</td>
+                                    <td colspan="3" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">9500</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-label">Delivery</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">800</span></td>
+                                    <td colspan="2" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--label">Delivery:</td>
+                                    <td colspan="3" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">800</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-label">Total</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">10300</span></td>
+                                    <td colspan="2" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--label">Total:</td>
+                                    <td colspan="3" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">10300</span></td>
                                   </tr>
                                 </tfoot>
                               </table>
+                              <div class="order-in-history-actions">
+                                <div class="order-in-history-actions__container"><a data-toggle="collapse" href="[data-accordion-child=1]" data-parent="#order-history-accordion" class="order-in-history-actions__butt btn btn-default butt-toggle-order-in-history"></a><a target="_blank" href="http://www.redminecrm.com/attachments/download/3838/invoice_pdf.png" class="order-in-history-actions__butt btn btn-default">Print invoice</a><a class="order-in-history-actions__butt btn btn-swingaway">Order this again</a>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </li>
@@ -621,94 +635,98 @@
                                 <label class="order-in-history-basics__label">Status:</label><span class="order-in-history-basics__data">competed</span>
                               </div>
                               <div class="order-in-history-basics__item order-in-history-basics__item--track-no">
-                                <label class="order-in-history-basics__label">Track no:</label><span class="order-in-history-basics__data">4111</span>
+                                <label class="order-in-history-basics__label">Track no:</label><span class="order-in-history-basics__data">4388</span>
                               </div>
-                              <div class="order-in-history-basics__item order-in-history-basics__item--more"><a data-toggle="collapse" data-parent="order-in-history-accordion" href="[data-accordion-child=1]" class="btn btn-default butt-toggle-order-history-item">More Details</a></div>
+                              <div class="order-in-history-basics__item order-in-history-basics__item--more"><a data-toggle="collapse" href="[data-accordion-child=2]" data-parent="#order-history-accordion" class="btn btn-default butt-toggle-order-in-history"></a></div>
                             </div>
-                            <div data-accordion-child='1' class="order-in-history-details panel-collapse collapse">
+                            <div data-accordion-child='2' class="order-in-history-details panel-collapse collapse">
                               <table class="order-in-history-details__table">
                                 <thead class="order-in-history-details__head">
                                   <tr class="order-in-history-details__row">
-                                    <th class="order-in-history-details__head-cell">Image</th>
-                                    <th class="order-in-history-details__head-cell">Title</th>
-                                    <th class="order-in-history-details__head-cell">Price</th>
-                                    <th class="order-in-history-details__head-cell">Quantity</th>
-                                    <th class="order-in-history-details__head-cell">Sum</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--image">Image</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--title">Title</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--price">Price</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--qu">Quantity</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--sum">Sum</th>
                                   </tr>
                                 </thead>
                                 <tbody class="order-in-history-details__body">
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">105.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">105.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">0</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">0</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">0</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">SwingAway FASTPITCH Traveler</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">167.45</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">167.45</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">1</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">167.45</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">167.45</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">The Original ELITE Traveler (with Water-filled Homeplate)</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">199.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">199.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">2</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">399.98</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">399.98</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">SwingAway Softball Pro XXL</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">499.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">499.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">3</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">1499.97</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">1499.97</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">70.00</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">70.00</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">4</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">280</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">280</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">89.49</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">89.49</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">5</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">447.45</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">447.45</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">SwingAway Softball Pro Stadium Edition-BLUE</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">101.11</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">101.11</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">6</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">606.66</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">606.66</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Extreme Baseball Tune Up Kit</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">999.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">999.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">7</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">6999.93</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">6999.93</span></td>
                                   </tr>
                                 </tbody>
                                 <tfoot class="order-in-history-details__foot">
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-label">Subtotal</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">9500</span></td>
+                                    <td colspan="2" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--label">Subtotal:</td>
+                                    <td colspan="3" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">9500</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-label">Delivery</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">800</span></td>
+                                    <td colspan="2" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--label">Delivery:</td>
+                                    <td colspan="3" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">800</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-label">Total</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">10300</span></td>
+                                    <td colspan="2" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--label">Total:</td>
+                                    <td colspan="3" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">10300</span></td>
                                   </tr>
                                 </tfoot>
                               </table>
+                              <div class="order-in-history-actions">
+                                <div class="order-in-history-actions__container"><a data-toggle="collapse" href="[data-accordion-child=2]" data-parent="#order-history-accordion" class="order-in-history-actions__butt btn btn-default butt-toggle-order-in-history"></a><a target="_blank" href="http://www.redminecrm.com/attachments/download/3838/invoice_pdf.png" class="order-in-history-actions__butt btn btn-default">Print invoice</a><a class="order-in-history-actions__butt btn btn-swingaway">Order this again</a>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </li>
@@ -731,94 +749,98 @@
                                 <label class="order-in-history-basics__label">Status:</label><span class="order-in-history-basics__data">in progress</span>
                               </div>
                               <div class="order-in-history-basics__item order-in-history-basics__item--track-no">
-                                <label class="order-in-history-basics__label">Track no:</label><span class="order-in-history-basics__data">4111</span>
+                                <label class="order-in-history-basics__label">Track no:</label><span class="order-in-history-basics__data">4398</span>
                               </div>
-                              <div class="order-in-history-basics__item order-in-history-basics__item--more"><a data-toggle="collapse" data-parent="order-in-history-accordion" href="[data-accordion-child=2]" class="btn btn-default butt-toggle-order-history-item">More Details</a></div>
+                              <div class="order-in-history-basics__item order-in-history-basics__item--more"><a data-toggle="collapse" href="[data-accordion-child=3]" data-parent="#order-history-accordion" class="btn btn-default butt-toggle-order-in-history"></a></div>
                             </div>
-                            <div data-accordion-child='2' class="order-in-history-details panel-collapse collapse">
+                            <div data-accordion-child='3' class="order-in-history-details panel-collapse collapse">
                               <table class="order-in-history-details__table">
                                 <thead class="order-in-history-details__head">
                                   <tr class="order-in-history-details__row">
-                                    <th class="order-in-history-details__head-cell">Image</th>
-                                    <th class="order-in-history-details__head-cell">Title</th>
-                                    <th class="order-in-history-details__head-cell">Price</th>
-                                    <th class="order-in-history-details__head-cell">Quantity</th>
-                                    <th class="order-in-history-details__head-cell">Sum</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--image">Image</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--title">Title</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--price">Price</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--qu">Quantity</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--sum">Sum</th>
                                   </tr>
                                 </thead>
                                 <tbody class="order-in-history-details__body">
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">105.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">105.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">0</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">0</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">0</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">SwingAway FASTPITCH Traveler</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">167.45</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">167.45</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">1</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">167.45</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">167.45</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">The Original ELITE Traveler (with Water-filled Homeplate)</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">199.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">199.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">2</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">399.98</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">399.98</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">SwingAway Softball Pro XXL</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">499.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">499.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">3</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">1499.97</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">1499.97</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">70.00</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">70.00</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">4</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">280</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">280</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">89.49</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">89.49</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">5</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">447.45</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">447.45</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">SwingAway Softball Pro Stadium Edition-BLUE</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">101.11</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">101.11</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">6</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">606.66</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">606.66</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Extreme Baseball Tune Up Kit</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">999.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">999.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">7</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">6999.93</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">6999.93</span></td>
                                   </tr>
                                 </tbody>
                                 <tfoot class="order-in-history-details__foot">
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-label">Subtotal</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">9500</span></td>
+                                    <td colspan="2" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--label">Subtotal:</td>
+                                    <td colspan="3" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">9500</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-label">Delivery</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">800</span></td>
+                                    <td colspan="2" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--label">Delivery:</td>
+                                    <td colspan="3" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">800</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-label">Total</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">10300</span></td>
+                                    <td colspan="2" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--label">Total:</td>
+                                    <td colspan="3" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">10300</span></td>
                                   </tr>
                                 </tfoot>
                               </table>
+                              <div class="order-in-history-actions">
+                                <div class="order-in-history-actions__container"><a data-toggle="collapse" href="[data-accordion-child=3]" data-parent="#order-history-accordion" class="order-in-history-actions__butt btn btn-default butt-toggle-order-in-history"></a><a target="_blank" href="http://www.redminecrm.com/attachments/download/3838/invoice_pdf.png" class="order-in-history-actions__butt btn btn-default">Print invoice</a><a class="order-in-history-actions__butt btn btn-swingaway">Order this again</a>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </li>
@@ -838,101 +860,110 @@
                                 <label class="order-in-history-basics__label">Costs:</label><span class="order-in-history-basics__total-currency">$</span><span class="order-in-history-basics__total-amount">40120</span>
                               </div>
                               <div class="order-in-history-basics__item order-in-history-basics__item--status">
-                                <label class="order-in-history-basics__label">Status:</label><span class="order-in-history-basics__data">in queee</span>
+                                <label class="order-in-history-basics__label">Status:</label><span class="order-in-history-basics__data">in quee</span>
                               </div>
                               <div class="order-in-history-basics__item order-in-history-basics__item--track-no">
-                                <label class="order-in-history-basics__label">Track no:</label><span class="order-in-history-basics__data">4111</span>
+                                <label class="order-in-history-basics__label">Track no:</label><span class="order-in-history-basics__data">4412</span>
                               </div>
-                              <div class="order-in-history-basics__item order-in-history-basics__item--more"><a data-toggle="collapse" data-parent="order-in-history-accordion" href="[data-accordion-child=3]" class="btn btn-default butt-toggle-order-history-item">More Details</a></div>
+                              <div class="order-in-history-basics__item order-in-history-basics__item--more"><a data-toggle="collapse" href="[data-accordion-child=4]" data-parent="#order-history-accordion" class="btn btn-default butt-toggle-order-in-history"></a></div>
                             </div>
-                            <div data-accordion-child='3' class="order-in-history-details panel-collapse collapse">
+                            <div data-accordion-child='4' class="order-in-history-details panel-collapse collapse">
                               <table class="order-in-history-details__table">
                                 <thead class="order-in-history-details__head">
                                   <tr class="order-in-history-details__row">
-                                    <th class="order-in-history-details__head-cell">Image</th>
-                                    <th class="order-in-history-details__head-cell">Title</th>
-                                    <th class="order-in-history-details__head-cell">Price</th>
-                                    <th class="order-in-history-details__head-cell">Quantity</th>
-                                    <th class="order-in-history-details__head-cell">Sum</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--image">Image</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--title">Title</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--price">Price</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--qu">Quantity</th>
+                                    <th class="order-in-history-details__head-cell order-in-history-details__head-cell--sum">Sum</th>
                                   </tr>
                                 </thead>
                                 <tbody class="order-in-history-details__body">
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="https://c.o0bg.com/rf/image_960w/Boston/2011-2020/2015/05/06/BostonGlobe.com/Sports/Images/fd2490f5565a481998dde52d81d2ff72-fd2490f5565a481998dde52d81d2ff72-0.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">105.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">105.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">0</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">0</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">0</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://cdn3.volusion.com/rscwy.wjxvq/v/vspfiles/photos/SA100SBG-2.jpg?1449670576" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">SwingAway FASTPITCH Traveler</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">167.45</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">167.45</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">1</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">167.45</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">167.45</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://image.cdnllnwnl.xosnetwork.com/pics32/800/WL/WLQWGXSVCDLEBLM.20120619185624.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">The Original ELITE Traveler (with Water-filled Homeplate)</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">199.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">199.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">2</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">399.98</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">399.98</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://sportsdaydfw.imgix.net/1463716815-hsbaseballrup_0520spo-9.jpg?q=50&amp;auto=format&amp;w=700" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">SwingAway Softball Pro XXL</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">499.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">499.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">3</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">1499.97</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">1499.97</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">70.00</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">70.00</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">4</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">280</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">280</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Jennie Finch Gold Medal Edition SwingAway Hitting Trainer</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">89.49</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">89.49</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">5</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">447.45</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">447.45</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">SwingAway Softball Pro Stadium Edition-BLUE</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">101.11</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">101.11</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">6</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">606.66</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">606.66</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-image"><img src="http://static.seattletimes.com/wp-content/uploads/2015/08/f2bc68ded9f54ec9b896bdbeda18bed6-780x545.jpg" class="order-in-history-details__image"></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-title">Extreme Baseball Tune Up Kit</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price">999.99</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-price"><span class="order-in-history-details__price-currency">$</span><span class="order-in-history-details__price-amount">999.99</span></td>
                                     <td class="order-in-history-details__cell order-in-history-details__cell--wrap-qu">7</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum">6999.93</td>
+                                    <td class="order-in-history-details__cell order-in-history-details__cell--wrap-sum"><span class="order-in-history-details__sum-currency">$</span><span class="order-in-history-details__sum-amount">6999.93</span></td>
                                   </tr>
                                 </tbody>
                                 <tfoot class="order-in-history-details__foot">
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-label">Subtotal</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">9500</span></td>
+                                    <td colspan="2" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--label">Subtotal:</td>
+                                    <td colspan="3" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">9500</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-label">Delivery</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">800</span></td>
+                                    <td colspan="2" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--label">Delivery:</td>
+                                    <td colspan="3" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">800</span></td>
                                   </tr>
                                   <tr class="order-in-history-details__row">
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-label">Total</td>
-                                    <td class="order-in-history-details__cell order-in-history-details__cell--foot order-in-history-details__cell--foot-data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">10300</span></td>
+                                    <td colspan="2" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--label">Total:</td>
+                                    <td colspan="3" class="order-in-history-details__foot-cell order-in-history-details__foot-cell--data"><span class="order-in-history-details__span order-in-history-details__span--currency">$</span><span class="order-in-history-details__span order-in-history-details__span--amount">10300</span></td>
                                   </tr>
                                 </tfoot>
                               </table>
+                              <div class="order-in-history-actions">
+                                <div class="order-in-history-actions__container"><a data-toggle="collapse" href="[data-accordion-child=4]" data-parent="#order-history-accordion" class="order-in-history-actions__butt btn btn-default butt-toggle-order-in-history"></a><a target="_blank" href="http://www.redminecrm.com/attachments/download/3838/invoice_pdf.png" class="order-in-history-actions__butt btn btn-default">Print invoice</a><a data-toggle="modal" data-target="#cancel-order-modal" class="order-in-history-actions__butt btn btn-default butt-cancel-order">Cancel order</a><a class="order-in-history-actions__butt btn btn-swingaway">Order this again</a>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </li>
                       </ul>
+                      <div class="return-ordered">
+                        <div class="return-ordered__container">
+                          <div class="return-ordered__content alert alert-warning">If you wand to return ordered items, please contact <a href='about-us.html' class='explicit-link'>customer service</a> for more information on returning an item. Thank you.</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

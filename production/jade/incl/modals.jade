@@ -169,8 +169,8 @@
                                 ) Register
 
 
-.alert-modal(
-    id='alert-modal',
+.reusable-modal(
+    id='reusable-modal',
     role='dialog',
     class='modal fade'
 )
@@ -290,3 +290,43 @@
 
 
 
+
+
+.cancel-order-modal(
+    id='cancel-order-modal',
+    role='dialog',
+    class='modal fade'
+)
+    .cancel-order-modal__container(
+        class='modal-dialog'
+    )
+        .cancel-order-modal__inner(
+            class='modal-content'
+        )
+            .cancel-order-modal__head(
+                class='modal-header'
+            )
+                button.cancel-order-modal__close(
+                    class='close',
+                    type='button',
+                    data-dismiss='modal'
+                ) &times;
+                h4(
+                    class='modal-title'
+                ) Cancel order
+
+            .cancel-order-modal__body
+                p.cancel-order-modal__message
+                | Are you sure want to delete this order?
+
+            .cancel-order-modal__foot(
+                class='modal-footer'
+            )
+                a.cancel-order-modal__choice-a(
+                    class='btn btn-danger'
+                ) Delete order
+
+                a.cancel-order-modal__choice-b(
+                    class='btn btn-default',
+                    data-dismiss='modal'
+                ) Cancel
