@@ -7,55 +7,38 @@ const jade = require('gulp-jade');
 const theJade = require('jade');
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
-const inject = require('gulp-inject');
 const insert = require('gulp-insert');
 const uglify = require('gulp-uglify');
 const debug = require('gulp-debug');
 const order = require('gulp-order');
 const autoprefixer = require('gulp-autoprefixer');
 const imagemin = require('gulp-imagemin');
-// const styl = require('gulp-stylus');
+const cssmin = require('gulp-cssmin');
+
+
+let jadeData = './production/jade/data/index.js';
 
 /*
     warranty - validation
     contact-us - validation
  */
 
-
-
-
+// bemto jade / bem-jade / bem-jade-legacy
 
 // use in the future gulp group
 // what gulp-ignore/run-sequence/gulp-sequence is ?
 // http://stackoverflow.com/questions/22824546/how-to-run-gulp-tasks-synchronously-one-after-the-other
 
-let jadeDataPath = './production/jade/data/index.js';
+
 
 gulp.task('serve', ['sass'], () => {
     bs.init({ 
         server: "./",
         port: 4000
     });
+
     gulp.watch("production/sass/**/*.sass", ['sass']);
-    gulp.watch("production/jade/**/*.jade", [
-        'jade:compare',
-        'jade:home',
-        'jade:cart-a',
-        'jade:cart-b',
-        'jade:cart-c',
-        'jade:cart-d',
-        'jade:catalog',
-        'jade:product',
-        'jade:partners',
-        'jade:contact-us',
-        'jade:manuals',
-        'jade:videos',
-        'jade:warranty',
-        'jade:dealers',
-        'jade:about-us', 
-        'jade:my-account',
-        'jade:search-results'
-    ]);
+    gulp.watch("production/jade/**/*.jade", ['jade']);
     gulp.watch("production/js/**/*.js", ['js']);
 });
 
@@ -65,11 +48,13 @@ gulp.task('reload', () => {
 });
 
 
+gulp.task('drop', ['sass', 'js', 'jade', 'img']);
+
+
 gulp.task('js', () => {
     return gulp.src('./production/js/**/*.js')
         .pipe(order([
             '**/global/*.js',
-            '**/page-dependant/*.js',
             '**/*.js'
         ]))
         .pipe(debug())
@@ -77,6 +62,7 @@ gulp.task('js', () => {
         .pipe(insert.wrap('$(document).ready(function(){\n\n', '\n\n});'))
         .pipe(gulp.dest('distribution/js'))
         .pipe(rename('output.min.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('distribution/js'))
         .pipe(bs.stream());
 });
@@ -105,361 +91,22 @@ gulp.task('sass', () => {
         .pipe(autoprefixer())
         .pipe(rename('output.css'))
         .pipe(gulp.dest('distribution/css'))
+        .pipe(rename('output.min.css'))
+        .pipe(cssmin())
+        .pipe(gulp.dest('distribution/css'))
         .pipe(bs.stream());
 });
 
 
-gulp.task('jade:home', () => {
+gulp.task('jade', () => {
     return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/carousel.jade',
-        'production/**/banner-grid.jade',
-        'production/**/video-wide.jade',
-        'production/**/icon-grid.jade',
-        'production/**/icon-list.jade',
-        'production/**/footer.jade'
-        ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('home.html'))
-        .pipe(gulp.dest('distribution/html'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-gulp.task('jade:catalog', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/wide-banner.jade',
-        'production/**/catalog-description.jade',
-        'production/**/catalog-heading.jade',
-        'production/**/sorter.jade',
-        'production/**/product-grid.jade',
-        'production/**/footer.jade'
+        'production/jade/pages/*.jade'
     ])
-        .pipe(concat('jadify.jade'))
         .pipe(jade({
             pretty: true,
             jade: theJade,
-            locals: require(jadeDataPath)
+            locals: require(jadeData)
         }))
-        .pipe(rename('catalog.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-gulp.task('jade:product', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/product.jade',
-        'production/**/upsell-grid.jade',
-        'production/**/footer.jade'
-    ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('product.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-gulp.task('jade:compare', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/compare.jade',
-        'production/**/footer.jade'
-    ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('compare.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-gulp.task('jade:cart-a', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/cart-a.jade',
-        'production/**/footer.jade'
-    ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('cart-a.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-
-gulp.task('jade:cart-b', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/cart-b.jade',
-        'production/**/footer.jade'
-    ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('cart-b.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-
-gulp.task('jade:partners', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/partners.jade',
-        'production/**/footer.jade'
-    ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('partners.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-
-gulp.task('jade:contact-us', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/contact-us.jade',
-        'production/**/footer.jade'
-    ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('contact-us.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-gulp.task('jade:manuals', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/manuals.jade',
-        'production/**/footer.jade'
-    ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('manuals.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-gulp.task('jade:videos', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/videos.jade',
-        'production/**/footer.jade'
-    ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('videos.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-gulp.task('jade:warranty', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/warranty.jade',
-        'production/**/footer.jade'
-    ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('warranty.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-gulp.task('jade:cart-c', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/cart-c.jade',
-        'production/**/footer.jade' 
-    ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('cart-c.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-gulp.task('jade:cart-d', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/cart-d.jade',
-        'production/**/footer.jade'
-    ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('cart-d.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-gulp.task('jade:about-us', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/about-us.jade',
-        'production/**/footer.jade'
-    ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('about-us.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-gulp.task('jade:dealers', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/dealers.jade',
-        'production/**/footer.jade'
-    ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('dealers.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-gulp.task('jade:my-account', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/my-account.jade',
-        'production/**/footer.jade'
-    ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('my-account.html'))
-        .pipe(gulp.dest('./'))
-        .pipe(bs.stream());
-});
-
-
-gulp.task('jade:search-results', () => {
-    return gulp.src([
-        'production/**/head.jade',
-        'production/**/header.jade',
-        'production/**/breadcrumbs.jade',
-        'production/**/catalog-heading.jade',
-        'production/**/srd.jade',
-        'production/**/sorter.jade',
-        'production/**/search-results.jade',
-        'production/**/footer.jade'
-    ])
-        .pipe(concat('jadify.jade'))
-        .pipe(jade({
-            pretty: true,
-            jade: theJade,
-            locals: require(jadeDataPath)
-        }))
-        .pipe(rename('search-results.html'))
         .pipe(gulp.dest('./'))
         .pipe(bs.stream());
 });

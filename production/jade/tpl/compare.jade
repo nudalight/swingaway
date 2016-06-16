@@ -1,0 +1,70 @@
+- var i_compare_prod = 0, i_compare_attr = 0;
+- var prodLen = products.length, attrLen = Object.keys(products[0].attributes).length;
+
+section.compare
+    .wrap
+        .container-fluid()
+            h2.page-heading Compare products
+
+            .compare__empty(
+                class='alert alert-warning fade in hide'
+            )
+                | There are no products to compare
+
+            .compare__container
+                .compare__attrs
+                    .compare-attr
+                        .compare-attr__cell
+                        .compare-attr__cell Image
+                        .compare-attr__cell Title
+                        .compare-attr__cell Price
+                        .compare-attr__cell
+                        - for (attrKey in products[0].attributes)
+                            .compare-attr__cell()=attrKey
+
+                .compare__prods
+                    - for (i_compare_prod = 0; i_compare_prod < 2 ; i_compare_prod++)
+                        .compare-prod(
+                            data-product-id="#{ products[i_compare_prod].id }"
+                        )
+                            .compare-prod__cell.compare-prod__cell--remove
+                                .compare-prod__remove
+                            .compare-prod__cell
+                                .compare-prod__image-wrap
+                                    img.compare-prod__image(
+                                        src='#{ products[i_compare_prod].photos[0] }'
+                                    )
+                            .compare-prod__cell
+                                .compare-prod__title=products[i_compare_prod].title
+                            .compare-prod__cell
+                                .compare-prod__price
+                                    span.compare-prod__price-currency=currencySymbol
+                                    span.compare-prod__price-amount=products[i_compare_prod].price
+                            .compare-prod__cell
+                                .compare-prod__controls
+                                    button.compare-prod__button(
+                                        class='btn butt-add-to-compare'
+                                    ) Add to cart
+
+                            - for (attrKey in products[0].attributes)
+                                .compare-prod__cell.compare-prod__attr=products[i_compare_prod].attributes[attrKey]
+
+
+                .compare__navs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

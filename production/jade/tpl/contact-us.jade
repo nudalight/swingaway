@@ -1,0 +1,165 @@
+section.contact-us
+    .wrap
+        .container-fluid
+            .contact-us__container
+                h2.contact-us__heading Contact us
+
+                .contact-us__content(
+                    class='swingaway-content-markup'
+                )
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                .contact-us__feebback(
+                    class='col-md-8 clear-paddings'
+                )
+                    .feedback-form
+                        .feedback-form__container
+                            form(
+                                class='clearfix',
+                                name='form-feedback',
+                                action=''
+                                method='post'
+                            )
+                                div(
+                                    class='row' style='padding: 0 1em'
+                                )
+                                    .feedback-form__item(
+                                    class='form-group col-md-6 col-sm-6'
+                                    )
+                                        label.feedback-form__label(
+                                            for='input-feedback-name'
+                                        ) Your name:
+                                        input.feedbak-form__input(
+                                            class='form-control',
+                                            type='text',
+                                            id='input-feedback-name',
+                                            name='input-feedback-name',
+                                            placeholder='John Doe'
+                                        )
+
+                                    .feedback-form__item(
+                                        class='form-group col-md-6 col-sm-6'
+                                    )
+                                        label.feedback-form__label(
+                                            for='input-feedback-email'
+                                        ) Your email:
+                                        input.feedbak-form__input(
+                                            class='form-control',
+                                            type='email',
+                                            id='input-feedback-email',
+                                            name='input-feedback-email',
+                                            placeholder='example@domail.com'
+                                        )
+
+                                .feedback-form__item(
+                                    class='form-group col-md-12'
+                                )
+                                    label.feedback-form__label(
+                                        for='input-feedback-email'
+                                    ) Subject:
+                                    input.feedbak-form__input(
+                                        class='form-control',
+                                        type='text',
+                                        id='input-feedback-subject',
+                                        name='input-feedback-subkect',
+                                        placeholder='Customer complaint'
+                                    )
+                                    .feedback-form__error(
+                                        class='hide'
+                                    )
+
+                                .feedback-form__item(
+                                    class='form-group col-md-12'
+                                )
+                                    label.feedback-form__label(
+                                        for='input-feedback-message'
+                                    ) Message:
+                                    textarea.feedback-form__textarea(
+                                        class='form-control'
+                                        id='input-feedback-message',
+                                        name='input-feedback-message',
+                                        placeholder='Message test'
+                                    )
+
+                                .feedback-form__item(
+                                    class='form-group col-md-12 form-inline test-right'
+                                )
+                                    label.feedback-form__label(
+                                        for='input-feedback-heard-from'
+                                    ) How have you heard about us?
+                                    select.feedbak-form__select(
+                                        class='form-control',
+                                        id='input-feedback-heard-from',
+                                        name='input-feedback-heard-from'
+                                    )
+                                        option.feedback-form__option(
+                                            value='placeholder'
+                                        ) -- select --
+                                        option.feedback-form__option(
+                                            value='search-engine'
+                                        ) Search Engine
+                                        option.feedback-form__option(
+                                            value='tradestow'
+                                        ) Tradestow
+                                        option.feedback-form__option(
+                                            value='word-of-mouth'
+                                        ) Word of mouth
+                                        option.feedback-form__option(
+                                            value='baseball-express'
+                                        ) Baseball Express
+                                        option.feedback-form__option(
+                                            value='email'
+                                        ) Email
+                                        option.feedback-form__option(
+                                            value='sports-authority'
+                                        ) Sports authority
+                                        option.feedback-form__option(
+                                            value='advertisement'
+                                        ) Advertisement
+
+                                div.feedbak-form__item(
+                                    class='col-md-12 test-right'
+                                )
+                                    button.feedbak-form__submit(
+                                        type='submit',
+                                        class='btn btn-swingaway'
+                                    ) Send message
+
+
+
+
+
+                .contact-us__info(
+                    class='col-md-4 clear-paddings'
+                )
+                    .contact-info
+                        .contact-info__container
+
+                            .contact-info__group
+                                .contact-info__label Email
+                                .contact-info__info
+                                    a(
+                                        class='explicit-link',
+                                        href='mailto:example@domain.com?subject=Question'
+                                    ) example@domain.com
+
+                            .contact-info__group
+                                .contact-info__label Phone
+                                .contact-info__info 555-555-5555
+
+                            .contact-info__group
+                                .contact-info__label Fax
+                                .contact-info__info 866.474.4323
+
+                            .contact-info__group
+                                .contact-info__label On the web
+                                .contact-info__info
+                                    a(
+                                        class='explicit-link',
+                                        href='http://twitter.com'
+                                    ) Twitter
+                                    &nbsp; | &nbsp;
+                                    a(
+                                        class='explicit-link',
+                                        href='http://facebook.com'
+                                    ) Facebook

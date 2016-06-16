@@ -1,0 +1,36 @@
+section.upsell-grid
+    .wrap
+        .container-fluid()
+
+            .upsell-grid__headline
+                ul.upsell-grid__tab-list(
+                    class='nav nav-tabs'
+                )
+
+                    li.upsell-grid__tab-item(
+                        class='active'
+                    )
+                        a.upserll-grid__tab-link(
+                            data-toggle='tab',
+                            href='#tab-accessories'
+                        ) Accessories
+
+                    li.upsell-grid__tab-item
+                        a.upserll-grid__tab-link(
+                            data-toggle='tab',
+                            href='#tab-parts'
+                        ) Parts
+
+            .upsell-grid__content(
+                class='tab-content'
+            )
+                #tab-accessories.upsell-grid__box.upsell-grid__box--accessories(
+                    class='tab-pane active carousel-upsell-accessories'
+                )
+                    include ../incl/upsells.jade
+
+                #tab-parts.upsell-grid__box.upsell-grid__box--parts(
+                    class='tab-pane carousel-upsell-parts child-slider-broken'
+                )
+                    include ../incl/upsells.jade
+

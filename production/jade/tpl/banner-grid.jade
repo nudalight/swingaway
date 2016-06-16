@@ -1,0 +1,14 @@
+.home-banners
+    .wrap
+        .container-fluid()
+            ul.home-banners__list
+                - for (index in banners)
+                    li.home-banners__item
+                        .home-banners__container
+                            a.home-banners__link(
+                                href='#{ banners[index].url }'
+                            )
+                                img.home-banners__image(
+                                    src='#{ banners[index].image }'
+                                )
+                                .home-banners__heading()=banners[index].title

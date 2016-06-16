@@ -13,6 +13,7 @@ module.exports = {
     products: require('./products' + ext),
     reviews: require('./reviews' + ext),
     socials: require('./socials' + ext),
-    plh: require('./plh' + ext)
+    plh: require('./plh' + ext),
+    _: require('underscore')
 };
 

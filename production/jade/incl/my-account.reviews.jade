@@ -1,6 +1,3 @@
-//- inc: my-reviews
-
-
 .my-reviews
     .my-reviews__container
 
@@ -20,7 +17,7 @@
                 .my-review(
                     data-review-id=reviews[i_rev].id
                 )
-                    .my-review__container
+                    +b.__container
                         .my-review__product-url-wrap
                             span.my-review__product-pre
                             a.my-review__product-url(
@@ -38,7 +35,7 @@
                         .my-review__datetime 5 jul, 2016
 
                         .my-review__rated
-                            include ./element.stars.jade
+                            +stars(_.random(1,5), 5)
 
                         .my-review__actions
                             button.my-review__butt(
