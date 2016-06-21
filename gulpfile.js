@@ -112,4 +112,9 @@ gulp.task('jade', () => {
 });
 
 
+gulp.task('vendor', () => {
+
+});
+
+
 gulp.task('default', ['serve']);

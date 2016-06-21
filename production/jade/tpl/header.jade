@@ -1,7 +1,7 @@
 - var activeOffcanvasMenuItem = -3, activeHeadMenuItem = -4;
 
 .offcanvas(
-class="navmenu navmenu-default navmenu-fixed-left"
+    class="navmenu navmenu-default navmenu-fixed-left"
 )
     .offcanvas-logo
         .offcanvas-logo__container
@@ -55,74 +55,75 @@ class="navmenu navmenu-default navmenu-fixed-left"
 include ../incl/modals.jade
 
 header.header(
-class='navbar navbar-default'
+    class='navbar navbar-default'
 )
-    .wrap()
+    .header__container
+        .wrap()
 
-        .container-fluid
-            span(
-            class="navbar-toggle pull-left glyphicon glyphicon-menu-hamburger"
-            data-toggle="offcanvas",
-            data-target=".offcanvas",
-            data-canvas="body"
-            )
+            .container-fluid
+                span(
+                class="navbar-toggle pull-left glyphicon glyphicon-menu-hamburger"
+                data-toggle="offcanvas",
+                data-target=".offcanvas",
+                data-canvas="body"
+                )
 
-            .logo
-                .logo__container
-                    img.logo__image(
-                    src='http://placehold.it/200x50?text=Logo'
-                    )
-
-            .shop-components(
-            class='pull-right'
-            )
-                .auth-choice()
-                    .auth-choice__container
-                        ul.auth-choice__list()
-                            li.auth-choice__item()
-                                a.auth-choise__link(
-                                    data-toggle='modal',
-                                    data-target='#auth-modal'
-                                ) My account
-
-                include ../incl/search.jade
-
-                .services()
-                    .services__container
-                        a.services__compare(
-                            href=rootPath + 'compare.html'
+                .logo
+                    .logo__container
+                        img.logo__image(
+                        src='http://placehold.it/200x50?text=Logo'
                         )
-                            .services__counter() 53
 
-                        a.services__wishlist(
-                            href=rootPath + 'wishlist.html'
-                        )
-                            .services__counter() 55
+                .shop-components(
+                class='pull-right'
+                )
+                    .auth-choice()
+                        .auth-choice__container
+                            ul.auth-choice__list()
+                                li.auth-choice__item()
+                                    a.auth-choise__link(
+                                        data-toggle='modal',
+                                        data-target='#auth-modal'
+                                    ) My account
 
-                        a.services__cart(
-                            href=rootPath + 'cart-a.html'
-                        )
-                            .services__counter() 57
+                    include ../incl/search.jade
 
-        .container-fluid()
+                    .services()
+                        .services__container
+                            a.services__compare(
+                                href=rootPath + 'compare.html'
+                            )
+                                .services__counter() 53
 
-            nav.main-menu()
-                ul.main-menu__list()
-                    - for (key in menu) {
-                    - activeHeadMenuItem++;
-                        li.main-menu__item(
-                            class=(activeHeadMenuItem == 0) ? 'main-menu__active' : key
-                        )
-                            a.main-menu__link(
-                                href=(typeof menu[key] === 'object') ? '#' : rootPath + menu[key]
-                            )=key
-                            - if (typeof menu[key] === 'object'){
-                            ul.main-menu__sublist
-                                - for (subKey in menu[key]) {
-                                    li.main-menu__subitem()
-                                        a.main-menu__sublink(
-                                            href=(typeof menu[key][subKey] === 'object') ? '#' : rootPath + menu[key][subKey]
-                                        )=subKey
+                            a.services__wishlist(
+                                href=rootPath + 'wishlist.html'
+                            )
+                                .services__counter() 55
+
+                            a.services__cart(
+                                href=rootPath + 'cart-a.html'
+                            )
+                                .services__counter() 57
+
+            .container-fluid()
+
+                nav.main-menu()
+                    ul.main-menu__list()
+                        - for (key in menu) {
+                        - activeHeadMenuItem++;
+                            li.main-menu__item(
+                                class=(activeHeadMenuItem == 0) ? 'main-menu__active' : key
+                            )
+                                a.main-menu__link(
+                                    href=(typeof menu[key] === 'object') ? '#' : rootPath + menu[key]
+                                )=key
+                                - if (typeof menu[key] === 'object'){
+                                ul.main-menu__sublist
+                                    - for (subKey in menu[key]) {
+                                        li.main-menu__subitem()
+                                            a.main-menu__sublink(
+                                                href=(typeof menu[key][subKey] === 'object') ? '#' : rootPath + menu[key][subKey]
+                                            )=subKey
+                                    -}
                                 -}
                             -}
-                        -}

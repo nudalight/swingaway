@@ -1,0 +1,16 @@
+mixin stars(reds, len)
+    .stars
+        .stars__container(
+            class='children-inline'
+        )
+            input.stars__starred(
+                data-starred=reds,
+                name='starred',
+                type='hidden',
+                value=reds
+            )
+
+            while len--
+                .stars__star(
+                    class= reds-- > 0 ? 'stars__star--red' : ''
+                )

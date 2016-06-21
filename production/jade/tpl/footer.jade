@@ -1,31 +1,33 @@
 footer.footer
-    .footer-nav
-        .container-fluid()
-            .wrap
-                .footer-nav__container
-                    .footer-nav__head
-                        | + Menu
-                    .footer-nav__body
-                        ul.footer-nav__list
-                            li.footer-nav__item
-                                a.footer-nav__link(
-                                    href=rootPath
-                                ) Home
+    .footer__container
 
-                            - for (key in menu['Customer Service'])
+        .footer-nav
+            .container-fluid()
+                .wrap
+                    .footer-nav__container
+                        .footer-nav__head
+                            | + Menu
+                        .footer-nav__body
+                            ul.footer-nav__list
                                 li.footer-nav__item
                                     a.footer-nav__link(
-                                        href=rootPath + menu['Customer Service'][key]
-                                    )=key
+                                        href=rootPath
+                                    ) Home
 
-    .footer-socials
-        .container-fluid()
-            .wrap
-                .footer-socials__list
-                    - for (key in socials)
-                        li.footer-socials__item(
-                            class='footer-socials__item--' + key
-                        )
-                            a.footer-socials__link(
-                                href=socials[key]
+                                - for (key in menu['Customer Service'])
+                                    li.footer-nav__item
+                                        a.footer-nav__link(
+                                            href=rootPath + menu['Customer Service'][key]
+                                        )=key
+
+        .footer-socials
+            .container-fluid()
+                .wrap
+                    .footer-socials__list
+                        - for (key in socials)
+                            li.footer-socials__item(
+                                class='footer-socials__item--' + key
                             )
+                                a.footer-socials__link(
+                                    href=socials[key]
+                                )
