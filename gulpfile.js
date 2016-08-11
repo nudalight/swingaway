@@ -29,18 +29,22 @@ let jadeData = './production/jade/data/index.js';
 // what gulp-ignore/run-sequence/gulp-sequence is ?
 // http://stackoverflow.com/questions/22824546/how-to-run-gulp-tasks-synchronously-one-after-the-other
 
+gulp.task('continue-dev', ['serve', 'watch']);
 
-
-gulp.task('serve', ['sass'], () => {
+gulp.task('serve', () => {
     bs.init({ 
         server: "./",
         port: 4000
     });
+});
 
+
+gulp.task('watch', () => {
     gulp.watch("production/sass/**/*.sass", ['sass']);
     gulp.watch("production/jade/**/*.jade", ['jade']);
     gulp.watch("production/js/**/*.js", ['js']);
 });
+
 
 
 gulp.task('reload', () => {
@@ -117,4 +121,7 @@ gulp.task('vendor', () => {
 });
 
 
-gulp.task('default', ['serve']);
+gulp.task('preview', ['drop', 'serve']);
+
+
+gulp.task('default', ['continue-dev']);
